@@ -1,0 +1,297 @@
+/* ===========================================================
+   Piyush Gupta - Light Theme Portfolio (AI Engineer)
+   Clean, modern, and glass-light aesthetic
+   =========================================================== */
+
+:root {
+  --bg: #f9fafb;
+  --card: #ffffff;
+  --muted: #4b5563;
+  --text: #111827;
+  --accent: #2563eb;
+  --accent-2: #7c3aed;
+  --ring: rgba(37,99,235,0.2);
+  --border: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg, #f9fafb 0%, #f3f4f6 100%);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ================= HEADER ================= */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.9);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand img {
+  width: 36px;
+  height: 36px;
+}
+
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  opacity: 0.8;
+  margin-left: 18px;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.nav a:hover {
+  opacity: 1;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  padding: 72px 0 32px;
+  text-align: center;
+}
+
+.hero-pic {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--accent);
+  box-shadow: 0 4px 12px rgba(37,99,235,0.25);
+  margin: 0 auto 20px;
+}
+
+.hero-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero h1 {
+  font-size: 42px;
+  line-height: 1.2;
+  margin: 16px 0 10px;
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 18px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(90deg, rgba(37,99,235,0.08), rgba(124,58,237,0.08));
+  border: 1px solid rgba(37,99,235,0.15);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* ================= BUTTONS ================= */
+
+.button {
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--text);
+  padding: 10px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.button.primary {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 8px rgba(37,99,235,0.25);
+}
+
+.button.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(37,99,235,0.3);
+}
+
+/* ================= SECTIONS ================= */
+
+.section {
+  padding: 42px 0;
+}
+
+.section h2 {
+  font-size: 28px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* ================= GRID / CARDS ================= */
+
+.grid {
+  display: grid;
+  gap: 18px;
+}
+
+.grid.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 900px) {
+  .grid.cols-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid.cols-3,
+  .grid.cols-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  border-color: var(--accent);
+}
+
+.tag {
+  font-size: 12px;
+  border: 1px solid var(--border);
+  background: #f3f4f6;
+  padding: 4px 8px;
+  border-radius: 999px;
+  display: inline-block;
+  margin: 4px 6px 0 0;
+  color: var(--muted);
+}
+
+/* ================= KEY/VALUE Layout ================= */
+
+.kv {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.kv .k {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* ================= TIMELINE ================= */
+
+.timeline {
+  border-left: 2px dashed var(--border);
+  margin-left: 10px;
+  padding-left: 16px;
+}
+
+.timeline .item {
+  margin: 14px 0;
+  position: relative;
+}
+
+.timeline .item:before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 999px;
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.15);
+}
+
+/* ================= CONTACT ================= */
+
+.contact {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.contact a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 800px) {
+  .contact {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+  padding: 40px 0 80px;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+small.muted {
+  color: var(--muted);
+}
