@@ -1,12 +1,7 @@
 {
-  "name": "kpm-global-holiday-booking",
+  "name": "kpm-global-holidays",
   "version": "1.0.0",
-  "description": "Frontend booking website for KPM Global Holidays (HTML, CSS, JS only).",
-  "author": "KPM Global Holidays",
-  "license": "MIT",
-  "private": true,
   "scripts": {
-    "dev": "echo \"Static site – open index.html directly or use VS Code Live Server.\"",
-    "build": "echo \"No build step – files are already production ready.\""
+    "build": "echo \"Static site - no build step needed\""
   }
 }
