@@ -22,7 +22,12 @@
       <div class="top-right">
         <button class="top-link" type="button" aria-label="Change currency">INR ₹</button>
         <button class="top-link" type="button" aria-label="Get help">Help</button>
-        <button class="btn-outline small" type="button">Login</button>
+        <button
+          class="btn-outline small"
+          type="button"
+          onclick="window.location.href='login.html'">
+          Login
+        </button>
       </div>
     </div>
   </div>
@@ -30,7 +35,7 @@
   <!-- Main navigation -->
   <header class="site-header" role="banner">
     <div class="container nav-inner">
-      <a class="logo" href="#" aria-label="KPM Global Holidays Home">KPM Global<span> Holidays</span></a>
+      <a class="logo" href="index.html" aria-label="KPM Global Holidays Home">KPM Global<span> Holidays</span></a>
 
       <nav class="nav-links" id="primaryNav" aria-label="Primary navigation">
         <a href="#destinations">Destinations</a>
@@ -225,6 +230,7 @@
       </div>
 
       <div class="packages-grid" id="packageGrid">
+        <!-- Dubai -->
         <article class="package-card glass reveal" data-destination="Dubai" data-tag="international">
           <div class="package-tag">Family</div>
           <div class="image-wrap skeleton">
@@ -247,11 +253,20 @@
                 </div>
                 <span class="price-saving">Save 18%</span>
               </div>
-              <button class="btn-primary btn-sm" type="button">View details</button>
+              <div class="package-cta">
+                <button class="btn-outline btn-sm" type="button">View details</button>
+                <button
+                  class="btn-primary btn-sm"
+                  type="button"
+                  onclick="window.location.href='book.html?package=Dubai & Abu Dhabi Highlights&destination=Dubai'">
+                  Book now
+                </button>
+              </div>
             </div>
           </div>
         </article>
 
+        <!-- Goa -->
         <article class="package-card glass reveal" data-destination="Goa" data-tag="beach">
           <div class="package-tag">Short break</div>
           <div class="image-wrap skeleton">
@@ -274,11 +289,20 @@
                 </div>
                 <span class="price-saving">Save 20%</span>
               </div>
-              <button class="btn-primary btn-sm" type="button">View details</button>
+              <div class="package-cta">
+                <button class="btn-outline btn-sm" type="button">View details</button>
+                <button
+                  class="btn-primary btn-sm"
+                  type="button"
+                  onclick="window.location.href='book.html?package=Goa Beachside Escape&destination=Goa'">
+                  Book now
+                </button>
+              </div>
             </div>
           </div>
         </article>
 
+        <!-- Rajasthan -->
         <article class="package-card glass reveal" data-destination="Rajasthan" data-tag="heritage">
           <div class="package-tag">Signature</div>
           <div class="image-wrap skeleton">
@@ -301,11 +325,20 @@
                 </div>
                 <span class="price-saving">Save 21%</span>
               </div>
-              <button class="btn-primary btn-sm" type="button">View details</button>
+              <div class="package-cta">
+                <button class="btn-outline btn-sm" type="button">View details</button>
+                <button
+                  class="btn-primary btn-sm"
+                  type="button"
+                  onclick="window.location.href='book.html?package=Royal Rajasthan Circuit&destination=Rajasthan'">
+                  Book now
+                </button>
+              </div>
             </div>
           </div>
         </article>
 
+        <!-- Ladakh -->
         <article class="package-card glass reveal" data-destination="Ladakh" data-tag="mountain">
           <div class="package-tag">Adventure</div>
           <div class="image-wrap skeleton">
@@ -328,12 +361,20 @@
                 </div>
                 <span class="price-saving">Save 17%</span>
               </div>
-              <button class="btn-primary btn-sm" type="button">View details</button>
+              <div class="package-cta">
+                <button class="btn-outline btn-sm" type="button">View details</button>
+                <button
+                  class="btn-primary btn-sm"
+                  type="button"
+                  onclick="window.location.href='book.html?package=Leh-Ladakh Roadtrip&destination=Ladakh'">
+                  Book now
+                </button>
+              </div>
             </div>
           </div>
         </article>
 
-        <!-- New: Manali package -->
+        <!-- Manali -->
         <article class="package-card glass reveal" data-destination="Manali" data-tag="mountain">
           <div class="package-tag">Hill escape</div>
           <div class="image-wrap skeleton">
@@ -356,12 +397,20 @@
                 </div>
                 <span class="price-saving">Save 21%</span>
               </div>
-              <button class="btn-primary btn-sm" type="button">View details</button>
+              <div class="package-cta">
+                <button class="btn-outline btn-sm" type="button">View details</button>
+                <button
+                  class="btn-primary btn-sm"
+                  type="button"
+                  onclick="window.location.href='book.html?package=Manali Snow Retreat&destination=Manali'">
+                  Book now
+                </button>
+              </div>
             </div>
           </div>
         </article>
 
-        <!-- New: Thailand package -->
+        <!-- Thailand -->
         <article class="package-card glass reveal" data-destination="Thailand" data-tag="international">
           <div class="package-tag">Popular</div>
           <div class="image-wrap skeleton">
@@ -384,7 +433,15 @@
                 </div>
                 <span class="price-saving">Save 17%</span>
               </div>
-              <button class="btn-primary btn-sm" type="button">View details</button>
+              <div class="package-cta">
+                <button class="btn-outline btn-sm" type="button">View details</button>
+                <button
+                  class="btn-primary btn-sm"
+                  type="button"
+                  onclick="window.location.href='book.html?package=Thailand Highlights: Bangkok & Phuket&destination=Thailand'">
+                  Book now
+                </button>
+              </div>
             </div>
           </div>
         </article>
@@ -550,7 +607,7 @@
   <footer class="site-footer" role="contentinfo">
     <div class="container footer-grid">
       <div>
-        <a class="logo footer-logo" href="#" aria-label="KPM Global Holidays Home">KPM Global<span> Holidays</span></a>
+        <a class="logo footer-logo" href="index.html" aria-label="KPM Global Holidays Home">KPM Global<span> Holidays</span></a>
         <p class="footer-text">
           KPM Global Holidays is a curated marketplace for holidays, experiences and activities led by verified local experts.
         </p>
