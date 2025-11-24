@@ -128,7 +128,7 @@
 
       <nav class="nav-links" id="primaryNav" aria-label="Admin navigation">
         <a href="#packages-admin">Packages</a>
-        <a href="#orders-admin">Orders</a>
+        <a href="#orders-admin">Bookings</a>
         <a href="#stats-admin">Stats</a>
       </nav>
 
@@ -155,24 +155,24 @@
               Manage holiday packages, keep track of orders and watch live numbers.
             </p>
           </div>
-          <span class="admin-tag">Read-only demo • Local JSON coming next</span>
+          <span class="admin-tag">Bookings coming from Supabase</span>
         </div>
 
-        <!-- Top stats cards -->
+        <!-- Top stats cards (abhi static hi rehne do) -->
         <div class="live-stats">
           <div class="stat-card glass">
             <span class="stat-label">Total packages</span>
-            <span class="stat-value" data-target="6">0</span>
+            <span class="stat-value" data-target="6">6</span>
             <span class="stat-sub">Dubai, Goa, Rajasthan, Ladakh, Manali, Thailand</span>
           </div>
           <div class="stat-card glass">
             <span class="stat-label">Active enquiries today</span>
-            <span class="stat-value" data-target="18">0</span>
+            <span class="stat-value" data-target="18">18</span>
             <span class="stat-sub">Across website & WhatsApp</span>
           </div>
           <div class="stat-card glass">
             <span class="stat-label">Pending confirmations</span>
-            <span class="stat-value" data-target="4">0</span>
+            <span class="stat-value" data-target="4">4</span>
             <span class="stat-sub">To be approved</span>
           </div>
         </div>
@@ -241,54 +241,30 @@
           </table>
         </div>
 
-        <!-- Orders -->
+        <!-- Bookings (live from Supabase) -->
         <div class="glass" id="orders-admin">
           <div class="admin-section-title">
             <div>
-              <h2 style="margin:0;">Recent orders</h2>
-              <p class="newsletter-note">Sample orders – later we’ll connect JSON / API.</p>
+              <h2 style="margin:0;">Recent bookings</h2>
+              <p class="newsletter-note">Showing latest entries from the bookings table.</p>
             </div>
-            <button class="btn-outline small" type="button">Export CSV</button>
+            <button class="btn-outline small" type="button" id="refreshBookingsBtn">Refresh</button>
           </div>
 
-          <table class="admin-table" aria-label="Recent orders list">
+          <table class="admin-table" aria-label="Recent bookings list">
             <thead>
               <tr>
-                <th>#ID</th>
+                <th>ID</th>
                 <th>Traveler</th>
                 <th>Package</th>
-                <th>Status</th>
                 <th>Check-in</th>
+                <th>Travellers</th>
+                <th>Status</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="ordersTableBody">
               <tr>
-                <td>KPM-1042</td>
-                <td>Akanksha &amp; Family</td>
-                <td>Dubai &amp; Abu Dhabi</td>
-                <td><span class="status-pill status-pending">Pending</span></td>
-                <td>15 Mar 2025</td>
-              </tr>
-              <tr>
-                <td>KPM-1039</td>
-                <td>Rohit Kumar</td>
-                <td>Leh–Ladakh Roadtrip</td>
-                <td><span class="status-pill status-complete">Confirmed</span></td>
-                <td>02 Jun 2025</td>
-              </tr>
-              <tr>
-                <td>KPM-1037</td>
-                <td>Sneha Jain</td>
-                <td>Goa Beachside Escape</td>
-                <td><span class="status-pill status-complete">Confirmed</span></td>
-                <td>22 Nov 2025</td>
-              </tr>
-              <tr>
-                <td>KPM-1035</td>
-                <td>Ankit Sharma</td>
-                <td>Manali Snow Retreat</td>
-                <td><span class="status-pill status-pending">Pending</span></td>
-                <td>10 Jan 2025</td>
+                <td colspan="6">Loading bookings...</td>
               </tr>
             </tbody>
           </table>
@@ -320,7 +296,7 @@
         <h4>Shortcuts</h4>
         <ul>
           <li><a href="#packages-admin">Manage packages</a></li>
-          <li><a href="#orders-admin">View orders</a></li>
+          <li><a href="#orders-admin">View bookings</a></li>
           <li><a href="#stats-admin">Live stats</a></li>
         </ul>
       </div>
@@ -340,19 +316,86 @@
       </div>
     </div>
     <div class="container footer-bottom">
-      <span>© <span id="year-placeholder">{year}</span> KPM Global Holidays. Admin panel.</span>
+      <span>© <span id="year-placeholder"></span> KPM Global Holidays. Admin panel.</span>
       <span>Made for learning & demo purposes.</span>
     </div>
   </footer>
 
+  <!-- Supabase client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    const SUPABASE_URL = "https://hqpkihlwodmkymklyict.supabase.co";
+    const SUPABASE_ANON_KEY =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhxcGtpaGx3b2Rta3lta2x5aWN0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTIwNTUsImV4cCI6MjA3OTUyODA1NX0.TzINeb5iOiahigBteOxxrGLxBCc1_hQGs6mRzSMeR5w";
+
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    async function loadBookings() {
+      const tbody = document.getElementById("ordersTableBody");
+      if (!tbody) return;
+
+      // loading state
+      tbody.innerHTML = `<tr><td colspan="6">Loading bookings...</td></tr>`;
+
+      const { data, error } = await supabaseClient
+        .from("bookings")
+        .select("*")
+        .order("id", { ascending: false })
+        .limit(20);
+
+      if (error) {
+        console.error("Supabase select error:", error);
+        tbody.innerHTML = `<tr><td colspan="6">Error loading bookings. Check console.</td></tr>`;
+        return;
+      }
+
+      if (!data || data.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6">No bookings yet.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = data
+        .map((booking) => {
+          const id = booking.id ?? "";
+          const traveler = booking.full_name || "-";
+          const pkg = booking.package_name || "-";
+          const checkIn = booking.start_date || "";
+          const travellersCount = (booking.adults || 0) + (booking.children || 0);
+          const statusLabel = "New";
+
+          return `
+            <tr>
+              <td>${id}</td>
+              <td>${traveler}</td>
+              <td>${pkg}</td>
+              <td>${checkIn}</td>
+              <td>${travellersCount || ""}</td>
+              <td><span class="status-pill status-pending">${statusLabel}</span></td>
+            </tr>
+          `;
+        })
+        .join("");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // footer year
       const span = document.getElementById("year-placeholder");
-      if (span) {
-        span.textContent = new Date().getFullYear();
+      if (span) span.textContent = new Date().getFullYear();
+
+      // load bookings on page load
+      loadBookings();
+
+      // refresh button
+      const refreshBtn = document.getElementById("refreshBookingsBtn");
+      if (refreshBtn) {
+        refreshBtn.addEventListener("click", () => {
+          loadBookings();
+        });
       }
     });
   </script>
+
+  <!-- common JS (nav toggle, back-to-top, etc.) -->
   <script src="script.js"></script>
 </body>
 </html>

@@ -3,5 +3,26 @@
   "version": "1.0.0",
   "scripts": {
     "build": "echo \"Static site - no build step needed\""
+  },
+  "description": "Frontend website for KPM Global Holidays",
+  "main": "book.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guptapiyushraj471-cpu/kpm-global-holidays.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/guptapiyushraj471-cpu/kpm-global-holidays/issues"
+  },
+  "homepage": "https://github.com/guptapiyushraj471-cpu/kpm-global-holidays#readme",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "nodemailer": "^7.0.10"
   }
 }

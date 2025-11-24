@@ -213,10 +213,10 @@
       </div>
       <div>
         <h4>Account</h4>
-          <ul>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="#">Partner login</a></li>
-          </ul>
+        <ul>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="#">Partner login</a></li>
+        </ul>
       </div>
     </div>
     <div class="container footer-bottom">
@@ -224,6 +224,16 @@
       <span>Made for learning & demo purposes.</span>
     </div>
   </footer>
+
+  <!-- Supabase client (single time) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = "https://hqpkihlwodmkymklyict.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhxcGtpaGx3b2Rta3lta2x5aWN0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTIwNTUsImV4cCI6MjA3OTUyODA1NX0.TzINeb5iOiahigBteOxxrGLxBCc1_hQGs6mRzSMeR5w";
+
+    // Global client – book.js yahi use karega
+    window.supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  </script>
 
   <!-- Global + booking scripts -->
   <script src="script.js"></script>
