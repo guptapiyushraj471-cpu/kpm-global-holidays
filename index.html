@@ -2,42 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>KPM Global  | Holidays Powered Travel</title>
+  <title>KPM Global Holidays | Your Journey, Our Promise</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Plan and book your perfect holiday with AI-curated trips, tours and activities across the world." />
-  <link rel="stylesheet" href="styles.css" />
+
+<link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Inter + Plus Jakarta Sans for hierarchy -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
 </head>
-<body class="theme-dark">
-  <!-- Top utility bar -->
-  <div class="top-bar" role="region" aria-label="Top utility">
-    <div class="container top-bar-inner">
-      <div class="top-left">
-        <span class="top-pill">KPM Global Holidays</span>
-        <span class="top-text">Trips Crafted by Experts</span>
+
+<body class="theme-ai">
+  <header class="ai-header" role="banner" aria-label="Main header">
+    <!-- Top utility row -->
+    <div class="ai-top container" role="region" aria-label="Top utility">
+      <div class="ai-top-left">
+        <span class="ai-pill">KPM Global Holidays</span>
+        <span class="ai-sub">Trips crafted by experts · AI-assisted</span>
       </div>
-      <div class="top-right">
-        <button class="top-link" type="button" aria-label="Change currency">INR ₹</button>
-        <button class="top-link" type="button" aria-label="Get help">Help</button>
-        <button
-          class="btn-outline small"
-          type="button"
-          onclick="window.location.href='login.html'">
-          Login
-        </button>
+
+      <div class="ai-top-right" aria-hidden="false">
+        <button class="ai-link" type="button" aria-label="Change currency">INR ₹</button>
+        <button class="ai-link" type="button" aria-label="Help">Help</button>
+        <button class="ai-btn-outline" type="button" onclick="location.href='login.html'">Login</button>
       </div>
     </div>
-  </div>
 
-  <!-- Main navigation -->
-  <header class="site-header" role="banner">
-    <div class="container nav-inner">
-      <a class="logo" href="index.html" aria-label="KPM Global Holidays Home">KPM Global<span> Holidays</span></a>
+    <!-- Main navigation row -->
+    <div class="ai-nav container nav-inner">
+      <a class="ai-logo" href="index.html" aria-label="KPM Global Holidays Home">
+        <!-- local preview logo path (will be transformed by your environment if needed) -->
+        <img src="/images/Logo-KPM Global  Holiday.png" alt="KPM Global Holidays Logo" />
+      </a>
 
-      <nav class="nav-links" id="primaryNav" aria-label="Primary navigation">
+      <nav id="primaryNav" class="ai-links" aria-label="Primary navigation">
         <a href="#destinations">Destinations</a>
         <a href="#packages">Holiday Packages</a>
         <a href="#why-us">Why Us</a>
@@ -45,16 +43,32 @@
         <a href="#contact">Contact</a>
       </nav>
 
-      <button class="btn-primary nav-cta" type="button">Plan a Trip</button>
-
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav">
-        <span></span>
-        <span></span>
-      </button>
+      <div class="ai-actions">
+        <button class="ai-cta" type="button" onclick="location.href='#plan'">Plan a Trip</button>
+         <button id="navToggle" class="ai-nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primaryNav">
+          <span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
+  <main>
+    <section class="intro-section">
+      <h1>Welcome to KPM Global Holidays</h1>
 
-  <!-- Hero + search -->
+      <p class="tagline">
+        Your journey begins with a promise — unforgettable experiences crafted with care.
+      </p>
+
+      <p class="description">
+        Whether it's beaches, mountains, luxury escapes or offbeat adventures, our team and AI-powered trip planner help you discover the perfect itinerary — tailored just for you.
+      </p>
+
+      <p class="description">
+        Adventure awaits — let’s explore it together.
+      </p>
+    </section>
+  </main>
+
   <section class="hero" role="region" aria-label="Hero section">
     <div class="hero-media parallax-layer" data-parallax="0.2"></div>
     <div class="hero-overlay gradient-grid"></div>
@@ -219,8 +233,6 @@
   </section>
 
   <!-- Holiday packages -->
-  
-    <!-- Holiday packages -->
   <section class="section section-alt" id="packages" role="region" aria-label="Curated holiday packages">
     <div class="container">
       <div class="section-heading reveal">
@@ -231,7 +243,6 @@
       </div>
 
       <div class="packages-grid" id="packageGrid">
-        
         <!-- DUBAI -->
         <article class="package-card glass reveal" data-destination="Dubai" data-tag="international">
           <div class="package-tag">Family</div>
@@ -882,6 +893,7 @@
       <p class="search-result-text" id="searchResultText" aria-live="polite"></p>
     </div>
   </section>
+
   <!-- Testimonials -->
   <section class="section" aria-label="Traveler reviews">
     <div class="container">
@@ -965,76 +977,90 @@
   </section>
 
   <!-- Animation Wrapper for Scroll Animations -->
+  
   <div class="animate-on-scroll-wrapper">
-    <!-- JS will use this as needed -->
+  <!-- JS will auto handle scroll reveals -->
+</div>
+
+<!-- Back to top -->
+<button id="backToTop" class="back-to-top back-to-top-glass" aria-label="Back to top" title="Back to top">
+  <span>↑</span>
+</button>
+
+<!-- FOOTER -->
+<footer class="site-footer modern-footer" role="contentinfo">
+  <div class="container footer-grid">
+    
+    <!-- Logo + about -->
+    <div class="footer-brand-block">
+      <a class="logo footer-logo" href="index.html" aria-label="KPM Global Holidays Home">
+        <img src="images/logo-kpm.png" alt="KPM Global Holidays Logo" />
+      </a>
+
+      <p class="footer-text">
+        KPM Global Holidays is a curated marketplace for holidays, experiences and
+        activities led by verified local experts.
+      </p>
+
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram" class="social-icon">📸</a>
+        <a href="#" aria-label="Facebook" class="social-icon">👍</a>
+        <a href="#" aria-label="YouTube" class="social-icon">▶</a>
+        <a href="#" aria-label="WhatsApp" class="social-icon">💬</a>
+      </div>
+    </div>
+
+    <!-- Destinations -->
+    <div class="footer-col">
+      <h4>Destinations</h4>
+      <ul>
+        <li><a href="#destinations">Goa</a></li>
+        <li><a href="#destinations">Dubai</a></li>
+        <li><a href="#destinations">Rajasthan</a></li>
+        <li><a href="#destinations">Ladakh</a></li>
+        <li><a href="#destinations">Manali</a></li>
+        <li><a href="#destinations">Thailand</a></li>
+      </ul>
+    </div>
+
+    <!-- Company -->
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#why-us">About</a></li>
+        <li><a href="#stories">Traveler stories</a></li>
+        <li><a href="#contact">Partner with us</a></li>
+      </ul>
+    </div>
+
+    <!-- Support -->
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact">FAQs</a></li>
+        <li><a href="#contact">Terms &amp; Policies</a></li>
+      </ul>
+    </div>
   </div>
 
-  <!-- Back to top -->
-  <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+  <!-- Bottom -->
+  <div class="container footer-bottom">
+    <span>© {year} KPM Global Holidays. All rights reserved.</span>
+    <span>Made by Piyush Gupta.</span>
+  </div>
+</footer>
 
-  <!-- Footer (dark theme) -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container footer-grid">
-      <div>
-        <a class="logo footer-logo" href="index.html" aria-label="KPM Global Holidays Home">KPM Global<span> Holidays</span></a>
-        <p class="footer-text">
-          KPM Global Holidays is a curated marketplace for holidays, experiences and activities led by verified local experts.
-        </p>
-      </div>
-      <div>
-        <h4>Destinations</h4>
-        <ul>
-          <li><a href="#destinations">Goa</a></li>
-          <li><a href="#destinations">Dubai</a></li>
-          <li><a href="#destinations">Rajasthan</a></li>
-          <li><a href="#destinations">Ladakh</a></li>
-          <li><a href="#destinations">Manali</a></li>
-          <li><a href="#destinations">Thailand</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#why-us">About</a></li>
-          <li><a href="#stories">Traveler stories</a></li>
-          <li><a href="#contact">Partner with us</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Support</h4>
-        <ul>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#contact">FAQs</a></li>
-          <li><a href="#contact">Terms &amp; Policies</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <span>© {year} KPM Global Holidays. All rights reserved.</span>
-      <span>Made by Piyush Gupta.</span>
-    </div>
-  </footer>
-
-    <!-- Supabase client -->
-  <!-- Supabase client -->
 <!-- Supabase client -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <script>
-  // Your Supabase Project URL
   const SUPABASE_URL = "https://hqpkihlwodmkymklyict.supabase.co";
-
-  // Your complete anon public key
   const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhxcGtpaGx3b2Rta3lta2x5aWN0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTIwNTUsImV4cCI6MjA3OTUyODA1NX0.TzINeb5iOiahigBteOxxrGLxBCc1_hQGs6mRzSMeR5w";
-
-  // Create Supabase client
   const supa = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-  // Global access for other JS files
   window.supabaseClient = supa;
 </script>
 
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
+

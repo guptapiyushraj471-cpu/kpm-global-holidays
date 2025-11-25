@@ -1966,3 +1966,100 @@ body.theme-dark.auth-page {
     font-size: 12px;
   }
 }
+.logo img {
+  height: 140px;      /* zarurat ho to value change kar sakte ho */
+  display: block;
+}
+
+
+    /* ---- Intro Section (AI Theme) ---- */
+.intro-section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  animation: fadeIn 0.7s ease;
+}
+.intro-section h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #0d2a3f;
+  margin-bottom: 10px;
+}
+
+.intro-section .tagline {
+  font-size: 1.2rem;
+  color: #0077b6;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.intro-section .description {
+  color: #4a5b63;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+
+/* Soft fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+/* ===== AI Header styles (paste into styles.css) ===== */
+:root{
+  --ai-bg: #ffffff;
+  --ai-surface: #f6fbfd;
+  --ai-text: #0f2933;
+  --ai-muted: #58646b;
+  --ai-accent-a: #00b4d8;
+  --ai-accent-b: #0077b6;
+  --ai-glass: rgba(3,22,39,0.04);
+  --ai-radius: 12px;
+  --ai-shadow: 0 10px 30px rgba(3,22,39,0.06);
+  --container-max: 1200px;
+}
+
+/* container utility (keeps parity with rest of site) */
+.container{max-width:var(--container-max);margin:0 auto;padding:0 20px;display:flex;align-items:center;}
+
+/* header root */
+.ai-header{position:sticky;top:0;z-index:80;background:linear-gradient(180deg,var(--ai-surface),var(--ai-bg));backdrop-filter:blur(6px);box-shadow:var(--ai-shadow);border-bottom:1px solid var(--ai-glass)}
+
+/* Top utility row */
+.ai-top{height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.ai-top-left{display:flex;gap:12px;align-items:center}
+.ai-pill{display:inline-block;padding:6px 12px;border-radius:999px;background:linear-gradient(90deg,var(--ai-accent-a),var(--ai-accent-b));color:#fff;font-weight:700;font-family:"Plus Jakarta Sans",sans-serif;box-shadow:0 6px 18px rgba(0,116,153,0.08)}
+.ai-sub{color:var(--ai-muted);font-size:14px}
+.ai-top-right{display:flex;gap:8px;align-items:center}
+.ai-link{background:transparent;border:0;color:var(--ai-muted);padding:8px 10px;border-radius:10px;font-weight:600;cursor:pointer}
+.ai-btn-outline{background:transparent;border:1px solid rgba(3,22,39,0.06);padding:8px 12px;border-radius:999px;color:var(--ai-accent-b);font-weight:700;cursor:pointer}
+
+/* Nav row */
+.ai-nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:16px}
+.ai-logo img{height:140px;width:auto;border-radius:10px;background:linear-gradient(180deg,#fff,#f1fbff);padding:6px;box-shadow:0 8px 24px rgba(3,22,39,0.04)}
+.ai-links{display:flex;gap:20px;align-items:center;flex:1;justify-content:center}
+.ai-links a{color:var(--ai-text);text-decoration:none;font-weight:600;padding:10px 12px;border-radius:10px;font-family:"Inter",sans-serif;transition:transform .18s ease, box-shadow .18s ease}
+.ai-links a:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,116,153,0.06);background:linear-gradient(90deg, rgba(0,180,216,0.06), rgba(0,116,153,0.03))}
+
+/* CTA + toggle */
+.ai-actions{display:flex;align-items:center;gap:12px}
+.ai-cta{background:linear-gradient(90deg,var(--ai-accent-a),var(--ai-accent-b));color:#3a1111;border:0;padding:12px 18px;border-radius:999px;font-weight:800;cursor:pointer;box-shadow:0 12px 36px rgba(0,116,153,0.12)}
+.ai-nav-toggle{display:none;border:0;background:transparent;padding:8px;border-radius:8px;cursor:pointer}
+.ai-nav-toggle span{display:block;width:22px;height:2px;background:var(--ai-text);margin:4px 0;border-radius:2px;transition:transform .2s ease}
+
+/* active/current link */
+.ai-links a.active{background:linear-gradient(90deg, rgba(0,180,216,0.12), rgba(0,116,153,0.06));color:var(--ai-accent-b)}
+
+/* mobile responsive */
+@media (max-width:980px){
+  .ai-links{display:none;position:absolute;left:50%;transform:translateX(-50%);top:120px;background:var(--ai-bg);flex-direction:column;padding:16px;border-radius:12px;box-shadow:0 18px 50px rgba(3,22,39,0.12);width:92%;max-width:560px}
+  .ai-links.open{display:flex}
+  .ai-nav-toggle{display:block}
+  .ai-cta{padding:10px 14px}
+  .ai-top .ai-pill{font-size:13px;padding:5px 10px}
+}
+
+/* small polish */
+.ai-top, .ai-nav{gap:16px}
+.ai-links a{letter-spacing:0.2px}
