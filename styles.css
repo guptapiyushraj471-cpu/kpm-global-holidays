@@ -3733,3 +3733,126 @@ body.theme-dark.auth-page {
     grid-template-columns: 1fr;
   }
 }
+/* ===== Global mobile fixes ===== */
+
+/* Overflow issue avoid karo */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Container ko mobile friendly banao */
+.container {
+  max-width: 1200px;
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin: 0 auto;
+}
+
+/* HEADER + NAV + HERO */
+@media (max-width: 768px) {
+  /* top header */
+  .hero-header {
+    padding: 10px 16px;
+  }
+
+  .nav-container {
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .left-nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .logo {
+    height: 52px;           /* thoda chhota so it fits */
+  }
+
+  .brand-text {
+    display: none;          /* optional: text remove on very small screen */
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .search-box input {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* hero section grid ko single column banado */
+  .hero-grid,
+  .hero-grid-with-photos {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+
+  .hero-visual {
+    order: -1;             /* images upar aa jayein, text neeche */
+    align-items: center;
+  }
+
+  .hero-inner {
+    padding: 90px 16px 60px; /* mobile pe height kam */
+  }
+
+  .hero-content h1 {
+    font-size: 24px;
+  }
+}
+
+/* DESTINATIONS section (Explore by destination) */
+@media (max-width: 768px) {
+  .destinations-ai-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .destinations-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* PACKAGES section (Curated packages) */
+@media (max-width: 768px) {
+  .packages-ai-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .packages-grid {
+    gap: 12px;
+  }
+
+  .package-card {
+    grid-template-columns: 1fr;
+  }
+
+  .image-wrap img {
+    height: 160px;
+  }
+}
+
+/* PAYMENTS section – aur compact on mobile */
+@media (max-width: 768px) {
+  .payments-compact,
+  .payments-ai,
+  #payments.section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .payments-row,
+  .payment-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-grid {
+    grid-template-columns: 1fr;
+  }
+}
