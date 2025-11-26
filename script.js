@@ -1288,4 +1288,9 @@ document.addEventListener("DOMContentLoaded", function () {
   initRazorpayTestPayment();
 });
 
+document.getElementById("navToggle").addEventListener("click", () => {
+  const nav = document.getElementById("primaryNav");
+  nav.classList.toggle("open");
+});
+
 // --- NEW CODE END ---
