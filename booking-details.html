@@ -11,62 +11,360 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
+    /* AI-themed Booking Details Page Styles */
+    :root {
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.06);
+      --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.08);
+      --shadow-large: 0 16px 48px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ✅ Logo + header/footer alignment */
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo,
+    .footer-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 32px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 32px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .footer-logo .logo-img {
+      height: 32px;
+    }
+
+    .booking-details-page {
+      min-height: 100vh;
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    }
+
+    /* 🔻 Space thoda kam kiya */
+    .booking-details-hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 28px 0 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .booking-details-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+      opacity: 0.3;
+    }
+
+    .booking-details-hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 16px;
+    }
+
+    .breadcrumb a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .breadcrumb a:hover {
+      color: #ffffff;
+    }
+
+    .booking-details-hero h1 {
+      color: #ffffff;
+      font-size: 30px;
+      font-weight: 700;
+      margin: 0 0 8px;
+      line-height: 1.2;
+    }
+
+    .booking-details-hero p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 15px;
+      margin: 0;
+    }
+
+    .booking-details-content {
+      padding: 0 0 60px;
+      margin-top: -20px;
+      position: relative;
+      z-index: 2;
+    }
+
     .booking-layout {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 20px;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 24px;
+      align-items: start;
     }
-    .booking-meta-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px 16px;
+
+    .booking-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: var(--shadow-large);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .booking-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .booking-card-header h2 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #0f172a;
+      margin: 0 0 6px;
+    }
+
+    .booking-card-header p {
       font-size: 14px;
-    }
-    .meta-label {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
       color: #64748b;
-      margin-bottom: 2px;
+      margin: 0;
     }
-    .meta-value {
-      font-size: 14px;
-      font-weight: 500;
-    }
+
     .badge-booking {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
+      gap: 8px;
+      padding: 8px 16px;
       border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+      border: 1px solid rgba(102, 126, 234, 0.3);
+      color: #667eea;
+    }
+
+    .booking-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 24px;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .meta-label {
       font-size: 12px;
-      border: 1px solid rgba(148,163,184,0.55);
-      background: rgba(15,23,42,0.03);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .meta-value {
+      font-size: 15px;
+      font-weight: 500;
+      color: #0f172a;
+    }
+
+    .meta-section {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .meta-section-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #64748b;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .meta-section-content {
+      font-size: 14px;
+      line-height: 1.6;
       color: #475569;
     }
+
+    .actions-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--shadow-medium);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+      position: sticky;
+      top: 90px;
+    }
+
+    .actions-card h2 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #0f172a;
+      margin: 0 0 8px;
+    }
+
+    .actions-card-subtitle {
+      font-size: 14px;
+      color: #64748b;
+      margin: 0 0 20px;
+    }
+
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
     .pill-btn-main {
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.6);
-      background: #fff;
-      font-size: 13px;
+      width: 100%;
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: #ffffff;
+      font-size: 14px;
+      font-weight: 500;
       cursor: pointer;
+      transition: all 0.2s ease;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
-    .pill-btn-main:hover {
-      border-color: rgba(15,23,42,0.3);
+
+    .pill-btn-main:hover:not([disabled]) {
+      border-color: #667eea;
+      color: #667eea;
+      background: rgba(102, 126, 234, 0.05);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-soft);
     }
+
     .pill-btn-main[disabled] {
-      opacity: 0.6;
+      opacity: 0.5;
       cursor: not-allowed;
     }
+
+    .pill-btn-main.primary {
+      background: var(--gradient-primary);
+      color: #ffffff;
+      border-color: transparent;
+    }
+
+    .pill-btn-main.primary:hover:not([disabled]) {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-medium);
+      color: #ffffff;
+    }
+
+    .actions-info {
+      margin-top: 16px;
+      padding: 14px;
+      background: rgba(102, 126, 234, 0.05);
+      border: 1px solid rgba(102, 126, 234, 0.15);
+      border-radius: 10px;
+      font-size: 13px;
+      color: #475569;
+      line-height: 1.5;
+    }
+
+    .status-timeline {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+      border: 1px solid rgba(102, 126, 234, 0.15);
+      border-radius: 12px;
+      padding: 18px;
+      margin-top: 20px;
+    }
+
+    .timeline-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #667eea;
+      margin: 0 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--gradient-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .timeline-content h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #0f172a;
+      margin: 0 0 4px;
+    }
+
+    .timeline-content p {
+      font-size: 13px;
+      color: #64748b;
+      margin: 0;
+    }
+
     @media (max-width: 900px) {
       .booking-layout {
         grid-template-columns: 1fr;
       }
+      .booking-meta-grid {
+        grid-template-columns: 1fr;
+      }
+      .actions-card {
+        position: static;
+        top: auto;
+      }
     }
   </style>
 </head>
-<body class="theme-dark">
+<body class="theme-dark booking-details-page">
   <!-- Top utility bar -->
   <div class="top-bar" role="region" aria-label="Top utility">
     <div class="container top-bar-inner">
@@ -89,6 +387,7 @@
   <header class="site-header" role="banner">
     <div class="container nav-inner">
       <a class="logo" href="admin.html" aria-label="KPM Global Holidays Admin Home">
+        <img src="images/Logo-KPM Global  Holiday.png" alt="KPM Global Holidays Logo" class="logo-img" />
         KPM Global<span> Admin</span>
       </a>
 
@@ -109,89 +408,168 @@
     </div>
   </header>
 
-  <!-- Booking details main -->
-  <main class="section" aria-label="Booking details">
-    <div class="container booking-layout">
-      <!-- Left: main booking info -->
-      <div class="glass">
-        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px;">
-          <div>
-            <p class="eyebrow">Booking</p>
-            <h1 style="margin:4px 0 4px;" id="booking-title">
-              Booking details
-            </h1>
-            <p class="hero-subtitle" id="booking-subtitle">
-              Loading booking details...
-            </p>
-          </div>
-          <span class="badge-booking">
-            <span id="booking-id-label">#ID – …</span>
-          </span>
+  <!-- Hero Section -->
+  <div class="booking-details-hero">
+    <div class="container">
+      <div class="booking-details-hero-content">
+        <div class="breadcrumb">
+          <a href="admin.html">Admin</a>
+          <span>›</span>
+          <a href="admin.html#orders-admin">Orders</a>
+          <span>›</span>
+          <span>Booking Details</span>
         </div>
-
-        <div class="booking-meta-grid" id="booking-meta">
-          <div>
-            <div class="meta-label">Package</div>
-            <div class="meta-value" id="meta-package">–</div>
-          </div>
-          <div>
-            <div class="meta-label">Destination</div>
-            <div class="meta-value" id="meta-destination">–</div>
-          </div>
-
-          <div>
-            <div class="meta-label">Traveler name</div>
-            <div class="meta-value" id="meta-name">–</div>
-          </div>
-          <div>
-            <div class="meta-label">Email</div>
-            <div class="meta-value" id="meta-email">–</div>
-          </div>
-
-          <div>
-            <div class="meta-label">Phone / WhatsApp</div>
-            <div class="meta-value" id="meta-phone">–</div>
-          </div>
-          <div>
-            <div class="meta-label">Travel dates</div>
-            <div class="meta-value" id="meta-dates">–</div>
-          </div>
-
-          <div>
-            <div class="meta-label">Guests</div>
-            <div class="meta-value" id="meta-guests">–</div>
-          </div>
-          <div>
-            <div class="meta-label">Created at</div>
-            <div class="meta-value" id="meta-created">–</div>
-          </div>
-        </div>
-
-        <div style="margin-top:18px;">
-          <div class="meta-label">Special requests / preferences</div>
-          <p id="meta-preferences" style="font-size:14px; line-height:1.5; margin-top:4px;">
-            –
-          </p>
-        </div>
+        <h1 id="booking-title">Booking details</h1>
+        <p id="booking-subtitle">Loading booking details...</p>
       </div>
+    </div>
+  </div>
 
-      <!-- Right: quick actions -->
-      <div class="glass">
-        <h2 style="margin:0 0 10px;">Quick actions</h2>
-        <p class="newsletter-note" style="margin-bottom:14px;">
-          Use these buttons to contact the traveler directly from this page.
-        </p>
+  <!-- Booking details main -->
+  <main class="booking-details-content" aria-label="Booking details">
+    <div class="container">
+      <div class="booking-layout">
+        
+        <!-- Left: Main Booking Info -->
+        <div>
+          <div class="booking-card">
+            <div class="booking-card-header">
+              <div>
+                <h2>Booking Information</h2>
+                <p>Complete traveler and trip details</p>
+              </div>
+              <span class="badge-booking">
+                <span>📋</span>
+                <span id="booking-id-label">#ID – …</span>
+              </span>
+            </div>
 
-        <div style="display:flex; flex-direction:column; gap:10px;">
-          <button id="btn-whatsapp" class="pill-btn-main" type="button" disabled>
-            WhatsApp traveler
-          </button>
-          <button id="btn-email" class="pill-btn-main" type="button" disabled>
-            Send email
-          </button>
+            <div class="booking-meta-grid" id="booking-meta">
+              <div class="meta-item">
+                <div class="meta-label">Package</div>
+                <div class="meta-value" id="meta-package">–</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Destination</div>
+                <div class="meta-value" id="meta-destination">–</div>
+              </div>
+
+              <div class="meta-item">
+                <div class="meta-label">Traveler name</div>
+                <div class="meta-value" id="meta-name">–</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Email</div>
+                <div class="meta-value" id="meta-email">–</div>
+              </div>
+
+              <div class="meta-item">
+                <div class="meta-label">Phone / WhatsApp</div>
+                <div class="meta-value" id="meta-phone">–</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Travel dates</div>
+                <div class="meta-value" id="meta-dates">–</div>
+              </div>
+
+              <div class="meta-item">
+                <div class="meta-label">Guests</div>
+                <div class="meta-value" id="meta-guests">–</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Created at</div>
+                <div class="meta-value" id="meta-created">–</div>
+              </div>
+            </div>
+
+            <div class="meta-section">
+              <div class="meta-section-title">Special requests / preferences</div>
+              <p id="meta-preferences" class="meta-section-content">
+                –
+              </p>
+            </div>
+
+            <div class="status-timeline">
+              <div class="timeline-title">
+                <span>📊</span>
+                <span>Booking Timeline</span>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-icon">✓</div>
+                <div class="timeline-content">
+                  <h4>Booking Received</h4>
+                  <p>Customer submitted booking request</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-icon">⏳</div>
+                <div class="timeline-content">
+                  <h4>Pending Confirmation</h4>
+                  <p>Awaiting admin review and confirmation</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-icon">📧</div>
+                <div class="timeline-content">
+                  <h4>Next Step</h4>
+                  <p>Send confirmation email to traveler</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <p id="actions-info" style="margin-top:14px; font-size:13px;"></p>
+        <!-- Right: Quick Actions -->
+        <div>
+          <div class="actions-card">
+            <h2>Quick actions</h2>
+            <p class="actions-card-subtitle">
+              Use these buttons to contact the traveler directly from this page.
+            </p>
+
+            <div class="action-buttons">
+              <button id="btn-whatsapp" class="pill-btn-main primary" type="button" disabled>
+                <span>💬</span>
+                <span>WhatsApp traveler</span>
+              </button>
+              <button id="btn-email" class="pill-btn-main" type="button" disabled>
+                <span>📧</span>
+                <span>Send email</span>
+              </button>
+              <button class="pill-btn-main" type="button">
+                <span>📄</span>
+                <span>Generate invoice</span>
+              </button>
+              <button class="pill-btn-main" type="button">
+                <span>🖨️</span>
+                <span>Print details</span>
+              </button>
+            </div>
+
+            <div id="actions-info" class="actions-info">
+              Contact buttons will be enabled once booking data loads.
+            </div>
+          </div>
+
+          <div class="actions-card" style="margin-top: 20px;">
+            <h2>Status Update</h2>
+            <p class="actions-card-subtitle">
+              Update the booking status
+            </p>
+
+            <div class="action-buttons">
+              <button class="pill-btn-main" type="button" style="background: rgba(34, 197, 94, 0.1); color: #15803d; border-color: rgba(34, 197, 94, 0.3);">
+                <span>✓</span>
+                <span>Mark as Confirmed</span>
+              </button>
+              <button class="pill-btn-main" type="button" style="background: rgba(239, 68, 68, 0.1); color: #991b1b; border-color: rgba(239, 68, 68, 0.3);">
+                <span>✕</span>
+                <span>Mark as Cancelled</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </main>
@@ -204,6 +582,7 @@
     <div class="container footer-grid">
       <div>
         <a class="logo footer-logo" href="index.html" aria-label="KPM Global Holidays Home">
+          <img src="images/Logo-KPM Global  Holiday.png" alt="KPM Global Holidays Logo" class="logo-img" />
           KPM Global<span> Holidays</span>
         </a>
         <p class="footer-text">

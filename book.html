@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -9,6 +9,400 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* AI-themed Booking Page Styles */
+    :root {
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.06);
+      --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.08);
+      --shadow-large: 0 16px 48px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ✅ Common logo styles */
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo,
+    .footer-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 36px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .footer-logo .logo-img {
+      height: 32px;
+    }
+
+    .booking-hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 60px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .booking-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+      opacity: 0.3;
+    }
+    .booking-hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .booking-hero .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 999px;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .booking-hero h1 {
+      color: #ffffff;
+      font-size: 42px;
+      font-weight: 700;
+      margin: 0 0 16px;
+      line-height: 1.2;
+    }
+    .booking-hero .hero-subtitle {
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .booking-section {
+      padding: 0 0 80px;
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      margin-top: -40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .booking-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .booking-grid {
+        grid-template-columns: 1.4fr 1fr;
+      }
+    }
+
+    .booking-form-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: var(--shadow-large);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .booking-form-header {
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid rgba(148, 163, 184, 0.1);
+    }
+    .booking-form-header h2 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #0f172a;
+      margin: 0 0 8px;
+    }
+    .booking-form-header p {
+      font-size: 14px;
+      color: #64748b;
+      margin: 0;
+    }
+
+    .form-section {
+      margin-bottom: 28px;
+    }
+    .form-section-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #334155;
+      margin: 0 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .form-section-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+    .field label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #475569;
+      margin-bottom: 8px;
+    }
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      border-radius: 10px;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      background: #ffffff;
+    }
+    .field input:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+    .field input[readonly] {
+      background: #f8fafc;
+      color: #64748b;
+      cursor: not-allowed;
+    }
+
+    .field-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .checkbox-field {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 20px 0;
+      font-size: 13px;
+      color: #475569;
+    }
+    .checkbox-field input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .booking-sidebar {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: var(--shadow-medium);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+      height: fit-content;
+      position: sticky;
+      top: 100px;
+    }
+
+    .sidebar-section {
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    }
+    .sidebar-section:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .sidebar-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #64748b;
+      margin: 0 0 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .trust-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      border-radius: 8px;
+      font-size: 13px;
+      color: #15803d;
+      font-weight: 500;
+    }
+    .trust-icon {
+      font-size: 16px;
+    }
+
+    .info-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .info-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: #475569;
+      line-height: 1.5;
+    }
+    .info-list li:last-child {
+      margin-bottom: 0;
+    }
+    .info-icon {
+      color: #667eea;
+      font-size: 16px;
+      margin-top: 2px;
+    }
+
+    .support-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+    .support-card h4 {
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0 0 8px;
+    }
+    .support-card p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 13px;
+      margin: 0 0 16px;
+    }
+    .support-card .btn-outline {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+    }
+    .support-card .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    #bookingMessage {
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 14px;
+      margin-top: 16px;
+      display: none;
+    }
+    #bookingMessage.success {
+      display: block;
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #15803d;
+    }
+    #bookingMessage.error {
+      display: block;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #991b1b;
+    }
+
+    /* 🔐 Payment section (shown after booking submit) */
+    .payment-section {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(148, 163, 184, 0.2);
+      display: none;
+    }
+
+    .payment-section h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #334155;
+      margin: 0 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .payment-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: #475569;
+    }
+
+    .payment-methods label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .payment-methods input[type="radio"] {
+      accent-color: #667eea;
+    }
+
+    .payment-note {
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 767px) {
+      .booking-hero h1 {
+        font-size: 32px;
+      }
+      .booking-form-card {
+        padding: 24px;
+      }
+      .field-group {
+        grid-template-columns: 1fr;
+      }
+      .booking-sidebar {
+        position: static;
+      }
+    }
+  </style>
 </head>
 <body class="theme-dark">
   <!-- Top utility bar -->
@@ -34,7 +428,10 @@
   <!-- Main navigation -->
   <header class="site-header" role="banner">
     <div class="container nav-inner">
-      <a class="logo" href="index.html" aria-label="KPM Global Holidays Home">KPM Global<span> Holidays</span></a>
+      <a class="logo" href="index.html" aria-label="KPM Global Holidays Home">
+        <img src="images/Logo-KPM Global  Holiday.png" alt="KPM Global Holidays Logo" class="logo-img" />
+        KPM Global<span> Holidays</span>
+      </a>
 
       <nav class="nav-links" id="primaryNav" aria-label="Primary navigation">
         <a href="index.html#destinations">Destinations</a>
@@ -55,133 +452,302 @@
     </div>
   </header>
 
-  <!-- Booking section -->
-  <section class="section" aria-label="Book your holiday">
+  <!-- Hero Section -->
+  <div class="booking-hero">
     <div class="container">
-      <div class="hero-content reveal" style="max-width: 720px; margin: 0 auto;">
-        <p class="eyebrow">Almost there</p>
+      <div class="booking-hero-content">
+        <span class="eyebrow">
+          <span>🎯</span>
+          <span>Almost there</span>
+        </span>
         <h1>Confirm your holiday booking</h1>
         <p class="hero-subtitle">
           Fill in your details and our team will share confirmations, payment links and final itinerary on email & WhatsApp.
         </p>
+      </div>
+    </div>
+  </div>
 
-        <form class="glass" id="bookingForm" style="margin-top:20px; padding:22px 20px;">
-          <!-- Selected package info -->
-          <div class="field">
-            <label for="packageName">Selected package</label>
-            <input
-              id="packageName"
-              name="packageName"
-              type="text"
-              readonly
-              placeholder="Package name will appear here" />
-          </div>
+  <!-- Booking section -->
+  <section class="booking-section" aria-label="Book your holiday">
+    <div class="container">
+      <div class="booking-container">
+        <div class="booking-grid">
+          
+          <!-- Main Booking Form -->
+          <div>
+            <div class="booking-form-card">
+              <div class="booking-form-header">
+                <h2>Booking Details</h2>
+                <p>Complete the form below to confirm your reservation</p>
+              </div>
 
-          <div class="field" style="margin-top:10px;">
-            <label for="destination">Destination</label>
-            <input
-              id="destination"
-              name="destination"
-              type="text"
-              readonly
-              placeholder="Destination will appear here" />
-          </div>
+              <form id="bookingForm">
+                <!-- Package Information -->
+                <div class="form-section">
+                  <h3 class="form-section-title">
+                    <span class="form-section-icon">📦</span>
+                    <span>Package Information</span>
+                  </h3>
+                  
+                  <div class="field">
+                    <label for="packageName">Selected package</label>
+                    <input
+                      id="packageName"
+                      name="packageName"
+                      type="text"
+                      readonly
+                      placeholder="Package name will appear here" />
+                  </div>
 
-          <!-- Traveler details -->
-          <div class="field" style="margin-top:14px;">
-            <label for="fullName">Full name</label>
-            <input
-              id="fullName"
-              name="fullName"
-              type="text"
-              placeholder="Your full name"
-              required />
-          </div>
+                  <div class="field">
+                    <label for="destination">Destination</label>
+                    <input
+                      id="destination"
+                      name="destination"
+                      type="text"
+                      readonly
+                      placeholder="Destination will appear here" />
+                  </div>
+                </div>
 
-          <div class="field" style="margin-top:10px;">
-            <label for="email">Email</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="you@example.com"
-              autocomplete="email"
-              required />
-          </div>
+                <!-- Traveler Information -->
+                <div class="form-section">
+                  <h3 class="form-section-title">
+                    <span class="form-section-icon">👤</span>
+                    <span>Traveler Information</span>
+                  </h3>
+                  
+                  <div class="field">
+                    <label for="fullName">Full name</label>
+                    <input
+                      id="fullName"
+                      name="fullName"
+                      type="text"
+                      placeholder="Your full name"
+                      required />
+                  </div>
 
-          <div class="field" style="margin-top:10px;">
-            <label for="phone">Phone / WhatsApp</label>
-            <input
-              id="phone"
-              name="phone"
-              type="tel"
-              placeholder="+91-XXXXXXXXXX"
-              required />
-          </div>
+                  <div class="field">
+                    <label for="email">Email address</label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="you@example.com"
+                      autocomplete="email"
+                      required />
+                  </div>
 
-          <!-- Trip details -->
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px;">
-            <div class="field">
-              <label for="startDate">Start date</label>
-              <input
-                id="startDate"
-                name="startDate"
-                type="date"
-                required />
+                  <div class="field">
+                    <label for="phone">Phone / WhatsApp</label>
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      placeholder="+91-9205920608"
+                      required />
+                  </div>
+                </div>
+
+                <!-- Trip Details -->
+                <div class="form-section">
+                  <h3 class="form-section-title">
+                    <span class="form-section-icon">📅</span>
+                    <span>Trip Details</span>
+                  </h3>
+                  
+                  <div class="field-group">
+                    <div class="field">
+                      <label for="startDate">Start date</label>
+                      <input
+                        id="startDate"
+                        name="startDate"
+                        type="date"
+                        required />
+                    </div>
+                    <div class="field">
+                      <label for="endDate">End date</label>
+                      <input
+                        id="endDate"
+                        name="endDate"
+                        type="date"
+                        required />
+                    </div>
+                  </div>
+
+                  <div class="field-group">
+                    <div class="field">
+                      <label for="adults">Adults</label>
+                      <input
+                        id="adults"
+                        name="adults"
+                        type="number"
+                        min="1"
+                        value="2"
+                        required />
+                    </div>
+                    <div class="field">
+                      <label for="children">Children (0-12 years)</label>
+                      <input
+                        id="children"
+                        name="children"
+                        type="number"
+                        min="0"
+                        value="0" />
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <label for="preferences">Special requests / preferences</label>
+                    <textarea
+                      id="preferences"
+                      name="preferences"
+                      rows="4"
+                      placeholder="Example: prefer 4★ stays, honeymoon trip, need wheelchair access, vegetarian food, etc."></textarea>
+                  </div>
+                </div>
+
+                <div class="checkbox-field">
+                  <input type="checkbox" id="terms" required />
+                  <label for="terms">I agree to the booking terms & cancellation policy.</label>
+                </div>
+
+                <button class="btn-primary" type="submit" style="width:100%;">
+                  Submit booking request
+                </button>
+
+                <p id="bookingMessage"></p>
+              </form>
+
+              <!-- 💳 Payment section: shown after booking submit -->
+              <div id="paymentSection" class="payment-section">
+                <h3>
+                  <span>💳</span>
+                  <span>Choose Payment Option</span>
+                </h3>
+
+                <p class="payment-note">
+                  Your booking request has been submitted. Please choose how you’d like to complete the payment.
+                </p>
+
+                <div class="payment-methods">
+                  <label>
+                    <input type="radio" name="paymentMethod" value="upi" checked />
+                    <span>UPI (Google Pay, PhonePe, Paytm, etc.)</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="paymentMethod" value="card" />
+                    <span>Credit / Debit Card</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="paymentMethod" value="netbanking" />
+                    <span>Net Banking</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="paymentMethod" value="cod" />
+                    <span>Pay at Hotel / On Arrival (where available)</span>
+                  </label>
+                </div>
+
+                <p class="payment-note">
+                  For online payment options, you’ll be redirected to a secure payment page or receive a payment link on your email / WhatsApp from KPM Global Holidays.
+                </p>
+
+                <button
+                  type="button"
+                  class="btn-primary"
+                  style="width: 100%; margin-top: 8px;"
+                  onclick="window.location.href='payment.html'">
+                  Proceed to Payment
+                </button>
+              </div>
+
             </div>
-            <div class="field">
-              <label for="endDate">End date</label>
-              <input
-                id="endDate"
-                name="endDate"
-                type="date"
-                required />
+          </div>
+
+          <!-- Sidebar -->
+          <div>
+            <div class="booking-sidebar">
+              
+              <!-- Trust Badges -->
+              <div class="sidebar-section">
+                <h3 class="sidebar-title">Why book with us?</h3>
+                <div class="trust-badges">
+                  <div class="trust-badge">
+                    <span class="trust-icon">✓</span>
+                    <span>Secure</span>
+                  </div>
+                  <div class="trust-badge">
+                    <span class="trust-icon">✓</span>
+                    <span>24/7 Support</span>
+                  </div>
+                  <div class="trust-badge">
+                    <span class="trust-icon">✓</span>
+                    <span>Best Price</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- What Happens Next -->
+              <div class="sidebar-section">
+                <h3 class="sidebar-title">What happens next?</h3>
+                <ul class="info-list">
+                  <li>
+                    <span class="info-icon">1️⃣</span>
+                    <span>We'll review your booking request within 2 hours</span>
+                  </li>
+                  <li>
+                    <span class="info-icon">2️⃣</span>
+                    <span>You'll receive confirmation via email & WhatsApp</span>
+                  </li>
+                  <li>
+                    <span class="info-icon">3️⃣</span>
+                    <span>Complete payment using our secure payment link</span>
+                  </li>
+                  <li>
+                    <span class="info-icon">4️⃣</span>
+                    <span>Get your detailed itinerary and travel vouchers</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Included Benefits -->
+              <div class="sidebar-section">
+                <h3 class="sidebar-title">Included Benefits</h3>
+                <ul class="info-list">
+                  <li>
+                    <span class="info-icon">✓</span>
+                    <span>Flexible payment options</span>
+                  </li>
+                  <li>
+                    <span class="info-icon">✓</span>
+                    <span>24/7 travel assistance</span>
+                  </li>
+                  <li>
+                    <span class="info-icon">✓</span>
+                    <span>Free date changes (conditions apply)</span>
+                  </li>
+                  <li>
+                    <span class="info-icon">✓</span>
+                    <span>Travel insurance available</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Support Card -->
+              <div class="support-card">
+                <h4>Need Help?</h4>
+                <p>Our travel experts are here to assist you with your booking</p>
+                <button class="btn-outline small" type="button" style="width: 100%;">
+                  Contact Support
+                </button>
+              </div>
+
             </div>
           </div>
 
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px;">
-            <div class="field">
-              <label for="adults">Adults</label>
-              <input
-                id="adults"
-                name="adults"
-                type="number"
-                min="1"
-                value="2"
-                required />
-            </div>
-            <div class="field">
-              <label for="children">Children</label>
-              <input
-                id="children"
-                name="children"
-                type="number"
-                min="0"
-                value="0" />
-            </div>
-          </div>
-
-          <div class="field" style="margin-top:14px;">
-            <label for="preferences">Special requests / preferences</label>
-            <textarea
-              id="preferences"
-              name="preferences"
-              rows="3"
-              placeholder="Example: prefer 4★ stays, honeymoon trip, need wheelchair access, vegetarian food, etc."
-              style="width:100%; padding:12px; border-radius:12px; border:1px solid var(--border); resize:vertical;"></textarea>
-          </div>
-
-          <div style="display:flex; align-items:center; gap:8px; margin-top:12px; font-size:13px;">
-            <input type="checkbox" id="terms" required />
-            <label for="terms">I agree to the booking terms & cancellation policy.</label>
-          </div>
-
-          <button class="btn-primary" type="submit" style="width:100%; margin-top:18px;">
-            Submit booking request
-          </button>
-
-          <p id="bookingMessage" style="margin-top:12px; font-size:13px;"></p>
-        </form>
+        </div>
       </div>
     </div>
   </section>
@@ -190,7 +756,10 @@
   <footer class="site-footer" role="contentinfo">
     <div class="container footer-grid">
       <div>
-        <a class="logo footer-logo" href="index.html" aria-label="KPM Global Holidays Home">KPM Global<span> Holidays</span></a>
+        <a class="logo footer-logo" href="index.html" aria-label="KPM Global Holidays Home">
+          <img src="images/Logo-KPM Global  Holiday.png" alt="KPM Global Holidays Logo" class="logo-img" />
+          KPM Global<span> Holidays</span>
+        </a>
         <p class="footer-text">
           KPM Global Holidays is a curated marketplace for holidays, experiences and activities led by verified local experts.
         </p>
@@ -244,5 +813,72 @@
       if (yearSpan) yearSpan.textContent = new Date().getFullYear();
     });
   </script>
+
+  <!-- Payment reveal logic – existing booking flow ko touch nahi karta -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("bookingForm");
+      const paymentSection = document.getElementById("paymentSection");
+
+      if (form && paymentSection) {
+        form.addEventListener("submit", function () {
+          // Supabase submission book.js handle karega
+          // yeh sirf payment UI ko show karega
+          paymentSection.style.display = "block";
+          paymentSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      }
+    });
+  </script>
+
+  <!-- Existing Pay Now button (left as-is) -->
+  <button id="rzp-button1" class="btn btn-primary">Pay Now (Test)</button>
+
+  <!-- Razorpay core script + config -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+  var options = {
+      "key": "rzp_test_RkFoZ8ffEMkACn",   // <-- Yaha apna Test Key ID daalo
+      "amount": "50000",           // Amount in paise (50000 = 500 INR)
+      "currency": "INR",
+      "name": "KPM Global Holidays",
+      "description": "Travel Package Booking",
+      "image": "https://your-logo-url.png",
+      "handler": function (response){
+          alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+      },
+      "prefill": {
+          "name": "Test User",
+          "email": "test@example.com",
+          "contact": "9999999999"
+      },
+      "theme": {
+          "color": "#528FF0"
+      }
+  };
+  var rzp1 = new Razorpay(options);
+
+  document.getElementById('rzp-button1').onclick = function(e){
+      rzp1.open();
+      e.preventDefault();
+  }
+  </script>
+
+  <!-- 🔥 NEW: same Razorpay popup when user clicks "Proceed to Payment" -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var proceedBtn = document.querySelector('#paymentSection button.btn-primary');
+      if (proceedBtn) {
+        proceedBtn.addEventListener('click', function (e) {
+          // existing inline onclick still rahega, but hum Razorpay bhi open karwa rahe hain
+          e.preventDefault();        // payment.html par jane ke bajaye popup open karega
+          if (typeof rzp1 !== "undefined") {
+            rzp1.open();
+          }
+        });
+      }
+    });
+  </script>
+
 </body>
 </html>

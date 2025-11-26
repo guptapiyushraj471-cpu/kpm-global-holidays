@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Payment | KPM Global Holidays</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    }
+
+    .payment-container {
+      max-width: 700px;
+      margin: 60px auto;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.06);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+    }
+
+    .payment-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .payment-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 8px;
+    }
+
+    .payment-header p {
+      font-size: 15px;
+      color: #64748b;
+      margin: 0;
+    }
+
+    .summary-box {
+      background: rgba(102, 126, 234, 0.06);
+      border: 1px solid rgba(102, 126, 234, 0.2);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 500;
+      font-size: 15px;
+      color: #334155;
+      margin-bottom: 6px;
+    }
+
+    .summary-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .payment-method-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 20px 0 12px;
+      color: #334155;
+    }
+
+    .payment-methods label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid rgba(148,163,184,0.25);
+      margin-bottom: 8px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 15px;
+      background: #fff;
+    }
+
+    .payment-methods input[type="radio"] {
+      accent-color: #667eea;
+    }
+
+    .upi-box {
+      padding: 16px;
+      background: rgba(102, 126, 234, 0.08);
+      border: 1px solid rgba(102, 126, 234, 0.25);
+      border-radius: 12px;
+      margin-top: 12px;
+      display: none;
+    }
+
+    .upi-id {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      font-size: 16px;
+      color: #0f172a;
+    }
+
+    .copy-btn {
+      padding: 6px 14px;
+      border-radius: 6px;
+      background: #667eea;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    button.btn-primary {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    .back-btn {
+      margin-top: 14px;
+      width: 100%;
+      text-align: center;
+      padding: 12px;
+      background: #e2e8f0;
+      border-radius: 10px;
+      font-size: 15px;
+      color: #334155;
+      text-decoration: none;
+      display: block;
+    }
+
+    .qr-box {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .qr-box img {
+      width: 220px;
+      border-radius: 14px;
+    }
+
+    #successMsg {
+      display: none;
+      margin-top: 16px;
+      padding: 12px;
+      border-radius: 10px;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      text-align: center;
+      font-size: 14px;
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Payment Container -->
+  <div class="payment-container">
+
+    <div class="payment-header">
+      <h1>Complete Your Payment 💳</h1>
+      <p>Secure payment processing for KPM Global Holidays</p>
+    </div>
+
+    <!-- Summary -->
+    <div class="summary-box">
+      <div class="summary-row"><span>Holiday Package:</span> <span id="sumPackage">Loading...</span></div>
+      <div class="summary-row"><span>Travel Dates:</span> <span id="sumDates">--</span></div>
+      <div class="summary-row"><span>Guests:</span> <span id="sumGuests">--</span></div>
+      <div class="summary-row"><span>Total Amount:</span> <span id="sumAmount">₹ --</span></div>
+    </div>
+
+    <!-- Payment Options -->
+    <div class="payment-method-title">Select Payment Method</div>
+
+    <div class="payment-methods">
+      <label><input type="radio" name="pay" value="upi" checked>UPI (GooglePay / PhonePe / Paytm)</label>
+      <label><input type="radio" name="pay" value="qr">Scan QR Code</label>
+      <label><input type="radio" name="pay" value="card">Credit / Debit Card</label>
+      <label><input type="radio" name="pay" value="net">Net Banking</label>
+    </div>
+
+    <!-- UPI Box -->
+    <div id="upiBox" class="upi-box">
+      <div class="upi-id">
+        <span>UPI ID: <strong>kpmtravels@upi</strong></span>
+        <button class="copy-btn" onclick="copyUPI()">Copy</button>
+      </div>
+    </div>
+
+    <!-- QR -->
+    <div id="qrBox" class="qr-box">
+      <img src="images/qrcode.png" alt="UPI QR Code" />
+      <p style="margin-top:10px;font-size:14px;color:#475569;">Scan & Pay Instantly</p>
+    </div>
+
+    <button class="btn-primary" onclick="completePayment()">Confirm & Pay Securely</button>
+
+    <a href="book.html" class="back-btn">← Go back to booking page</a>
+
+    <p id="successMsg">Payment Successful! 🎉 Our team will contact you shortly.</p>
+
+  </div>
+
+  <!-- Existing JS: UPI / QR toggle + copy -->
+  <script>
+    const upiBox = document.getElementById("upiBox");
+    const qrBox = document.getElementById("qrBox");
+
+    document.querySelectorAll("input[name='pay']").forEach(input => {
+      input.addEventListener("change", (e) => {
+        upiBox.style.display = e.target.value === "upi" ? "block" : "none";
+        qrBox.style.display = e.target.value === "qr" ? "block" : "none";
+      });
+    });
+
+    function copyUPI() {
+      navigator.clipboard.writeText("kpmtravels@upi");
+      alert("UPI ID Copied!");
+    }
+
+    // NOTE: completePayment will be overridden below with Razorpay version
+    function completePayment() {
+      document.getElementById("successMsg").style.display = "block";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  </script>
+
+  <!-- ✅ Razorpay Checkout integration (NEW) -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    // Basic Razorpay options (test mode)
+    var razorpayOptions = {
+      key: "rzp_test_RkFoZ8ffEMkACn", // <-- yahan apna TEST KEY ID daalo
+      amount: "50000",         // default (in paise) = ₹500
+      currency: "INR",
+      name: "KPM Global Holidays",
+      description: "Holiday Package Payment",
+      handler: function (response) {
+        // Payment success hone par UI message dikhao
+        var msg = document.getElementById("successMsg");
+        if (msg) {
+          msg.style.display = "block";
+        }
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        console.log("Razorpay payment id:", response.razorpay_payment_id);
+      },
+      prefill: {
+        name: "Test User",
+        email: "test@example.com",
+        contact: "9999999999"
+      },
+      theme: {
+        color: "#667eea"
+      }
+    };
+
+    // 👉 Button click par Razorpay open hoga
+    function completePayment() {
+      // Agar sumAmount me actual amount hai to use le lo
+      var sumAmountEl = document.getElementById("sumAmount");
+      if (sumAmountEl) {
+        var amtText = sumAmountEl.textContent || "";
+        var digits = amtText.replace(/[^\d]/g, ""); // sirf numbers
+        if (digits) {
+          var paise = parseInt(digits, 10) * 100;   // ₹ to paise
+          if (!isNaN(paise)) {
+            razorpayOptions.amount = paise.toString();
+          }
+        }
+      }
+
+      var rzp = new Razorpay(razorpayOptions);
+      rzp.open();
+    }
+  </script>
+
+</body>
+</html>

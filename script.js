@@ -853,9 +853,9 @@ function createScrollProgressBar() {
     height: 3px;
     background: linear-gradient(90deg, #7c3aed, #0ea5e9);
     z-index: 9999;
-    transition: width 0.1s ease;
+    transition: width 0.1s.ease;
     box-shadow: 0 2px 10px rgba(124, 58, 237, 0.5);
-  `;
+  `.replace("0.1s.ease", "0.1s ease");
   document.body.appendChild(progressBar);
   
   // Update progress on scroll
@@ -996,7 +996,9 @@ function initKeyboardNav() {
       const chatToggle = document.querySelector(".ai-chat-toggle");
       if (chatContainer && chatContainer.classList.contains("is-open")) {
         chatContainer.classList.remove("is-open");
-        chatToggle && chatToggle.classList.remove("is-open");
+        if (chatToggle) {
+          chatToggle.classList.remove("is-open");
+        }
       }
     }
     
@@ -1053,7 +1055,7 @@ function initMouseTrail() {
     // Remove old dots
     if (trail.length > trailLength) {
       const oldDot = trail.shift();
-      oldDot && oldDot.remove();
+      if (oldDot) oldDot.remove();
     }
   });
   
@@ -1212,5 +1214,78 @@ window.KPMUtils = {
   animateCounter,
   callAiApi
 };
+
+// ==================
+// Razorpay TEST payment integration (uses rzp_test_RkFoZ8ffEMkACn)
+// ==================
+
+function initRazorpayTestPayment() {
+  // NOTE: key_secret must NEVER be used on frontend (even in test).
+  // Only the test key_id is used here.
+  const payBtn = document.getElementById("rzp-button1");
+  if (!payBtn) return;
+
+  if (typeof Razorpay === "undefined") {
+    console.warn("Razorpay script not loaded. Please add checkout.js in HTML.");
+    return;
+  }
+
+  // Base options for test payment
+  const options = {
+    key: "rzp_test_RkFoZ8ffEMkACn", // test key_id
+    amount: 10000, // default: 100.00 INR in paise (will be overridden if data-amount is present)
+    currency: "INR",
+    name: "KPM Global Holidays",
+    description: "Test Booking Payment",
+    handler: function (response) {
+      // On successful payment (TEST mode)
+      if (window.KPMUtils && typeof window.KPMUtils.showToast === "function") {
+        window.KPMUtils.showToast(
+          "Test payment successful! ID: " + response.razorpay_payment_id,
+          "success",
+          5000
+        );
+      } else {
+        alert("Test payment successful! Payment ID: " + response.razorpay_payment_id);
+      }
+    },
+    prefill: {
+      name: "",
+      email: "",
+      contact: ""
+    },
+    theme: {
+      color: "#0ea5e9"
+    }
+  };
+
+  // Click on pay button -> open Razorpay Checkout
+  payBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    // Dynamic amount from button if provided (data-amount in paise)
+    var btnAmount = parseInt(payBtn.getAttribute("data-amount"), 10);
+    if (!isNaN(btnAmount) && btnAmount > 0) {
+      options.amount = btnAmount;
+    }
+
+    // Prefill from form fields if they exist
+    var nameField = document.getElementById("fullName");
+    var emailField = document.getElementById("email");
+    var phoneField = document.getElementById("phone");
+
+    if (nameField) options.prefill.name = nameField.value || "";
+    if (emailField) options.prefill.email = emailField.value || "";
+    if (phoneField) options.prefill.contact = phoneField.value || "";
+
+    var rzp = new Razorpay(options);
+    rzp.open();
+  });
+}
+
+// Initialize Razorpay test payment on DOM ready
+document.addEventListener("DOMContentLoaded", function () {
+  initRazorpayTestPayment();
+});
 
 // --- NEW CODE END ---
