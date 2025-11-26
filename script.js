@@ -1293,4 +1293,60 @@ document.getElementById("navToggle").addEventListener("click", () => {
   nav.classList.toggle("open");
 });
 
+// SIMPLE HERO BACKGROUND SLIDER (Thrillophilia style)
+document.addEventListener("DOMContentLoaded", function () {
+  const slides = document.querySelectorAll(".hero-slide-item");
+  const prevBtn = document.querySelector(".hero-prev");
+  const nextBtn = document.querySelector(".hero-next");
+
+  let current = 0;
+  let autoTimer;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === index);
+    });
+    current = index;
+  }
+
+  function nextSlide() {
+    let next = current + 1;
+    if (next >= slides.length) next = 0;
+    showSlide(next);
+  }
+
+  function prevSlide() {
+    let prev = current - 1;
+    if (prev < 0) prev = slides.length - 1;
+    showSlide(prev);
+  }
+
+  function startAuto() {
+    autoTimer = setInterval(nextSlide, 5000); // 5 sec
+  }
+
+  function resetAuto() {
+    clearInterval(autoTimer);
+    startAuto();
+  }
+
+  if (slides.length > 0) {
+    startAuto();
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", function () {
+      nextSlide();
+      resetAuto();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", function () {
+      prevSlide();
+      resetAuto();
+    });
+  }
+});
+
 // --- NEW CODE END ---

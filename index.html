@@ -13,18 +13,100 @@
 </head>
 
 <body class="theme-ai">
+
+  <!-- HERO SLIDER SECTION -->
+<section class="hero-slider">
+
+  <!-- TOP NAV / HEADER -->
+  <header class="hero-header">
+  <div class="nav-container">
+
+    <div class="left-nav">
+
+      <img src="images/Logo-KPM Global  Holiday.png" alt="KPM Global Holidays" class="logo" />
+
+      <div class="brand-text">
+        <h1 class="brand-title">KPM GLOBAL HOLIDAYS</h1>
+        <p class="brand-subtitle">Your Journey, Our Promise</p>
+      </div>
+
+      <div class="search-box">
+        <input type="text" placeholder="Search Global Tours – Dubai, Europe, Bali..." />
+        <span class="search-icon">🔍</span>
+      </div>
+
+    </div>
+
+    <div class="right-nav">
+      <div class="currency">
+        <span>INR ₹</span>
+        <span>▼</span>
+        <button class="ai-btn-outline" type="button" onclick="location.href='login.html'">Login</button>
+      </div>
+      
+    </div>
+
+  </div>
+</header>
+
+
+  <!-- SLIDES -->
+<div class="hero-slide track">
+
+  <div class="hero-slide-item active"
+       style="background-image:url('images/pic1.jpg');"></div>
+
+  <div class="hero-slide-item"
+       style="background-image:url('images/pic3.jpg');"></div>
+
+  <div class="hero-slide-item"
+       style="background-image:url('images/pic4.jpg');"></div>
+
+  <div class="hero-slide-item"
+       style="background-image:url('images/pic5.jpg');"></div>
+
+  <div class="hero-slide-item"
+       style="background-image:url('images/pic6.jpg');"></div>
+
+  <div class="hero-slide-item"
+       style="background-image:url('images/pic7.jpg');"></div>
+
+  <div class="hero-slide-item"
+       style="background-image:url('images/pic8.jpg');"></div>
+
+  <div class="hero-slide-item"
+       style="background-image:url('images/pic9.jpg');"></div>
+
+</div>
+
+
+
+  <!-- CONTENT OVERLAY (CENTER BOTTOM) -->
+  <div class="hero-content">
+  <p class="hero-tagline">Discover handpicked <span>Global</span> escapes</p>
+  <h1><span>GLOBAL</span> Tour Packages</h1>
+  <p class="hero-price">
+    Starting at <span class="strike">INR 49,999</span>
+    <span class="main">INR 39,999</span> / Traveller
+  </p>
+  <button class="hero-cta">Plan Your Global Trip</button>
+</div>
+
+
+  <!-- ARROWS -->
+  <button class="hero-arrow hero-prev">&#10094;</button>
+  <button class="hero-arrow hero-next">&#10095;</button>
+</section>
+
+<script src="hero-slider.js"></script>
+
   <header class="ai-header" role="banner" aria-label="Main header">
     <!-- Top utility row -->
     <div class="ai-top container" role="region" aria-label="Top utility">
-      <div class="ai-top-left">
-        <span class="ai-pill">KPM Global Holidays</span>
-        <span class="ai-sub">Trips crafted by experts · AI-assisted</span>
-      </div>
+     
 
       <div class="ai-top-right" aria-hidden="false">
-        <button class="ai-link" type="button" aria-label="Change currency">INR ₹</button>
-        <button class="ai-link" type="button" aria-label="Help">Help</button>
-        <button class="ai-btn-outline" type="button" onclick="location.href='login.html'">Login</button>
+
       </div>
     </div>
 
@@ -71,11 +153,17 @@
     </section>
   </main>
 
-  <!-- Hero -->
-  <section class="hero" role="region" aria-label="Hero section">
-    <div class="hero-media parallax-layer" data-parallax="0.2"></div>
-    <div class="hero-overlay gradient-grid"></div>
-    <div class="container hero-inner">
+
+<!-- ================== TRIP SEARCH + AI SECTION ================== -->
+
+<section class="hero" role="region" aria-label="Hero section">
+  <div class="hero-media parallax-layer" data-parallax="0.2"></div>
+  <div class="hero-overlay gradient-grid"></div>
+
+  <div class="container hero-inner">
+    <div class="hero-grid hero-grid-with-photos">
+
+      <!-- LEFT : ORIGINAL TEXT + FORM (UNCHANGED LINKS) -->
       <div class="hero-content reveal">
         <p class="eyebrow">Your holiday, intelligently planned</p>
         <h1>Expert-led, AI-curated holidays across the world.</h1>
@@ -86,11 +174,15 @@
         <form class="search-card glass" id="searchForm" role="search" aria-label="Holiday search">
           <div class="field">
             <label for="where">Where to?</label>
-            <input id="where" name="where" type="text" placeholder="Search destination or experience" autocomplete="off" required />
+            <input id="where" name="where" type="text"
+                   placeholder="Search destination or experience"
+                   autocomplete="off" required />
           </div>
           <div class="field">
             <label for="dates">Dates</label>
-            <input id="dates" name="dates" type="text" placeholder="dd/mm/yyyy - dd/mm/yyyy" autocomplete="off" />
+            <input id="dates" name="dates" type="text"
+                   placeholder="dd/mm/yyyy - dd/mm/yyyy"
+                   autocomplete="off" />
           </div>
           <div class="field">
             <label for="travelers">Travelers</label>
@@ -120,26 +212,72 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Trending destinations -->
-  <section class="section" id="destinations" role="region" aria-label="Explore by destination">
-    <div class="container">
+      <!-- RIGHT : 5-IMAGE COLLAGE -->
+      <div class="hero-visual reveal" aria-hidden="true">
+        <!-- Big main photo -->
+        <div class="hero-photo hero-photo-main">
+          <img src="images/pic2.jpg" alt="Tropical escape" />
+          <span class="hero-photo-label">Tropical escapes</span>
+        </div>
+
+        <!-- 4 small photos below -->
+        <div class="hero-photo-grid">
+          <div class="hero-photo hero-photo-small">
+            <img src="images/pic3.jpg" alt="City skyline" />
+            <span class="hero-photo-label">City skylines</span>
+          </div>
+          <div class="hero-photo hero-photo-small">
+            <img src="images/pic6.jpg" alt="Mountain retreat" />
+            <span class="hero-photo-label">Mountain getaways</span>
+          </div>
+          <div class="hero-photo hero-photo-small">
+            <img src="images/pic8.jpg" alt="Desert safari" />
+            <span class="hero-photo-label">Desert adventures</span>
+          </div>
+          <div class="hero-photo hero-photo-small">
+            <img src="images/pic4.jpg" alt="City nightlife" />
+            <span class="hero-photo-label">Nightlife & culture</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+ <!-- Trending destinations -->
+  
+<section class="section destinations-ai" id="destinations" role="region" aria-label="Explore by destination">
+  <div class="container destinations-ai-inner">
+
+    <!-- LEFT : COPY + FILTER CHIPS -->
+    <aside class="destinations-ai-left">
+      <p class="pill-ai">✨ AI recommends</p>
+
       <div class="section-heading reveal">
         <div>
           <h2>Explore by destination</h2>
           <p>From beaches to mountains, find trips crafted for every kind of traveler.</p>
         </div>
-        <div class="chip-group" id="destinationFilters" role="tablist" aria-label="Destination filters">
-          <button class="chip active" data-filter="all" role="tab" aria-selected="true">All</button>
-          <button class="chip" data-filter="beach" role="tab">Beaches</button>
-          <button class="chip" data-filter="mountain" role="tab">Mountains</button>
-          <button class="chip" data-filter="international" role="tab">International</button>
-        </div>
       </div>
 
+      <div class="chip-group" id="destinationFilters" role="tablist" aria-label="Destination filters">
+        <button class="chip active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="chip" data-filter="beach" role="tab">Beaches</button>
+        <button class="chip" data-filter="mountain" role="tab">Mountains</button>
+        <button class="chip" data-filter="international" role="tab">International</button>
+      </div>
+
+      <p class="destinations-ai-note">
+        Start with <strong>All</strong> and let our AI surface trending escapes for you.
+      </p>
+    </aside>
+
+    <!-- RIGHT : MODERN CARD GRID -->
+    <div class="destinations-ai-grid-wrapper">
       <div class="destinations-grid">
+
         <article class="destination-card glass reveal" data-type="international">
           <div class="image-wrap skeleton">
             <img src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Skyline of Dubai" loading="lazy" />
@@ -231,20 +369,34 @@
             </div>
           </div>
         </article>
+
       </div>
     </div>
-  </section>
+
+  </div>
+</section>
+
+
+
 
   <!-- Holiday packages (trimmed, clean list) -->
-  <section class="section section-alt" id="packages" role="region" aria-label="Curated holiday packages">
-    <div class="container">
+  <section class="section section-alt packages-ai-section" id="packages" role="region" aria-label="Curated holiday packages"> 
+  <div class="container packages-ai-inner">
+
+    <!-- LEFT TEXT PANEL -->
+    <aside class="packages-ai-left">
+      <p class="packages-pill">✨ Handpicked for you</p>
+
       <div class="section-heading reveal">
         <div>
           <h2>Curated holiday packages</h2>
           <p>Ready-made itineraries designed by destination experts.</p>
         </div>
       </div>
+    </aside>
 
+    <!-- RIGHT – LIST OF HORIZONTAL CARDS -->
+    <div class="packages-grid-wrapper">
       <div class="packages-grid" id="packageGrid">
         <!-- 1. DUBAI -->
         <article class="package-card glass reveal" data-destination="Dubai" data-tag="international">
@@ -473,51 +625,86 @@
 
       <p class="search-result-text" id="searchResultText" aria-live="polite"></p>
     </div>
-  </section>
+
+  </div>
+</section>
+
 
   <!-- Payment Options -->
-  <section class="section" id="payments" role="region" aria-label="Payment options">
-    <div class="container">
-      <div class="section-heading reveal">
-        <div>
-          <h2>Secure & Easy Payments</h2>
-          <p>Pay the way you like – fast, secure and hassle-free.</p>
+
+<section class="section payments-compact" id="payments" role="region" aria-label="Payment options">
+  <div class="container">
+
+    <div class="payments-row">
+      <!-- LEFT TEXT -->
+      <div class="payments-copy">
+        <div class="section-heading reveal">
+          <div>
+            <h2>Secure & Easy Payments</h2>
+            <p>
+              Pay the way you like – fast, secure and hassle-free, with instant confirmations.
+            </p>
+          </div>
+        </div>
+
+        <ul class="payments-points">
+          <li>Multiple options for domestic & international travelers.</li>
+          <li>Real-time payment status on email & WhatsApp.</li>
+        </ul>
+
+        <div class="payment-note-inline">
+          <span>🔒 All transactions are 100% secure & encrypted.</span>
         </div>
       </div>
 
+      <!-- RIGHT CARDS (same content, cleaner layout) -->
       <div class="payment-grid">
+
         <article class="payment-card glass reveal">
           <div class="payment-icon">💳</div>
-          <h3>Credit Card</h3>
-          <p>Pay using all major credit cards with 3D secure authentication.</p>
+          <div class="payment-text">
+            <h3>Credit Card</h3>
+            <p>Pay using all major credit cards with 3D secure authentication.</p>
+          </div>
         </article>
 
         <article class="payment-card glass reveal">
           <div class="payment-icon">🏦</div>
-          <h3>Debit Card</h3>
-          <p>Instant and secure payment from Indian & International banks.</p>
+          <div class="payment-text">
+            <h3>Debit Card</h3>
+            <p>Instant and secure payment from Indian & International banks.</p>
+          </div>
         </article>
 
         <article class="payment-card glass reveal">
           <div class="payment-icon">📱</div>
-          <h3>UPI</h3>
-          <p>Quick payments via Google Pay, PhonePe, Paytm & more.</p>
+          <div class="payment-text">
+            <h3>UPI</h3>
+            <p>Quick payments via Google Pay, PhonePe, Paytm & more.</p>
+          </div>
         </article>
 
         <article class="payment-card glass reveal">
           <div class="payment-icon">💬</div>
-          <h3>WhatsApp Assist</h3>
-          <p>Get a secure payment link or account details directly on WhatsApp.</p>
+          <div class="payment-text">
+            <h3>WhatsApp Assist</h3>
+            <p>Get a secure payment link or account details directly on WhatsApp.</p>
+          </div>
         </article>
-      </div>
 
-      <div class="payment-note">
-        <p>🔒 All transactions are 100% secure & encrypted.</p>
       </div>
     </div>
-  </section>
 
-  <!-- Testimonials -->
+    <div class="payment-note">
+      <p>🔐 We never store your full card details. Payments are processed via secure gateways only.</p>
+    </div>
+
+  </div>
+</section>
+  
+  <!-- Testimonia
+  
+  ls -->
   <section class="section" aria-label="Traveler reviews" id="stories">
     <div class="container">
       <div class="section-heading reveal">
@@ -526,6 +713,13 @@
           <p>Real stories from people who booked with KPM Global Holidays.</p>
         </div>
       </div>
+
+
+
+
+
+
+
 
       <div class="testimonial-grid">
         <article class="testimonial-card glass reveal">
@@ -611,6 +805,8 @@
   <button id="backToTop" class="back-to-top back-to-top-glass" aria-label="Back to top" title="Back to top">
     <span>↑</span>
   </button>
+
+  <!-- TOURISM BOARD + PACKAGE SLIDER SECTION -->
 
   <!-- FOOTER -->
   <footer class="site-footer modern-footer" role="contentinfo">
@@ -710,6 +906,5 @@
      aria-label="Chat on WhatsApp">
     💬
   </a>
-
 </body>
 </html>
