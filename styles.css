@@ -2173,3 +2173,53 @@ body.theme-dark.auth-page {
 .whatsapp-float:hover {
   transform: scale(1.08);
 }
+/* Responsive Fixes */
+@media (max-width: 768px) {
+
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-img {
+    height: 30px;
+  }
+
+  .nav-cta {
+    display: none; /* Plan a trip button hide on mobile top */
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .top-bar, .nav-links {
+    width: 100%;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 18px;
+    background: #ffffff;
+    padding: 18px;
+    border-radius: 12px;
+    position: absolute;
+    top: 70px;
+    right: 16px;
+    width: 80%;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+  }
+
+  .nav-links a {
+    font-size: 18px;
+    text-align: left;
+  }
+
+  /* On toggle open */
+  .nav-links.open {
+    display: flex !important;
+  }
+}
