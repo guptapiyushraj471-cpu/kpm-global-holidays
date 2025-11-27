@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Travel Insurance | KPM Global Holidays</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Protect your trip with international and domestic travel insurance plans from KPM Global Holidays.">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+      margin: 0;
+      background:#f8fafc;
+      font-family: "Inter", sans-serif;
+      color:#0f172a;
+    }
+
+    /* NAVBAR */
+    .kpm-nav {
+      position: sticky;
+      top:0;
+      z-index:50;
+      background:#fff;
+      box-shadow:0 1px 8px rgba(0,0,0,0.08);
+    }
+    .kpm-nav-inner {
+      max-width:1150px;
+      margin:auto;
+      padding:10px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .kpm-nav-left { display:flex; align-items:center; gap:10px; }
+    .kpm-nav-logo { height:46px; border-radius:10px; }
+    .kpm-nav-brand-title { font-size:16px; font-weight:700; }
+    .kpm-nav-brand-sub { font-size:12px; color:#6b7280; }
+    .kpm-nav-links { display:flex; gap:18px; font-size:14px; align-items:center; }
+    .kpm-nav-links a { text-decoration:none; color:#0f172a; font-weight:500; }
+    .kpm-nav-links a.active { color:#0f75c8; }
+    .kpm-nav-links a:hover { color:#0f75c8; }
+    .kpm-nav-cta {
+      padding:8px 18px;
+      border-radius:999px;
+      border:none;
+      background:#0f75c8;
+      color:#fff;
+      font-size:14px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 4px 16px rgba(15,118,213,.35);
+    }
+
+    /* HERO */
+    .ins-hero {
+      text-align:center;
+      padding:40px 16px 24px;
+      background:radial-gradient(circle at top left,#e0f2fe,transparent 50%),
+                 radial-gradient(circle at bottom right,#fee2e2,transparent 60%),
+                 #f8fafc;
+    }
+    .ins-hero h1 { font-size:32px; margin-bottom:8px; }
+    .ins-hero p { margin:0; font-size:15px; color:#475569; }
+
+    /* GRID WRAP */
+    .ins-grid-wrap { padding:16px 16px 60px; }
+    .ins-grid {
+      max-width:1150px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .ins-card {
+      background:#fff;
+      border-radius:18px;
+      box-shadow:0 14px 30px rgba(15,23,42,.08);
+      padding:16px 16px 18px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      border-top:4px solid #0f75c8;
+    }
+    .ins-tag {
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:#6b7280;
+    }
+    .ins-card h3 {
+      margin:0;
+      font-size:17px;
+    }
+    .ins-card p {
+      margin:0;
+      font-size:13px;
+      color:#4b5563;
+    }
+    .ins-meta {
+      font-size:12px;
+      color:#6b7280;
+    }
+    .ins-price {
+      color:#0f75c8;
+      font-weight:600;
+      margin-top:4px;
+    }
+
+    .ins-actions {
+      margin-top:10px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+    }
+    .ins-link {
+      font-size:13px;
+      color:#ea580c;
+      font-weight:600;
+      text-decoration:none;
+    }
+    .ins-link:hover { text-decoration:underline; }
+
+    .ins-book-btn {
+      padding:8px 14px;
+      background:#ff4b2b;
+      border:none;
+      border-radius:10px;
+      color:#fff;
+      font-size:13px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(248,113,113,.35);
+    }
+    .ins-book-btn:hover { background:#e03518; }
+
+    /* INFO STRIP */
+    .ins-info-strip {
+      max-width:1150px;
+      margin:28px auto 0;
+      padding:14px 16px;
+      border-radius:14px;
+      background:#0f172a;
+      color:#e5e7eb;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      font-size:14px;
+    }
+    .ins-info-strip strong { color:#facc15; }
+    .ins-info-strip a {
+      color:#38bdf8;
+      text-decoration:none;
+      font-weight:600;
+    }
+    .ins-info-strip a:hover { text-decoration:underline; }
+
+    @media (max-width:900px) {
+      .ins-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:600px) {
+      .ins-grid { grid-template-columns:1fr; }
+      .ins-hero h1 { font-size:26px; }
+      .ins-info-strip { flex-direction:column; align-items:flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<header class="kpm-nav">
+  <div class="kpm-nav-inner">
+    <div class="kpm-nav-left">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo" alt="KPM Global Holidays">
+      <div>
+        <div class="kpm-nav-brand-title">KPM GLOBAL HOLIDAYS</div>
+        <div class="kpm-nav-brand-sub">Your Journey, Our Promise</div>
+      </div>
+    </div>
+
+    <nav class="kpm-nav-links">
+      <a href="index.html">Home</a>
+      <a href="holidays.html">Holidays</a>
+      <a href="flights.html">Flights</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="visa-assistance.html">Visa</a>
+      <a href="transfers.html">Transfers</a>
+      <a href="activities.html">Activities</a>
+      <a href="insurance.html" class="active">Insurance</a>
+      <button class="kpm-nav-cta" onclick="location.href='book.html'">Plan a Trip</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="ins-hero">
+  <h1>Travel Insurance for Safe Holidays</h1>
+  <p>Cover medical emergencies, trip cancellations, baggage loss and more with KPM-backed plans.</p>
+</section>
+
+<!-- INSURANCE PLANS GRID -->
+<div class="ins-grid-wrap">
+  <div class="ins-grid">
+
+    <!-- Card 1: International -->
+    <article class="ins-card">
+      <div class="ins-tag">International Trips</div>
+      <h3>International Travel Insurance</h3>
+      <p>Comprehensive cover for overseas holidays – medical, baggage & trip interruption.</p>
+      <p class="ins-meta">Best for: Europe, USA, UK, Asia & Middle East trips</p>
+      <p class="ins-price">Starting at ₹299 / day</p>
+      <div class="ins-actions">
+        <a href="#" class="ins-link">View coverage details</a>
+        <button class="ins-book-btn" onclick="location.href='book.html?insurance=international'">Get Quote</button>
+      </div>
+    </article>
+
+    <!-- Card 2: Student -->
+    <article class="ins-card">
+      <div class="ins-tag">Students</div>
+      <h3>Student Travel Insurance</h3>
+      <p>Long-term cover for students studying abroad including medical & sponsor protection.</p>
+      <p class="ins-meta">Tenure: 6–24 months · Custom plans based on country</p>
+      <p class="ins-price">Premium as per duration</p>
+      <div class="ins-actions">
+        <a href="#" class="ins-link">View coverage details</a>
+        <button class="ins-book-btn" onclick="location.href='book.html?insurance=student'">Get Quote</button>
+      </div>
+    </article>
+
+    <!-- Card 3: Domestic -->
+    <article class="ins-card">
+      <div class="ins-tag">Domestic Trips</div>
+      <h3>Domestic Travel Insurance</h3>
+      <p>Protect your India holidays from delays, medical issues & last minute cancellations.</p>
+      <p class="ins-meta">Ideal for: Family vacations & group tours</p>
+      <p class="ins-price">Starting at ₹99 / trip</p>
+      <div class="ins-actions">
+        <a href="#" class="ins-link">View coverage details</a>
+        <button class="ins-book-btn" onclick="location.href='book.html?insurance=domestic'">Get Quote</button>
+      </div>
+    </article>
+
+    <!-- Card 4: Senior Citizen -->
+    <article class="ins-card">
+      <div class="ins-tag">Senior Citizens</div>
+      <h3>Senior Citizen Travel Insurance</h3>
+      <p>Higher medical coverage & support for senior travellers on international tours.</p>
+      <p class="ins-meta">Age: 60+ · Pre-existing conditions as per policy terms</p>
+      <p class="ins-price">Premium based on age & destination</p>
+      <div class="ins-actions">
+        <a href="#" class="ins-link">View coverage details</a>
+        <button class="ins-book-btn" onclick="location.href='book.html?insurance=senior'">Get Quote</button>
+      </div>
+    </article>
+
+    <!-- Card 5: Multi-trip -->
+    <article class="ins-card">
+      <div class="ins-tag">Frequent Travellers</div>
+      <h3>Multi-Trip Annual Plan</h3>
+      <p>One policy for multiple international trips in a year – ideal for business travellers.</p>
+      <p class="ins-meta">Covers: Multiple journeys with max trip duration limit</p>
+      <p class="ins-price">Annual premium – custom quote</p>
+      <div class="ins-actions">
+        <a href="#" class="ins-link">View coverage details</a>
+        <button class="ins-book-btn" onclick="location.href='book.html?insurance=multi-trip'">Get Quote</button>
+      </div>
+    </article>
+
+    <!-- Card 6: Custom -->
+    <article class="ins-card">
+      <div class="ins-tag">Custom Cover</div>
+      <h3>Custom Insurance Recommendation</h3>
+      <p>Share your trip plan & passenger details and we’ll suggest the right insurer & policy.</p>
+      <p class="ins-meta">Support: Call, WhatsApp & email assistance</p>
+      <p class="ins-price">Policy as per chosen insurer</p>
+      <div class="ins-actions">
+        <a href="#" class="ins-link">Not sure which plan?</a>
+        <button class="ins-book-btn" onclick="location.href='book.html?insurance=consult'">Talk to Expert</button>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- INFO STRIP -->
+  <div class="ins-info-strip">
+    <span><strong>Note:</strong> KPM Global Holidays helps you compare & purchase travel insurance from licensed partners only.</span>
+    <span>For quick advice, WhatsApp us at <a href="https://wa.me/919205920608" target="_blank" rel="noopener">+91-92059 20608</a>.</span>
+  </div>
+</div>
+
+</body>
+</html>

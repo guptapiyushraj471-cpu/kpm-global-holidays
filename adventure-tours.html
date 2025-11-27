@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Adventure & Thrill Tours | KPM Global Holidays</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Adventure tours including trekking, river rafting, paragliding, biking expeditions and more.">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+      margin:0;
+      background:#f8fafc;
+      font-family:"Inter",sans-serif;
+      color:#0f172a;
+    }
+
+    /* NAVBAR */
+    .kpm-nav {
+      position:sticky;
+      top:0;
+      background:#fff;
+      z-index:50;
+      box-shadow:0 1px 8px rgba(0,0,0,.08);
+    }
+    .kpm-nav-inner {
+      max-width:1150px;
+      margin:auto;
+      padding:10px 16px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .kpm-nav-left {
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .kpm-nav-logo {
+      height:46px;
+      border-radius:10px;
+    }
+    .kpm-nav-brand-title {
+      font-size:16px;
+      font-weight:700;
+    }
+    .kpm-nav-brand-sub {
+      font-size:12px;
+      color:#6b7280;
+    }
+    .kpm-nav-links {
+      display:flex;
+      gap:18px;
+      font-size:14px;
+      align-items:center;
+    }
+    .kpm-nav-links a {
+      color:#0f172a;
+      text-decoration:none;
+      font-weight:500;
+    }
+    .kpm-nav-links a.active {
+      color:#dc2626;
+    }
+    .kpm-nav-cta {
+      padding:8px 18px;
+      background:#dc2626;
+      color:#fff;
+      border:none;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:14px;
+      font-weight:600;
+      box-shadow:0 4px 18px rgba(220,38,38,.45);
+    }
+
+    /* HERO */
+    .adv-hero {
+      text-align:center;
+      padding:42px 16px 26px;
+      background:
+        radial-gradient(circle at top left,#fee2e2,transparent 50%),
+        radial-gradient(circle at bottom right,#dbeafe,transparent 60%),
+        #fff;
+    }
+    .adv-hero h1 {
+      font-size:32px;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+    .adv-hero p {
+      margin:0;
+      font-size:15px;
+      color:#475569;
+    }
+
+    /* GRID */
+    .adv-wrap { padding:10px 16px 50px; }
+    .adv-grid {
+      max-width:1150px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .adv-card {
+      background:#fff;
+      border-radius:18px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      box-shadow:0 14px 30px rgba(15,23,42,.08);
+    }
+    .adv-img {
+      height:180px;
+      background-size:cover;
+      background-position:center;
+    }
+    .adv-body {
+      padding:14px 16px 16px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .adv-tag {
+      font-size:11px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#dc2626;
+      font-weight:700;
+    }
+    .adv-body h3 {
+      margin:0;
+      font-size:18px;
+      font-weight:600;
+    }
+    .adv-body p {
+      margin:0;
+      font-size:13px;
+      color:#475569;
+    }
+    .adv-price {
+      margin-top:4px;
+      font-size:14px;
+      font-weight:600;
+      color:#dc2626;
+    }
+
+    .adv-actions {
+      margin-top:10px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .adv-link {
+      font-size:13px;
+      color:#ea580c;
+      font-weight:600;
+      text-decoration:none;
+    }
+    .adv-book {
+      padding:8px 14px;
+      background:#dc2626;
+      color:#fff;
+      border:none;
+      border-radius:10px;
+      font-size:13px;
+      cursor:pointer;
+      font-weight:600;
+    }
+
+    @media(max-width:900px){
+      .adv-grid{grid-template-columns:repeat(2,1fr);}
+    }
+    @media(max-width:600px){
+      .adv-grid{grid-template-columns:1fr;}
+      .adv-hero h1{font-size:26px;}
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="kpm-nav">
+  <div class="kpm-nav-inner">
+    <div class="kpm-nav-left">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo">
+      <div>
+        <div class="kpm-nav-brand-title">KPM GLOBAL HOLIDAYS</div>
+        <div class="kpm-nav-brand-sub">Your Journey, Our Promise</div>
+      </div>
+    </div>
+
+    <nav class="kpm-nav-links">
+      <a href="index.html">Home</a>
+      <a href="holidays.html" class="active">Holidays</a>
+      <a href="adventure-tours.html">Adventure</a>
+      <a href="weekend-getaways.html">Weekend</a>
+      <a href="group-tours.html">Group</a>
+      <button class="kpm-nav-cta" onclick="location.href='book.html'">Plan Trip</button>
+    </nav>
+  </div>
+</header>
+
+<section class="adv-hero">
+  <h1>Adventure & Thrill Tours</h1>
+  <p>Biking expeditions, rafting, trekking, paragliding & extreme thrill sports for adventure lovers.</p>
+</section>
+
+<section class="adv-wrap">
+  <div class="adv-grid">
+
+    <!-- Ladakh Bike Trip -->
+    <article class="adv-card">
+      <div class="adv-img" style="background-image:url('img/ladakh-bike.jpg');"></div>
+      <div class="adv-body">
+        <span class="adv-tag">Bike Expedition</span>
+        <h3>Ladakh Bullet Bike Expedition</h3>
+        <p>Leh – Nubra – Pangong with backup vehicle & mechanic support.</p>
+        <p class="adv-price">From ₹32,999 / rider</p>
+        <div class="adv-actions">
+          <a href="ladakh-packages.html" class="adv-link">View Details</a>
+          <button class="adv-book" onclick="location.href='book.html?package=ladakh-bike&theme=adventure'">Book</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Rishikesh Rafting -->
+    <article class="adv-card">
+      <div class="adv-img" style="background-image:url('img/domestic-rishikesh.jpg');"></div>
+      <div class="adv-body">
+        <span class="adv-tag">River Rafting</span>
+        <h3>Rishikesh Rafting Camp</h3>
+        <p>2N / Rafting 26km stretch with bonfire, cliff jump & zipline.</p>
+        <p class="adv-price">From ₹4,999 / person</p>
+        <div class="adv-actions">
+          <a href="activities.html" class="adv-link">View Details</a>
+          <button class="adv-book" onclick="location.href='book.html?package=rishikesh-rafting&theme=adventure'">Book</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Paragliding Bir -->
+    <article class="adv-card">
+      <div class="adv-img" style="background-image:url('img/adventure-bir.jpg');"></div>
+      <div class="adv-body">
+        <span class="adv-tag">Paragliding</span>
+        <h3>Bir Billing Paragliding Trip</h3>
+        <p>2N stay + tandem flight experience at world’s 2nd highest site.</p>
+        <p class="adv-price">From ₹7,499 / person</p>
+        <div class="adv-actions">
+          <a href="package-detail.html" class="adv-link">View Details</a>
+          <button class="adv-book" onclick="location.href='book.html?package=bir&theme=adventure'">Book</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Kedarkantha Trek -->
+    <article class="adv-card">
+      <div class="adv-img" style="background-image:url('img/trek-kedarkantha.jpg');"></div>
+      <div class="adv-body">
+        <span class="adv-tag">Trekking</span>
+        <h3>Kedarkantha Snow Trek</h3>
+        <p>4N/5D Uttarakhand winter trek with tents, meals & guide support.</p>
+        <p class="adv-price">From ₹9,999 / person</p>
+        <div class="adv-actions">
+          <a href="package-detail.html" class="adv-link">View Details</a>
+          <button class="adv-book" onclick="location.href='book.html?package=kedarkantha&theme=adventure'">Book</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Scuba Goa -->
+    <article class="adv-card">
+      <div class="adv-img" style="background-image:url('img/scuba-goa.jpg');"></div>
+      <div class="adv-body">
+        <span class="adv-tag">Scuba Diving</span>
+        <h3>Goa Scuba Diving</h3>
+        <p>Underwater experience with photos + training + boat ride.</p>
+        <p class="adv-price">From ₹3,999 / person</p>
+        <div class="adv-actions">
+          <a href="goa-packages.html" class="adv-link">View Details</a>
+          <button class="adv-book" onclick="location.href='book.html?package=scuba-goa&theme=adventure'">Book</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Skydiving Dubai -->
+    <article class="adv-card">
+      <div class="adv-img" style="background-image:url('img/skydiving-dubai.jpg');"></div>
+      <div class="adv-body">
+        <span class="adv-tag">Skydiving</span>
+        <h3>Skydiving Dubai Palm View</h3>
+        <p>Once-in-a-lifetime tandem jump over Palm Jumeirah.</p>
+        <p class="adv-price">From ₹52,999 / person</p>
+        <div class="adv-actions">
+          <a href="dubai-packages.html" class="adv-link">View Details</a>
+          <button class="adv-book" onclick="location.href='book.html?package=skydiving-dubai&theme=adventure'">Book</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+</body>
+</html>

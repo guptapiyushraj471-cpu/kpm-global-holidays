@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Visa Assistance | KPM Global Holidays</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Get complete visa assistance for tourist, business and Schengen visas with KPM Global Holidays.">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+      margin: 0;
+      background:#f8fafc;
+      font-family: "Inter", sans-serif;
+      color:#0f172a;
+    }
+
+    /* NAVBAR */
+    .kpm-nav {
+      position: sticky;
+      top:0;
+      z-index:50;
+      background:#fff;
+      box-shadow:0 1px 8px rgba(0,0,0,0.08);
+    }
+    .kpm-nav-inner {
+      max-width:1150px;
+      margin:auto;
+      padding:10px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .kpm-nav-left { display:flex; align-items:center; gap:10px; }
+    .kpm-nav-logo { height:46px; border-radius:10px; }
+    .kpm-nav-brand-title { font-size:16px; font-weight:700; }
+    .kpm-nav-brand-sub { font-size:12px; color:#6b7280; }
+    .kpm-nav-links { display:flex; gap:18px; font-size:14px; align-items:center; }
+    .kpm-nav-links a { text-decoration:none; color:#0f172a; font-weight:500; }
+    .kpm-nav-links a.active { color:#0f75c8; }
+    .kpm-nav-links a:hover { color:#0f75c8; }
+    .kpm-nav-cta {
+      padding:8px 18px;
+      border-radius:999px;
+      border:none;
+      background:#0f75c8;
+      color:#fff;
+      font-size:14px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 4px 16px rgba(15,118,213,.35);
+    }
+
+    /* HERO */
+    .visa-hero {
+      text-align:center;
+      padding:40px 16px 24px;
+      background:radial-gradient(circle at top left,#e0f2fe,transparent 50%),
+                 radial-gradient(circle at bottom right,#fee2e2,transparent 60%),
+                 #f8fafc;
+    }
+    .visa-hero h1 { font-size:32px; margin-bottom:8px; }
+    .visa-hero p { margin:0; font-size:15px; color:#475569; }
+
+    /* GRID */
+    .visa-grid-wrap { padding:16px 16px 50px; }
+    .visa-grid {
+      max-width:1150px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .visa-card {
+      background:#fff;
+      border-radius:18px;
+      box-shadow:0 14px 30px rgba(15,23,42,.08);
+      padding:16px 16px 18px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      border-top:4px solid #0f75c8;
+    }
+    .visa-tag {
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:#6b7280;
+    }
+    .visa-card h3 {
+      margin:0;
+      font-size:17px;
+    }
+    .visa-card p {
+      margin:0;
+      font-size:13px;
+      color:#4b5563;
+    }
+    .visa-meta {
+      font-size:12px;
+      color:#6b7280;
+    }
+
+    .visa-actions {
+      margin-top:10px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+    }
+    .visa-doc-link {
+      font-size:13px;
+      color:#ea580c;
+      font-weight:600;
+      text-decoration:none;
+    }
+    .visa-doc-link:hover { text-decoration:underline; }
+
+    .visa-help-btn {
+      padding:8px 14px;
+      background:#ff4b2b;
+      border:none;
+      border-radius:10px;
+      color:#fff;
+      font-size:13px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(248,113,113,.35);
+    }
+    .visa-help-btn:hover { background:#e03518; }
+
+    /* BOTTOM INFO STRIP */
+    .visa-info-strip {
+      max-width:1150px;
+      margin:28px auto 0;
+      padding:14px 16px;
+      border-radius:14px;
+      background:#0f172a;
+      color:#e5e7eb;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      font-size:14px;
+    }
+    .visa-info-strip strong { color:#facc15; }
+    .visa-info-strip a {
+      color:#38bdf8;
+      text-decoration:none;
+      font-weight:600;
+    }
+    .visa-info-strip a:hover { text-decoration:underline; }
+
+    @media (max-width:900px) {
+      .visa-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:600px) {
+      .visa-grid { grid-template-columns:1fr; }
+      .visa-hero h1 { font-size:26px; }
+      .visa-info-strip { flex-direction:column; align-items:flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<header class="kpm-nav">
+  <div class="kpm-nav-inner">
+    <div class="kpm-nav-left">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo" alt="KPM Global Holidays">
+      <div>
+        <div class="kpm-nav-brand-title">KPM GLOBAL HOLIDAYS</div>
+        <div class="kpm-nav-brand-sub">Your Journey, Our Promise</div>
+      </div>
+    </div>
+
+    <nav class="kpm-nav-links">
+      <a href="index.html">Home</a>
+      <a href="holidays.html">Holidays</a>
+      <a href="flights.html">Flights</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="visa-assistance.html" class="active">Visa</a>
+      <button class="kpm-nav-cta" onclick="location.href='book.html'">Plan a Trip</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="visa-hero">
+  <h1>Visa Assistance for Your Next Holiday</h1>
+  <p>End-to-end support for tourist, business & Schengen visas with document guidance.</p>
+</section>
+
+<!-- VISA CARDS -->
+<div class="visa-grid-wrap">
+  <div class="visa-grid">
+
+    <!-- Card 1: Tourist Visa -->
+    <article class="visa-card">
+      <div class="visa-tag">Tourist Visa</div>
+      <h3>Dubai & UAE Tourist Visa</h3>
+      <p>Short stay tourist visas for Dubai, Abu Dhabi & other Emirates with quick processing.</p>
+      <p class="visa-meta">Processing time: 3–5 working days · Stay: up to 30 days</p>
+      <div class="visa-actions">
+        <a href="#" class="visa-doc-link">View document checklist</a>
+        <button class="visa-help-btn" onclick="location.href='book.html?visa=uae-tourist'">Get Visa Help</button>
+      </div>
+    </article>
+
+    <!-- Card 2: Schengen -->
+    <article class="visa-card">
+      <div class="visa-tag">Schengen</div>
+      <h3>Europe Schengen Visa</h3>
+      <p>Guidance for Schengen tourist visas including appointment, forms & cover letter.</p>
+      <p class="visa-meta">Countries: France, Italy, Switzerland, Germany & more</p>
+      <div class="visa-actions">
+        <a href="#" class="visa-doc-link">View document checklist</a>
+        <button class="visa-help-btn" onclick="location.href='book.html?visa=schengen'">Get Visa Help</button>
+      </div>
+    </article>
+
+    <!-- Card 3: Asian Destinations -->
+    <article class="visa-card">
+      <div class="visa-tag">Asia</div>
+      <h3>Thailand, Singapore & Malaysia Visa</h3>
+      <p>On-arrival & e-visa assistance for popular Asian holiday destinations.</p>
+      <p class="visa-meta">Support: Forms, photos, insurance & itinerary proof</p>
+      <div class="visa-actions">
+        <a href="#" class="visa-doc-link">View document checklist</a>
+        <button class="visa-help-btn" onclick="location.href='book.html?visa=asia-holiday'">Get Visa Help</button>
+      </div>
+    </article>
+
+    <!-- Card 4: Business -->
+    <article class="visa-card">
+      <div class="visa-tag">Business Visa</div>
+      <h3>Business & Conference Visas</h3>
+      <p>Support with invitation letters, company docs & travel insurance for business trips.</p>
+      <p class="visa-meta">For: Meetings, conferences, exhibitions & events</p>
+      <div class="visa-actions">
+        <a href="#" class="visa-doc-link">View document checklist</a>
+        <button class="visa-help-btn" onclick="location.href='book.html?visa=business'">Get Visa Help</button>
+      </div>
+    </article>
+
+    <!-- Card 5: UK / USA -->
+    <article class="visa-card">
+      <div class="visa-tag">Long Haul</div>
+      <h3>UK & USA Tourist Visa Guidance</h3>
+      <p>Application form filling, document file preparation & interview tips.</p>
+      <p class="visa-meta">Note: Final approval is always embassy decision</p>
+      <div class="visa-actions">
+        <a href="#" class="visa-doc-link">View document checklist</a>
+        <button class="visa-help-btn" onclick="location.href='book.html?visa=uk-usa'">Get Visa Help</button>
+      </div>
+    </article>
+
+    <!-- Card 6: Custom -->
+    <article class="visa-card">
+      <div class="visa-tag">Custom Help</div>
+      <h3>Custom Visa Consultation</h3>
+      <p>Not sure which visa you need? Talk to our visa experts for the right guidance.</p>
+      <p class="visa-meta">Mode: Phone / WhatsApp / Email support</p>
+      <div class="visa-actions">
+        <a href="#" class="visa-doc-link">Ask which visa I need</a>
+        <button class="visa-help-btn" onclick="location.href='book.html?visa=consult'">Talk to an Expert</button>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- INFO STRIP -->
+  <div class="visa-info-strip">
+    <span><strong>Important:</strong> KPM Global Holidays provides documentation & process assistance only.</span>
+    <span>For any visa query, WhatsApp us at <a href="https://wa.me/919205920608" target="_blank" rel="noopener">+91-92059 20608</a>.</span>
+  </div>
+</div>
+
+</body>
+</html>

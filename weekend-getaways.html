@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weekend Getaways | KPM Global Holidays</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Short weekend trips from major Indian cities with stays, transfers and local sightseeing.">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+      margin:0;
+      background:#f8fafc;
+      font-family:"Inter",sans-serif;
+      color:#0f172a;
+    }
+
+    /* NAVBAR */
+    .kpm-nav {
+      position:sticky;
+      top:0;
+      background:#fff;
+      z-index:50;
+      box-shadow:0 1px 8px rgba(0,0,0,.08);
+    }
+    .kpm-nav-inner {
+      max-width:1150px;
+      margin:auto;
+      padding:10px 16px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .kpm-nav-left {
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .kpm-nav-logo {
+      height:46px;
+      border-radius:10px;
+    }
+    .kpm-nav-brand-title {
+      font-size:16px;
+      font-weight:700;
+    }
+    .kpm-nav-brand-sub {
+      font-size:12px;
+      color:#6b7280;
+    }
+
+    .kpm-nav-links {
+      display:flex;
+      gap:18px;
+      font-size:14px;
+      align-items:center;
+    }
+    .kpm-nav-links a {
+      text-decoration:none;
+      color:#0f172a;
+      font-weight:500;
+    }
+    .kpm-nav-links a.active {
+      color:#0f75c8;
+    }
+    .kpm-nav-links a:hover {
+      color:#0f75c8;
+    }
+
+    .kpm-nav-cta {
+      padding:8px 18px;
+      background:#0f75c8;
+      color:#fff;
+      border:none;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 4px 14px rgba(37,99,235,.35);
+    }
+
+    /* HERO */
+    .weekend-hero {
+      text-align:center;
+      padding:42px 16px 26px;
+      background:
+        radial-gradient(circle at top left,#e0f2fe,transparent 50%),
+        radial-gradient(circle at bottom right,#dcfce7,transparent 60%),
+        #f8fafc;
+    }
+    .weekend-hero h1 {
+      font-size:32px;
+      margin-bottom:10px;
+      font-weight:700;
+    }
+    .weekend-hero p {
+      margin:0;
+      font-size:15px;
+      color:#475569;
+    }
+
+    /* GRID */
+    .weekend-wrap {
+      padding:10px 16px 50px;
+    }
+    .weekend-grid {
+      max-width:1150px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .weekend-card {
+      background:#fff;
+      border-radius:18px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      box-shadow:0 14px 30px rgba(15,23,42,.08);
+    }
+    .weekend-img {
+      height:170px;
+      background-size:cover;
+      background-position:center;
+    }
+    .weekend-body {
+      padding:14px 16px 16px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .weekend-tag {
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:#16a34a;
+      font-weight:600;
+    }
+    .weekend-body h3 {
+      margin:0;
+      font-size:17px;
+      font-weight:600;
+    }
+    .weekend-body p {
+      margin:0;
+      font-size:13px;
+      color:#475569;
+    }
+    .weekend-meta {
+      font-size:12px;
+      color:#6b7280;
+    }
+    .weekend-price {
+      font-size:14px;
+      font-weight:600;
+      color:#0f75c8;
+      margin-top:2px;
+    }
+
+    .weekend-actions {
+      margin-top:10px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+    }
+    .weekend-link {
+      font-size:13px;
+      color:#ea580c;
+      font-weight:600;
+      text-decoration:none;
+    }
+    .weekend-link:hover {
+      text-decoration:underline;
+    }
+    .weekend-book {
+      padding:8px 14px;
+      background:#16a34a;
+      border:none;
+      border-radius:10px;
+      color:#fff;
+      font-size:13px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(22,163,74,.35);
+    }
+    .weekend-book:hover {
+      background:#15803d;
+    }
+
+    @media(max-width:900px){
+      .weekend-grid{grid-template-columns:repeat(2,1fr);}
+    }
+    @media(max-width:600px){
+      .weekend-grid{grid-template-columns:1fr;}
+      .weekend-hero h1{font-size:26px;}
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="kpm-nav">
+  <div class="kpm-nav-inner">
+    <div class="kpm-nav-left">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo" alt="KPM Global Holidays">
+      <div>
+        <div class="kpm-nav-brand-title">KPM GLOBAL HOLIDAYS</div>
+        <div class="kpm-nav-brand-sub">Your Journey, Our Promise</div>
+      </div>
+    </div>
+
+    <nav class="kpm-nav-links">
+      <a href="index.html">Home</a>
+      <a href="holidays.html" class="active">Holidays</a>
+      <a href="honeymoon-packages.html">Honeymoon</a>
+      <a href="family-packages.html">Family</a>
+      <a href="group-tours.html">Group Tours</a>
+      <a href="weekend-getaways.html">Weekend Getaways</a>
+      <button class="kpm-nav-cta" onclick="location.href='book.html'">Plan Trip</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="weekend-hero">
+  <h1>Quick Weekend Getaways</h1>
+  <p>2–4 day trips perfect for last-minute breaks from Delhi, Mumbai, Bengaluru & more.</p>
+</section>
+
+<!-- GRID -->
+<section class="weekend-wrap">
+  <div class="weekend-grid">
+
+    <!-- Manali from Delhi -->
+    <article class="weekend-card">
+      <div class="weekend-img" style="background-image:url('img/domestic-manali.jpg');"></div>
+      <div class="weekend-body">
+        <span class="weekend-tag">From Delhi</span>
+        <h3>Manali Weekend Escape</h3>
+        <p>3D/2N hills, Mall Road & Solang Valley quick trip.</p>
+        <p class="weekend-meta">Recommended: Fri night departure – Mon morning return</p>
+        <p class="weekend-price">From ₹8,999 / person</p>
+        <div class="weekend-actions">
+          <a href="himachal-packages.html" class="weekend-link">View Details</a>
+          <button class="weekend-book" onclick="location.href='book.html?package=manali&theme=weekend'">Book</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Rishikesh -->
+    <article class="weekend-card">
+      <div class="weekend-img" style="background-image:url('img/domestic-rishikesh.jpg');"></div>
+      <div class="weekend-body">
+        <span class="weekend-tag">Adventure</span>
+        <h3>Rishikesh Camping & Rafting</h3>
+        <p>2N riverside camp with rafting, bonfire & Ganga Aarti.</p>
+        <p class="weekend-meta">Ideal for: Friends / Young couples</p>
+        <p class="weekend-price">From ₹5,999 / person</p>
+        <div class="weekend-actions">
+          <a href="activities.html" class="weekend-link">View Details</a>
+          <button class="weekend-book" onclick="location.href='book.html?package=rishikesh&theme=weekend'">Book</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Jaipur -->
+    <article class="weekend-card">
+      <div class="weekend-img" style="background-image:url('img/domestic-rajasthan.jpg');"></div>
+      <div class="weekend-body">
+        <span class="weekend-tag">From Delhi</span>
+        <h3>Jaipur 2N Heritage Break</h3>
+        <p>Amber Fort, Hawa Mahal & local markets in a short royal escape.</p>
+        <p class="weekend-meta">Drive time: ~5–6 hours by road</p>
+        <p class="weekend-price">From ₹6,999 / person</p>
+        <div class="weekend-actions">
+          <a href="rajasthan-packages.html" class="weekend-link">View Details</a>
+          <button class="weekend-book" onclick="location.href='book.html?package=rajasthan&theme=weekend'">Book</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Goa Weekend -->
+    <article class="weekend-card">
+      <div class="weekend-img" style="background-image:url('img/domestic-goa.jpg');"></div>
+      <div class="weekend-body">
+        <span class="weekend-tag">Flight Getaway</span>
+        <h3>Goa 3D Beach Weekend</h3>
+        <p>2N resort stay with breakfast & airport transfers.</p>
+        <p class="weekend-meta">Best from: Mumbai, Bengaluru, Hyderabad</p>
+        <p class="weekend-price">From ₹10,999 / person</p>
+        <div class="weekend-actions">
+          <a href="goa-packages.html" class="weekend-link">View Details</a>
+          <button class="weekend-book" onclick="location.href='book.html?package=goa&theme=weekend'">Book</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Kerala Short -->
+    <article class="weekend-card">
+      <div class="weekend-img" style="background-image:url('img/domestic-kerala.jpg');"></div>
+      <div class="weekend-body">
+        <span class="weekend-tag">Relax</span>
+        <h3>Kerala Backwater Mini Break</h3>
+        <p>1N Alleppey houseboat + 1N Kochi / Munnar hotel.</p>
+        <p class="weekend-meta">Perfect for: Couples & families</p>
+        <p class="weekend-price">From ₹9,999 / person</p>
+        <div class="weekend-actions">
+          <a href="kerala-packages.html" class="weekend-link">View Details</a>
+          <button class="weekend-book" onclick="location.href='book.html?package=kerala&theme=weekend'">Book</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Local Hill / Custom -->
+    <article class="weekend-card">
+      <div class="weekend-img" style="background-image:url('img/kashmir.jpg');"></div>
+      <div class="weekend-body">
+        <span class="weekend-tag">Custom</span>
+        <h3>Custom Weekend Getaway</h3>
+        <p>Share your city & dates and we suggest 2–3 best weekend options.</p>
+        <p class="weekend-meta">Any Indian metro → hills / beach / heritage</p>
+        <p class="weekend-price">On Request</p>
+        <div class="weekend-actions">
+          <a href="book.html" class="weekend-link">Tell Us Your Plan</a>
+          <button class="weekend-book" onclick="location.href='book.html?package=custom-weekend&theme=weekend'">Get Quote</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+</body>
+</html>

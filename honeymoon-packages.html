@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Honeymoon Tour Packages | KPM Global Holidays</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Romantic honeymoon tour packages for Maldives, Bali, Goa, Kashmir, Europe and more by KPM Global Holidays.">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+      margin:0;
+      background:#f8fafc;
+      font-family:"Inter",sans-serif;
+      color:#0f172a;
+    }
+
+    /* NAVBAR (same pattern) */
+    .kpm-nav {
+      position:sticky;
+      top:0;
+      background:#fff;
+      z-index:50;
+      box-shadow:0 1px 8px rgba(0,0,0,.08);
+    }
+    .kpm-nav-inner {
+      max-width:1150px;
+      margin:auto;
+      padding:10px 16px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+    }
+    .kpm-nav-left { display:flex; align-items:center; gap:10px; }
+    .kpm-nav-logo { height:46px; border-radius:10px; }
+    .kpm-nav-brand-title { font-size:16px; font-weight:700; }
+    .kpm-nav-brand-sub { font-size:12px; color:#6b7280; }
+
+    .kpm-nav-links {
+      display:flex;
+      gap:18px;
+      font-size:14px;
+      align-items:center;
+    }
+    .kpm-nav-links a {
+      text-decoration:none;
+      color:#0f172a;
+      font-weight:500;
+    }
+    .kpm-nav-links a.active { color:#0f75c8; }
+    .kpm-nav-links a:hover { color:#0f75c8; }
+
+    .kpm-nav-cta {
+      padding:8px 18px;
+      background:#0f75c8;
+      color:#fff;
+      border:none;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 4px 14px rgba(37,99,235,.35);
+    }
+
+    /* HERO */
+    .honeymoon-hero {
+      text-align:center;
+      padding:40px 16px 26px;
+      background:
+        radial-gradient(circle at top left,#e0f2fe,transparent 55%),
+        radial-gradient(circle at bottom right,#fee2e2,transparent 60%),
+        #f8fafc;
+    }
+    .honeymoon-hero h1 {
+      font-size:32px;
+      margin-bottom:8px;
+    }
+    .honeymoon-hero p {
+      margin:0;
+      font-size:15px;
+      color:#475569;
+    }
+
+    /* GRID */
+    .honeymoon-wrap {
+      padding:10px 16px 50px;
+    }
+    .honeymoon-grid {
+      max-width:1150px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .honeymoon-card {
+      background:#fff;
+      border-radius:18px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      box-shadow:0 14px 30px rgba(15,23,42,.08);
+    }
+    .honeymoon-img {
+      height:180px;
+      background-size:cover;
+      background-position:center;
+    }
+    .honeymoon-body {
+      padding:14px 16px 16px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      flex:1;
+    }
+    .honeymoon-body h3 {
+      margin:0;
+      font-size:17px;
+      font-weight:600;
+    }
+    .honeymoon-body p {
+      margin:0;
+      font-size:13px;
+      color:#475569;
+    }
+    .honeymoon-tag {
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:#fb7185;
+      font-weight:600;
+    }
+    .honeymoon-price {
+      margin-top:4px;
+      font-size:14px;
+      color:#0f75c8;
+      font-weight:600;
+    }
+
+    .honeymoon-actions {
+      margin-top:10px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+    }
+
+    .hmn-link {
+      font-size:13px;
+      color:#ea580c;
+      font-weight:600;
+      text-decoration:none;
+    }
+    .hmn-link:hover { text-decoration:underline; }
+
+    .hmn-book-btn {
+      padding:8px 14px;
+      border-radius:10px;
+      border:none;
+      background:#ff4b2b;
+      color:#fff;
+      font-size:13px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(248,113,113,.35);
+    }
+    .hmn-book-btn:hover { background:#e03518; }
+
+    @media (max-width:900px) {
+      .honeymoon-grid {
+        grid-template-columns:repeat(2,1fr);
+      }
+    }
+    @media (max-width:600px) {
+      .honeymoon-grid {
+        grid-template-columns:1fr;
+      }
+      .honeymoon-hero h1 { font-size:26px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="kpm-nav">
+  <div class="kpm-nav-inner">
+    <div class="kpm-nav-left">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo" alt="KPM Global Holidays">
+      <div>
+        <div class="kpm-nav-brand-title">KPM GLOBAL HOLIDAYS</div>
+        <div class="kpm-nav-brand-sub">Your Journey, Our Promise</div>
+      </div>
+    </div>
+
+    <nav class="kpm-nav-links">
+      <a href="index.html">Home</a>
+      <a href="holidays.html" class="active">Holidays</a>
+      <a href="honeymoon-packages.html">Honeymoon</a>
+      <a href="family-packages.html">Family</a>
+      <a href="group-tours.html">Group Tours</a>
+      <button class="kpm-nav-cta" onclick="location.href='book.html'">Plan Trip</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="honeymoon-hero">
+  <h1>Handpicked Honeymoon Packages</h1>
+  <p>Romantic stays, private experiences & picture-perfect destinations curated for just the two of you.</p>
+</section>
+
+<!-- GRID -->
+<section class="honeymoon-wrap">
+  <div class="honeymoon-grid">
+
+    <!-- Maldives -->
+    <article class="honeymoon-card">
+      <div class="honeymoon-img" style="background-image:url('img/honeymoon-maldives.jpg');"></div>
+      <div class="honeymoon-body">
+        <span class="honeymoon-tag">Top Pick</span>
+        <h3>Maldives Water Villa Honeymoon</h3>
+        <p>4N/5D luxury island stay with private deck, seaplane transfers & candlelight dinner.</p>
+        <p class="honeymoon-price">From ₹89,999 / couple</p>
+        <div class="honeymoon-actions">
+          <a href="maldives-packages.html" class="hmn-link">View details</a>
+          <button class="hmn-book-btn" onclick="location.href='book.html?package=maldives&theme=honeymoon'">Book Now</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Bali -->
+    <article class="honeymoon-card">
+      <div class="honeymoon-img" style="background-image:url('img/bali.jpg');"></div>
+      <div class="honeymoon-body">
+        <span class="honeymoon-tag">Romantic</span>
+        <h3>Bali Private Pool Villa</h3>
+        <p>Pool villa stay with Ubud tour, beaches, temples & sunset points.</p>
+        <p class="honeymoon-price">From ₹39,999 / person</p>
+        <div class="honeymoon-actions">
+          <a href="bali-packages.html" class="hmn-link">View details</a>
+          <button class="hmn-book-btn" onclick="location.href='book.html?package=bali&theme=honeymoon'">Book Now</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Goa -->
+    <article class="honeymoon-card">
+      <div class="honeymoon-img" style="background-image:url('img/domestic-goa.jpg');"></div>
+      <div class="honeymoon-body">
+        <span class="honeymoon-tag">Beach</span>
+        <h3>Goa Beachside Escape</h3>
+        <p>3N resort stay, romantic dinner add-ons & beach sunsets.</p>
+        <p class="honeymoon-price">From ₹11,999 / person</p>
+        <div class="honeymoon-actions">
+          <a href="goa-packages.html" class="hmn-link">View details</a>
+          <button class="hmn-book-btn" onclick="location.href='book.html?package=goa&theme=honeymoon'">Book Now</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Kashmir -->
+    <article class="honeymoon-card">
+      <div class="honeymoon-img" style="background-image:url('img/domestic-kashmir.jpg');"></div>
+      <div class="honeymoon-body">
+        <span class="honeymoon-tag">Snow</span>
+        <h3>Kashmir Heaven on Earth</h3>
+        <p>Houseboat stay, shikara ride & snow points in Gulmarg & Sonmarg.</p>
+        <p class="honeymoon-price">From ₹17,999 / person</p>
+        <div class="honeymoon-actions">
+          <a href="kashmir-packages.html" class="hmn-link">View details</a>
+          <button class="hmn-book-btn" onclick="location.href='book.html?package=kashmir&theme=honeymoon'">Book Now</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Kerala -->
+    <article class="honeymoon-card">
+      <div class="honeymoon-img" style="background-image:url('img/domestic-kerala.jpg');"></div>
+      <div class="honeymoon-body">
+        <span class="honeymoon-tag">Backwaters</span>
+        <h3>Kerala Houseboat Honeymoon</h3>
+        <p>Allepey houseboat stay, Munnar hills & candlelight dinner on the lake.</p>
+        <p class="honeymoon-price">From ₹18,999 / person</p>
+        <div class="honeymoon-actions">
+          <a href="kerala-packages.html" class="hmn-link">View details</a>
+          <button class="hmn-book-btn" onclick="location.href='book.html?package=kerala&theme=honeymoon'">Book Now</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Europe -->
+    <article class="honeymoon-card">
+      <div class="honeymoon-img" style="background-image:url('img/paris.jpg');"></div>
+      <div class="honeymoon-body">
+        <span class="honeymoon-tag">Luxury</span>
+        <h3>Romantic Europe Escape</h3>
+        <p>Paris, Swiss Alps & Italy with city tours, cruises & scenic train rides.</p>
+        <p class="honeymoon-price">From ₹1,59,999 / person</p>
+        <div class="honeymoon-actions">
+          <a href="europe-packages.html" class="hmn-link">View details</a>
+          <button class="hmn-book-btn" onclick="location.href='book.html?package=europe&theme=honeymoon'">Book Now</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+</body>
+</html>

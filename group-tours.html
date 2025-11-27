@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Group Tour Packages | KPM Global Holidays</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Fixed departure and custom group tour packages for friends, corporates and large families.">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+      margin:0;
+      background:#f8fafc;
+      font-family:"Inter",sans-serif;
+      color:#0f172a;
+    }
+
+    /* NAVBAR */
+    .kpm-nav {
+      position:sticky;
+      top:0;
+      background:#fff;
+      z-index:50;
+      box-shadow:0 1px 8px rgba(0,0,0,.08);
+    }
+    .kpm-nav-inner {
+      max-width:1150px;
+      margin:auto;
+      padding:10px 16px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .kpm-nav-left {
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .kpm-nav-logo {
+      height:46px;
+      border-radius:10px;
+    }
+    .kpm-nav-brand-title {
+      font-size:16px;
+      font-weight:700;
+    }
+    .kpm-nav-brand-sub {
+      font-size:12px;
+      color:#6b7280;
+    }
+
+    .kpm-nav-links {
+      display:flex;
+      gap:18px;
+      font-size:14px;
+      align-items:center;
+    }
+    .kpm-nav-links a {
+      text-decoration:none;
+      color:#0f172a;
+      font-weight:500;
+    }
+    .kpm-nav-links a.active {
+      color:#0f75c8;
+    }
+    .kpm-nav-links a:hover {
+      color:#0f75c8;
+    }
+
+    .kpm-nav-cta {
+      padding:8px 18px;
+      background:#0f75c8;
+      color:#fff;
+      border:none;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 4px 14px rgba(37,99,235,.35);
+    }
+
+    /* HERO */
+    .group-hero {
+      text-align:center;
+      padding:42px 16px 26px;
+      background:
+        radial-gradient(circle at top left,#e0f2fe,transparent 50%),
+        radial-gradient(circle at bottom right,#fee2e2,transparent 60%),
+        #f8fafc;
+    }
+    .group-hero h1 {
+      font-size:32px;
+      margin-bottom:10px;
+      font-weight:700;
+    }
+    .group-hero p {
+      margin:0;
+      font-size:15px;
+      color:#475569;
+    }
+
+    /* GRID */
+    .group-wrap {
+      padding:10px 16px 50px;
+    }
+    .group-grid {
+      max-width:1150px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .group-card {
+      background:#fff;
+      border-radius:18px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      box-shadow:0 14px 30px rgba(15,23,42,.08);
+    }
+    .group-img {
+      height:180px;
+      background-size:cover;
+      background-position:center;
+    }
+    .group-body {
+      padding:14px 16px 16px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      flex:1;
+    }
+    .group-tag {
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:#0f766e;
+      font-weight:600;
+    }
+    .group-body h3 {
+      margin:0;
+      font-size:17px;
+      font-weight:600;
+    }
+    .group-body p {
+      margin:0;
+      font-size:13px;
+      color:#475569;
+    }
+    .group-price {
+      margin-top:4px;
+      font-size:14px;
+      font-weight:600;
+      color:#0f75c8;
+    }
+
+    .group-actions {
+      margin-top:10px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+    }
+    .group-link {
+      font-size:13px;
+      color:#ea580c;
+      font-weight:600;
+      text-decoration:none;
+    }
+    .group-link:hover {
+      text-decoration:underline;
+    }
+    .group-book-btn {
+      padding:8px 14px;
+      background:#0f766e;
+      border:none;
+      border-radius:10px;
+      color:#fff;
+      font-size:13px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(15,118,110,.35);
+    }
+    .group-book-btn:hover {
+      background:#0b4f49;
+    }
+
+    /* INFO STRIP */
+    .group-info {
+      max-width:1150px;
+      margin:0 auto;
+      padding:14px 16px;
+      border-radius:14px;
+      background:#0f172a;
+      color:#e5e7eb;
+      font-size:13px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+    }
+    .group-info strong { color:#a5b4fc; }
+
+    @media(max-width:900px){
+      .group-grid{grid-template-columns:repeat(2,1fr);}
+      .group-info{flex-direction:column; align-items:flex-start;}
+    }
+    @media(max-width:600px){
+      .group-grid{grid-template-columns:1fr;}
+      .group-hero h1{font-size:26px;}
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="kpm-nav">
+  <div class="kpm-nav-inner">
+    <div class="kpm-nav-left">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo" alt="KPM Global Holidays">
+      <div>
+        <div class="kpm-nav-brand-title">KPM GLOBAL HOLIDAYS</div>
+        <div class="kpm-nav-brand-sub">Your Journey, Our Promise</div>
+      </div>
+    </div>
+
+    <nav class="kpm-nav-links">
+      <a href="index.html">Home</a>
+      <a href="holidays.html" class="active">Holidays</a>
+      <a href="honeymoon-packages.html">Honeymoon</a>
+      <a href="family-packages.html">Family</a>
+      <a href="group-tours.html">Group Tours</a>
+      <button class="kpm-nav-cta" onclick="location.href='book.html'">Plan Trip</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="group-hero">
+  <h1>Group & Fixed Departure Tours</h1>
+  <p>Perfect for friends, office teams and big families – flexible dates, escorted tours and bulk pricing.</p>
+</section>
+
+<!-- GRID -->
+<section class="group-wrap">
+  <div class="group-grid">
+
+    <!-- Ladakh Group -->
+    <article class="group-card">
+      <div class="group-img" style="background-image:url('img/domestic-manali.jpg');"></div>
+      <div class="group-body">
+        <span class="group-tag">Adventure Group</span>
+        <h3>Ladakh Road Trip Group Tour</h3>
+        <p>Leh, Nubra, Pangong with tempo traveller / bikes and support vehicle.</p>
+        <p class="group-price">From ₹24,999 / person</p>
+        <div class="group-actions">
+          <a href="ladakh-packages.html" class="group-link">View details</a>
+          <button class="group-book-btn" onclick="location.href='book.html?package=ladakh&theme=group'">Group Enquiry</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Himachal Group -->
+    <article class="group-card">
+      <div class="group-img" style="background-image:url('img/domestic-manali.jpg');"></div>
+      <div class="group-body">
+        <span class="group-tag">Corporate / Friends</span>
+        <h3>Shimla – Manali Group Tour</h3>
+        <p>Ideal for office outings & student groups with custom bus packages.</p>
+        <p class="group-price">From ₹13,999 / person</p>
+        <div class="group-actions">
+          <a href="himachal-packages.html" class="group-link">View details</a>
+          <button class="group-book-btn" onclick="location.href='book.html?package=himachal&theme=group'">Group Enquiry</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Goa Group -->
+    <article class="group-card">
+      <div class="group-img" style="background-image:url('img/domestic-goa.jpg');"></div>
+      <div class="group-body">
+        <span class="group-tag">Friends Trip</span>
+        <h3>Goa Party Group Package</h3>
+        <p>Beach resort, DJ nights & activities – perfect for friends / bachelor trips.</p>
+        <p class="group-price">From ₹10,999 / person</p>
+        <div class="group-actions">
+          <a href="goa-packages.html" class="group-link">View details</a>
+          <button class="group-book-btn" onclick="location.href='book.html?package=goa&theme=group'">Group Enquiry</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Dubai Group -->
+    <article class="group-card">
+      <div class="group-img" style="background-image:url('img/family-dubai.jpg');"></div>
+      <div class="group-body">
+        <span class="group-tag">International Group</span>
+        <h3>Dubai Corporate Incentive Tour</h3>
+        <p>Team events, gala dinner, Desert Safari & city sightseeing for corporates.</p>
+        <p class="group-price">From ₹52,999 / person</p>
+        <div class="group-actions">
+          <a href="dubai-packages.html" class="group-link">View details</a>
+          <button class="group-book-btn" onclick="location.href='book.html?package=dubai&theme=group'">Group Enquiry</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Thailand Group -->
+    <article class="group-card">
+      <div class="group-img" style="background-image:url('img/thailand.jpg');"></div>
+      <div class="group-body">
+        <span class="group-tag">Friends / College</span>
+        <h3>Thailand Bangkok – Pattaya Group</h3>
+        <p>Nightlife, Coral Island & shows – great for young groups & colleges.</p>
+        <p class="group-price">From ₹29,999 / person</p>
+        <div class="group-actions">
+          <a href="thailand-packages.html" class="group-link">View details</a>
+          <button class="group-book-btn" onclick="location.href='book.html?package=thailand&theme=group'">Group Enquiry</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Europe Group -->
+    <article class="group-card">
+      <div class="group-img" style="background-image:url('img/paris.jpg');"></div>
+      <div class="group-body">
+        <span class="group-tag">Fixed Departure</span>
+        <h3>Europe Highlights Group Tour</h3>
+        <p>Paris, Swiss Alps & Italy with Indian meals & tour manager.</p>
+        <p class="group-price">From ₹1,49,999 / person</p>
+        <div class="group-actions">
+          <a href="europe-packages.html" class="group-link">View details</a>
+          <button class="group-book-btn" onclick="location.href='book.html?package=europe&theme=group'">Group Enquiry</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- INFO STRIP BELOW GRID -->
+  <div class="group-info">
+    <span><strong>Note:</strong> Custom group pricing available for 10+ travellers, school groups & corporate MICE trips.</span>
+    <span>Share your dates on WhatsApp: <strong>+91 92059 20608</strong> for a tailored quote.</span>
+  </div>
+</section>
+
+</body>
+</html>

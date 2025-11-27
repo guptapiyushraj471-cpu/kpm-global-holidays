@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Holiday Enquiry | KPM Global Holiday</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #fdf5ef;
+      color: #1f2933;
+    }
+
+    .page-wrapper {
+      min-height: 100vh;
+      padding: 32px 16px 40px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .card {
+      background: #ffffff;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      border-radius: 24px;
+      max-width: 840px;
+      width: 100%;
+      padding: 28px 28px 32px;
+    }
+
+    @media (min-width: 768px) {
+      .card {
+        padding: 32px 40px 36px;
+      }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: #fff2e5;
+      color: #f97316;
+      margin-bottom: 10px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fb923c;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #111827;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 22px;
+    }
+
+    .pill-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+      font-size: 11px;
+    }
+
+    .pill-info span {
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: #f3f4f6;
+      color: #4b5563;
+    }
+
+    .required-note {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-bottom: 16px;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px 18px;
+    }
+
+    @media (min-width: 768px) {
+      form {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-weight: 500;
+      color: #374151;
+    }
+
+    label span {
+      color: #ef4444;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      padding: 9px 11px;
+      font-size: 13px;
+      outline: none;
+      background: #f9fafb;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #fb923c;
+      box-shadow: 0 0 0 1px rgba(251, 146, 60, 0.3);
+      background: #ffffff;
+    }
+
+    input[readonly] {
+      background: #f3f4f6;
+      cursor: default;
+    }
+
+    .inline-fields {
+      display: flex;
+      gap: 8px;
+    }
+
+    .inline-fields > * {
+      flex: 1;
+    }
+
+    .footer-row {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .button-primary {
+      padding: 10px 24px;
+      border-radius: 999px;
+      border: none;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      background: linear-gradient(135deg, #fb923c, #f97316);
+      color: #ffffff;
+      box-shadow: 0 12px 30px rgba(249, 115, 22, 0.45);
+      transition: transform 0.08s ease, box-shadow 0.08s ease, filter 0.08s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .button-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+      box-shadow: 0 16px 40px rgba(249, 115, 22, 0.52);
+    }
+
+    .button-primary:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 18px rgba(249, 115, 22, 0.35);
+    }
+
+    .button-secondary {
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 12px;
+      border: 1px dashed #d1d5db;
+      background: #f9fafb;
+      color: #6b7280;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .button-secondary span.icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #e5e7eb;
+      font-size: 10px;
+    }
+
+    .small-text {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .success-msg {
+      display: none;
+      margin-top: 10px;
+      font-size: 12px;
+      color: #16a34a;
+    }
+
+    .error-msg {
+      display: none;
+      margin-top: 10px;
+      font-size: 12px;
+      color: #dc2626;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="card">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Holiday Enquiry
+      </div>
+
+      <h1 class="title">Get a custom holiday quote</h1>
+      <p class="subtitle">
+        Share your travel details and our team will send you the best offers for this package.
+      </p>
+
+      <div class="pill-info">
+        <span>✔&nbsp;Best price guarantee</span>
+        <span>✔&nbsp;Expert travel assistance</span>
+        <span>✔&nbsp;No booking charges</span>
+      </div>
+
+      <p class="required-note">Fields marked with <span>*</span> are mandatory.</p>
+
+      <form id="enquiryForm" onsubmit="handleSubmit(event)">
+        <!-- Package Name (readonly) -->
+        <div class="form-group full">
+          <label for="packageName">Selected Package</label>
+          <input
+            type="text"
+            id="packageName"
+            name="packageName"
+            placeholder="Package name"
+            readonly
+          />
+          <input type="hidden" id="packageSlug" name="packageSlug" />
+        </div>
+
+        <!-- Name -->
+        <div class="form-group">
+          <label for="fullName">Full Name <span>*</span></label>
+          <input type="text" id="fullName" name="fullName" required placeholder="e.g. Piyush Sharma" />
+        </div>
+
+        <!-- Mobile -->
+        <div class="form-group">
+          <label for="mobile">Mobile Number <span>*</span></label>
+          <input
+            type="tel"
+            id="mobile"
+            name="mobile"
+            required
+            placeholder="e.g. +91 98765 43210"
+          />
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email ID</label>
+          <input type="email" id="email" name="email" placeholder="e.g. you@example.com" />
+        </div>
+
+        <!-- Departure City -->
+        <div class="form-group">
+          <label for="fromCity">Departure City <span>*</span></label>
+          <input type="text" id="fromCity" name="fromCity" required placeholder="e.g. New Delhi" />
+        </div>
+
+        <!-- Destination -->
+        <div class="form-group">
+          <label for="destination">Destination</label>
+          <input type="text" id="destination" name="destination" placeholder="e.g. Maldives" />
+        </div>
+
+        <!-- Travel Date -->
+        <div class="form-group">
+          <label for="startDate">Tentative Travel Date</label>
+          <input type="date" id="startDate" name="startDate" />
+        </div>
+
+        <!-- Nights / Budget -->
+        <div class="form-group">
+          <label for="nights">No. of Nights</label>
+          <input type="number" id="nights" name="nights" min="1" placeholder="e.g. 5" />
+        </div>
+
+        <div class="form-group">
+          <label for="budget">Budget (per person)</label>
+          <input type="text" id="budget" name="budget" placeholder="e.g. ₹40,000" />
+        </div>
+
+        <!-- Travellers -->
+        <div class="form-group">
+          <label>Travellers</label>
+          <div class="inline-fields">
+            <input type="number" name="adults" min="1" placeholder="Adults" />
+            <input type="number" name="children" min="0" placeholder="Children" />
+          </div>
+        </div>
+
+        <!-- Trip Type -->
+        <div class="form-group">
+          <label for="tripType">Trip Type</label>
+          <select id="tripType" name="tripType">
+            <option value="">Select</option>
+            <option>Honeymoon</option>
+            <option>Family Trip</option>
+            <option>Group Tour</option>
+            <option>Weekend Getaway</option>
+            <option>Corporate / MICE</option>
+          </select>
+        </div>
+
+        <!-- Message -->
+        <div class="form-group full">
+          <label for="message">Additional Requirements</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Hotel preference, meals, sightseeing, special requests etc."
+          ></textarea>
+        </div>
+
+        <!-- Footer row -->
+        <div class="footer-row">
+          <button type="submit" class="button-primary">
+            Submit Enquiry
+            <span>➜</span>
+          </button>
+
+          <button type="button" class="button-secondary" onclick="window.history.back()">
+            <span class="icon">←</span>
+            Back to packages
+          </button>
+
+          <div class="small-text">
+            By submitting, you agree to be contacted via call / WhatsApp for this enquiry.
+          </div>
+        </div>
+
+        <div id="successMsg" class="success-msg">
+          Thank you! Your enquiry has been submitted. Our travel expert will contact you shortly.
+        </div>
+        <div id="errorMsg" class="error-msg">
+          Something went wrong. Please try again.
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Get URL parameter value
+    function getParam(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name) || "";
+    }
+
+    // Pre-fill package name from ?package= and optional ?slug=
+    (function prefillPackage() {
+      const packageName = getParam("package");
+      const slug = getParam("slug");
+
+      if (packageName) {
+        document.getElementById("packageName").value = decodeURIComponent(packageName);
+      }
+
+      if (slug) {
+        document.getElementById("packageSlug").value = decodeURIComponent(slug);
+      } else if (packageName) {
+        // basic slug fallback
+        document.getElementById("packageSlug").value = packageName
+          .toLowerCase()
+          .replace(/\s+/g, "-")
+          .replace(/[^a-z0-9\-]/g, "");
+      }
+    })();
+
+    // Dummy submit handler (front-end only)
+    function handleSubmit(e) {
+      e.preventDefault();
+
+      const success = document.getElementById("successMsg");
+      const error = document.getElementById("errorMsg");
+
+      success.style.display = "none";
+      error.style.display = "none";
+
+      // Here you will integrate with backend / Google Form / email etc.
+      // For now just show success message.
+      setTimeout(function () {
+        success.style.display = "block";
+        // e.target.reset(); // uncomment if you want to clear form
+      }, 300);
+    }
+  </script>
+</body>
+</html>

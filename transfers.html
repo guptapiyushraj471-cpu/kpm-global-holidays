@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Airport & Local Transfers | KPM Global Holidays</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pre-book airport pickup, drop and local sightseeing transfers with KPM Global Holidays.">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+      margin: 0;
+      background:#f8fafc;
+      font-family: "Inter", sans-serif;
+      color:#0f172a;
+    }
+
+    /* NAVBAR (same pattern) */
+    .kpm-nav {
+      position: sticky;
+      top:0;
+      z-index:50;
+      background:#fff;
+      box-shadow:0 1px 8px rgba(0,0,0,0.08);
+    }
+    .kpm-nav-inner {
+      max-width:1150px;
+      margin:auto;
+      padding:10px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .kpm-nav-left { display:flex; align-items:center; gap:10px; }
+    .kpm-nav-logo { height:46px; border-radius:10px; }
+    .kpm-nav-brand-title { font-size:16px; font-weight:700; }
+    .kpm-nav-brand-sub { font-size:12px; color:#6b7280; }
+    .kpm-nav-links { display:flex; gap:18px; font-size:14px; align-items:center; }
+    .kpm-nav-links a { text-decoration:none; color:#0f172a; font-weight:500; }
+    .kpm-nav-links a.active { color:#0f75c8; }
+    .kpm-nav-links a:hover { color:#0f75c8; }
+    .kpm-nav-cta {
+      padding:8px 18px;
+      border-radius:999px;
+      border:none;
+      background:#0f75c8;
+      color:#fff;
+      font-size:14px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 4px 16px rgba(15,118,213,.35);
+    }
+
+    /* HERO */
+    .transfer-hero {
+      text-align:center;
+      padding:40px 16px 24px;
+      background:radial-gradient(circle at top left,#e0f2fe,transparent 50%),
+                 radial-gradient(circle at bottom right,#fee2e2,transparent 60%),
+                 #f8fafc;
+    }
+    .transfer-hero h1 { font-size:32px; margin-bottom:8px; }
+    .transfer-hero p { margin:0; font-size:15px; color:#475569; }
+
+    /* GRID WRAP */
+    .transfer-grid-wrap { padding:16px 16px 60px; }
+    .transfer-grid {
+      max-width:1150px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .transfer-card {
+      background:#fff;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 14px 30px rgba(15,23,42,.08);
+      display:flex;
+      flex-direction:column;
+    }
+    .transfer-card-img {
+      height:180px;
+      background-size:cover;
+      background-position:center;
+    }
+    .transfer-body {
+      padding:14px 16px 16px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      flex:1;
+    }
+    .transfer-body h3 { margin:0; font-size:17px; font-weight:600; }
+    .transfer-body p { margin:0; font-size:13px; color:#475569; }
+    .transfer-meta { font-size:12px; color:#6b7280; }
+    .transfer-price { color:#0f75c8; font-weight:600; margin-top:4px; }
+
+    .transfer-actions {
+      margin-top:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+    }
+    .transfer-link {
+      font-size:13px;
+      color:#ea580c;
+      font-weight:600;
+      text-decoration:none;
+    }
+    .transfer-link:hover { text-decoration:underline; }
+
+    .transfer-book-btn {
+      padding:8px 14px;
+      background:#ff4b2b;
+      border:none;
+      border-radius:10px;
+      color:#fff;
+      font-size:13px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(248,113,113,.35);
+    }
+    .transfer-book-btn:hover { background:#e03518; }
+
+    /* INFO STRIP */
+    .transfer-info-strip {
+      max-width:1150px;
+      margin:28px auto 0;
+      padding:14px 16px;
+      border-radius:14px;
+      background:#0f172a;
+      color:#e5e7eb;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      font-size:14px;
+    }
+    .transfer-info-strip strong { color:#facc15; }
+    .transfer-info-strip a {
+      color:#38bdf8;
+      text-decoration:none;
+      font-weight:600;
+    }
+    .transfer-info-strip a:hover { text-decoration:underline; }
+
+    @media (max-width:900px) {
+      .transfer-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:600px) {
+      .transfer-grid { grid-template-columns:1fr; }
+      .transfer-hero h1 { font-size:26px; }
+      .transfer-info-strip { flex-direction:column; align-items:flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<header class="kpm-nav">
+  <div class="kpm-nav-inner">
+    <div class="kpm-nav-left">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo" alt="KPM Global Holidays">
+      <div>
+        <div class="kpm-nav-brand-title">KPM GLOBAL HOLIDAYS</div>
+        <div class="kpm-nav-brand-sub">Your Journey, Our Promise</div>
+      </div>
+    </div>
+
+    <nav class="kpm-nav-links">
+      <a href="index.html">Home</a>
+      <a href="holidays.html">Holidays</a>
+      <a href="flights.html">Flights</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="visa-assistance.html">Visa</a>
+      <a href="transfers.html" class="active">Transfers</a>
+      <button class="kpm-nav-cta" onclick="location.href='book.html'">Plan a Trip</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="transfer-hero">
+  <h1>Airport & Local Transfers</h1>
+  <p>Pre-book private cabs, coaches and sightseeing transfers with KPM Global Holidays.</p>
+</section>
+
+<!-- TRANSFERS GRID -->
+<div class="transfer-grid-wrap">
+  <div class="transfer-grid">
+
+    <!-- Card 1: Airport Pickup -->
+    <article class="transfer-card">
+      <div class="transfer-card-img" style="background-image:url('img/transfer-airport.jpg');"></div>
+      <div class="transfer-body">
+        <h3>Airport Pickup – Private Car</h3>
+        <p>Doorstep pickup from airport to your hotel in AC sedan or SUV.</p>
+        <p class="transfer-meta">Includes: Waiting time, tolls & parking (as per city policy)</p>
+        <p class="transfer-price">Starting at ₹1,299 / way</p>
+        <div class="transfer-actions">
+          <a href="#" class="transfer-link">View Details</a>
+          <button class="transfer-book-btn" onclick="location.href='book.html?transfer=airport-pickup'">Book Now</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 2: Airport Drop -->
+    <article class="transfer-card">
+      <div class="transfer-card-img" style="background-image:url('img/transfer-drop.jpg');"></div>
+      <div class="transfer-body">
+        <h3>Airport Drop – Private Car</h3>
+        <p>On-time pickup from hotel to airport with live driver coordination.</p>
+        <p class="transfer-meta">Recommended: 3–4 hours before departure time</p>
+        <p class="transfer-price">Starting at ₹1,199 / way</p>
+        <div class="transfer-actions">
+          <a href="#" class="transfer-link">View Details</a>
+          <button class="transfer-book-btn" onclick="location.href='book.html?transfer=airport-drop'">Book Now</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 3: Full Day City -->
+    <article class="transfer-card">
+      <div class="transfer-card-img" style="background-image:url('img/transfer-city.jpg');"></div>
+      <div class="transfer-body">
+        <h3>Full Day City Sightseeing</h3>
+        <p>8–10 hours private cab for local sightseeing as per your itinerary.</p>
+        <p class="transfer-meta">Vehicle: Sedan / SUV / Tempo Traveller options available</p>
+        <p class="transfer-price">Starting at ₹2,999 / day</p>
+        <div class="transfer-actions">
+          <a href="#" class="transfer-link">View Details</a>
+          <button class="transfer-book-btn" onclick="location.href='book.html?transfer=city-sightseeing'">Book Now</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 4: Intercity Transfers -->
+    <article class="transfer-card">
+      <div class="transfer-card-img" style="background-image:url('img/transfer-intercity.jpg');"></div>
+      <div class="transfer-body">
+        <h3>Intercity Transfers</h3>
+        <p>Private cab between two cities – perfect for hill stations and long drives.</p>
+        <p class="transfer-meta">Example: Delhi → Manali, Kochi → Munnar</p>
+        <p class="transfer-price">Starting at ₹3,999 / trip</p>
+        <div class="transfer-actions">
+          <a href="#" class="transfer-link">View Details</a>
+          <button class="transfer-book-btn" onclick="location.href='book.html?transfer=intercity'">Book Now</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 5: Group Coach -->
+    <article class="transfer-card">
+      <div class="transfer-card-img" style="background-image:url('img/transfer-coach.jpg');"></div>
+      <div class="transfer-body">
+        <h3>Group Coach & Bus Transfers</h3>
+        <p>AC mini-coach and large buses for corporate groups & tours.</p>
+        <p class="transfer-meta">Capacity: 12, 18, 27, 35 & 45 seater options</p>
+        <p class="transfer-price">Custom quote based on route</p>
+        <div class="transfer-actions">
+          <a href="#" class="transfer-link">View Details</a>
+          <button class="transfer-book-btn" onclick="location.href='book.html?transfer=group-coach'">Book Now</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 6: Custom -->
+    <article class="transfer-card">
+      <div class="transfer-card-img" style="background-image:url('img/transfer-custom.jpg');"></div>
+      <div class="transfer-body">
+        <h3>Custom Transfers & Special Requests</h3>
+        <p>Multiple stops, night transfers, event logistics & outstation plans.</p>
+        <p class="transfer-meta">Share your plan & we’ll design the best route.</p>
+        <p class="transfer-price">Talk to our team for a quote</p>
+        <div class="transfer-actions">
+          <a href="#" class="transfer-link">Share my requirement</a>
+          <button class="transfer-book-btn" onclick="location.href='book.html?transfer=custom'">Plan With Expert</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- Bottom info strip -->
+  <div class="transfer-info-strip">
+    <span><strong>Note:</strong> All rides include verified drivers & sanitized vehicles as per local regulations.</span>
+    <span>For urgent transfers, WhatsApp us at <a href="https://wa.me/919205920608" target="_blank" rel="noopener">+91-92059 20608</a>.</span>
+  </div>
+</div>
+
+</body>
+</html>

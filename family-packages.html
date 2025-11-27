@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Family Holiday Packages | KPM Global Holidays</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Family holiday packages with comfort stays, activities & city tours for stress-free vacations.">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body { margin:0; background:#f8fafc; font-family:"Inter",sans-serif; color:#0f172a; }
+
+    /* NAV */
+    .kpm-nav {
+      position:sticky; top:0; background:#fff; z-index:50;
+      box-shadow:0 1px 8px rgba(0,0,0,.08);
+    }
+    .kpm-nav-inner {
+      max-width:1150px; margin:auto; padding:10px 16px;
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .kpm-nav-left { display:flex; align-items:center; gap:10px; }
+    .kpm-nav-logo { height:46px; border-radius:10px; }
+    .kpm-nav-brand-title { font-size:16px; font-weight:700; }
+    .kpm-nav-brand-sub { font-size:12px; color:#6b7280; }
+
+    .kpm-nav-links { display:flex; gap:18px; font-size:14px; align-items:center; }
+    .kpm-nav-links a { text-decoration:none; color:#0f172a; font-weight:500; }
+    .kpm-nav-links a.active { color:#0f75c8; }
+    .kpm-nav-cta {
+      padding:8px 18px; background:#0f75c8; color:#fff;
+      border:none; border-radius:999px; cursor:pointer; font-weight:600;
+    }
+
+    /* HERO */
+    .family-hero {
+      text-align:center; padding:42px 16px 26px;
+      background:
+        radial-gradient(circle at top left,#e0f2fe,transparent 50%),
+        radial-gradient(circle at bottom right,#fee2e2,transparent 60%),
+        #f8fafc;
+    }
+    .family-hero h1 { font-size:32px; margin-bottom:10px; font-weight:700; }
+    .family-hero p { margin:0; font-size:15px; color:#475569; }
+
+    /* GRID */
+    .family-wrap { padding:10px 16px 50px; }
+    .family-grid {
+      max-width:1150px; margin:auto;
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .family-card {
+      background:#fff; border-radius:18px; overflow:hidden;
+      display:flex; flex-direction:column;
+      box-shadow:0 14px 30px rgba(15,23,42,.08);
+    }
+    .family-img {
+      height:180px; background-size:cover; background-position:center;
+    }
+    .family-body {
+      padding:14px 16px; display:flex; flex-direction:column; gap:6px;
+    }
+    .family-body h3 { margin:0; font-size:17px; font-weight:600; }
+    .family-body p { margin:0; font-size:13px; color:#475569; }
+    .family-price { font-size:14px; font-weight:600; color:#0f75c8; }
+
+    .family-actions {
+      margin-top:10px; display:flex; justify-content:space-between; align-items:center;
+    }
+    .family-link {
+      color:#ea580c; font-size:13px; font-weight:600; text-decoration:none;
+    }
+    .family-link:hover { text-decoration:underline; }
+    .family-book {
+      padding:8px 14px; font-size:13px; font-weight:600;
+      background:#ff4b2b; border:none; border-radius:10px; color:#fff; cursor:pointer;
+    }
+
+    @media(max-width:900px){ .family-grid{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:600px){
+      .family-grid{grid-template-columns:1fr;}
+      .family-hero h1{font-size:26px;}
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<header class="kpm-nav">
+  <div class="kpm-nav-inner">
+    <div class="kpm-nav-left">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo">
+      <div>
+        <div class="kpm-nav-brand-title">KPM GLOBAL HOLIDAYS</div>
+        <div class="kpm-nav-brand-sub">Your Journey, Our Promise</div>
+      </div>
+    </div>
+
+    <nav class="kpm-nav-links">
+      <a href="index.html">Home</a>
+      <a href="holidays.html" class="active">Holidays</a>
+      <a href="honeymoon-packages.html">Honeymoon</a>
+      <a href="family-packages.html">Family</a>
+      <a href="group-tours.html">Group Tours</a>
+      <button class="kpm-nav-cta" onclick="location.href='book.html'">Plan Trip</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="family-hero">
+  <h1>Best Family Holiday Packages</h1>
+  <p>Comfortable stays, sightseeing & activities — stress-free family vacations designed with care.</p>
+</section>
+
+<!-- GRID -->
+<section class="family-wrap">
+  <div class="family-grid">
+
+    <!-- Dubai -->
+    <article class="family-card">
+      <div class="family-img" style="background-image:url('img/family-dubai.jpg');"></div>
+      <div class="family-body">
+        <h3>Dubai Family Escape</h3>
+        <p>Dhow cruise dinner, Desert Safari, Burj Khalifa & city tour.</p>
+        <p class="family-price">From ₹54,999 / person</p>
+        <div class="family-actions">
+          <a class="family-link" href="dubai-packages.html">View Details</a>
+          <button class="family-book" onclick="location.href='book.html?package=dubai&theme=family'">Book</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Singapore -->
+    <article class="family-card">
+      <div class="family-img" style="background-image:url('img/singapore.jpg');"></div>
+      <div class="family-body">
+        <h3>Singapore & Sentosa</h3>
+        <p>Universal Studios, Night Safari & cable car rides.</p>
+        <p class="family-price">From ₹47,999 / person</p>
+        <div class="family-actions">
+          <a class="family-link" href="singapore-packages.html">View Details</a>
+          <button class="family-book" onclick="location.href='book.html?package=singapore&theme=family'">Book</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Goa -->
+    <article class="family-card">
+      <div class="family-img" style="background-image:url('img/domestic-goa.jpg');"></div>
+      <div class="family-body">
+        <h3>Goa Family Beach Trip</h3>
+        <p>Resort stay, beaches & fun activities.</p>
+        <p class="family-price">From ₹11,999 / person</p>
+        <div class="family-actions">
+          <a class="family-link" href="goa-packages.html">View Details</a>
+          <button class="family-book" onclick="location.href='book.html?package=goa&theme=family'">Book</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Manali -->
+    <article class="family-card">
+      <div class="family-img" style="background-image:url('img/domestic-manali.jpg');"></div>
+      <div class="family-body">
+        <h3>Manali Hills Family Trip</h3>
+        <p>Solang Valley + scenic sightseeing.</p>
+        <p class="family-price">From ₹14,999 / person</p>
+        <div class="family-actions">
+          <a class="family-link" href="himachal-packages.html">View Details</a>
+          <button class="family-book" onclick="location.href='book.html?package=manali&theme=family'">Book</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Kashmir -->
+    <article class="family-card">
+      <div class="family-img" style="background-image:url('img/domestic-kashmir.jpg');"></div>
+      <div class="family-body">
+        <h3>Kashmir Nature Family Tour</h3>
+        <p>Dal Lake, Gulmarg & Pahalgam.</p>
+        <p class="family-price">From ₹17,999 / person</p>
+        <div class="family-actions">
+          <a class="family-link" href="kashmir-packages.html">View Details</a>
+          <button class="family-book" onclick="location.href='book.html?package=kashmir&theme=family'">Book</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Thailand -->
+    <article class="family-card">
+      <div class="family-img" style="background-image:url('img/thailand.jpg');"></div>
+      <div class="family-body">
+        <h3>Thailand Family Fun</h3>
+        <p>Coral Island + shows & activities.</p>
+        <p class="family-price">From ₹32,999 / person</p>
+        <div class="family-actions">
+          <a class="family-link" href="thailand-packages.html">View Details</a>
+          <button class="family-book" onclick="location.href='book.html?package=thailand&theme=family'">Book</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+</body>
+</html>

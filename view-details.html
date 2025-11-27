@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Package Details | KPM Global Holiday</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #fdf5ef;
+      color: #111827;
+    }
+
+    .page-wrapper {
+      min-height: 100vh;
+      padding: 32px 16px 40px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .layout {
+      max-width: 1120px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.9fr 1.1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      border-radius: 24px;
+      padding: 22px 22px 26px;
+    }
+
+    @media (min-width: 768px) {
+      .card {
+        padding: 26px 28px 30px;
+      }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: #fff2e5;
+      color: #f97316;
+      margin-bottom: 10px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fb923c;
+    }
+
+    .breadcrumb {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-bottom: 6px;
+    }
+
+    .breadcrumb a {
+      color: #9ca3af;
+      text-decoration: none;
+    }
+
+    .breadcrumb span.sep {
+      margin: 0 6px;
+    }
+
+    .title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #111827;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 18px;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12px;
+      margin-bottom: 18px;
+    }
+
+    .meta-pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #f3f4f6;
+      color: #4b5563;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .meta-pill strong {
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      margin-top: 10px;
+      color: #111827;
+    }
+
+    .section {
+      font-size: 13px;
+      color: #4b5563;
+      line-height: 1.6;
+      margin-bottom: 14px;
+      border-top: 1px dashed #e5e7eb;
+      padding-top: 14px;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin-top: 6px;
+    }
+
+    .itinerary-day {
+      margin-bottom: 8px;
+    }
+
+    .itinerary-day strong {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* RIGHT SIDEBAR */
+    .price-box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 22px;
+      font-weight: 700;
+      color: #f97316;
+    }
+
+    .price small {
+      font-size: 11px;
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    .review {
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    .review strong {
+      color: #111827;
+    }
+
+    .quick-points {
+      font-size: 11px;
+      color: #4b5563;
+      margin-bottom: 14px;
+    }
+
+    .quick-points li {
+      margin-bottom: 4px;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #fb923c, #f97316);
+      color: #ffffff;
+      box-shadow: 0 12px 30px rgba(249, 115, 22, 0.4);
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      border: 1px solid #f97316;
+      color: #f97316;
+    }
+
+    .btn-ghost {
+      background: #f9fafb;
+      border: 1px dashed #d1d5db;
+      color: #6b7280;
+      font-size: 12px;
+      padding: 8px 16px;
+    }
+
+    .small-text {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 11px;
+    }
+
+    .tag-row span {
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #f3f4f6;
+      color: #4b5563;
+    }
+
+    .divider {
+      border-top: 1px dashed #e5e7eb;
+      margin: 12px 0 10px;
+    }
+
+    .badge-mini {
+      display: inline-block;
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #ecfdf5;
+      color: #16a34a;
+      margin-bottom: 4px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .gallery div {
+      background: #e5e7eb;
+      border-radius: 12px;
+      height: 60px;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="layout">
+      <!-- LEFT: MAIN DETAILS -->
+      <main class="card">
+        <div class="breadcrumb">
+          <a href="holidays.html">Holidays</a>
+          <span class="sep">›</span>
+          <span id="bcCategory">Packages</span>
+          <span class="sep">›</span>
+          <span id="bcPackage">Package Details</span>
+        </div>
+
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Package Details
+        </div>
+
+        <h1 class="title" id="packageTitle">Maldives Honeymoon – 4N/5D</h1>
+        <p class="subtitle" id="packageSubtitle">
+          4N/5D water villa experience with candle light dinner, airport transfers & daily breakfast.
+        </p>
+
+        <div class="meta-row">
+          <div class="meta-pill">
+            <strong id="metaNights">4N / 5D</strong>
+          </div>
+          <div class="meta-pill">
+            <strong id="metaCities">Malé · Island Resort</strong>
+          </div>
+          <div class="meta-pill">
+            <span>Best time:</span>
+            <strong id="metaSeason">Oct – Mar</strong>
+          </div>
+          <div class="meta-pill">
+            <span>Theme:</span>
+            <strong id="metaTheme">Honeymoon</strong>
+          </div>
+        </div>
+
+        <!-- Overview -->
+        <section class="section">
+          <h2 class="section-title">Overview</h2>
+          <p id="overview">
+            Escape to the turquoise lagoons of Maldives with this romantic 4N/5D getaway. Stay in a
+            beach or water villa, enjoy daily breakfast & dinner, airport transfers by speedboat and a
+            special candle light dinner for the couple.
+          </p>
+
+          <div class="gallery">
+            <!-- Sirf placeholder blocks. Yaha images laga sakte ho -->
+            <div>Main Resort View</div>
+            <div>Water Villa</div>
+            <div>Beach Sunset</div>
+          </div>
+        </section>
+
+        <!-- Itinerary -->
+        <section class="section">
+          <h2 class="section-title">Day-wise Itinerary</h2>
+          <div id="itinerary">
+            <div class="itinerary-day">
+              <strong>Day 1 – Arrival in Maldives</strong>
+              <span>Arrive at Malé, transfer to resort by speedboat, check-in & relax. Evening at leisure.</span>
+            </div>
+            <div class="itinerary-day">
+              <strong>Day 2 – Leisure / Water Sports</strong>
+              <span>Enjoy breakfast, explore water sports (optional) like snorkeling, jet ski, banana boat ride.</span>
+            </div>
+            <div class="itinerary-day">
+              <strong>Day 3 – Romantic Experiences</strong>
+              <span>Day at leisure. In the evening, enjoy special candle light dinner with wine for the couple.</span>
+            </div>
+            <div class="itinerary-day">
+              <strong>Day 4 – Island Activities</strong>
+              <span>Relax by the beach or choose optional excursions: dolphin cruise, spa session, sunset cruise.</span>
+            </div>
+            <div class="itinerary-day">
+              <strong>Day 5 – Departure</strong>
+              <span>Check-out and transfer to airport for your flight back home.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Inclusions / Exclusions -->
+        <section class="section">
+          <h2 class="section-title">Inclusions</h2>
+          <ul id="inclusions">
+            <li>4 nights stay in beach / water villa</li>
+            <li>Daily breakfast & dinner</li>
+            <li>Return airport–resort–airport transfers by speedboat</li>
+            <li>One time candle light dinner</li>
+            <li>All hotel taxes</li>
+          </ul>
+
+          <h2 class="section-title" style="margin-top:12px;">Exclusions</h2>
+          <ul id="exclusions">
+            <li>Airfare & visa charges</li>
+            <li>Travel insurance</li>
+            <li>Any water sports or activities not mentioned in inclusions</li>
+            <li>Personal expenses, tips and taxes not mentioned</li>
+          </ul>
+        </section>
+
+        <!-- Notes -->
+        <section class="section">
+          <h2 class="section-title">Important Notes</h2>
+          <ul id="notes">
+            <li>Rates are subject to change at the time of booking.</li>
+            <li>Final itinerary may vary based on flight timings & resort availability.</li>
+            <li>Peak season surcharges may apply on long weekends & festive dates.</li>
+          </ul>
+        </section>
+      </main>
+
+      <!-- RIGHT: PRICE & CTA -->
+      <aside class="card">
+        <div class="price-box-header">
+          <div>
+            <div class="price" id="priceText">₹89,999 <small>/ couple</small></div>
+          </div>
+          <div class="review">
+            ⭐ <strong>4.8/5</strong><br />
+            120+ travellers booked
+          </div>
+        </div>
+
+        <ul class="quick-points">
+          <li>Flexible payment plans available</li>
+          <li>Customisation possible as per your dates & budget</li>
+        </ul>
+
+        <div class="btn-row">
+          <a id="btnEnquiry" href="#" class="btn btn-primary">
+            Enquire Now
+            <span>➜</span>
+          </a>
+          <a id="btnQuote" href="#" class="btn btn-outline">
+            Get Free Quote
+          </a>
+          <a id="btnBook" href="#" class="btn btn-ghost">
+            Book Now (Pay later)
+          </a>
+        </div>
+
+        <div class="small-text">
+          By proceeding, you agree to be contacted via call / WhatsApp for this package enquiry.
+        </div>
+
+        <div class="divider"></div>
+
+        <span class="badge-mini">Why book with KPM Global Holiday?</span>
+        <div class="tag-row">
+          <span>Best price guaranteed</span>
+          <span>Curated resorts</span>
+          <span>Dedicated trip expert</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    function getParam(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name) || "";
+    }
+
+    (function initPage() {
+      const pkg = getParam("package");
+      const cat = getParam("category");
+
+      if (pkg) {
+        const decoded = decodeURIComponent(pkg);
+        document.getElementById("packageTitle").textContent = decoded;
+        document.getElementById("bcPackage").textContent = decoded;
+      }
+
+      if (cat) {
+        document.getElementById("bcCategory").textContent = decodeURIComponent(cat);
+      }
+
+      const pkgForUrl = encodeURIComponent(pkg || "Holiday Package");
+
+      // CTA links
+      document.getElementById("btnEnquiry").href =
+        "enquiry.html?package=" + pkgForUrl;
+      document.getElementById("btnQuote").href =
+        "get-quote.html?package=" + pkgForUrl;
+      document.getElementById("btnBook").href =
+        "enquiry.html?package=" + pkgForUrl + "&type=book";
+    })();
+  </script>
+</body>
+</html>

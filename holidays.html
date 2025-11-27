@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Holiday Packages | KPM Global Holidays</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Discover curated domestic and international holiday packages with KPM Global Holidays." />
+
+  <!-- Global site CSS (already used in index) -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Page specific CSS -->
+  <style>
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      color: #0f172a;
+      background: #f8fafc;
+    }
+
+    /* Top nav (simple) */
+    .kpm-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #ffffff;
+      box-shadow: 0 1px 8px rgba(15, 23, 42, 0.08);
+    }
+
+    .kpm-nav-inner {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .kpm-nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .kpm-nav-logo {
+      height: 46px;
+      width: auto;
+      border-radius: 12px;
+      background: #e0f2fe;
+      padding: 4px;
+    }
+
+    .kpm-nav-brand {
+      line-height: 1.1;
+    }
+
+    .kpm-nav-brand-title {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+
+    .kpm-nav-brand-sub {
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    .kpm-nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+      align-items: center;
+    }
+
+    .kpm-nav-links a {
+      text-decoration: none;
+      color: #0f172a;
+      font-weight: 500;
+    }
+
+    .kpm-nav-links a.active {
+      color: #0f75c8;
+    }
+
+    .kpm-nav-links a:hover {
+      color: #0f75c8;
+    }
+
+    .kpm-nav-cta {
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: none;
+      background: #0f75c8;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(15, 118, 213, 0.35);
+    }
+
+    .kpm-nav-cta:hover {
+      background: #07559a;
+    }
+
+    /* Hero section */
+    .holiday-hero {
+      padding: 40px 16px 24px;
+      background: radial-gradient(circle at top left, #e0f2fe 0, transparent 55%),
+                  radial-gradient(circle at bottom right, #fee2e2 0, transparent 55%),
+                  #f8fafc;
+    }
+
+    .holiday-hero-inner {
+      max-width: 1150px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .holiday-hero-inner h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .holiday-hero-inner p.hero-sub {
+      margin: 0;
+      font-size: 15px;
+      color: #475569;
+    }
+
+    /* Filter tabs */
+    .holiday-filters {
+      margin-top: 24px;
+      display: inline-flex;
+      gap: 8px;
+      padding: 6px;
+      border-radius: 999px;
+      background: #ffffff;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+    }
+
+    .holiday-filter-btn {
+      border: none;
+      border-radius: 999px;
+      background: transparent;
+      padding: 8px 16px;
+      font-size: 13px;
+      cursor: pointer;
+      font-weight: 500;
+      color: #0f172a;
+    }
+
+    .holiday-filter-btn.active {
+      background: #0f75c8;
+      color: #ffffff;
+    }
+
+    .holiday-filter-btn:hover:not(.active) {
+      background: #e5f0ff;
+    }
+
+    /* Cards grid */
+    .holiday-grid-wrap {
+      padding: 10px 16px 50px;
+    }
+
+    .holiday-grid {
+      max-width: 1150px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .holiday-card {
+      background: #ffffff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .holiday-card-img {
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .holiday-card-body {
+      padding: 14px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .holiday-card-body h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .holiday-card-body p {
+      margin: 0;
+      font-size: 13px;
+      color: #4b5563;
+    }
+
+    .holiday-price {
+      font-weight: 600;
+      margin-top: 4px;
+      color: #0f75c8;
+    }
+
+    .holiday-card-actions {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .holiday-link {
+      font-size: 13px;
+      text-decoration: none;
+      color: #ea580c;
+      font-weight: 600;
+    }
+
+    .holiday-link:hover {
+      text-decoration: underline;
+    }
+
+    .holiday-book-btn {
+      padding: 8px 14px;
+      border-radius: 10px;
+      border: none;
+      background: #ff4b2b;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(248, 113, 113, 0.4);
+    }
+
+    .holiday-book-btn:hover {
+      background: #e03518;
+    }
+
+    /* Help strip */
+    .holiday-help {
+      max-width: 1150px;
+      margin: 30px auto 0;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: #0f172a;
+      color: #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .holiday-help span {
+      font-weight: 500;
+    }
+
+    .holiday-help a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .holiday-help a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .holiday-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .kpm-nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .kpm-nav-links {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .holiday-grid {
+        grid-template-columns: 1fr;
+      }
+      .holiday-hero-inner h1 {
+        font-size: 26px;
+      }
+      .holiday-hero-inner p.hero-sub {
+        font-size: 14px;
+      }
+      .holiday-help {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Simple KPM nav -->
+  <header class="kpm-nav">
+    <div class="kpm-nav-inner">
+      <div class="kpm-nav-left">
+        <img src="images/Logo-KPM Global  Holiday.png" alt="KPM Global Holidays" class="kpm-nav-logo" />
+        <div class="kpm-nav-brand">
+          <div class="kpm-nav-brand-title">KPM GLOBAL HOLIDAYS</div>
+          <div class="kpm-nav-brand-sub">Your Journey, Our Promise</div>
+        </div>
+      </div>
+
+      <nav class="kpm-nav-links">
+        <a href="index.html">Home</a>
+        <a href="holidays.html" class="active">Holidays</a>
+        <a href="flights.html">Flights</a>
+        <a href="hotels.html">Hotels</a>
+        <a href="visa-assistance.html">Visa</a>
+        <button class="kpm-nav-cta" type="button" onclick="location.href='book.html'">
+          Plan a Trip
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero + filters -->
+  <section class="holiday-hero">
+    <div class="holiday-hero-inner">
+      <h1>Discover Handpicked Holiday Packages</h1>
+      <p class="hero-sub">
+        From Indian hill stations to iconic international cities – explore tailored trips powered by KPM Global Holidays.
+      </p>
+
+      <div class="holiday-filters">
+        <button class="holiday-filter-btn active" type="button">All</button>
+        <button class="holiday-filter-btn" type="button">Honeymoon</button>
+        <button class="holiday-filter-btn" type="button">Family</button>
+        <button class="holiday-filter-btn" type="button">Adventure</button>
+        <button class="holiday-filter-btn" type="button">Weekend</button>
+        <button class="holiday-filter-btn" type="button">International</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packages grid -->
+  <div class="holiday-grid-wrap">
+    <div class="holiday-grid">
+      <!-- Maldives -->
+      <article class="holiday-card">
+        <div class="holiday-card-img" style="background-image:url('img/honeymoon-maldives.jpg');"></div>
+        <div class="holiday-card-body">
+          <h3>Maldives Overwater Honeymoon</h3>
+          <p>4N/5D water villa with private transfers & romantic dinner.</p>
+          <p class="holiday-price">Starting at ₹89,999 / couple</p>
+          <div class="holiday-card-actions">
+            <a href="maldives-packages.html" class="holiday-link">View Details</a>
+            <button class="holiday-book-btn" onclick="location.href='book.html?package=maldives'">Book Now</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Dubai -->
+      <article class="holiday-card">
+        <div class="holiday-card-img" style="background-image:url('img/family-dubai.jpg');"></div>
+        <div class="holiday-card-body">
+          <h3>Dubai Family Escape</h3>
+          <p>Desert safari, Burj Khalifa & city tour with 4N hotel stay.</p>
+          <p class="holiday-price">Starting at ₹54,999 / person</p>
+          <div class="holiday-card-actions">
+            <a href="dubai-packages.html" class="holiday-link">View Details</a>
+            <button class="holiday-book-btn" onclick="location.href='book.html?package=dubai-family'">Book Now</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Goa -->
+      <article class="holiday-card">
+        <div class="holiday-card-img" style="background-image:url('img/weekend-goa.jpg');"></div>
+        <div class="holiday-card-body">
+          <h3>Goa Beach Getaway</h3>
+          <p>3N resort stay with breakfast, airport transfers & sightseeing.</p>
+          <p class="holiday-price">Starting at ₹11,999 / person</p>
+          <div class="holiday-card-actions">
+            <a href="goa-packages.html" class="holiday-link">View Details</a>
+            <button class="holiday-book-btn" onclick="location.href='book.html?package=goa'">Book Now</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Kashmir -->
+      <article class="holiday-card">
+        <div class="holiday-card-img" style="background-image:url('img/domestic-kashmir.jpg');"></div>
+        <div class="holiday-card-body">
+          <h3>Kashmir Houseboat Delight</h3>
+          <p>Srinagar, Gulmarg & Pahalgam with shikara ride & houseboat stay.</p>
+          <p class="holiday-price">Starting at ₹17,999 / person</p>
+          <div class="holiday-card-actions">
+            <a href="kashmir-packages.html" class="holiday-link">View Details</a>
+            <button class="holiday-book-btn" onclick="location.href='book.html?package=kashmir'">Book Now</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Kerala -->
+      <article class="holiday-card">
+        <div class="holiday-card-img" style="background-image:url('img/domestic-kerala.jpg');"></div>
+        <div class="holiday-card-body">
+          <h3>Kerala Backwaters & Hills</h3>
+          <p>Houseboat in Alleppey with Munnar, Thekkady & Kochi tour.</p>
+          <p class="holiday-price">Starting at ₹18,999 / person</p>
+          <div class="holiday-card-actions">
+            <a href="kerala-packages.html" class="holiday-link">View Details</a>
+            <button class="holiday-book-btn" onclick="location.href='book.html?package=kerala'">Book Now</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Europe -->
+      <article class="holiday-card">
+        <div class="holiday-card-img" style="background-image:url('img/europe.jpg');"></div>
+        <div class="holiday-card-body">
+          <h3>Classic Europe Highlights</h3>
+          <p>Paris, Swiss Alps & Italy in a guided 9N/10D group tour.</p>
+          <p class="holiday-price">Starting at ₹1,59,999 / person</p>
+          <div class="holiday-card-actions">
+            <a href="europe-packages.html" class="holiday-link">View Details</a>
+            <button class="holiday-book-btn" onclick="location.href='book.html?package=europe'">Book Now</button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Help strip -->
+    <div class="holiday-help">
+      <span>Need help choosing the right package?</span>
+      <span>Chat with us on <a href="https://wa.me/919205920608" target="_blank" rel="noopener">WhatsApp</a> or call <strong>+91-92059 20608</strong>.</span>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flight Tickets | KPM Global Holidays</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Book cheapest domestic & international flight tickets with KPM Global Holidays">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+      margin: 0;
+      background:#f8fafc;
+      font-family: "Inter", sans-serif;
+      color:#0f172a;
+    }
+
+    /* NAVBAR */
+    .kpm-nav {
+      position: sticky;
+      top:0;
+      z-index:50;
+      background:#fff;
+      box-shadow:0 1px 8px rgba(0,0,0,0.08);
+    }
+    .kpm-nav-inner {
+      max-width:1150px;
+      margin:auto;
+      padding:10px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .kpm-nav-left { display:flex; align-items:center; gap:10px; }
+    .kpm-nav-logo { height:46px; border-radius:10px; }
+    .kpm-nav-brand-title { font-size:16px; font-weight:700; }
+    .kpm-nav-brand-sub { font-size:12px; color:#6b7280; }
+    .kpm-nav-links { display:flex; gap:18px; font-size:14px; align-items:center; }
+    .kpm-nav-links a { text-decoration:none; color:#0f172a; font-weight:500; }
+    .kpm-nav-links a.active { color:#0f75c8; }
+    .kpm-nav-links a:hover { color:#0f75c8; }
+    .kpm-nav-cta {
+      padding:8px 18px;
+      border-radius:999px;
+      border:none;
+      background:#0f75c8;
+      color:#fff;
+      font-size:14px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 4px 16px rgba(15,118,213,.35);
+    }
+
+    /* HERO */
+    .flight-hero {
+      text-align:center;
+      padding:40px 16px 24px;
+      background:radial-gradient(circle at top left,#e0f2fe,transparent 50%),
+                 radial-gradient(circle at bottom right,#fee2e2,transparent 60%),
+                 #f8fafc;
+    }
+    .flight-hero h1 { font-size:32px; margin-bottom:8px; }
+    .flight-hero p { margin:0; font-size:15px; color:#475569; }
+
+    /* GRID */
+    .flight-grid-wrap { padding:16px 16px 60px; }
+    .flight-grid {
+      max-width:1150px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .flight-card {
+      background:#fff;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 14px 30px rgba(15,23,42,.08);
+      display:flex;
+      flex-direction:column;
+    }
+    .flight-card-img {
+      height:190px;
+      background-size:cover;
+      background-position:center;
+    }
+    .flight-body {
+      padding:14px 16px 16px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      flex:1;
+    }
+    .flight-body h3 { margin:0; font-size:17px; font-weight:600; }
+    .flight-body p { margin:0; font-size:13px; color:#475569; }
+    .flight-price { color:#0f75c8; font-weight:600; margin-top:4px; }
+
+    .flight-actions {
+      margin-top:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+    }
+    .flight-link {
+      font-size:13px;
+      color:#ea580c;
+      font-weight:600;
+      text-decoration:none;
+    }
+    .flight-link:hover { text-decoration:underline; }
+
+    .flight-book-btn {
+      padding:8px 14px;
+      background:#ff4b2b;
+      border:none;
+      border-radius:10px;
+      color:#fff;
+      font-size:13px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(248,113,113,.35);
+    }
+    .flight-book-btn:hover { background:#e03518; }
+
+    @media (max-width:900px) {
+      .flight-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:600px) {
+      .flight-grid { grid-template-columns:1fr; }
+      .flight-hero h1 { font-size:26px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<header class="kpm-nav">
+  <div class="kpm-nav-inner">
+    <div class="kpm-nav-left">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo">
+      <div>
+        <div class="kpm-nav-brand-title">KPM GLOBAL HOLIDAYS</div>
+        <div class="kpm-nav-brand-sub">Your Journey, Our Promise</div>
+      </div>
+    </div>
+
+    <nav class="kpm-nav-links">
+      <a href="index.html">Home</a>
+      <a href="holidays.html">Holidays</a>
+      <a href="flights.html" class="active">Flights</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="visa-assistance.html">Visa</a>
+      <button class="kpm-nav-cta" onclick="location.href='book.html'">Plan a Trip</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="flight-hero">
+  <h1>Book Cheapest Flight Tickets</h1>
+  <p>Exclusive airfare discounts for domestic & international travel</p>
+</section>
+
+<!-- FLIGHTS GRID -->
+<div class="flight-grid-wrap">
+  <div class="flight-grid">
+
+    <!-- Flight 1 -->
+    <article class="flight-card">
+      <div class="flight-card-img" style="background-image:url('img/flight-dubai.jpg');"></div>
+      <div class="flight-body">
+        <h3>Delhi → Dubai</h3>
+        <p>Direct return flights with 25kg baggage.</p>
+        <p class="flight-price">Starting at ₹18,499</p>
+        <div class="flight-actions">
+          <a href="#" class="flight-link">View Details</a>
+          <button class="flight-book-btn" onclick="location.href='book.html?flight=dubai'">Book Now</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Flight 2 -->
+    <article class="flight-card">
+      <div class="flight-card-img" style="background-image:url('img/flight-bali.jpg');"></div>
+      <div class="flight-body">
+        <h3>Mumbai → Bali</h3>
+        <p>Best economy fare with meals included.</p>
+        <p class="flight-price">Starting at ₹22,999</p>
+        <div class="flight-actions">
+          <a href="#" class="flight-link">View Details</a>
+          <button class="flight-book-btn" onclick="location.href='book.html?flight=bali'">Book Now</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Flight 3 -->
+    <article class="flight-card">
+      <div class="flight-card-img" style="background-image:url('img/flight-goa.jpg');"></div>
+      <div class="flight-body">
+        <h3>Delhi → Goa</h3>
+        <p>Daily flights with flexible date rescheduling.</p>
+        <p class="flight-price">Starting at ₹4,999</p>
+        <div class="flight-actions">
+          <a href="#" class="flight-link">View Details</a>
+          <button class="flight-book-btn" onclick="location.href='book.html?flight=goa'">Book Now</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</div>
+
+</body>
+</html>

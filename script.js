@@ -1349,4 +1349,16 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+<script>
+  document.querySelectorAll('.kpm-offer-arrow').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var track = document.querySelector(btn.dataset.target);
+      if (!track) return;
+      var dir = btn.dataset.dir === 'right' ? 1 : -1;
+      var amount = track.querySelector('.kpm-offer-card')?.offsetWidth || 320;
+      track.scrollBy({ left: dir * amount, behavior: 'smooth' });
+    });
+  });
+</script>
+
 // --- NEW CODE END ---

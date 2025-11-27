@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pilgrimage & Spiritual Tours | KPM Global Holidays</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Chardham Yatra, Vaishno Devi, Varanasi, Rishikesh and other pilgrimage tours by KPM Global Holidays.">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+      margin:0;
+      background:#f8fafc;
+      font-family:"Inter",sans-serif;
+      color:#0f172a;
+    }
+
+    /* NAVBAR */
+    .kpm-nav {
+      position:sticky;
+      top:0;
+      background:#fff;
+      z-index:50;
+      box-shadow:0 1px 8px rgba(0,0,0,.08);
+    }
+    .kpm-nav-inner {
+      max-width:1150px;
+      margin:auto;
+      padding:10px 16px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .kpm-nav-left {
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .kpm-nav-logo {
+      height:46px;
+      border-radius:10px;
+    }
+    .kpm-nav-brand-title {
+      font-size:16px;
+      font-weight:700;
+    }
+    .kpm-nav-brand-sub {
+      font-size:12px;
+      color:#6b7280;
+    }
+
+    .kpm-nav-links {
+      display:flex;
+      gap:18px;
+      font-size:14px;
+      align-items:center;
+    }
+    .kpm-nav-links a {
+      text-decoration:none;
+      color:#0f172a;
+      font-weight:500;
+    }
+    .kpm-nav-links a.active {
+      color:#0f75c8;
+    }
+    .kpm-nav-links a:hover {
+      color:#0f75c8;
+    }
+
+    .kpm-nav-cta {
+      padding:8px 18px;
+      background:#0f75c8;
+      color:#fff;
+      border:none;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 4px 14px rgba(37,99,235,.35);
+    }
+
+    /* HERO */
+    .pilgrim-hero {
+      text-align:center;
+      padding:42px 16px 26px;
+      background:
+        radial-gradient(circle at top left,#e0f2fe,transparent 50%),
+        radial-gradient(circle at bottom right,#fee2e2,transparent 60%),
+        #fefce8;
+    }
+    .pilgrim-hero h1 {
+      font-size:32px;
+      margin-bottom:10px;
+      font-weight:700;
+    }
+    .pilgrim-hero p {
+      margin:0;
+      font-size:15px;
+      color:#475569;
+    }
+
+    /* GRID */
+    .pilgrim-wrap {
+      padding:10px 16px 50px;
+    }
+    .pilgrim-grid {
+      max-width:1150px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .pilgrim-card {
+      background:#fff;
+      border-radius:18px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      box-shadow:0 14px 30px rgba(15,23,42,.08);
+    }
+    .pilgrim-img {
+      height:180px;
+      background-size:cover;
+      background-position:center;
+    }
+    .pilgrim-body {
+      padding:14px 16px 16px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .pilgrim-tag {
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:#b45309;
+      font-weight:600;
+    }
+    .pilgrim-body h3 {
+      margin:0;
+      font-size:17px;
+      font-weight:600;
+    }
+    .pilgrim-body p {
+      margin:0;
+      font-size:13px;
+      color:#475569;
+    }
+    .pilgrim-meta {
+      font-size:12px;
+      color:#6b7280;
+    }
+    .pilgrim-price {
+      font-size:14px;
+      font-weight:600;
+      color:#0f75c8;
+      margin-top:2px;
+    }
+
+    .pilgrim-actions {
+      margin-top:10px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+    }
+    .pilgrim-link {
+      font-size:13px;
+      color:#ea580c;
+      font-weight:600;
+      text-decoration:none;
+    }
+    .pilgrim-link:hover {
+      text-decoration:underline;
+    }
+    .pilgrim-book {
+      padding:8px 14px;
+      background:#b45309;
+      border:none;
+      border-radius:10px;
+      color:#fff;
+      font-size:13px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(180,83,9,.35);
+    }
+    .pilgrim-book:hover {
+      background:#92400e;
+    }
+
+    @media(max-width:900px){
+      .pilgrim-grid{grid-template-columns:repeat(2,1fr);}
+    }
+    @media(max-width:600px){
+      .pilgrim-grid{grid-template-columns:1fr;}
+      .pilgrim-hero h1{font-size:26px;}
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="kpm-nav">
+  <div class="kpm-nav-inner">
+    <div class="kpm-nav-left">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo" alt="KPM Global Holidays">
+      <div>
+        <div class="kpm-nav-brand-title">KPM GLOBAL HOLIDAYS</div>
+        <div class="kpm-nav-brand-sub">Your Journey, Our Promise</div>
+      </div>
+    </div>
+
+    <nav class="kpm-nav-links">
+      <a href="index.html">Home</a>
+      <a href="holidays.html" class="active">Holidays</a>
+      <a href="honeymoon-packages.html">Honeymoon</a>
+      <a href="family-packages.html">Family</a>
+      <a href="group-tours.html">Group Tours</a>
+      <a href="weekend-getaways.html">Weekend Getaways</a>
+      <a href="pilgrimage-tours.html">Pilgrimage Tours</a>
+      <button class="kpm-nav-cta" onclick="location.href='book.html'">Plan Trip</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="pilgrim-hero">
+  <h1>Pilgrimage & Spiritual Tours</h1>
+  <p>Carefully planned yatra packages with comfortable stays, darshan assistance & trusted local support.</p>
+</section>
+
+<!-- GRID -->
+<section class="pilgrim-wrap">
+  <div class="pilgrim-grid">
+
+    <!-- Chardham Yatra -->
+    <article class="pilgrim-card">
+      <div class="pilgrim-img" style="background-image:url('img/pilgrimage-chardham.jpg');"></div>
+      <div class="pilgrim-body">
+        <span class="pilgrim-tag">Uttarakhand</span>
+        <h3>Chardham Yatra Ex Haridwar</h3>
+        <p>12N/13D Badrinath, Kedarnath, Yamunotri & Gangotri with transport & stays.</p>
+        <p class="pilgrim-meta">Best season: May – Oct (weather dependent)</p>
+        <p class="pilgrim-price">From ₹38,999 / person</p>
+        <div class="pilgrim-actions">
+          <a href="package-detail.html" class="pilgrim-link">View Details</a>
+          <button class="pilgrim-book" onclick="location.href='book.html?package=chardham&theme=pilgrimage'">Enquire</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Vaishno Devi -->
+    <article class="pilgrim-card">
+      <div class="pilgrim-img" style="background-image:url('img/pilgrimage-vaishno.jpg');"></div>
+      <div class="pilgrim-body">
+        <span class="pilgrim-tag">Jammu</span>
+        <h3>Mata Vaishno Devi Yatra</h3>
+        <p>2N/3D Katra hotel + Yatra assistance, transfers & optional helicopter add-on.</p>
+        <p class="pilgrim-meta">Customizable from Delhi, Mumbai, Kolkata etc.</p>
+        <p class="pilgrim-price">From ₹7,999 / person</p>
+        <div class="pilgrim-actions">
+          <a href="package-detail.html" class="pilgrim-link">View Details</a>
+          <button class="pilgrim-book" onclick="location.href='book.html?package=vaishnodevi&theme=pilgrimage'">Enquire</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Varanasi -->
+    <article class="pilgrim-card">
+      <div class="pilgrim-img" style="background-image:url('img/pilgrimage-varanasi.jpg');"></div>
+      <div class="pilgrim-body">
+        <span class="pilgrim-tag">Uttar Pradesh</span>
+        <h3>Varanasi Ganga Darshan</h3>
+        <p>3D/2N Kashi Vishwanath Temple + Ganga Aarti boat ride.</p>
+        <p class="pilgrim-meta">Add-on options: Prayagraj, Ayodhya</p>
+        <p class="pilgrim-price">From ₹8,499 / person</p>
+        <div class="pilgrim-actions">
+          <a href="package-detail.html" class="pilgrim-link">View Details</a>
+          <button class="pilgrim-book" onclick="location.href='book.html?package=varanasi&theme=pilgrimage'">Enquire</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Rishikesh / Haridwar -->
+    <article class="pilgrim-card">
+      <div class="pilgrim-img" style="background-image:url('img/domestic-rishikesh.jpg');"></div>
+      <div class="pilgrim-body">
+        <span class="pilgrim-tag">Ganga Belt</span>
+        <h3>Haridwar & Rishikesh Yatra</h3>
+        <p>2N/3D Har Ki Pauri, Ganga Aarti & Rishikesh temples + optional rafting.</p>
+        <p class="pilgrim-meta">Ideal for: family spiritual + light adventure</p>
+        <p class="pilgrim-price">From ₹6,999 / person</p>
+        <div class="pilgrim-actions">
+          <a href="activities.html" class="pilgrim-link">View Details</a>
+          <button class="pilgrim-book" onclick="location.href='book.html?package=haridwar-rishikesh&theme=pilgrimage'">Enquire</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- South India Temples -->
+    <article class="pilgrim-card">
+      <div class="pilgrim-img" style="background-image:url('img/pilgrimage-southindia.jpg');"></div>
+      <div class="pilgrim-body">
+        <span class="pilgrim-tag">South India</span>
+        <h3>Madurai – Rameswaram – Kanyakumari</h3>
+        <p>5N/6D popular South temple circuit with darshan & local transfers.</p>
+        <p class="pilgrim-meta">Start from: Madurai / Trichy / Chennai</p>
+        <p class="pilgrim-price">From ₹19,999 / person</p>
+        <div class="pilgrim-actions">
+          <a href="package-detail.html" class="pilgrim-link">View Details</a>
+          <button class="pilgrim-book" onclick="location.href='book.html?package=south-temple&theme=pilgrimage'">Enquire</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Custom Pilgrimage -->
+    <article class="pilgrim-card">
+      <div class="pilgrim-img" style="background-image:url('img/pilgrimage-custom.jpg');"></div>
+      <div class="pilgrim-body">
+        <span class="pilgrim-tag">Custom Yatra</span>
+        <h3>Design Your Own Pilgrimage Tour</h3>
+        <p>Ayodhya, Mathura, Shirdi, Tirupati or any combination as per your family’s plan.</p>
+        <p class="pilgrim-meta">We help with routing, darshan time & senior citizen friendly planning.</p>
+        <p class="pilgrim-price">On Request</p>
+        <div class="pilgrim-actions">
+          <a href="book.html" class="pilgrim-link">Share Requirements</a>
+          <button class="pilgrim-book" onclick="location.href='book.html?package=custom-pilgrimage&theme=pilgrimage'">Get Quote</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+</body>
+</html>
