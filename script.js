@@ -1394,30 +1394,5 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
-// ===== Holiday Cards Image Slider =====
-document.querySelectorAll(".holiday-slider").forEach((slider) => {
-  const track = slider.querySelector(".slider-track");
-  const slides = track.querySelectorAll("img");
-  const prev = slider.querySelector(".prev");
-  const next = slider.querySelector(".next");
-
-  let index = 0;
-
-  function updateSlider() {
-    track.style.transform = `translateX(-${index * 100}%)`;
-  }
-
-  next.addEventListener("click", () => {
-    index = (index + 1) % slides.length;
-    updateSlider();
-  });
-
-  prev.addEventListener("click", () => {
-    index = (index - 1 + slides.length) % slides.length;
-    updateSlider();
-  });
-});
-
-
 
 // --- NEW CODE END ---
