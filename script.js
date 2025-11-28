@@ -1361,4 +1361,63 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 </script>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Har .kpm-offers section ke liye alag-alag filtering
+  var offerSections = document.querySelectorAll('.kpm-offers');
+
+  offerSections.forEach(function (section) {
+    var tabs = section.querySelectorAll('.kpm-offer-tab');
+    var cards = section.querySelectorAll('.kpm-offer-card');
+
+    if (!tabs.length || !cards.length) return;
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var filter = tab.dataset.filter || 'all';
+
+        // Is section ke andar ke tabs par hi active class
+        tabs.forEach(function (t) {
+          t.classList.remove('kpm-offer-tab-active');
+        });
+        tab.classList.add('kpm-offer-tab-active');
+
+        // Is section ke cards ko hi filter karo
+        cards.forEach(function (card) {
+          var cats = (card.dataset.category || '').split(' ');
+          var show = (filter === 'all') || cats.includes(filter);
+          card.style.display = show ? '' : 'none';
+        });
+      });
+    });
+  });
+});
+</script>
+
+// ===== Holiday Cards Image Slider =====
+document.querySelectorAll(".holiday-slider").forEach((slider) => {
+  const track = slider.querySelector(".slider-track");
+  const slides = track.querySelectorAll("img");
+  const prev = slider.querySelector(".prev");
+  const next = slider.querySelector(".next");
+
+  let index = 0;
+
+  function updateSlider() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  next.addEventListener("click", () => {
+    index = (index + 1) % slides.length;
+    updateSlider();
+  });
+
+  prev.addEventListener("click", () => {
+    index = (index - 1 + slides.length) % slides.length;
+    updateSlider();
+  });
+});
+
+
+
 // --- NEW CODE END ---

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Plan Your Global Trip | KPM Global Holiday</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Share your travel details and get a customised global holiday plan from KPM Global Holiday." />
+
+  <!-- Main site font (same as index) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Trip page CSS -->
+  <link rel="stylesheet" href="plan-trip.css" />
+</head>
+<body>
+
+  <header class="pt-header">
+    <div class="pt-container pt-header-inner">
+      <div class="pt-logo-block">
+        <img src="images/Logo-KPM Global  Holiday.png" alt="KPM Global Holiday" class="pt-logo">
+        <div>
+          <h1>KPM GLOBAL HOLIDAY</h1>
+          <p>Your Journey, Our Promise</p>
+        </div>
+      </div>
+
+      <a href="index.html" class="pt-back-link">← Back to Home</a>
+    </div>
+  </header>
+
+  <main class="pt-main">
+    <div class="pt-container pt-layout">
+
+      <section class="pt-intro">
+        <h2>Plan Your Global Trip</h2>
+        <p>Tell us a few details about your dream vacation and our travel experts will curate a personalised itinerary for you.</p>
+        <ul>
+          <li>✈️ Handpicked destinations and stays</li>
+          <li>🧳 Customisable itineraries as per your budget</li>
+          <li>🤝 Dedicated trip planner support</li>
+        </ul>
+      </section>
+
+      <section class="pt-form-card">
+        <h3>Share Your Travel Details</h3>
+
+        <form class="pt-form">
+          <div class="pt-field">
+            <label for="name">Full Name</label>
+            <input id="name" type="text" placeholder="Enter your full name" required>
+          </div>
+
+          <div class="pt-field">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com" required>
+          </div>
+
+          <div class="pt-field">
+            <label for="phone">Phone / WhatsApp</label>
+            <input id="phone" type="tel" placeholder="+91 98765 43210" required>
+          </div>
+
+          <div class="pt-field">
+            <label for="destination">Preferred Destination(s)</label>
+            <input id="destination" type="text" placeholder="e.g. Dubai, Bali, Europe" required>
+          </div>
+
+          <div class="pt-row">
+            <div class="pt-field">
+              <label for="start-date">Start Date</label>
+              <input id="start-date" type="date">
+            </div>
+            <div class="pt-field">
+              <label for="end-date">End Date</label>
+              <input id="end-date" type="date">
+            </div>
+          </div>
+
+          <div class="pt-row">
+            <div class="pt-field">
+              <label for="travellers">No. of Travellers</label>
+              <input id="travellers" type="number" min="1" value="2">
+            </div>
+            <div class="pt-field">
+              <label for="budget">Approx Budget (INR)</label>
+              <input id="budget" type="text" placeholder="e.g. 1,20,000">
+            </div>
+          </div>
+
+          <div class="pt-field">
+            <label for="notes">Anything specific we should know?</label>
+            <textarea id="notes" rows="4" placeholder="Preferred hotel type, activities, special requests, etc."></textarea>
+          </div>
+
+          <button type="submit" class="pt-submit-btn">Submit &amp; Get Trip Plan</button>
+
+          <p class="pt-small-text">
+            By submitting this form, you agree to be contacted by KPM Global Holiday via phone, WhatsApp or email.
+          </p>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="pt-footer">
+    <div class="pt-container">
+      © <span id="year"></span> KPM Global Holiday. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // simple year update
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

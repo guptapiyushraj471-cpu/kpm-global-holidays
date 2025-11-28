@@ -11,7 +11,7 @@
     body {
       margin: 0;
       background:#f8fafc;
-      font-family: "Inter", sans-serif;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color:#0f172a;
     }
 
@@ -33,8 +33,8 @@
       gap:16px;
     }
     .kpm-nav-left { display:flex; align-items:center; gap:10px; }
-    .kpm-nav-logo { height:46px; border-radius:10px; }
-    .kpm-nav-brand-title { font-size:16px; font-weight:700; }
+    .kpm-nav-logo { height:46px; border-radius:10px; background:#e0f2fe; padding:4px; }
+    .kpm-nav-brand-title { font-size:16px; font-weight:700; letter-spacing:0.06em; }
     .kpm-nav-brand-sub { font-size:12px; color:#6b7280; }
     .kpm-nav-links { display:flex; gap:18px; font-size:14px; align-items:center; }
     .kpm-nav-links a { text-decoration:none; color:#0f172a; font-weight:500; }
@@ -63,6 +63,32 @@
     .flight-hero h1 { font-size:32px; margin-bottom:8px; }
     .flight-hero p { margin:0; font-size:15px; color:#475569; }
 
+    /* FILTERS */
+    .flight-filters {
+      margin-top:24px;
+      display:inline-flex;
+      gap:8px;
+      padding:6px;
+      border-radius:999px;
+      background:#ffffff;
+      box-shadow:0 10px 25px rgba(15,23,42,0.12);
+    }
+    .flight-filter-btn {
+      border:none;
+      border-radius:999px;
+      background:transparent;
+      padding:8px 16px;
+      font-size:13px;
+      cursor:pointer;
+      font-weight:500;
+      color:#0f172a;
+    }
+    .flight-filter-btn.active {
+      background:#0f75c8;
+      color:#ffffff;
+    }
+    .flight-filter-btn:hover:not(.active) { background:#e5f0ff; }
+
     /* GRID */
     .flight-grid-wrap { padding:16px 16px 60px; }
     .flight-grid {
@@ -81,11 +107,46 @@
       display:flex;
       flex-direction:column;
     }
-    .flight-card-img {
-      height:190px;
-      background-size:cover;
-      background-position:center;
+
+    /* SLIDER */
+    .flight-slider {
+      position:relative;
+      overflow:hidden;
+      height:210px;
     }
+    .flight-track {
+      display:flex;
+      width:100%;
+      height:100%;
+      transform:translateX(0);
+      transition:transform .6s ease-in-out;
+    }
+    .flight-track img {
+      width:100%;
+      height:210px;
+      object-fit:cover;
+      flex-shrink:0;
+    }
+    .flight-slide-btn {
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      border:none;
+      background:#ffffff;
+      box-shadow:0 4px 12px rgba(0,0,0,.25);
+      cursor:pointer;
+      font-size:16px;
+      font-weight:bold;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .flight-slide-btn.prev { left:10px; }
+    .flight-slide-btn.next { right:10px; }
+
     .flight-body {
       padding:14px 16px 16px;
       display:flex;
@@ -131,6 +192,8 @@
     @media (max-width:600px) {
       .flight-grid { grid-template-columns:1fr; }
       .flight-hero h1 { font-size:26px; }
+      .flight-slider,
+      .flight-track img { height:200px; }
     }
   </style>
 </head>
@@ -141,7 +204,7 @@
 <header class="kpm-nav">
   <div class="kpm-nav-inner">
     <div class="kpm-nav-left">
-      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo" alt="KPM Global Holidays">
       <div>
         <div class="kpm-nav-brand-title">KPM GLOBAL HOLIDAYS</div>
         <div class="kpm-nav-brand-sub">Your Journey, Our Promise</div>
@@ -163,18 +226,36 @@
 <section class="flight-hero">
   <h1>Book Cheapest Flight Tickets</h1>
   <p>Exclusive airfare discounts for domestic & international travel</p>
+
+  <div class="flight-filters">
+    <button class="flight-filter-btn active" type="button" data-filter="all">All</button>
+    <button class="flight-filter-btn" type="button" data-filter="domestic">Domestic</button>
+    <button class="flight-filter-btn" type="button" data-filter="international">International</button>
+  </div>
 </section>
 
 <!-- FLIGHTS GRID -->
 <div class="flight-grid-wrap">
   <div class="flight-grid">
 
-    <!-- Flight 1 -->
-    <article class="flight-card">
-      <div class="flight-card-img" style="background-image:url('img/flight-dubai.jpg');"></div>
+    <!-- Delhi → Dubai – International -->
+    <article class="flight-card" data-category="international">
+      <div class="flight-slider">
+        <div class="flight-track">
+          <!-- Make sure file names exist in /images folder -->
+          <img src="images/Delhi Dubai1.jpg" alt="Dubai flight 1">
+          <img src="images/Delhi Dubai2.avif" alt="Dubai flight 2">
+          <img src="images/Delhi Dubai3.jfif" alt="Dubai flight 3">
+          <img src="images/Delhi Dubai4.jfif" alt="Dubai flight 4">
+          <img src="images/Delhi Dubai5.png" alt="Dubai flight 5">
+        </div>
+        <button class="flight-slide-btn prev">❮</button>
+        <button class="flight-slide-btn next">❯</button>
+      </div>
+
       <div class="flight-body">
         <h3>Delhi → Dubai</h3>
-        <p>Direct return flights with 25kg baggage.</p>
+        <p>Direct return flights with 25kg baggage allowance.</p>
         <p class="flight-price">Starting at ₹18,499</p>
         <div class="flight-actions">
           <a href="#" class="flight-link">View Details</a>
@@ -183,12 +264,23 @@
       </div>
     </article>
 
-    <!-- Flight 2 -->
-    <article class="flight-card">
-      <div class="flight-card-img" style="background-image:url('img/flight-bali.jpg');"></div>
+    <!-- Mumbai → Bali – International -->
+    <article class="flight-card" data-category="international">
+      <div class="flight-slider">
+        <div class="flight-track">
+          <img src="images/Mumbai Bali1.webp" alt="Bali flight 1">
+          <img src="images/Mumbai Bali2.jfif" alt="Bali flight 2">
+          <img src="images/Mumbai Bali3.jpeg" alt="Bali flight 3">
+          <img src="images/Mumbai Bali4.webp" alt="Bali flight 4">
+          <img src="images/Mumbai Bali5.webp" alt="Bali flight 5">
+        </div>
+        <button class="flight-slide-btn prev">❮</button>
+        <button class="flight-slide-btn next">❯</button>
+      </div>
+
       <div class="flight-body">
         <h3>Mumbai → Bali</h3>
-        <p>Best economy fare with meals included.</p>
+        <p>Top economy connections with meals & on-board entertainment.</p>
         <p class="flight-price">Starting at ₹22,999</p>
         <div class="flight-actions">
           <a href="#" class="flight-link">View Details</a>
@@ -197,12 +289,23 @@
       </div>
     </article>
 
-    <!-- Flight 3 -->
-    <article class="flight-card">
-      <div class="flight-card-img" style="background-image:url('img/flight-goa.jpg');"></div>
+    <!-- Delhi → Goa – Domestic -->
+    <article class="flight-card" data-category="domestic">
+      <div class="flight-slider">
+        <div class="flight-track">
+          <img src="images/Delhi Goa1.jfif" alt="Goa flight 1">
+          <img src="images/Delhi Goa2.jpg" alt="Goa flight 2">
+          <img src="images/Delhi Goa3.jpg" alt="Goa flight 3">
+          <img src="images/Delhi Dubai4.jfif" alt="Goa flight 4">
+          <img src="images/Delhi Goa5.png" alt="Goa flight 5">
+        </div>
+        <button class="flight-slide-btn prev">❮</button>
+        <button class="flight-slide-btn next">❯</button>
+      </div>
+
       <div class="flight-body">
         <h3>Delhi → Goa</h3>
-        <p>Daily flights with flexible date rescheduling.</p>
+        <p>Multiple daily flights with flexible rescheduling options.</p>
         <p class="flight-price">Starting at ₹4,999</p>
         <div class="flight-actions">
           <a href="#" class="flight-link">View Details</a>
@@ -213,6 +316,72 @@
 
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    /* ===== FILTERS ===== */
+    const filterBtns = document.querySelectorAll('.flight-filter-btn');
+    const flightCards = document.querySelectorAll('.flight-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        flightCards.forEach(card => {
+          const cats = (card.dataset.category || '').split(' ');
+          const show = filter === 'all' || cats.includes(filter);
+          card.style.display = show ? '' : 'none';
+        });
+      });
+    });
+
+    /* ===== IMAGE SLIDERS (auto + arrows) ===== */
+    document.querySelectorAll('.flight-slider').forEach(slider => {
+      const track = slider.querySelector('.flight-track');
+      const slides = track.querySelectorAll('img');
+      const prev = slider.querySelector('.flight-slide-btn.prev');
+      const next = slider.querySelector('.flight-slide-btn.next');
+
+      let index = 0;
+      let timerId = null;
+
+      function update() {
+        track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      }
+
+      function startAuto() {
+        stopAuto();
+        timerId = setInterval(() => {
+          index = (index + 1) % slides.length;
+          update();
+        }, 2000); // auto slide every 2 sec
+      }
+
+      function stopAuto() {
+        if (timerId) clearInterval(timerId);
+      }
+
+      next.addEventListener('click', () => {
+        index = (index + 1) % slides.length;
+        update();
+        startAuto();
+      });
+
+      prev.addEventListener('click', () => {
+        index = (index - 1 + slides.length) % slides.length;
+        update();
+        startAuto();
+      });
+
+      slider.addEventListener('mouseenter', stopAuto);
+      slider.addEventListener('mouseleave', startAuto);
+
+      startAuto();
+    });
+  });
+</script>
 
 </body>
 </html>

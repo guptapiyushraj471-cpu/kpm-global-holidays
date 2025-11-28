@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Discover curated domestic and international holiday packages with KPM Global Holidays." />
 
-  <!-- Global site CSS (already used in index) -->
+  <!-- Global site CSS -->
   <link rel="stylesheet" href="styles.css" />
 
   <!-- Page specific CSS -->
@@ -106,9 +106,10 @@
     /* Hero section */
     .holiday-hero {
       padding: 40px 16px 24px;
-      background: radial-gradient(circle at top left, #e0f2fe 0, transparent 55%),
-                  radial-gradient(circle at bottom right, #fee2e2 0, transparent 55%),
-                  #f8fafc;
+      background:
+        radial-gradient(circle at top left, #e0f2fe 0, transparent 55%),
+        radial-gradient(circle at bottom right, #fee2e2 0, transparent 55%),
+        #f8fafc;
     }
 
     .holiday-hero-inner {
@@ -181,12 +182,6 @@
       flex-direction: column;
     }
 
-    .holiday-card-img {
-      height: 180px;
-      background-size: cover;
-      background-position: center;
-    }
-
     .holiday-card-body {
       padding: 14px 16px 16px;
       display: flex;
@@ -225,6 +220,10 @@
       text-decoration: none;
       color: #ea580c;
       font-weight: 600;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
     }
 
     .holiday-link:hover {
@@ -246,6 +245,49 @@
     .holiday-book-btn:hover {
       background: #e03518;
     }
+
+    /* Card slider */
+    .holiday-slider {
+      position: relative;
+      overflow: hidden;
+      height: 220px;
+    }
+
+    .slider-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transform: translateX(0);
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .slider-track img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .slide-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide-btn.prev { left: 10px; }
+    .slide-btn.next { right: 10px; }
 
     /* Help strip */
     .holiday-help {
@@ -276,6 +318,35 @@
       text-decoration: underline;
     }
 
+    /* Modal */
+    .package-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(15,23,42,0.7);
+      z-index: 999;
+    }
+
+    .package-modal-content {
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 16px;
+      max-width: 640px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 50px rgba(15,23,42,0.4);
+    }
+
+    .close-modal {
+      float: right;
+      cursor: pointer;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
     @media (max-width: 900px) {
       .holiday-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -302,6 +373,10 @@
       .holiday-help {
         flex-direction: column;
         align-items: flex-start;
+      }
+      .holiday-slider,
+      .slider-track img {
+        height: 200px;
       }
     }
   </style>
@@ -333,7 +408,7 @@
     </div>
   </header>
 
-  <!-- Hero + filters -->
+  <!-- HERO + FILTERS -->
   <section class="holiday-hero">
     <div class="holiday-hero-inner">
       <h1>Discover Handpicked Holiday Packages</h1>
@@ -342,39 +417,58 @@
       </p>
 
       <div class="holiday-filters">
-        <button class="holiday-filter-btn active" type="button">All</button>
-        <button class="holiday-filter-btn" type="button">Honeymoon</button>
-        <button class="holiday-filter-btn" type="button">Family</button>
-        <button class="holiday-filter-btn" type="button">Adventure</button>
-        <button class="holiday-filter-btn" type="button">Weekend</button>
-        <button class="holiday-filter-btn" type="button">International</button>
+        <button class="holiday-filter-btn active" type="button" data-filter="all">All</button>
+        <button class="holiday-filter-btn" type="button" data-filter="honeymoon">Honeymoon</button>
+        <button class="holiday-filter-btn" type="button" data-filter="family">Family</button>
+        <button class="holiday-filter-btn" type="button" data-filter="adventure">Adventure</button>
+        <button class="holiday-filter-btn" type="button" data-filter="weekend">Weekend</button>
+        <button class="holiday-filter-btn" type="button" data-filter="international">International</button>
       </div>
     </div>
   </section>
 
-  <!-- Packages grid -->
+  <!-- PACKAGES GRID -->
   <div class="holiday-grid-wrap">
     <div class="holiday-grid">
-      <!-- Maldives -->
-      <article class="holiday-card">
-        <div class="holiday-card-img" style="background-image:url('img/honeymoon-maldives.jpg');"></div>
+
+      <!-- Maldives – Honeymoon + International -->
+      <article class="holiday-card" data-category="honeymoon international">
+        <div class="holiday-slider">
+          <div class="slider-track">
+            <img src="images/Maldives Overwater Honeymoon1.jpg" alt="Maldives water villa 1">
+            <img src="images/Maldives Overwater Honeymoon2.jpeg" alt="Maldives water villa 2">
+            <img src="images/Maldives Overwater Honeymoon3.jpg" alt="Maldives water villa 3">
+          </div>
+          <button class="slide-btn prev">❮</button>
+          <button class="slide-btn next">❯</button>
+        </div>
+
         <div class="holiday-card-body">
           <h3>Maldives Overwater Honeymoon</h3>
-          <p>4N/5D water villa with private transfers & romantic dinner.</p>
+          <p>4N/5D water villa with private transfers &amp; romantic dinner.</p>
           <p class="holiday-price">Starting at ₹89,999 / couple</p>
           <div class="holiday-card-actions">
-            <a href="maldives-packages.html" class="holiday-link">View Details</a>
+            <button class="holiday-link open-details" data-target="maldives-details">View Details</button>
             <button class="holiday-book-btn" onclick="location.href='book.html?package=maldives'">Book Now</button>
           </div>
         </div>
       </article>
 
-      <!-- Dubai -->
-      <article class="holiday-card">
-        <div class="holiday-card-img" style="background-image:url('img/family-dubai.jpg');"></div>
+      <!-- Dubai – Family + International + Adventure -->
+      <article class="holiday-card" data-category="family international adventure">
+        <div class="holiday-slider">
+          <div class="slider-track">
+            <img src="images/Dubai Family Escape1.jpg" alt="Dubai city view">
+            <img src="images/Dubai Family Escape2.jpg" alt="Desert safari">
+            <img src="images/Dubai Family Escape3.jpg" alt="Burj Khalifa">
+          </div>
+          <button class="slide-btn prev">❮</button>
+          <button class="slide-btn next">❯</button>
+        </div>
+
         <div class="holiday-card-body">
           <h3>Dubai Family Escape</h3>
-          <p>Desert safari, Burj Khalifa & city tour with 4N hotel stay.</p>
+          <p>Desert safari, Burj Khalifa &amp; city tour with 4N hotel stay.</p>
           <p class="holiday-price">Starting at ₹54,999 / person</p>
           <div class="holiday-card-actions">
             <a href="dubai-packages.html" class="holiday-link">View Details</a>
@@ -383,12 +477,21 @@
         </div>
       </article>
 
-      <!-- Goa -->
-      <article class="holiday-card">
-        <div class="holiday-card-img" style="background-image:url('img/weekend-goa.jpg');"></div>
+      <!-- Goa – Weekend + Family -->
+      <article class="holiday-card" data-category="weekend family">
+        <div class="holiday-slider">
+          <div class="slider-track">
+            <img src="images/Goa Beach Getaway1.jpg" alt="Goa beach 1">
+            <img src="images/Goa Beach Getaway2.jpg" alt="Goa beach 2">
+            <img src="images/Goa Beach Getaway3.jpg" alt="Goa nightlife">
+          </div>
+          <button class="slide-btn prev">❮</button>
+          <button class="slide-btn next">❯</button>
+        </div>
+
         <div class="holiday-card-body">
           <h3>Goa Beach Getaway</h3>
-          <p>3N resort stay with breakfast, airport transfers & sightseeing.</p>
+          <p>3N resort stay with breakfast, airport transfers &amp; sightseeing.</p>
           <p class="holiday-price">Starting at ₹11,999 / person</p>
           <div class="holiday-card-actions">
             <a href="goa-packages.html" class="holiday-link">View Details</a>
@@ -397,12 +500,21 @@
         </div>
       </article>
 
-      <!-- Kashmir -->
-      <article class="holiday-card">
-        <div class="holiday-card-img" style="background-image:url('img/domestic-kashmir.jpg');"></div>
+      <!-- Kashmir – Family + Adventure -->
+      <article class="holiday-card" data-category="family adventure">
+        <div class="holiday-slider">
+          <div class="slider-track">
+            <img src="images/Kashmir Houseboat Delight1.jpg" alt="Kashmir mountains">
+            <img src="images/Kashmir Houseboat Delight2.jpg" alt="Shikara ride">
+            <img src="images/Kashmir Houseboat Delight3.jpg" alt="Snow views">
+          </div>
+          <button class="slide-btn prev">❮</button>
+          <button class="slide-btn next">❯</button>
+        </div>
+
         <div class="holiday-card-body">
           <h3>Kashmir Houseboat Delight</h3>
-          <p>Srinagar, Gulmarg & Pahalgam with shikara ride & houseboat stay.</p>
+          <p>Srinagar, Gulmarg &amp; Pahalgam with shikara ride &amp; houseboat stay.</p>
           <p class="holiday-price">Starting at ₹17,999 / person</p>
           <div class="holiday-card-actions">
             <a href="kashmir-packages.html" class="holiday-link">View Details</a>
@@ -411,12 +523,21 @@
         </div>
       </article>
 
-      <!-- Kerala -->
-      <article class="holiday-card">
-        <div class="holiday-card-img" style="background-image:url('img/domestic-kerala.jpg');"></div>
+      <!-- Kerala – Family + Weekend -->
+      <article class="holiday-card" data-category="family weekend">
+        <div class="holiday-slider">
+          <div class="slider-track">
+            <img src="images/Kerala Backwaters &amp; Hills1.jpg" alt="Kerala backwaters 1">
+            <img src="images/Kerala Backwaters &amp; Hills2.jpg" alt="Kerala hills">
+            <img src="images/Kerala Backwaters &amp; Hills3.jpg" alt="Houseboat view">
+          </div>
+          <button class="slide-btn prev">❮</button>
+          <button class="slide-btn next">❯</button>
+        </div>
+
         <div class="holiday-card-body">
-          <h3>Kerala Backwaters & Hills</h3>
-          <p>Houseboat in Alleppey with Munnar, Thekkady & Kochi tour.</p>
+          <h3>Kerala Backwaters &amp; Hills</h3>
+          <p>Houseboat in Alleppey with Munnar, Thekkady &amp; Kochi tour.</p>
           <p class="holiday-price">Starting at ₹18,999 / person</p>
           <div class="holiday-card-actions">
             <a href="kerala-packages.html" class="holiday-link">View Details</a>
@@ -425,12 +546,21 @@
         </div>
       </article>
 
-      <!-- Europe -->
-      <article class="holiday-card">
-        <div class="holiday-card-img" style="background-image:url('img/europe.jpg');"></div>
+      <!-- Europe – International + Family + Adventure -->
+      <article class="holiday-card" data-category="international family adventure">
+        <div class="holiday-slider">
+          <div class="slider-track">
+            <img src="images/Classic Europe Highlights1.jpg" alt="Europe tour 1">
+            <img src="images/Classic Europe Highlights2.jpg" alt="Europe tour 2">
+            <img src="images/Classic Europe Highlights3.jpg" alt="Europe tour 3">
+          </div>
+          <button class="slide-btn prev">❮</button>
+          <button class="slide-btn next">❯</button>
+        </div>
+
         <div class="holiday-card-body">
           <h3>Classic Europe Highlights</h3>
-          <p>Paris, Swiss Alps & Italy in a guided 9N/10D group tour.</p>
+          <p>Paris, Swiss Alps &amp; Italy in a guided 9N/10D group tour.</p>
           <p class="holiday-price">Starting at ₹1,59,999 / person</p>
           <div class="holiday-card-actions">
             <a href="europe-packages.html" class="holiday-link">View Details</a>
@@ -438,14 +568,132 @@
           </div>
         </div>
       </article>
+
     </div>
 
-    <!-- Help strip -->
+    <!-- Help strip (optional, same as your old one) -->
     <div class="holiday-help">
       <span>Need help choosing the right package?</span>
       <span>Chat with us on <a href="https://wa.me/919205920608" target="_blank" rel="noopener">WhatsApp</a> or call <strong>+91-92059 20608</strong>.</span>
     </div>
   </div>
+
+  <!-- PACKAGE DETAILS MODAL (Maldives example) -->
+  <div class="package-modal" id="maldives-details">
+    <div class="package-modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Maldives Overwater Honeymoon</h2>
+
+      <h3>🏨 Hotels</h3>
+      <p>Water Villa Resort • Luxury Beach Villa • 4 Star + Amenities + Spa access</p>
+
+      <h3>🚌 Transport</h3>
+      <p>Return Speedboat Transfers | Airport Pickup & Drop</p>
+
+      <h3>🍽 Meals & Activities</h3>
+      <ul>
+        <li>Daily Breakfast & Romantic Candle Light Dinner</li>
+        <li>Snorkeling + Kayaking + Couple Photoshoot</li>
+      </ul>
+
+      <h3>📅 Itinerary</h3>
+      <p>Day 1 - Arrival & Resort check-in</p>
+      <p>Day 2 - Water sports activities</p>
+      <p>Day 3 - Private island experience</p>
+      <p>Day 4 - Spa & relaxation</p>
+      <p>Day 5 - Departure</p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      /* ===== FILTER BUTTONS ===== */
+      const filterButtons = document.querySelectorAll('.holiday-filter-btn');
+      const cards = document.querySelectorAll('.holiday-card');
+
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filter = btn.dataset.filter;
+          filterButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          cards.forEach(card => {
+            const cats = (card.dataset.category || '').split(' ');
+            const show = filter === 'all' || cats.includes(filter);
+            card.style.display = show ? '' : 'none';
+          });
+        });
+      });
+
+      /* ===== IMAGE SLIDERS (auto + arrows) ===== */
+      document.querySelectorAll('.holiday-slider').forEach(slider => {
+        const track = slider.querySelector('.slider-track');
+        const slides = track.querySelectorAll('img');
+        const prev = slider.querySelector('.prev');
+        const next = slider.querySelector('.next');
+
+        let index = 0;
+        let autoId = null;
+
+        function update() {
+          track.style.transform = 'translateX(-' + (index * 100) + '%)';
+        }
+
+        function startAuto() {
+          stopAuto();
+          autoId = setInterval(() => {
+            index = (index + 1) % slides.length;
+            update();
+          }, 2000); // 2 sec
+        }
+
+        function stopAuto() {
+          if (autoId) clearInterval(autoId);
+        }
+
+        next.addEventListener('click', () => {
+          index = (index + 1) % slides.length;
+          update();
+          startAuto();
+        });
+
+        prev.addEventListener('click', () => {
+          index = (index - 1 + slides.length) % slides.length;
+          update();
+          startAuto();
+        });
+
+        slider.addEventListener('mouseenter', stopAuto);
+        slider.addEventListener('mouseleave', startAuto);
+
+        startAuto();
+      });
+
+      /* ===== MODAL (View Details) ===== */
+      const modals = document.querySelectorAll('.package-modal');
+
+      document.querySelectorAll('.open-details').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.target;
+          const modal = document.getElementById(id);
+          if (modal) modal.style.display = 'flex';
+        });
+      });
+
+      document.querySelectorAll('.close-modal').forEach(close => {
+        close.addEventListener('click', () => {
+          const modal = close.closest('.package-modal');
+          if (modal) modal.style.display = 'none';
+        });
+      });
+
+      window.addEventListener('click', (e) => {
+        modals.forEach(m => {
+          if (e.target === m) m.style.display = 'none';
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>

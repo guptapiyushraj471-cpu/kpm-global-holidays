@@ -81,11 +81,40 @@
       display:flex;
       flex-direction:column;
     }
+
+    /* OLD single image (agar kahi aur use ho) */
     .transfer-card-img {
       height:180px;
       background-size:cover;
       background-position:center;
     }
+
+    /* Slider image area */
+    .transfer-slider {
+      position:relative;
+      overflow:hidden;
+      height:180px;
+      width:100%;
+    }
+    .transfer-track {
+      display:flex;
+      height:100%;
+      width:100%;
+      transform:translateX(0);
+      transition:transform .6s ease-in-out;
+    }
+    .transfer-slide {
+      min-width:100%;
+      height:100%;
+      flex-shrink:0;
+    }
+    .transfer-slide img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
     .transfer-body {
       padding:14px 16px 16px;
       display:flex;
@@ -196,11 +225,18 @@
 
     <!-- Card 1: Airport Pickup -->
     <article class="transfer-card">
-      <div class="transfer-card-img" style="background-image:url('img/transfer-airport.jpg');"></div>
+      <div class="transfer-slider">
+        <div class="transfer-track">
+          <div class="transfer-slide"><img src="images/Airport Pickup1.jpg" alt="Airport pickup car 1"></div>
+          <div class="transfer-slide"><img src="images/Airport Pickup2.jpg" alt="Airport pickup car 2"></div>
+          <div class="transfer-slide"><img src="images/Airport Pickup3.jpg" alt="Airport pickup car 3"></div>
+        </div>
+      </div>
+
       <div class="transfer-body">
         <h3>Airport Pickup – Private Car</h3>
         <p>Doorstep pickup from airport to your hotel in AC sedan or SUV.</p>
-        <p class="transfer-meta">Includes: Waiting time, tolls & parking (as per city policy)</p>
+        <p class="transfer-meta">Includes: Waiting time, tolls &amp; parking (as per city policy)</p>
         <p class="transfer-price">Starting at ₹1,299 / way</p>
         <div class="transfer-actions">
           <a href="#" class="transfer-link">View Details</a>
@@ -211,7 +247,14 @@
 
     <!-- Card 2: Airport Drop -->
     <article class="transfer-card">
-      <div class="transfer-card-img" style="background-image:url('img/transfer-drop.jpg');"></div>
+      <div class="transfer-slider">
+        <div class="transfer-track">
+          <div class="transfer-slide"><img src="images/Airport Drop1.webp" alt="Airport drop car 1"></div>
+          <div class="transfer-slide"><img src="images/Airport Drop2.jpg" alt="Airport drop car 2"></div>
+          <div class="transfer-slide"><img src="images/Airport Drop3.avif" alt="Airport drop car 3"></div>
+        </div>
+      </div>
+
       <div class="transfer-body">
         <h3>Airport Drop – Private Car</h3>
         <p>On-time pickup from hotel to airport with live driver coordination.</p>
@@ -226,7 +269,14 @@
 
     <!-- Card 3: Full Day City -->
     <article class="transfer-card">
-      <div class="transfer-card-img" style="background-image:url('img/transfer-city.jpg');"></div>
+      <div class="transfer-slider">
+        <div class="transfer-track">
+          <div class="transfer-slide"><img src="images/Full Day City1.jpg" alt="City sightseeing 1"></div>
+          <div class="transfer-slide"><img src="images/Full Day City2.jpg" alt="City sightseeing 2"></div>
+          <div class="transfer-slide"><img src="images/Full Day City3.jpg" alt="City sightseeing 3"></div>
+        </div>
+      </div>
+
       <div class="transfer-body">
         <h3>Full Day City Sightseeing</h3>
         <p>8–10 hours private cab for local sightseeing as per your itinerary.</p>
@@ -241,7 +291,14 @@
 
     <!-- Card 4: Intercity Transfers -->
     <article class="transfer-card">
-      <div class="transfer-card-img" style="background-image:url('img/transfer-intercity.jpg');"></div>
+      <div class="transfer-slider">
+        <div class="transfer-track">
+          <div class="transfer-slide"><img src="images/Intercity Transfers1.webp" alt="Intercity transfer 1"></div>
+          <div class="transfer-slide"><img src="images/Intercity Transfers2.png" alt="Intercity transfer 2"></div>
+          <div class="transfer-slide"><img src="images/Intercity Transfers3.jpg" alt="Intercity transfer 3"></div>
+        </div>
+      </div>
+
       <div class="transfer-body">
         <h3>Intercity Transfers</h3>
         <p>Private cab between two cities – perfect for hill stations and long drives.</p>
@@ -256,11 +313,18 @@
 
     <!-- Card 5: Group Coach -->
     <article class="transfer-card">
-      <div class="transfer-card-img" style="background-image:url('img/transfer-coach.jpg');"></div>
+      <div class="transfer-slider">
+        <div class="transfer-track">
+          <div class="transfer-slide"><img src="images/Group Coach &amp; Bus Transfers1.webp" alt="Group coach 1"></div>
+          <div class="transfer-slide"><img src="images/Group Coach &amp; Bus Transfers2.webp" alt="Group coach 2"></div>
+          <div class="transfer-slide"><img src="images/Group Coach &amp; Bus Transfers3.jpg" alt="Group coach 3"></div>
+        </div>
+      </div>
+
       <div class="transfer-body">
-        <h3>Group Coach & Bus Transfers</h3>
-        <p>AC mini-coach and large buses for corporate groups & tours.</p>
-        <p class="transfer-meta">Capacity: 12, 18, 27, 35 & 45 seater options</p>
+        <h3>Group Coach &amp; Bus Transfers</h3>
+        <p>AC mini-coach and large buses for corporate groups &amp; tours.</p>
+        <p class="transfer-meta">Capacity: 12, 18, 27, 35 &amp; 45 seater options</p>
         <p class="transfer-price">Custom quote based on route</p>
         <div class="transfer-actions">
           <a href="#" class="transfer-link">View Details</a>
@@ -271,11 +335,18 @@
 
     <!-- Card 6: Custom -->
     <article class="transfer-card">
-      <div class="transfer-card-img" style="background-image:url('img/transfer-custom.jpg');"></div>
+      <div class="transfer-slider">
+        <div class="transfer-track">
+          <div class="transfer-slide"><img src="images/Custom Transfers.webp" alt="Custom transfer 1"></div>
+          <div class="transfer-slide"><img src="images/Custom Transfers2.jpeg" alt="Custom transfer 2"></div>
+          <div class="transfer-slide"><img src="images/Custom Transfers2.webp" alt="Custom transfer 3"></div>
+        </div>
+      </div>
+
       <div class="transfer-body">
-        <h3>Custom Transfers & Special Requests</h3>
-        <p>Multiple stops, night transfers, event logistics & outstation plans.</p>
-        <p class="transfer-meta">Share your plan & we’ll design the best route.</p>
+        <h3>Custom Transfers &amp; Special Requests</h3>
+        <p>Multiple stops, night transfers, event logistics &amp; outstation plans.</p>
+        <p class="transfer-meta">Share your plan &amp; we’ll design the best route.</p>
         <p class="transfer-price">Talk to our team for a quote</p>
         <div class="transfer-actions">
           <a href="#" class="transfer-link">Share my requirement</a>
@@ -288,10 +359,32 @@
 
   <!-- Bottom info strip -->
   <div class="transfer-info-strip">
-    <span><strong>Note:</strong> All rides include verified drivers & sanitized vehicles as per local regulations.</span>
+    <span><strong>Note:</strong> All rides include verified drivers &amp; sanitized vehicles as per local regulations.</span>
     <span>For urgent transfers, WhatsApp us at <a href="https://wa.me/919205920608" target="_blank" rel="noopener">+91-92059 20608</a>.</span>
   </div>
 </div>
+
+<script>
+  // Simple auto-slider for ALL transfer cards (2 sec)
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.transfer-slider').forEach(function (slider) {
+      const track  = slider.querySelector('.transfer-track');
+      const slides = slider.querySelectorAll('.transfer-slide');
+      if (!slides.length) return;
+
+      let index = 0;
+
+      function update() {
+        track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      }
+
+      setInterval(function() {
+        index = (index + 1) % slides.length;
+        update();
+      }, 2000); // 2 sec
+    });
+  });
+</script>
 
 </body>
 </html>

@@ -4930,3 +4930,214 @@ hr {
     font-size: 13px;
   }
 }
+/* ===== HERO SLIDER ===== */
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* Background slide wrapper */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Individual slides */
+.hero-slide-item {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.hero-slide-item.active {
+  opacity: 1;
+}
+
+/* Ensure header + content are over images */
+.hero-header,
+.kpm-welcome-strip,
+.hero-content,
+.hero-arrow {
+  position: relative;
+  z-index: 2;
+}
+
+/* Arrows */
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.hero-prev { left: 20px; }
+.hero-next { right: 20px; }
+
+/* Center content (adjust if already styled) */
+.hero-content {
+  position: absolute;
+  left: 50%;
+  bottom: 12%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.hero-content h1 span {
+  color: #ff9b26;
+}
+
+.hero-price .strike {
+  text-decoration: line-through;
+  opacity: 0.8;
+}
+
+.hero-price .main {
+  font-weight: 700;
+}
+
+.hero-cta {
+  margin-top: 16px;
+  padding: 12px 32px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  margin-top: 22px;
+  justify-content: center;
+}
+
+.hero-btn {
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-btn.primary {
+  background: linear-gradient(135deg, #fb923c, #f97316);
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(248, 148, 31, 0.45);
+}
+
+.hero-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(248, 148, 31, 0.55);
+}
+
+.hero-btn.secondary {
+  background: rgba(255,255,255,0.9);
+  color: #111;
+  border: 1px solid #e5e7eb;
+}
+
+.hero-btn.secondary:hover {
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+/* Card slider */
+.holiday-slider {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+  width: 300%;
+  height: 100%;
+  transition: transform .6s ease-in-out;
+}
+
+.slider-track img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ffffffb7;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.slide-btn.prev { left: 8px; }
+.slide-btn.next { right: 8px; }
+
+/* Modal */
+.package-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.package-modal-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 16px;
+  width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.close-modal {
+  float: right;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 700;
+}
+.kpm-payment-icons {
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin-top:10px;
+  flex-wrap:wrap;
+}
+
+.kpm-payment-icons img {
+  height:38px;
+  width:auto;
+  object-fit:contain;
+  transition:.3s ease;
+  cursor:pointer;
+}
+
+.kpm-payment-icons img:hover {
+  transform:scale(1.15);
+  filter:drop-shadow(0 4px 6px rgba(0,0,0,.18));
+}

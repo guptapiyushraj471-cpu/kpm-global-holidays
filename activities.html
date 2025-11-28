@@ -81,11 +81,40 @@
       display:flex;
       flex-direction:column;
     }
+
+    /* OLD single-bg class (agar kahin aur use ho) */
     .act-img {
       height:180px;
       background-size:cover;
       background-position:center;
     }
+
+    /* NEW: slider for each activity card */
+    .act-slider {
+      position:relative;
+      overflow:hidden;
+      height:180px;
+      width:100%;
+    }
+    .act-track {
+      display:flex;
+      height:100%;
+      width:100%;
+      transform:translateX(0);
+      transition:transform .6s ease-in-out;
+    }
+    .act-slide {
+      min-width:100%;
+      height:100%;
+      flex-shrink:0;
+    }
+    .act-slide img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
     .act-body {
       padding:14px 16px 16px;
       display:flex;
@@ -197,10 +226,18 @@
 
     <!-- Activity 1: Dubai Desert Safari -->
     <article class="act-card">
-      <div class="act-img" style="background-image:url('img/activity-desert-safari.jpg');"></div>
+      <div class="act-slider">
+        <div class="act-track">
+          <!-- make sure these 3 files exist in /images -->
+          <div class="act-slide"><img src="images/Dubai Safari.jpg" alt="Dubai desert safari 1"></div>
+          <div class="act-slide"><img src="images/Dubai Safari 2.jpg" alt="Dubai desert safari 2"></div>
+          <div class="act-slide"><img src="images/Dubai Desert3.jpg" alt="Dubai desert safari 3"></div>
+        </div>
+      </div>
+
       <div class="act-body">
         <h3>Dubai Desert Safari with BBQ Dinner</h3>
-        <p>Dune bashing, camel ride, live entertainment & buffet dinner.</p>
+        <p>Dune bashing, camel ride, live entertainment &amp; buffet dinner.</p>
         <p class="act-meta">Location: Dubai · Duration: Evening 5–6 hours</p>
         <p class="act-price">Starting at ₹4,999 / person</p>
         <div class="act-actions">
@@ -212,10 +249,17 @@
 
     <!-- Activity 2: Singapore -->
     <article class="act-card">
-      <div class="act-img" style="background-image:url('img/activity-singapore.jpg');"></div>
+      <div class="act-slider">
+        <div class="act-track">
+          <div class="act-slide"><img src="images/Singapore City1.jpg" alt="Singapore tour 1"></div>
+          <div class="act-slide"><img src="images/Singapore City2.jpg" alt="Singapore tour 2"></div>
+          <div class="act-slide"><img src="images/Singapore City3.jpg" alt="Singapore tour 3"></div>
+        </div>
+      </div>
+
       <div class="act-body">
-        <h3>Singapore City Tour & Sentosa</h3>
-        <p>Guided city tour with Sentosa island & cable car combo tickets.</p>
+        <h3>Singapore City Tour &amp; Sentosa</h3>
+        <p>Guided city tour with Sentosa island &amp; cable car combo tickets.</p>
         <p class="act-meta">Location: Singapore · Includes: Transfers + Tickets</p>
         <p class="act-price">Starting at ₹7,499 / person</p>
         <div class="act-actions">
@@ -227,10 +271,17 @@
 
     <!-- Activity 3: Goa Water Sports -->
     <article class="act-card">
-      <div class="act-img" style="background-image:url('img/activity-goa-water.jpg');"></div>
+      <div class="act-slider">
+        <div class="act-track">
+          <div class="act-slide"><img src="images/Goa Water Sports1.webp" alt="Goa water sports 1"></div>
+          <div class="act-slide"><img src="images/Goa Beach Getaway2.jpg" alt="Goa water sports 2"></div>
+          <div class="act-slide"><img src="images/Goa Water Sports3.webp" alt="Goa water sports 3"></div>
+        </div>
+      </div>
+
       <div class="act-body">
         <h3>Goa Water Sports Combo</h3>
-        <p>Banana boat, jet ski, parasailing & bumper ride at popular beaches.</p>
+        <p>Banana boat, jet ski, parasailing &amp; bumper ride at popular beaches.</p>
         <p class="act-meta">Location: North Goa · Duration: Half day</p>
         <p class="act-price">Starting at ₹2,999 / person</p>
         <div class="act-actions">
@@ -242,10 +293,17 @@
 
     <!-- Activity 4: Rishikesh -->
     <article class="act-card">
-      <div class="act-img" style="background-image:url('img/activity-rishikesh.jpg');"></div>
+      <div class="act-slider">
+        <div class="act-track">
+          <div class="act-slide"><img src="images/Rishikesh River Rafting1.webp" alt="Rishikesh rafting 1"></div>
+          <div class="act-slide"><img src="images/Rishikesh River Rafting2.jpg" alt="Rishikesh rafting 2"></div>
+          <div class="act-slide"><img src="images/Rishikesh River Rafting3.avif" alt="Rishikesh rafting 3"></div>
+        </div>
+      </div>
+
       <div class="act-body">
-        <h3>Rishikesh River Rafting & Camping</h3>
-        <p>White water rafting with overnight riverside camp & bonfire.</p>
+        <h3>Rishikesh River Rafting &amp; Camping</h3>
+        <p>White water rafting with overnight riverside camp &amp; bonfire.</p>
         <p class="act-meta">Location: Rishikesh · Difficulty: Easy–Moderate</p>
         <p class="act-price">Starting at ₹3,499 / person</p>
         <div class="act-actions">
@@ -257,10 +315,17 @@
 
     <!-- Activity 5: Europe -->
     <article class="act-card">
-      <div class="act-img" style="background-image:url('img/activity-europe.jpg');"></div>
+      <div class="act-slider">
+        <div class="act-track">
+          <div class="act-slide"><img src="images/urope City Pass1.avif" alt="Europe attractions 1"></div>
+          <div class="act-slide"><img src="images/urope City Pass2.avif" alt="Europe attractions 2"></div>
+          <div class="act-slide"><img src="images/urope City Pass3.jpg" alt="Europe attractions 3"></div>
+        </div>
+      </div>
+
       <div class="act-body">
-        <h3>Europe City Pass & Attractions</h3>
-        <p>Multi-city attraction passes for museums, tours & local transport.</p>
+        <h3>Europe City Pass &amp; Attractions</h3>
+        <p>Multi-city attraction passes for museums, tours &amp; local transport.</p>
         <p class="act-meta">Cities: Paris · Rome · Amsterdam · Swiss</p>
         <p class="act-price">Starting at ₹9,999 / person</p>
         <div class="act-actions">
@@ -272,10 +337,17 @@
 
     <!-- Activity 6: Custom -->
     <article class="act-card">
-      <div class="act-img" style="background-image:url('img/activity-custom.jpg');"></div>
+      <div class="act-slider">
+        <div class="act-track">
+          <div class="act-slide"><img src="images/Custom Activities & Experiences1.webp" alt="Custom experience 1"></div>
+          <div class="act-slide"><img src="images/Custom Activities & Experiences2.jpg" alt="Custom experience 2"></div>
+          <div class="act-slide"><img src="images/Custom Activities & Experiences3.jfif" alt="Custom experience 3"></div>
+        </div>
+      </div>
+
       <div class="act-body">
-        <h3>Custom Activities & Experiences</h3>
-        <p>Honeymoon surprises, birthday setups, private tours & more.</p>
+        <h3>Custom Activities &amp; Experiences</h3>
+        <p>Honeymoon surprises, birthday setups, private tours &amp; more.</p>
         <p class="act-meta">Tell us your idea – we’ll curate it for you.</p>
         <p class="act-price">Custom pricing · On request</p>
         <div class="act-actions">
@@ -293,6 +365,28 @@
     <span>For quick help, WhatsApp us at <a href="https://wa.me/919205920608" target="_blank" rel="noopener">+91-92059 20608</a>.</span>
   </div>
 </div>
+
+<script>
+  // Auto slider for all activity cards (2 sec)
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.act-slider').forEach(function (slider) {
+      const track  = slider.querySelector('.act-track');
+      const slides = slider.querySelectorAll('.act-slide');
+      if (!slides.length) return;
+
+      let index = 0;
+
+      function update() {
+        track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      }
+
+      setInterval(function () {
+        index = (index + 1) % slides.length;
+        update();
+      }, 2000); // 2 seconds
+    });
+  });
+</script>
 
 </body>
 </html>

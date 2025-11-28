@@ -11,7 +11,7 @@
     body {
       margin: 0;
       background:#f8fafc;
-      font-family: "Inter", sans-serif;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color:#0f172a;
     }
 
@@ -33,8 +33,8 @@
       gap:16px;
     }
     .kpm-nav-left { display:flex; align-items:center; gap:10px; }
-    .kpm-nav-logo { height:46px; border-radius:10px; }
-    .kpm-nav-brand-title { font-size:16px; font-weight:700; }
+    .kpm-nav-logo { height:46px; border-radius:10px; background:#e0f2fe; padding:4px; }
+    .kpm-nav-brand-title { font-size:16px; font-weight:700; letter-spacing:0.06em; }
     .kpm-nav-brand-sub { font-size:12px; color:#6b7280; }
     .kpm-nav-links { display:flex; gap:18px; font-size:14px; align-items:center; }
     .kpm-nav-links a { text-decoration:none; color:#0f172a; font-weight:500; }
@@ -63,6 +63,32 @@
     .hotel-hero h1 { font-size:32px; margin-bottom:8px; }
     .hotel-hero p { margin:0; font-size:15px; color:#475569; }
 
+    /* FILTERS */
+    .hotel-filters {
+      margin-top:24px;
+      display:inline-flex;
+      gap:8px;
+      padding:6px;
+      border-radius:999px;
+      background:#ffffff;
+      box-shadow:0 10px 25px rgba(15,23,42,0.12);
+    }
+    .hotel-filter-btn {
+      border:none;
+      border-radius:999px;
+      background:transparent;
+      padding:8px 16px;
+      font-size:13px;
+      cursor:pointer;
+      font-weight:500;
+      color:#0f172a;
+    }
+    .hotel-filter-btn.active {
+      background:#0f75c8;
+      color:#ffffff;
+    }
+    .hotel-filter-btn:hover:not(.active) { background:#e5f0ff; }
+
     /* GRID */
     .hotel-grid-wrap { padding:16px 16px 60px; }
     .hotel-grid {
@@ -81,11 +107,46 @@
       display:flex;
       flex-direction:column;
     }
-    .hotel-card-img {
-      height:190px;
-      background-size:cover;
-      background-position:center;
+
+    /* SLIDER */
+    .hotel-slider {
+      position:relative;
+      overflow:hidden;
+      height:220px;
     }
+    .hotel-track {
+      display:flex;
+      width:100%;
+      height:100%;
+      transform:translateX(0);
+      transition:transform .6s ease-in-out;
+    }
+    .hotel-track img {
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      flex-shrink:0;
+    }
+    .hotel-slide-btn {
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:36px;
+      height:36px;
+      border-radius:50%;
+      border:none;
+      background:#fff;
+      box-shadow:0 4px 12px rgba(0,0,0,.25);
+      cursor:pointer;
+      font-size:18px;
+      font-weight:bold;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .hotel-slide-btn.prev { left:10px; }
+    .hotel-slide-btn.next { right:10px; }
+
     .hotel-body {
       padding:14px 16px 16px;
       display:flex;
@@ -131,6 +192,7 @@
     @media (max-width:600px) {
       .hotel-grid { grid-template-columns:1fr; }
       .hotel-hero h1 { font-size:26px; }
+      .hotel-slider, .hotel-track img { height:200px; }
     }
   </style>
 </head>
@@ -141,7 +203,7 @@
 <header class="kpm-nav">
   <div class="kpm-nav-inner">
     <div class="kpm-nav-left">
-      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo" alt="KPM Global">
       <div>
         <div class="kpm-nav-brand-title">KPM GLOBAL HOLIDAYS</div>
         <div class="kpm-nav-brand-sub">Your Journey, Our Promise</div>
@@ -163,15 +225,32 @@
 <section class="hotel-hero">
   <h1>Handpicked Hotels & Luxury Resort Stays</h1>
   <p>Find curated stays with exceptional comfort, location & hospitality.</p>
+
+  <div class="hotel-filters">
+    <button class="hotel-filter-btn active" type="button" data-filter="all">All</button>
+    <button class="hotel-filter-btn" type="button" data-filter="beach">Beach</button>
+    <button class="hotel-filter-btn" type="button" data-filter="city">City</button>
+    <button class="hotel-filter-btn" type="button" data-filter="hills">Hills</button>
+    <button class="hotel-filter-btn" type="button" data-filter="international">International</button>
+  </div>
 </section>
 
 <!-- HOTELS GRID -->
 <div class="hotel-grid-wrap">
   <div class="hotel-grid">
 
-    <!-- Hotel 1 -->
-    <article class="hotel-card">
-      <div class="hotel-card-img" style="background-image:url('img/hotel-maldives.jpg');"></div>
+    <!-- Maldives – Beach + International -->
+    <article class="hotel-card" data-category="beach international">
+      <div class="hotel-slider">
+        <div class="hotel-track">
+          <img src="images/Maldives Overwater Villas1.jpg" alt="Maldives hotel view 1">
+          <img src="images/Maldives Overwater Villas3.png" alt="Maldives hotel view 2">
+          <img src="images/Maldives Overwater Villas5.jpg" alt="Maldives hotel view 3">
+        </div>
+        <button class="hotel-slide-btn prev">❮</button>
+        <button class="hotel-slide-btn next">❯</button>
+      </div>
+
       <div class="hotel-body">
         <h3>Maldives Overwater Villas</h3>
         <p>5-star beach resort with ocean-view rooms & private pools.</p>
@@ -183,9 +262,18 @@
       </div>
     </article>
 
-    <!-- Hotel 2 -->
-    <article class="hotel-card">
-      <div class="hotel-card-img" style="background-image:url('img/hotel-goa.jpg');"></div>
+    <!-- Goa – Beach (India) -->
+    <article class="hotel-card" data-category="beach">
+      <div class="hotel-slider">
+        <div class="hotel-track">
+          <img src="images/Goa Beachfront Resort2.jpg" alt="Goa resort 1">
+          <img src="images/Goa Beachfront Resort3.jpg" alt="Goa resort 2">
+          <img src="images/Goa Beachfront Resort1.jpg" alt="Goa resort 3">
+        </div>
+        <button class="hotel-slide-btn prev">❮</button>
+        <button class="hotel-slide-btn next">❯</button>
+      </div>
+
       <div class="hotel-body">
         <h3>Goa Beachfront Resort</h3>
         <p>Luxury sea-facing rooms with breakfast & free pool access.</p>
@@ -197,9 +285,18 @@
       </div>
     </article>
 
-    <!-- Hotel 3 -->
-    <article class="hotel-card">
-      <div class="hotel-card-img" style="background-image:url('img/hotel-dubai.jpg');"></div>
+    <!-- Dubai – City + International -->
+    <article class="hotel-card" data-category="city international">
+      <div class="hotel-slider">
+        <div class="hotel-track">
+          <img src="images/Dubai Downtown Hotel1.jpg" alt="Dubai hotel 1">
+          <img src="images/Dubai Downtown Hotel2.jpg" alt="Dubai hotel 2">
+          <img src="images/Dubai Downtown Hotel3.jpg" alt="Dubai hotel 3">
+        </div>
+        <button class="hotel-slide-btn prev">❮</button>
+        <button class="hotel-slide-btn next">❯</button>
+      </div>
+
       <div class="hotel-body">
         <h3>Dubai Downtown Hotel</h3>
         <p>Premium Burj Khalifa view property in the city center.</p>
@@ -211,8 +308,143 @@
       </div>
     </article>
 
+    <!-- Manali – Hills (India) -->
+    <article class="hotel-card" data-category="hills">
+      <div class="hotel-slider">
+        <div class="hotel-track">
+          <img src="images/Manali Snow View Resort1.jpg" alt="Manali hotel 1">
+          <img src="images/Manali Snow View Resort2.jpg" alt="Manali hotel 2">
+          <img src="images/Manali Snow View Resort3.jpg" alt="Manali hotel 3">
+        </div>
+        <button class="hotel-slide-btn prev">❮</button>
+        <button class="hotel-slide-btn next">❯</button>
+      </div>
+
+      <div class="hotel-body">
+        <h3>Manali Snow View Resort</h3>
+        <p>Mountain-view rooms with bonfire & adventure activities.</p>
+        <p class="hotel-price">From ₹4,999 / night</p>
+        <div class="hotel-actions">
+          <a href="#" class="hotel-link">View Details</a>
+          <button class="hotel-book-btn" onclick="location.href='book.html?hotel=manali'">Book Now</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Kerala – Hills + Beach combo -->
+    <article class="hotel-card" data-category="hills beach">
+      <div class="hotel-slider">
+        <div class="hotel-track">
+          <img src="images/Kerala Backwater Resort1.jpg" alt="Kerala resort 1">
+          <img src="images/Kerala Backwater Resort2.jpg" alt="Kerala resort 2">
+          <img src="images/Kerala Backwater Resort3.jpg" alt="Kerala resort 3">
+        </div>
+        <button class="hotel-slide-btn prev">❮</button>
+        <button class="hotel-slide-btn next">❯</button>
+      </div>
+
+      <div class="hotel-body">
+        <h3>Kerala Backwater Resort</h3>
+        <p>Lake-facing cottages with traditional meals & houseboat rides.</p>
+        <p class="hotel-price">From ₹5,999 / night</p>
+        <div class="hotel-actions">
+          <a href="#" class="hotel-link">View Details</a>
+          <button class="hotel-book-btn" onclick="location.href='book.html?hotel=kerala'">Book Now</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Europe – City + International -->
+    <article class="hotel-card" data-category="city international">
+      <div class="hotel-slider">
+        <div class="hotel-track">
+          <img src="images/Classic Europe City Hotel1.jpg" alt="Europe hotel 1">
+          <img src="images/Classic Europe City Hotel2.jpg" alt="Europe hotel 2">
+          <img src="images/Classic Europe City Hotel3.jpeg" alt="Europe hotel 3">
+        </div>
+        <button class="hotel-slide-btn prev">❮</button>
+        <button class="hotel-slide-btn next">❯</button>
+      </div>
+
+      <div class="hotel-body">
+        <h3>Classic Europe City Hotel</h3>
+        <p>Central location with easy access to metro & attractions.</p>
+        <p class="hotel-price">From ₹12,999 / night</p>
+        <div class="hotel-actions">
+          <a href="#" class="hotel-link">View Details</a>
+          <button class="hotel-book-btn" onclick="location.href='book.html?hotel=europe'">Book Now</button>
+        </div>
+      </div>
+    </article>
+
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // FILTERS
+    const filterBtns = document.querySelectorAll('.hotel-filter-btn');
+    const hotelCards = document.querySelectorAll('.hotel-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        hotelCards.forEach(card => {
+          const cats = (card.dataset.category || '').split(' ');
+          const show = filter === 'all' || cats.includes(filter);
+          card.style.display = show ? '' : 'none';
+        });
+      });
+    });
+
+    // IMAGE SLIDERS (auto + arrows)
+    document.querySelectorAll('.hotel-slider').forEach(slider => {
+      const track = slider.querySelector('.hotel-track');
+      const slides = track.querySelectorAll('img');
+      const prev = slider.querySelector('.hotel-slide-btn.prev');
+      const next = slider.querySelector('.hotel-slide-btn.next');
+
+      let index = 0;
+      let timerId = null;
+
+      function update() {
+        track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      }
+
+      function startAuto() {
+        stopAuto();
+        timerId = setInterval(() => {
+          index = (index + 1) % slides.length;
+          update();
+        }, 2000);
+      }
+
+      function stopAuto() {
+        if (timerId) clearInterval(timerId);
+      }
+
+      next.addEventListener('click', () => {
+        index = (index + 1) % slides.length;
+        update();
+        startAuto();
+      });
+
+      prev.addEventListener('click', () => {
+        index = (index - 1 + slides.length) % slides.length;
+        update();
+        startAuto();
+      });
+
+      slider.addEventListener('mouseenter', stopAuto);
+      slider.addEventListener('mouseleave', startAuto);
+
+      startAuto();
+    });
+  });
+</script>
 
 </body>
 </html>

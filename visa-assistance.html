@@ -11,7 +11,7 @@
     body {
       margin: 0;
       background:#f8fafc;
-      font-family: "Inter", sans-serif;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color:#0f172a;
     }
 
@@ -63,8 +63,54 @@
     .visa-hero h1 { font-size:32px; margin-bottom:8px; }
     .visa-hero p { margin:0; font-size:15px; color:#475569; }
 
+    /* MAIN TOP SLIDER */
+    .visa-slider-wrap {
+      padding:0 16px 10px;
+    }
+    .visa-slider {
+      max-width:1150px;
+      margin:0 auto;
+      position:relative;
+      overflow:hidden;
+      border-radius:18px;
+      box-shadow:0 18px 35px rgba(15,23,42,.18);
+      height:260px;
+    }
+    .visa-track {
+      display:flex;
+      width:100%;
+      height:100%;
+      transform:translateX(0);
+      transition:transform .7s ease-in-out;
+    }
+    .visa-track img {
+      width:100%;
+      height:260px;
+      object-fit:cover;
+      flex-shrink:0;
+    }
+    .visa-slide-btn {
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      border:none;
+      background:#ffffff;
+      box-shadow:0 4px 14px rgba(0,0,0,.35);
+      cursor:pointer;
+      font-size:18px;
+      font-weight:bold;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .visa-slide-btn.prev { left:14px; }
+    .visa-slide-btn.next { right:14px; }
+
     /* GRID */
-    .visa-grid-wrap { padding:16px 16px 50px; }
+    .visa-grid-wrap { padding:20px 16px 50px; }
     .visa-grid {
       max-width:1150px;
       margin:auto;
@@ -77,11 +123,55 @@
       background:#fff;
       border-radius:18px;
       box-shadow:0 14px 30px rgba(15,23,42,.08);
-      padding:16px 16px 18px;
+      overflow:hidden;
+      border-top:4px solid #0f75c8;
+      display:flex;
+      flex-direction:column;
+    }
+
+    /* CARD SLIDER */
+    .visa-card-slider {
+      position:relative;
+      overflow:hidden;
+      height:170px;
+    }
+    .visa-card-track {
+      display:flex;
+      width:100%;
+      height:100%;
+      transform:translateX(0);
+      transition:transform .7s ease-in-out;
+    }
+    .visa-card-track img {
+      width:100%;
+      height:170px;
+      object-fit:cover;
+      flex-shrink:0;
+    }
+    .visa-card-btn {
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:30px;
+      height:30px;
+      border-radius:50%;
+      border:none;
+      background:#ffffff;
+      box-shadow:0 4px 12px rgba(0,0,0,.3);
+      cursor:pointer;
+      font-size:16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .visa-card-btn.prev { left:10px; }
+    .visa-card-btn.next { right:10px; }
+
+    .visa-card-body {
+      padding:14px 16px 18px;
       display:flex;
       flex-direction:column;
       gap:6px;
-      border-top:4px solid #0f75c8;
     }
     .visa-tag {
       font-size:11px;
@@ -89,11 +179,11 @@
       letter-spacing:.08em;
       color:#6b7280;
     }
-    .visa-card h3 {
+    .visa-card-body h3 {
       margin:0;
       font-size:17px;
     }
-    .visa-card p {
+    .visa-card-body p {
       margin:0;
       font-size:13px;
       color:#4b5563;
@@ -160,6 +250,10 @@
       .visa-grid { grid-template-columns:1fr; }
       .visa-hero h1 { font-size:26px; }
       .visa-info-strip { flex-direction:column; align-items:flex-start; }
+      .visa-slider,
+      .visa-track img { height:210px; }
+      .visa-card-slider,
+      .visa-card-track img { height:160px; }
     }
   </style>
 </head>
@@ -194,79 +288,172 @@
   <p>End-to-end support for tourist, business & Schengen visas with document guidance.</p>
 </section>
 
-<!-- VISA CARDS -->
+<!-- TOP IMAGE SLIDER (4 IMAGES) -->
+<section class="visa-slider-wrap">
+  <div class="visa-slider">
+    <div class="visa-track">
+      <!-- same 4 passport/visa images -->
+      <img src="images/Passport & visa stamp1.jpg" alt="Passport & visa stamp">
+      <img src="images/Passport & visa stamp2.jpg" alt="Embassy and documents">
+      <img src="images/Passport & visa stamp3.webp" alt="Travel and boarding pass">
+      <img src="images/Passport & visa stamp4.webp" alt="Family travel planning">
+    </div>
+    <button class="visa-slide-btn prev">❮</button>
+    <button class="visa-slide-btn next">❯</button>
+  </div>
+</section>
+
+<!-- VISA CARDS (EACH WITH 4-SLIDE IMAGE) -->
 <div class="visa-grid-wrap">
   <div class="visa-grid">
 
     <!-- Card 1: Tourist Visa -->
     <article class="visa-card">
-      <div class="visa-tag">Tourist Visa</div>
-      <h3>Dubai & UAE Tourist Visa</h3>
-      <p>Short stay tourist visas for Dubai, Abu Dhabi & other Emirates with quick processing.</p>
-      <p class="visa-meta">Processing time: 3–5 working days · Stay: up to 30 days</p>
-      <div class="visa-actions">
-        <a href="#" class="visa-doc-link">View document checklist</a>
-        <button class="visa-help-btn" onclick="location.href='book.html?visa=uae-tourist'">Get Visa Help</button>
+      <div class="visa-card-slider">
+        <div class="visa-card-track">
+          <img src="images/Dubai & UAE Tourist Visa1.avif" alt="Tourist visa image 1">
+          <img src="images/Dubai & UAE Tourist Visa2.jfif" alt="Tourist visa image 2">
+          <img src="images/Dubai & UAE Tourist Visa3.jfif" alt="Tourist visa image 3">
+          <img src="images/Dubai & UAE Tourist Visa4.jfif" alt="Tourist visa image 4">
+        </div>
+        <button class="visa-card-btn prev">❮</button>
+        <button class="visa-card-btn next">❯</button>
+      </div>
+
+      <div class="visa-card-body">
+        <div class="visa-tag">Tourist Visa</div>
+        <h3>Dubai & UAE Tourist Visa</h3>
+        <p>Short stay tourist visas for Dubai, Abu Dhabi & other Emirates with quick processing.</p>
+        <p class="visa-meta">Processing time: 3–5 working days · Stay: up to 30 days</p>
+        <div class="visa-actions">
+          <a href="#" class="visa-doc-link">View document checklist</a>
+          <button class="visa-help-btn" onclick="location.href='book.html?visa=uae-tourist'">Get Visa Help</button>
+        </div>
       </div>
     </article>
 
     <!-- Card 2: Schengen -->
     <article class="visa-card">
-      <div class="visa-tag">Schengen</div>
-      <h3>Europe Schengen Visa</h3>
-      <p>Guidance for Schengen tourist visas including appointment, forms & cover letter.</p>
-      <p class="visa-meta">Countries: France, Italy, Switzerland, Germany & more</p>
-      <div class="visa-actions">
-        <a href="#" class="visa-doc-link">View document checklist</a>
-        <button class="visa-help-btn" onclick="location.href='book.html?visa=schengen'">Get Visa Help</button>
+      <div class="visa-card-slider">
+        <div class="visa-card-track">
+          <img src="images/Europe Schengen Visa1.jfif" alt="Schengen visa image 1">
+          <img src="images/Europe Schengen Visa2.jfif" alt="Schengen visa image 2">
+          <img src="images/Europe Schengen Visa3.webp" alt="Schengen visa image 3">
+          <img src="images/Europe Schengen Visa4.jpg" alt="Schengen visa image 4">
+        </div>
+        <button class="visa-card-btn prev">❮</button>
+        <button class="visa-card-btn next">❯</button>
+      </div>
+
+      <div class="visa-card-body">
+        <div class="visa-tag">Schengen</div>
+        <h3>Europe Schengen Visa</h3>
+        <p>Guidance for Schengen tourist visas including appointment, forms & cover letter.</p>
+        <p class="visa-meta">Countries: France, Italy, Switzerland, Germany & more</p>
+        <div class="visa-actions">
+          <a href="#" class="visa-doc-link">View document checklist</a>
+          <button class="visa-help-btn" onclick="location.href='book.html?visa=schengen'">Get Visa Help</button>
+        </div>
       </div>
     </article>
 
     <!-- Card 3: Asian Destinations -->
     <article class="visa-card">
-      <div class="visa-tag">Asia</div>
-      <h3>Thailand, Singapore & Malaysia Visa</h3>
-      <p>On-arrival & e-visa assistance for popular Asian holiday destinations.</p>
-      <p class="visa-meta">Support: Forms, photos, insurance & itinerary proof</p>
-      <div class="visa-actions">
-        <a href="#" class="visa-doc-link">View document checklist</a>
-        <button class="visa-help-btn" onclick="location.href='book.html?visa=asia-holiday'">Get Visa Help</button>
+      <div class="visa-card-slider">
+        <div class="visa-card-track">
+          <img src="images/Thailand, Singapore & Malaysia Visa1.jfif" alt="Asia visa image 1">
+          <img src="images/Thailand, Singapore & Malaysia Visa2.jpg" alt="Asia visa image 2">
+          <img src="images/Thailand, Singapore & Malaysia Visa3.webp" alt="Asia visa image 3">
+          <img src="images/Thailand, Singapore & Malaysia Visa4.webp" alt="Asia visa image 4">
+        </div>
+        <button class="visa-card-btn prev">❮</button>
+        <button class="visa-card-btn next">❯</button>
+      </div>
+
+      <div class="visa-card-body">
+        <div class="visa-tag">Asia</div>
+        <h3>Thailand, Singapore & Malaysia Visa</h3>
+        <p>On-arrival & e-visa assistance for popular Asian holiday destinations.</p>
+        <p class="visa-meta">Support: Forms, photos, insurance & itinerary proof</p>
+        <div class="visa-actions">
+          <a href="#" class="visa-doc-link">View document checklist</a>
+          <button class="visa-help-btn" onclick="location.href='book.html?visa=asia-holiday'">Get Visa Help</button>
+        </div>
       </div>
     </article>
 
     <!-- Card 4: Business -->
     <article class="visa-card">
-      <div class="visa-tag">Business Visa</div>
-      <h3>Business & Conference Visas</h3>
-      <p>Support with invitation letters, company docs & travel insurance for business trips.</p>
-      <p class="visa-meta">For: Meetings, conferences, exhibitions & events</p>
-      <div class="visa-actions">
-        <a href="#" class="visa-doc-link">View document checklist</a>
-        <button class="visa-help-btn" onclick="location.href='book.html?visa=business'">Get Visa Help</button>
+      <div class="visa-card-slider">
+        <div class="visa-card-track">
+          <img src="images/Business & Conference Visas1.jfif" alt="Business visa image 1">
+          <img src="images/Business & Conference Visas2.webp" alt="Business visa image 2">
+          <img src="images/Business & Conference Visas3.webp" alt="Business visa image 3">
+          <img src="images/Business & Conference Visas4.jpg" alt="Business visa image 4">
+        </div>
+        <button class="visa-card-btn prev">❮</button>
+        <button class="visa-card-btn next">❯</button>
+      </div>
+
+      <div class="visa-card-body">
+        <div class="visa-tag">Business Visa</div>
+        <h3>Business & Conference Visas</h3>
+        <p>Support with invitation letters, company docs & travel insurance for business trips.</p>
+        <p class="visa-meta">For: Meetings, conferences, exhibitions & events</p>
+        <div class="visa-actions">
+          <a href="#" class="visa-doc-link">View document checklist</a>
+          <button class="visa-help-btn" onclick="location.href='book.html?visa=business'">Get Visa Help</button>
+        </div>
       </div>
     </article>
 
     <!-- Card 5: UK / USA -->
     <article class="visa-card">
-      <div class="visa-tag">Long Haul</div>
-      <h3>UK & USA Tourist Visa Guidance</h3>
-      <p>Application form filling, document file preparation & interview tips.</p>
-      <p class="visa-meta">Note: Final approval is always embassy decision</p>
-      <div class="visa-actions">
-        <a href="#" class="visa-doc-link">View document checklist</a>
-        <button class="visa-help-btn" onclick="location.href='book.html?visa=uk-usa'">Get Visa Help</button>
+      <div class="visa-card-slider">
+        <div class="visa-card-track">
+          <img src="images/UK & USA Tourist Visa Guidance1.jpg" alt="UK USA visa image 1">
+          <img src="images/UK & USA Tourist Visa Guidance2.avif" alt="UK USA visa image 2">
+          <img src="images/UK & USA Tourist Visa Guidance3.jpg" alt="UK USA visa image 3">
+          <img src="images/UK & USA Tourist Visa Guidance4.jfif" alt="UK USA visa image 4">
+        </div>
+        <button class="visa-card-btn prev">❮</button>
+        <button class="visa-card-btn next">❯</button>
+      </div>
+
+      <div class="visa-card-body">
+        <div class="visa-tag">Long Haul</div>
+        <h3>UK & USA Tourist Visa Guidance</h3>
+        <p>Application form filling, document file preparation & interview tips.</p>
+        <p class="visa-meta">Note: Final approval is always embassy decision</p>
+        <div class="visa-actions">
+          <a href="#" class="visa-doc-link">View document checklist</a>
+          <button class="visa-help-btn" onclick="location.href='book.html?visa=uk-usa'">Get Visa Help</button>
+        </div>
       </div>
     </article>
 
     <!-- Card 6: Custom -->
     <article class="visa-card">
-      <div class="visa-tag">Custom Help</div>
-      <h3>Custom Visa Consultation</h3>
-      <p>Not sure which visa you need? Talk to our visa experts for the right guidance.</p>
-      <p class="visa-meta">Mode: Phone / WhatsApp / Email support</p>
-      <div class="visa-actions">
-        <a href="#" class="visa-doc-link">Ask which visa I need</a>
-        <button class="visa-help-btn" onclick="location.href='book.html?visa=consult'">Talk to an Expert</button>
+      <div class="visa-card-slider">
+        <div class="visa-card-track">
+          <img src="images/Custom Visa Consultation1.jpeg" alt="Custom visa image 1">
+          <img src="images/Custom Visa Consultation2.webp" alt="Custom visa image 2">
+          <img src="images/Custom Visa Consultation3.jpg" alt="Custom visa image 3">
+          <img src="images/Custom Visa Consultation4.webp" alt="Custom visa image 4">
+        </div>
+        <button class="visa-card-btn prev">❮</button>
+        <button class="visa-card-btn next">❯</button>
+      </div>
+
+      <div class="visa-card-body">
+        <div class="visa-tag">Custom Help</div>
+        <h3>Custom Visa Consultation</h3>
+        <p>Not sure which visa you need? Talk to our visa experts for the right guidance.</p>
+        <p class="visa-meta">Mode: Phone / WhatsApp / Email support</p>
+        <div class="visa-actions">
+          <a href="#" class="visa-doc-link">Ask which visa I need</a>
+          <button class="visa-help-btn" onclick="location.href='book.html?visa=consult'">Talk to an Expert</button>
+        </div>
       </div>
     </article>
 
@@ -278,6 +465,74 @@
     <span>For any visa query, WhatsApp us at <a href="https://wa.me/919205920608" target="_blank" rel="noopener">+91-92059 20608</a>.</span>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+
+    // Generic slider init function
+    function initSlider(root, trackSelector, prevSelector, nextSelector) {
+      const track = root.querySelector(trackSelector);
+      if (!track) return;
+      const slides = track.querySelectorAll('img');
+      if (!slides.length) return;
+
+      const prevBtn = root.querySelector(prevSelector);
+      const nextBtn = root.querySelector(nextSelector);
+
+      let index = 0;
+      let timerId = null;
+
+      function update() {
+        track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      }
+
+      function startAuto() {
+        stopAuto();
+        timerId = setInterval(function () {
+          index = (index + 1) % slides.length;
+          update();
+        }, 2000); // 2 sec
+      }
+
+      function stopAuto() {
+        if (timerId) clearInterval(timerId);
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function () {
+          index = (index + 1) % slides.length;
+          update();
+          startAuto();
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function () {
+          index = (index - 1 + slides.length) % slides.length;
+          update();
+          startAuto();
+        });
+      }
+
+      root.addEventListener('mouseenter', stopAuto);
+      root.addEventListener('mouseleave', startAuto);
+
+      startAuto();
+    }
+
+    // Main big slider
+    const mainSlider = document.querySelector('.visa-slider');
+    if (mainSlider) {
+      initSlider(mainSlider, '.visa-track', '.visa-slide-btn.prev', '.visa-slide-btn.next');
+    }
+
+    // All card sliders
+    document.querySelectorAll('.visa-card-slider').forEach(function (slider) {
+      initSlider(slider, '.visa-card-track', '.visa-card-btn.prev', '.visa-card-btn.next');
+    });
+
+  });
+</script>
 
 </body>
 </html>
