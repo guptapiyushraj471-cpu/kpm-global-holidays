@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
     <!-- KPM Global Holidays - Holiday Search Section -->
-<section class="kpm-hero">
+    <section class="kpm-hero">
   <div class="kpm-hero-inner">
 
     <!-- Top Tabs (Package Types) -->
@@ -219,6 +219,51 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <!-- ========= SPECIAL HOLIDAY OFFERS ========= -->
 
+
+<!-- SPECIAL HOLIDAY OFFERS -->
+<!-- SPECIAL HOLIDAY OFFERS -->
+<style>
+  /* dots under main slider */
+  .kpm-offer-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 16px 0 8px;
+  }
+
+  .kpm-offer-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: #ddd;
+    cursor: pointer;
+  }
+
+  .kpm-offer-dot-active {
+    background: #ff6b3d;
+  }
+
+  /* card ke andar mini image slider */
+  .kpm-offer-img-slider {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .kpm-offer-img-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .kpm-offer-img-slide:first-child {
+    opacity: 1;
+  }
+</style>
+
 <section class="kpm-offers">
   <div class="kpm-offers-inner">
 
@@ -242,9 +287,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     <div class="kpm-offer-track" id="offers-1">
 
-      <!-- Maldives – Honeymoon + International -->
+      <!-- 1. Maldives – Honeymoon + International -->
       <article class="kpm-offer-card" data-category="honeymoon international">
-        <div class="kpm-offer-img" style="background-image:url('images/Maldives.jpg');"></div>
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Maldivespecialoffer1.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Maldivespecialoffer2.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Maldivespecialoffer3.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Maldivespecialoffer4.jpg');"></div>
+        </div>
         <div class="kpm-offer-body">
           <h3>Maldives Honeymoon</h3>
           <p>4N/5D water villa experience with candle light dinner.</p>
@@ -256,9 +306,14 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
       </article>
 
-      <!-- Dubai – Family + International -->
+      <!-- 2. Dubai – Family + International -->
       <article class="kpm-offer-card" data-category="family international">
-        <div class="kpm-offer-img" style="background-image:url('images/dubai.jpg');"></div>
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Dubaispecialoffer1.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Dubaispecialoffer2.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Dubaispecialoffer3.jpeg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Dubaispecialoffer4.avif');"></div>
+        </div>
         <div class="kpm-offer-body">
           <h3>Dubai Family Escape</h3>
           <p>Desert Safari, Burj Khalifa & city tour included.</p>
@@ -270,9 +325,14 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
       </article>
 
-      <!-- Goa – Weekend + Family -->
+      <!-- 3. Goa – Weekend + Family -->
       <article class="kpm-offer-card" data-category="weekend family">
-        <div class="kpm-offer-img" style="background-image:url('images/goa.jpg');"></div>
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Goaspecialoffer1.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Goaspecialoffer2.avif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Goaspecialoffer3.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Goaspecialoffer4.webp');"></div>
+        </div>
         <div class="kpm-offer-body">
           <h3>Goa Weekend Getaway</h3>
           <p>3N beachside resort with breakfast & transfers.</p>
@@ -284,13 +344,170 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
       </article>
 
-      <!-- Kashmir – Family + Group + Weekend -->
+      <!-- 4. Kashmir – Family + Group + Weekend -->
       <article class="kpm-offer-card" data-category="family group weekend">
-        <div class="kpm-offer-img" style="background-image:url('images/kashmir.jpg');"></div>
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Kashmirspecialoffer1.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Kashmirspecialoffer2.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Kashmirspecialoffer3.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Kashmirspecialoffer4.jpg');"></div>
+        </div>
         <div class="kpm-offer-body">
           <h3>Kashmir Delight</h3>
           <p>Srinagar, Gulmarg & Pahalgam with houseboat stay.</p>
           <p class="kpm-offer-price">Starting at ₹19,999 / person</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5. Manali – Family + Weekend + Group -->
+      <article class="kpm-offer-card" data-category="family weekend group">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Manalispecialoffer1.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Manalispecialoffer2.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Manalispecialoffer3.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Manalispecialoffer4.webp');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Manali Hills Escape</h3>
+          <p>3N/4D trip with Solang Valley & local sightseeing.</p>
+          <p class="kpm-offer-price">Starting at ₹9,999 / person</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6. Bali – Honeymoon + International -->
+      <article class="kpm-offer-card" data-category="honeymoon international">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Balispecialoffer1.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Balispecialoffer2.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Balispecialoffer3.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Balispecialoffer4.webp');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Bali Romantic Escape</h3>
+          <p>Pool villa, Ubud tour & sunset at Tanah Lot.</p>
+          <p class="kpm-offer-price">Starting at ₹74,999 / couple</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7. Singapore – Family + International + Group -->
+      <article class="kpm-offer-card" data-category="family international group">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Singaporespecialoffer1.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Singaporespecialoffer2.avif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Singaporespecialoffer3.avif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Singaporespecialoffer4.avif');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Singapore Family Fun</h3>
+          <p>Universal Studios, Sentosa & Night Safari.</p>
+          <p class="kpm-offer-price">Starting at ₹65,999 / person</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8. Thailand – Group + International -->
+      <article class="kpm-offer-card" data-category="group international">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Thailandspecialoffer1.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Thailandspecialoffer4.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Thailandspecialoffer2.avif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Thailandspecialoffer3.jpg');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Thailand Group Tour</h3>
+          <p>Bangkok & Pattaya with island tours & shows.</p>
+          <p class="kpm-offer-price">Starting at ₹39,999 / person</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 9. Andaman – Honeymoon + Weekend -->
+      <article class="kpm-offer-card" data-category="honeymoon weekend">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Andamanspecialoffer1.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Andamanspecialoffer2.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Andamanspecialoffer3.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Andamanspecialoffer4.jpg');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Andaman Beach Honeymoon</h3>
+          <p>Havelock Island, Radhanagar Beach & candle light dinner.</p>
+          <p class="kpm-offer-price">Starting at ₹59,999 / couple</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10. Jaipur – Weekend + Family -->
+      <article class="kpm-offer-card" data-category="weekend family">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Jaipurspecialoffer1.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Jaipurspecialoffer2.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Jaipurspecialoffer3.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Jaipurspecialoffer4.jfif');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Jaipur Royal Weekend</h3>
+          <p>2N stay with Amer Fort, City Palace & local sights.</p>
+          <p class="kpm-offer-price">Starting at ₹7,999 / person</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 11. Europe – Group + Family + International -->
+      <article class="kpm-offer-card" data-category="group family international">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Europespecialoffer1.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Europespecialoffer2.avif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Europespecialoffer3.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Europespecialoffer4.jpg');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Europe Highlights Tour</h3>
+          <p>10N/11D – Paris, Swiss Alps, Italy & more.</p>
+          <p class="kpm-offer-price">Starting at ₹1,89,999 / person</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 12. Coorg – Weekend + Family -->
+      <article class="kpm-offer-card" data-category="weekend family">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Coorgspecialoffer1.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Coorgspecialoffer2.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Coorgspecialoffer3.avif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Coorgspecialoffer4.avif');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Coorg Coffee Retreat</h3>
+          <p>2N plantation stay with trekking & waterfall visit.</p>
+          <p class="kpm-offer-price">Starting at ₹8,999 / person</p>
           <div class="kpm-offer-actions">
             <a href="#" class="kpm-offer-link">View Details</a>
             <a href="book.html" class="kpm-book-btn">Book Now</a>
@@ -305,7 +522,156 @@ document.addEventListener('DOMContentLoaded', function () {
   </div>
 </section>
 
+<script>
+  window.addEventListener('load', function () {
+    const track   = document.querySelector('#offers-1');
+    const wrapper = document.querySelector('.kpm-offers-inner');
+    if (!track || !wrapper) return;
 
+    let autoSlideInterval = null;
+    let currentIndex = 0;
+
+    function getVisibleCards() {
+      return Array.from(track.querySelectorAll('.kpm-offer-card'))
+        .filter(card => card.style.display !== 'none');
+    }
+
+    function setupDots() {
+      let dotsContainer = wrapper.querySelector('.kpm-offer-dots');
+      if (!dotsContainer) {
+        dotsContainer = document.createElement('div');
+        dotsContainer.className = 'kpm-offer-dots';
+        const viewAll = wrapper.querySelector('.kpm-offer-viewall');
+        wrapper.insertBefore(dotsContainer, viewAll);
+      }
+      dotsContainer.innerHTML = '';
+
+      const cards = getVisibleCards();
+      cards.forEach(function (card, index) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'kpm-offer-dot' + (index === currentIndex ? ' kpm-offer-dot-active' : '');
+        dot.addEventListener('click', function () {
+          currentIndex = index;
+          goToSlide(currentIndex, true);
+          stopAutoSlide();
+          startAutoSlide();
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function goToSlide(index, smooth) {
+      const cards = getVisibleCards();
+      if (!cards.length) return;
+
+      if (index >= cards.length) index = 0;
+      if (index < 0) index = cards.length - 1;
+      currentIndex = index;
+
+      const card = cards[currentIndex];
+      const left = card.offsetLeft;
+
+      track.scrollTo({
+        left: left,
+        behavior: smooth ? 'smooth' : 'auto'
+      });
+
+      const dots = wrapper.querySelectorAll('.kpm-offer-dot');
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle('kpm-offer-dot-active', i === currentIndex);
+      });
+    }
+
+    function startAutoSlide() {
+      stopAutoSlide();
+      autoSlideInterval = setInterval(function () {
+        goToSlide(currentIndex + 1, true);
+      }, 2000); // main slider 2 sec
+    }
+
+    function stopAutoSlide() {
+      if (autoSlideInterval) {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = null;
+      }
+    }
+
+    function initCardImageSliders() {
+      const sliders = document.querySelectorAll('.kpm-offer-img-slider');
+
+      sliders.forEach(function (slider) {
+        const slides = slider.querySelectorAll('.kpm-offer-img-slide');
+        if (slides.length <= 1) return;
+
+        let idx = 0;
+        slides.forEach(function (s, i) {
+          s.style.opacity = i === 0 ? '1' : '0';
+        });
+
+        setInterval(function () {
+          slides[idx].style.opacity = '0';
+          idx = (idx + 1) % slides.length;
+          slides[idx].style.opacity = '1';
+        }, 2000); // card ke andar 2 sec
+      });
+    }
+
+    // TAB FILTER
+    document.querySelectorAll('.kpm-offer-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        stopAutoSlide();
+
+        const filter = this.getAttribute('data-filter');
+        const cards = wrapper.querySelectorAll('.kpm-offer-card');
+
+        wrapper.querySelectorAll('.kpm-offer-tab').forEach(function (t) {
+          t.classList.remove('kpm-offer-tab-active');
+        });
+        this.classList.add('kpm-offer-tab-active');
+
+        cards.forEach(function (card) {
+          const cats = card.getAttribute('data-category') || '';
+          if (filter === 'all' || cats.indexOf(filter) !== -1) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        track.scrollLeft = 0;
+        currentIndex = 0;
+        setupDots();
+        goToSlide(0, false);
+        startAutoSlide();
+      });
+    });
+
+    // ARROWS
+    document.querySelectorAll('.kpm-offer-arrow').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        stopAutoSlide();
+        const dir = this.getAttribute('data-dir');
+        if (dir === 'left') {
+          goToSlide(currentIndex - 1, true);
+        } else {
+          goToSlide(currentIndex + 1, true);
+        }
+        startAutoSlide();
+      });
+    });
+
+    // PAUSE ON HOVER
+    track.addEventListener('mouseenter', stopAutoSlide);
+    track.addEventListener('mouseleave', startAutoSlide);
+
+    // INIT
+    setupDots();
+    goToSlide(0, false);
+    initCardImageSliders();
+    startAutoSlide();
+  });
+</script>
 
 
 
@@ -327,16 +693,21 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
 
       <div class="kpm-offer-arrows">
-        <button class="kpm-offer-arrow" data-target="#offers-2" data-dir="left">&#10094;</button>
-        <button class="kpm-offer-arrow" data-target="#offers-2" data-dir="right">&#10095;</button>
+        <button class="kpm-offer-arrow" data-target="#offers-2" data-dir="left" type="button">&#10094;</button>
+        <button class="kpm-offer-arrow" data-target="#offers-2" data-dir="right" type="button">&#10095;</button>
       </div>
     </div>
 
     <div class="kpm-offer-track" id="offers-2">
 
-      <!-- Maldives – Asia + Beach -->
+      <!-- 1. Maldives – Asia + Beach -->
       <article class="kpm-offer-card" data-category="asia beach">
-        <div class="kpm-offer-img" style="background-image:url('images/Maldives.jpg');"></div>
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Maldivesinternationaldestination1.avif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Maldivesinternationaldestination2.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Maldivesinternationaldestination3.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Maldivesinternationaldestination4.jfif');"></div>
+        </div>
         <div class="kpm-offer-body">
           <h3>Maldives Honeymoon</h3>
           <p>4N/5D water villa experience with candle light dinner.</p>
@@ -349,9 +720,14 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
       </article>
 
-      <!-- Dubai – Europe + Asia + Adventure (yahan 'europe' add kiya) -->
-      <article class="kpm-offer-card" data-category="europe asia adventure">
-        <div class="kpm-offer-img" style="background-image:url('images/dubai.jpg');"></div>
+      <!-- 2. Dubai – Asia + Adventure -->
+      <article class="kpm-offer-card" data-category="asia adventure">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Dubaiinternaldestination1.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Dubaiinternaldestination2.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Dubaiinternaldestination3.avif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Dubaiinternaldestination4.jpg');"></div>
+        </div>
         <div class="kpm-offer-body">
           <h3>Dubai Family Escape</h3>
           <p>Desert Safari, Burj Khalifa & city tour included.</p>
@@ -364,9 +740,14 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
       </article>
 
-      <!-- Goa – Asia + Beach -->
+      <!-- 3. Goa – Asia + Beach -->
       <article class="kpm-offer-card" data-category="asia beach">
-        <div class="kpm-offer-img" style="background-image:url('images/goa.jpg');"></div>
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Goainternalnationaldestination1.avif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Goainternalnationaldestination2.avif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Goainternalnationaldestination3.avif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Goainternalnationaldestination4.avif');"></div>
+        </div>
         <div class="kpm-offer-body">
           <h3>Goa Weekend Getaway</h3>
           <p>3N beachside resort with breakfast & transfers.</p>
@@ -379,9 +760,14 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
       </article>
 
-      <!-- Kashmir – Asia + Adventure -->
+      <!-- 4. Kashmir – Asia + Adventure -->
       <article class="kpm-offer-card" data-category="asia adventure">
-        <div class="kpm-offer-img" style="background-image:url('images/Kashmir.jpg');"></div>
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Kashmirinternaltionaldestination1.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Kashmirinternaltionaldestination2.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Kashmirinternaltionaldestination3.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Kashmirinternaltionaldestination4.webp');"></div>
+        </div>
         <div class="kpm-offer-body">
           <h3>Kashmir Delight</h3>
           <p>Srinagar, Gulmarg & Pahalgam with houseboat stay.</p>
@@ -394,19 +780,287 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
       </article>
 
+      <!-- 5. Bali – Asia + Beach + Adventure -->
+      <article class="kpm-offer-card" data-category="asia beach adventure">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Baliinternationaldestination1.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Baliinternationaldestination2.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Baliinternationaldestination3.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Baliinternationaldestination4.jfif');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Bali Romantic Escape</h3>
+          <p>Pool villa, Ubud tour & sunset at Tanah Lot.</p>
+          <p class="kpm-offer-price">Starting at ₹74,999 / couple</p>
+
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6. Singapore – Asia + Adventure -->
+      <article class="kpm-offer-card" data-category="asia adventure">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Singaporeinternaltionaldestination1.avif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Singaporeinternaltionaldestination2.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Singaporeinternaltionaldestination3.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Singaporeinternaltionaldestination4.jpg');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Singapore City Fun</h3>
+          <p>Universal Studios, Sentosa & Night Safari.</p>
+          <p class="kpm-offer-price">Starting at ₹65,999 / person</p>
+
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7. Thailand – Asia + Beach + Adventure -->
+      <article class="kpm-offer-card" data-category="asia beach adventure">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Thailandinternationaldestination1.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Thailandinternationaldestination2.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Thailandinternationaldestination3.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Thailandinternationaldestination4.webp');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Thailand Island Escape</h3>
+          <p>Bangkok & Pattaya with island tours & shows.</p>
+          <p class="kpm-offer-price">Starting at ₹39,999 / person</p>
+
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8. Europe – Europe + Adventure -->
+      <article class="kpm-offer-card" data-category="europe adventure">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Europeinternationaldestination1.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Europeinternationaldestination2.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Europeinternationaldestination3.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Europeinternationaldestination4.jfif');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Europe Highlights Tour</h3>
+          <p>10N/11D – best of Europe in one trip.</p>
+          <p class="kpm-offer-price">Starting at ₹1,89,999 / person</p>
+
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 9. Swiss Alps – Europe + Adventure -->
+      <article class="kpm-offer-card" data-category="europe adventure">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Swissinternaltionaldestination1.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Swissinternaltionaldestination2.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Swissinternaltionaldestination3.cms');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Swissinternaltionaldestination4.jfif');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Swiss Alps Getaway</h3>
+          <p>Snowy peaks, scenic trains & alpine villages.</p>
+          <p class="kpm-offer-price">Starting at ₹1,29,999 / person</p>
+
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10. Mauritius – Beach + Adventure -->
+      <article class="kpm-offer-card" data-category="beach adventure">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Mauritiusinternaltionaldestination1.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Mauritiusinternaltionaldestination2.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Mauritiusinternaltionaldestination3.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Mauritiusinternaltionaldestination4.jfif');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Mauritius Luxury Retreat</h3>
+          <p>Overwater views, white sand beaches & more.</p>
+          <p class="kpm-offer-price">Starting at ₹99,999 / couple</p>
+
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
     </div>
 
     <a href="all-destinations.html" class="kpm-offer-viewall">View all destinations ↗</a>
   </div>
 </section>
 
+<script>
+  // YE SIRF "Top International Destinations" (offers-2) ke liye hai
+  window.addEventListener('load', function () {
+    const track = document.getElementById('offers-2');
+    if (!track) return;
+
+    const wrapper = track.closest('.kpm-offers-inner');
+    let autoSlideInterval = null;
+    let currentIndex = 0;
+
+    function getVisibleCards() {
+      return Array.from(track.querySelectorAll('.kpm-offer-card'))
+        .filter(card => card.style.display !== 'none');
+    }
+
+    function setupDots() {
+      let dotsContainer = wrapper.querySelector('.kpm-offer-dots');
+      if (!dotsContainer) {
+        dotsContainer = document.createElement('div');
+        dotsContainer.className = 'kpm-offer-dots';
+        const viewAll = wrapper.querySelector('.kpm-offer-viewall');
+        wrapper.insertBefore(dotsContainer, viewAll);
+      }
+      dotsContainer.innerHTML = '';
+
+      const cards = getVisibleCards();
+      cards.forEach(function (card, index) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'kpm-offer-dot' + (index === currentIndex ? ' kpm-offer-dot-active' : '');
+        dot.addEventListener('click', function () {
+          currentIndex = index;
+          goToSlide(currentIndex, true);
+          stopAutoSlide();
+          startAutoSlide();
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function goToSlide(index, smooth) {
+      const cards = getVisibleCards();
+      if (!cards.length) return;
+
+      if (index >= cards.length) index = 0;
+      if (index < 0) index = cards.length - 1;
+      currentIndex = index;
+
+      const card = cards[currentIndex];
+      const left = card.offsetLeft;
+
+      track.scrollTo({
+        left: left,
+        behavior: smooth ? 'smooth' : 'auto'
+      });
+
+      const dots = wrapper.querySelectorAll('.kpm-offer-dot');
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle('kpm-offer-dot-active', i === currentIndex);
+      });
+    }
+
+    function startAutoSlide() {
+      stopAutoSlide();
+      autoSlideInterval = setInterval(function () {
+        goToSlide(currentIndex + 1, true);
+      }, 2000); // main slider 2 sec
+    }
+
+    function stopAutoSlide() {
+      if (autoSlideInterval) {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = null;
+      }
+    }
+
+    function initCardImageSliders() {
+      const sliders = wrapper.querySelectorAll('.kpm-offer-img-slider');
+
+      sliders.forEach(function (slider) {
+        const slides = slider.querySelectorAll('.kpm-offer-img-slide');
+        if (slides.length <= 1) return;
+
+        let idx = 0;
+        slides.forEach(function (s, i) {
+          s.style.opacity = i === 0 ? '1' : '0';
+        });
+
+        setInterval(function () {
+          slides[idx].style.opacity = '0';
+          idx = (idx + 1) % slides.length;
+          slides[idx].style.opacity = '1';
+        }, 2000); // card ke andar 2 sec
+      });
+    }
+
+    // TAB FILTER (sirf is section ke tabs)
+    wrapper.querySelectorAll('.kpm-offer-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        stopAutoSlide();
+
+        const filter = this.getAttribute('data-filter');
+        const cards = wrapper.querySelectorAll('.kpm-offer-card');
+
+        wrapper.querySelectorAll('.kpm-offer-tab').forEach(function (t) {
+          t.classList.remove('kpm-offer-tab-active');
+        });
+        this.classList.add('kpm-offer-tab-active');
+
+        cards.forEach(function (card) {
+          const cats = card.getAttribute('data-category') || '';
+          if (filter === 'all' || cats.indexOf(filter) !== -1) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        track.scrollLeft = 0;
+        currentIndex = 0;
+        setupDots();
+        goToSlide(0, false);
+        startAutoSlide();
+      });
+    });
+
+    // ARROWS (sirf is section ke arrows)
+    wrapper.querySelectorAll('.kpm-offer-arrow').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        stopAutoSlide();
+        const dir = this.getAttribute('data-dir');
+        if (dir === 'left') {
+          goToSlide(currentIndex - 1, true);
+        } else {
+          goToSlide(currentIndex + 1, true);
+        }
+        startAutoSlide();
+      });
+    });
+
+    // PAUSE ON HOVER
+    track.addEventListener('mouseenter', stopAutoSlide);
+    track.addEventListener('mouseleave', startAutoSlide);
+
+    // INIT
+    setupDots();
+    goToSlide(0, false);
+    initCardImageSliders();
+    startAutoSlide();
+  });
+</script>
+
 
 
 <!-- ========= NEW SECTION: TOP INDIAN DESTINATIONS ========= -->
-
-
-
-
 <section class="kpm-offers">
   <div class="kpm-offers-inner">
 
@@ -419,24 +1073,30 @@ document.addEventListener('DOMContentLoaded', function () {
         <button class="kpm-offer-tab" data-filter="beaches" type="button">Beaches</button>
         <button class="kpm-offer-tab" data-filter="backwaters" type="button">Backwaters</button>
         <button class="kpm-offer-tab" data-filter="heritage" type="button">Heritage</button>
+        <!-- NEW TAB: Spiritual -->
+        <button class="kpm-offer-tab" data-filter="spiritual" type="button">Spiritual</button>
       </div>
 
       <div class="kpm-offer-arrows">
-        <button class="kpm-offer-arrow" data-target="#offers-domestic" data-dir="left">&#10094;</button>
-        <button class="kpm-offer-arrow" data-target="#offers-domestic" data-dir="right">&#10095;</button>
+        <button class="kpm-offer-arrow" data-target="#offers-domestic" data-dir="left" type="button">&#10094;</button>
+        <button class="kpm-offer-arrow" data-target="#offers-domestic" data-dir="right" type="button">&#10095;</button>
       </div>
     </div>
 
     <div class="kpm-offer-track" id="offers-domestic">
 
-      <!-- Card 1: Manali – Hills -->
+      <!-- 1: Manali – Hills -->
       <article class="kpm-offer-card" data-category="hills">
-        <div class="kpm-offer-img" style="background-image:url('images/manali.jpg');"></div>
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/ManaliSolangindiandestination1.avif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/ManaliSolangindiandestination2.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/ManaliSolangindiandestination3.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/ManaliSolangindiandestination4.webp');"></div>
+        </div>
         <div class="kpm-offer-body">
           <h3>Manali &amp; Solang Valley</h3>
           <p>4N/5D Himachal hills with local sightseeing.</p>
           <p class="kpm-offer-price">Starting at ₹14,999 / person</p>
-
           <div class="kpm-offer-actions">
             <a href="#" class="kpm-offer-link">View Details</a>
             <a href="book.html?package=manali" class="kpm-book-btn">Book Now</a>
@@ -444,14 +1104,18 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
       </article>
 
-      <!-- Card 2: Kerala – Backwaters + Hills -->
+      <!-- 2: Kerala – Backwaters + Hills -->
       <article class="kpm-offer-card" data-category="backwaters hills">
-        <div class="kpm-offer-img" style="background-image:url('images/Kerala.jpg');"></div>
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/KeralaBackwatersindiandestination1.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/KeralaBackwatersindiandestination2.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/KeralaBackwatersindiandestination3.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/KeralaBackwatersindiandestination4.jfif');"></div>
+        </div>
         <div class="kpm-offer-body">
           <h3>Kerala Backwaters</h3>
           <p>Houseboat stay in Alleppey with Munnar hills.</p>
           <p class="kpm-offer-price">Starting at ₹18,999 / person</p>
-
           <div class="kpm-offer-actions">
             <a href="#" class="kpm-offer-link">View Details</a>
             <a href="book.html?package=kerala" class="kpm-book-btn">Book Now</a>
@@ -459,14 +1123,18 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
       </article>
 
-      <!-- Card 3: Goa – Beaches -->
+      <!-- 3: Goa – Beaches -->
       <article class="kpm-offer-card" data-category="beaches">
-        <div class="kpm-offer-img" style="background-image:url('images/goa-gateway.jpg');"></div>
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/GoaBeachindiandestination1.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/GoaBeachindiandestination2.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/GoaBeachindiandestination3.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/GoaBeachindiandestination4.jfif');"></div>
+        </div>
         <div class="kpm-offer-body">
           <h3>Goa Beach Escape</h3>
           <p>3N resort stay with breakfast &amp; airport transfers.</p>
           <p class="kpm-offer-price">Starting at ₹11,999 / person</p>
-
           <div class="kpm-offer-actions">
             <a href="#" class="kpm-offer-link">View Details</a>
             <a href="book.html?package=goa" class="kpm-book-btn">Book Now</a>
@@ -474,14 +1142,18 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
       </article>
 
-      <!-- Card 4: Rajasthan – Heritage -->
+      <!-- 4: Royal Rajasthan – Heritage -->
       <article class="kpm-offer-card" data-category="heritage">
-        <div class="kpm-offer-img" style="background-image:url('images/Royal Rajasthan.jpg');"></div>
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/RoyalRajasthanindiandestination1.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/RoyalRajasthanindiandestination2.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/RoyalRajasthanindiandestination3.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/RoyalRajasthanindiandestination4.webp');"></div>
+        </div>
         <div class="kpm-offer-body">
           <h3>Royal Rajasthan</h3>
           <p>Jaipur, Jodhpur &amp; Udaipur with palace stays.</p>
           <p class="kpm-offer-price">Starting at ₹19,999 / person</p>
-
           <div class="kpm-offer-actions">
             <a href="#" class="kpm-offer-link">View Details</a>
             <a href="book.html?package=rajasthan" class="kpm-book-btn">Book Now</a>
@@ -489,14 +1161,18 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
       </article>
 
-      <!-- Card 5: Kashmir – Hills + Heritage -->
+      <!-- 5: Kashmir – Hills + Heritage -->
       <article class="kpm-offer-card" data-category="hills heritage">
-        <div class="kpm-offer-img" style="background-image:url('images/Kashmir Delight.jpg');"></div>
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/KashmirDelightindiandestination1.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/KashmirDelightindiandestination2.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/KashmirDelightindiandestination3.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Kashmirinternaltionaldestination4.webp');"></div>
+        </div>
         <div class="kpm-offer-body">
           <h3>Kashmir Delight</h3>
           <p>Srinagar, Gulmarg &amp; Pahalgam with houseboat stay.</p>
           <p class="kpm-offer-price">Starting at ₹17,999 / person</p>
-
           <div class="kpm-offer-actions">
             <a href="#" class="kpm-offer-link">View Details</a>
             <a href="book.html?package=kashmir" class="kpm-book-btn">Book Now</a>
@@ -504,17 +1180,325 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
       </article>
 
-      <!-- Card 6: Rishikesh – Hills -->
+      <!-- 6: Rishikesh – Hills -->
       <article class="kpm-offer-card" data-category="hills">
-        <div class="kpm-offer-img" style="background-image:url('images/Rishikesh Adventure.jpg');"></div>
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/RishikeshAdventureindiandestination1.avif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/RishikeshAdventureindiandestination2.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/RishikeshAdventureindiandestination3.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/RishikeshAdventureindiandestination4.avif');"></div>
+        </div>
         <div class="kpm-offer-body">
           <h3>Rishikesh Adventure</h3>
           <p>River rafting, camping &amp; Ganga aarti experience.</p>
           <p class="kpm-offer-price">Starting at ₹9,999 / person</p>
-
           <div class="kpm-offer-actions">
             <a href="#" class="kpm-offer-link">View Details</a>
             <a href="book.html?package=rishikesh" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7: Coorg – Hills -->
+      <article class="kpm-offer-card" data-category="hills">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/CoorgCoffeeindiandestination1.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/CoorgCoffeeindiandestination2.avif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/CoorgCoffeeindiandestination3.avif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/CoorgCoffeeindiandestination4.webp');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Coorg Coffee Trails</h3>
+          <p>Plantation stay with waterfalls &amp; viewpoints.</p>
+          <p class="kpm-offer-price">Starting at ₹10,999 / person</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html?package=coorg" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8: Andaman – Beaches -->
+      <article class="kpm-offer-card" data-category="beaches">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/AndamanIslandindiandestination1.png');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/AndamanIslandindiandestination2.avif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/AndamanIslandindiandestination3.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/AndamanIslandindiandestination4.jpg');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Andaman Island Escape</h3>
+          <p>Port Blair &amp; Havelock with beach activities.</p>
+          <p class="kpm-offer-price">Starting at ₹24,999 / person</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html?package=andaman" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 9: Varanasi – Heritage -->
+      <article class="kpm-offer-card" data-category="heritage">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/VaranasiSpiritualindiandestination1.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/VaranasiSpiritualindiandestination2.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/VaranasiSpiritualindiandestination3.png');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/VaranasiSpiritualindiandestination4.webp');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Varanasi Spiritual Tour</h3>
+          <p>Ganga aarti, ghats walk &amp; temple visits.</p>
+          <p class="kpm-offer-price">Starting at ₹8,999 / person</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html?package=varanasi" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10: Ooty – Hills + Heritage -->
+      <article class="kpm-offer-card" data-category="hills heritage">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/OotyCoonoorindiandestination1.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/OotyCoonoorindiandestination2.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/OotyCoonoorindiandestination3.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/OotyCoonoorindiandestination4.jfif');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Ooty &amp; Coonoor Getaway</h3>
+          <p>Nilgiri toy train, tea gardens &amp; lakes.</p>
+          <p class="kpm-offer-price">Starting at ₹12,999 / person</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html?package=ooty" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 11: Vaishno Devi – Spiritual + Hills -->
+      <article class="kpm-offer-card" data-category="spiritual hills">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/VaishnoDeviyatra1.avif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/VaishnoDeviyatra2.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/VaishnoDeviyatra3.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/VaishnoDeviyatra4.jfif');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Vaishno Devi Yatra</h3>
+          <p>Katra stay with helicopter / pony options.</p>
+          <p class="kpm-offer-price">Starting at ₹13,999 / person</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html?package=vaishnodevi" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 12: Kedarnath – Spiritual + Hills -->
+      <article class="kpm-offer-card" data-category="spiritual hills">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/KedarnathDham1.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/KedarnathDham2.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/KedarnathDham3.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/KedarnathDham4.jpg');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Kedarnath Dham</h3>
+          <p>Haridwar, Guptkashi &amp; Kedarnath darshan.</p>
+          <p class="kpm-offer-price">Starting at ₹19,999 / person</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html?package=kedarnath" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 13: Badrinath – Spiritual + Hills -->
+      <article class="kpm-offer-card" data-category="spiritual hills">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/BadrinathYatra1.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/BadrinathYatra2.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/BadrinathYatra3.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/BadrinathYatra4.jfif');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Badrinath Yatra</h3>
+          <p>Mana village, hot springs &amp; temple darshan.</p>
+          <p class="kpm-offer-price">Starting at ₹18,999 / person</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html?package=badrinath" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 14: Somnath – Spiritual + Heritage -->
+      <article class="kpm-offer-card" data-category="spiritual heritage">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/SomnathGir1.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/SomnathGir2.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/SomnathGir3.png');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/SomnathGir4.jfif');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Somnath &amp; Gir</h3>
+          <p>Somnath temple, Gir jungle safari &amp; beaches.</p>
+          <p class="kpm-offer-price">Starting at ₹16,999 / person</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html?package=somnath" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 15: Ayodhya Ram Mandir – Spiritual -->
+      <article class="kpm-offer-card" data-category="spiritual heritage">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/AyodhyaRamMandir1.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/AyodhyaRamMandir2.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/AyodhyaRamMandir3.avif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/AyodhyaRamMandir4.jpg');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Ayodhya Ram Mandir</h3>
+          <p>Ram Mandir darshan with local sightseeing.</p>
+          <p class="kpm-offer-price">Starting at ₹9,999 / person</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html?package=ayodhya" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 16: Ujjain Mahakaleshwar – Spiritual -->
+      <article class="kpm-offer-card" data-category="spiritual heritage">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Mahakaleshwar1.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Mahakaleshwar2.cms');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Mahakaleshwar3.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Mahakaleshwar4.webp');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Mahakaleshwar Ujjain</h3>
+          <p>Bhasma aarti experience with city temples.</p>
+          <p class="kpm-offer-price">Starting at ₹8,999 / person</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html?package=ujjain" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 17: Khatu Shyam ji – Spiritual -->
+      <article class="kpm-offer-card" data-category="spiritual">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/KhatuShyam1.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/KhatuShyam2.avif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/KhatuShyam3.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/KhatuShyam4.webp');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Khatu Shyam Darshan</h3>
+          <p>Temple darshan with Jaipur / Salasar add-ons.</p>
+          <p class="kpm-offer-price">Starting at ₹7,999 / person</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html?package=khatushyam" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 18: Sawariya Seth (Chittorgarh) – Spiritual + Heritage -->
+      <article class="kpm-offer-card" data-category="spiritual heritage">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/SawariyaSeth1.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/SawariyaSeth2.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/SawariyaSeth3.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/SawariyaSeth4.webp');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Sawariya Seth with Chittorgarh</h3>
+          <p>Temple darshan &amp; Chittorgarh Fort sightseeing.</p>
+          <p class="kpm-offer-price">Starting at ₹9,499 / person</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html?package=sawariya" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 19: Tirupati Balaji – Spiritual -->
+      <article class="kpm-offer-card" data-category="spiritual hills">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/TirupatiBalaji1.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/TirupatiBalaji2.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/TirupatiBalaji3.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/TirupatiBalaji4.jpg');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Tirupati Balaji Darshan</h3>
+          <p>Special entry darshan with nearby temples.</p>
+          <p class="kpm-offer-price">Starting at ₹10,999 / person</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html?package=tirupati" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 20: Rameswaram – Spiritual + Beaches -->
+      <article class="kpm-offer-card" data-category="spiritual beaches">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Rameswaram1.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Rameswaram2.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Rameswaram3.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Rameswaram4.jfif');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Rameswaram &amp; Dhanushkodi</h3>
+          <p>Temple rituals with sea view points.</p>
+          <p class="kpm-offer-price">Starting at ₹15,999 / person</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html?package=rameswaram" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 21: Dwarka – Spiritual + Beaches -->
+      <article class="kpm-offer-card" data-category="spiritual beaches heritage">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Dwarka1.webp');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Dwarka2.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Dwarka3.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Dwarka4.jpg');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Dwarka &amp; Bet Dwarka</h3>
+          <p>Lord Krishna temples with coastal views.</p>
+          <p class="kpm-offer-price">Starting at ₹14,499 / person</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html?package=dwarka" class="kpm-book-btn">Book Now</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 22: Golden Temple – Spiritual + Heritage -->
+      <article class="kpm-offer-card" data-category="spiritual heritage">
+        <div class="kpm-offer-img kpm-offer-img-slider">
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Amritsar1.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Amritsar2.jfif');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Amritsar3.jpg');"></div>
+          <div class="kpm-offer-img-slide" style="background-image:url('images/Amritsar4.jpg');"></div>
+        </div>
+        <div class="kpm-offer-body">
+          <h3>Amritsar Golden Temple</h3>
+          <p>Golden Temple, Wagah Border &amp; Jallianwala.</p>
+          <p class="kpm-offer-price">Starting at ₹11,999 / person</p>
+          <div class="kpm-offer-actions">
+            <a href="#" class="kpm-offer-link">View Details</a>
+            <a href="book.html?package=goldentemple" class="kpm-book-btn">Book Now</a>
           </div>
         </div>
       </article>
@@ -524,6 +1508,165 @@ document.addEventListener('DOMContentLoaded', function () {
     <a href="#" class="kpm-offer-viewall">View all Indian destinations ↗</a>
   </div>
 </section>
+
+<script>
+  // Sirf "Top Indian Destinations" (offers-domestic) ke liye JS
+  window.addEventListener('load', function () {
+    const track = document.getElementById('offers-domestic');
+    if (!track) return;
+
+    const wrapper = track.closest('.kpm-offers-inner');
+    let autoSlideInterval = null;
+    let currentIndex = 0;
+
+    function getVisibleCards() {
+      return Array.from(track.querySelectorAll('.kpm-offer-card'))
+        .filter(card => card.style.display !== 'none');
+    }
+
+    function setupDots() {
+      let dotsContainer = wrapper.querySelector('.kpm-offer-dots');
+      if (!dotsContainer) {
+        dotsContainer = document.createElement('div');
+        dotsContainer.className = 'kpm-offer-dots';
+        const viewAll = wrapper.querySelector('.kpm-offer-viewall');
+        wrapper.insertBefore(dotsContainer, viewAll);
+      }
+      dotsContainer.innerHTML = '';
+
+      const cards = getVisibleCards();
+      cards.forEach(function (card, index) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'kpm-offer-dot' + (index === currentIndex ? ' kpm-offer-dot-active' : '');
+        dot.addEventListener('click', function () {
+          currentIndex = index;
+          goToSlide(currentIndex, true);
+          stopAutoSlide();
+          startAutoSlide();
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function goToSlide(index, smooth) {
+      const cards = getVisibleCards();
+      if (!cards.length) return;
+
+      if (index >= cards.length) index = 0;
+      if (index < 0) index = cards.length - 1;
+      currentIndex = index;
+
+      const card = cards[currentIndex];
+      const left = card.offsetLeft;
+
+      track.scrollTo({
+        left: left,
+        behavior: smooth ? 'smooth' : 'auto'
+      });
+
+      const dots = wrapper.querySelectorAll('.kpm-offer-dot');
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle('kpm-offer-dot-active', i === currentIndex);
+      });
+    }
+
+    function startAutoSlide() {
+      stopAutoSlide();
+      autoSlideInterval = setInterval(function () {
+        goToSlide(currentIndex + 1, true);
+      }, 2000); // main slider 2 sec
+    }
+
+    function stopAutoSlide() {
+      if (autoSlideInterval) {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = null;
+      }
+    }
+
+    function initCardImageSliders() {
+      const sliders = wrapper.querySelectorAll('.kpm-offer-img-slider');
+
+      sliders.forEach(function (slider) {
+        const slides = slider.querySelectorAll('.kpm-offer-img-slide');
+        if (slides.length <= 1) return;
+
+        let idx = 0;
+        slides.forEach(function (s, i) {
+          s.style.opacity = i === 0 ? '1' : '0';
+        });
+
+        setInterval(function () {
+          slides[idx].style.opacity = '0';
+          idx = (idx + 1) % slides.length;
+          slides[idx].style.opacity = '1';
+        }, 2000); // inner images 2 sec
+      });
+    }
+
+    // Tabs
+    wrapper.querySelectorAll('.kpm-offer-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        stopAutoSlide();
+
+        const filter = this.getAttribute('data-filter');
+        const cards = wrapper.querySelectorAll('.kpm-offer-card');
+
+        wrapper.querySelectorAll('.kpm-offer-tab').forEach(function (t) {
+          t.classList.remove('kpm-offer-tab-active');
+        });
+        this.classList.add('kpm-offer-tab-active');
+
+        cards.forEach(function (card) {
+          const cats = card.getAttribute('data-category') || '';
+          if (filter === 'all' || cats.indexOf(filter) !== -1) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        track.scrollLeft = 0;
+        currentIndex = 0;
+        setupDots();
+        goToSlide(0, false);
+        startAutoSlide();
+      });
+    });
+
+    // Arrows
+    wrapper.querySelectorAll('.kpm-offer-arrow').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        stopAutoSlide();
+        const dir = this.getAttribute('data-dir');
+        if (dir === 'left') {
+          goToSlide(currentIndex - 1, true);
+        } else {
+          goToSlide(currentIndex + 1, true);
+        }
+        startAutoSlide();
+      });
+    });
+
+    // Pause on hover
+    track.addEventListener('mouseenter', stopAutoSlide);
+    track.addEventListener('mouseleave', startAutoSlide);
+
+    // Init
+    setupDots();
+    goToSlide(0, false);
+    initCardImageSliders();
+    startAutoSlide();
+  });
+</script>
+
+
+
+
+
+
+
 
 <!-- KPM - Other Travel Services Section -->
 <section class="kpm-services">

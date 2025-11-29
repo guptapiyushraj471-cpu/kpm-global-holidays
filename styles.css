@@ -5141,3 +5141,22 @@ hr {
   transform:scale(1.15);
   filter:drop-shadow(0 4px 6px rgba(0,0,0,.18));
 }
+.kpm-offer-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 16px 0 8px;
+}
+
+.kpm-offer-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+}
+
+.kpm-offer-dot-active {
+  background: #ff6b3d; /* brand color jaisa bhi ho */
+}
