@@ -5,64 +5,398 @@
   <title>Thailand Tour Packages | KPM Global Holidays</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Thailand tour packages covering Bangkok, Pattaya, Phuket & Krabi with sightseeing and activities.">
-  <link rel="stylesheet" href="styles.css">
 
   <style>
-    body { margin:0; background:#f8fafc; font-family:"Inter",sans-serif; color:#0f172a; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      line-height: 1.6;
+    }
 
     /* NAVBAR */
-    .kpm-nav { position:sticky; top:0; background:#fff; z-index:50; box-shadow:0 1px 8px rgba(0,0,0,.08); }
-    .kpm-nav-inner { max-width:1150px; margin:auto; padding:10px 16px; display:flex; justify-content:space-between; align-items:center; }
-    .kpm-nav-left { display:flex; align-items:center; gap:10px; }
-    .kpm-nav-logo { height:46px; border-radius:10px; }
-    .kpm-nav-brand-title { font-size:16px; font-weight:700; }
-    .kpm-nav-brand-sub { font-size:12px; color:#6b7280; }
+    .kpm-nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      z-index: 50;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
 
-    .kpm-nav-links { display:flex; gap:18px; font-size:14px; align-items:center; }
-    .kpm-nav-links a { text-decoration:none; color:#0f172a; font-weight:500; }
-    .kpm-nav-links a.active { color:#0f75c8; }
+    .kpm-nav-inner {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .kpm-nav-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .kpm-nav-logo {
+      height: 50px;
+      width: 50px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .kpm-nav-brand-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: 0.5px;
+    }
+
+    .kpm-nav-brand-sub {
+      font-size: 0.75rem;
+      color: #6b7280;
+      font-weight: 400;
+    }
+
+    .kpm-nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9375rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .kpm-nav-links a {
+      text-decoration: none;
+      color: #475569;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .kpm-nav-links a:hover {
+      color: #0f75c8;
+    }
+
+    .kpm-nav-links a.active {
+      color: #0f75c8;
+    }
+
+    .kpm-nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #0f75c8;
+    }
+
     .kpm-nav-cta {
-      padding:8px 18px; background:#0f75c8; color:#fff;
-      border:none; border-radius:999px; cursor:pointer; font-weight:600;
+      padding: 0.625rem 1.5rem;
+      background: linear-gradient(135deg, #0f75c8 0%, #0a5a99 100%);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(15, 117, 200, 0.3);
     }
 
-    /* HERO */
-    .pkg-hero {
-      height:360px; background-size:cover; background-position:center;
-      display:flex; align-items:flex-end; padding-bottom:28px; text-align:center; color:#fff;
+    .kpm-nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(15, 117, 200, 0.4);
     }
+
+    /* HERO WITH SLIDER */
+    .pkg-hero {
+      height: 400px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0 1.5rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-slider {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+      transform: scale(1.02);
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+    }
+
+    .pkg-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.65) 100%);
+      z-index: 1;
+    }
+
     .pkg-hero h1 {
-      margin:auto; font-size:40px; font-weight:700;
-      text-shadow:0 6px 20px rgba(0,0,0,.55);
+      position: relative;
+      z-index: 2;
+      margin: 0;
+      font-size: 2.75rem;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      max-width: 900px;
     }
 
     /* CONTENT */
-    .pkg-container { max-width:1150px; margin:auto; padding:26px 16px; display:flex; gap:22px; }
-    .pkg-main { flex:3; display:flex; flex-direction:column; gap:26px; }
+    .pkg-container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 2rem;
+    }
+
+    .pkg-main {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
     .pkg-side {
-      flex:1; background:#fff; border-radius:14px; padding:18px;
-      box-shadow:0 10px 30px rgba(15,23,42,.08); height:max-content;
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+      height: max-content;
+      position: sticky;
+      top: 100px;
     }
 
     .pkg-card {
-      background:#fff; border-radius:18px; padding:22px;
-      display:flex; flex-direction:column; gap:12px;
-      box-shadow:0 14px 30px rgba(15,23,42,.08);
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .pkg-card h2 { margin:0; font-size:22px; }
-    .pkg-card p, li { font-size:14px; color:#475569; }
-    .pkg-list { padding-left:18px; line-height:1.5em; }
-    .pkg-price { font-size:22px; color:#0f75c8; font-weight:700; }
+    .pkg-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    .pkg-card h2 {
+      margin: 0 0 1rem 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0f172a;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .pkg-card p {
+      font-size: 0.9375rem;
+      color: #475569;
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+
+    .pkg-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .pkg-list {
+      padding-left: 1.25rem;
+      line-height: 1.8;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .pkg-list li {
+      font-size: 0.9375rem;
+      color: #475569;
+    }
+
+    .pkg-list li strong {
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    .pkg-price {
+      font-size: 1.75rem;
+      color: #0f75c8;
+      font-weight: 700;
+      margin-top: 0.5rem;
+    }
+
+    /* SIDEBAR */
+    .pkg-side h2 {
+      margin: 0 0 1rem 0;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .pkg-side p {
+      font-size: 0.9375rem;
+      color: #475569;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .pkg-side p strong {
+      color: #0f172a;
+      font-weight: 600;
+      display: block;
+      margin-top: 0.5rem;
+    }
 
     .pkg-book-btn {
-      padding:12px 22px; width:100%; margin-top:10px;
-      background:#ff4b2b; color:#fff; border:none; border-radius:10px;
-      font-size:15px; font-weight:600; cursor:pointer;
-      box-shadow:0 10px 28px rgba(248,113,113,.35);
+      padding: 1rem 1.5rem;
+      width: 100%;
+      margin-top: 1.5rem;
+      background: linear-gradient(135deg, #ff4b2b 0%, #ff416c 100%);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(255, 75, 43, 0.35);
+      transition: all 0.3s ease;
     }
 
-    @media(max-width:900px){ .pkg-container{flex-direction:column;} }
+    .pkg-book-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(255, 75, 43, 0.45);
+    }
+
+    .pkg-book-btn:active {
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .pkg-container {
+        grid-template-columns: 1fr;
+      }
+
+      .pkg-side {
+        position: static;
+        order: -1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .kpm-nav-inner {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      .kpm-nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        font-size: 0.875rem;
+      }
+
+      .kpm-nav-cta {
+        padding: 0.5rem 1.25rem;
+        font-size: 0.875rem;
+      }
+
+      .pkg-hero {
+        height: 300px;
+        padding: 0 1rem 2rem;
+      }
+
+      .pkg-hero h1 {
+        font-size: 2rem;
+      }
+
+      .pkg-container {
+        padding: 2rem 1rem;
+        gap: 1.5rem;
+      }
+
+      .pkg-card,
+      .pkg-side {
+        padding: 1.5rem;
+      }
+
+      .pkg-card h2 {
+        font-size: 1.25rem;
+      }
+
+      .pkg-price {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .kpm-nav-logo {
+        height: 40px;
+        width: 40px;
+      }
+
+      .kpm-nav-brand-title {
+        font-size: 0.9375rem;
+      }
+
+      .kpm-nav-brand-sub {
+        font-size: 0.6875rem;
+      }
+
+      .pkg-hero {
+        height: 250px;
+      }
+
+      .pkg-hero h1 {
+        font-size: 1.5rem;
+      }
+
+      .pkg-card,
+      .pkg-side {
+        padding: 1.25rem;
+      }
+
+      .pkg-card h2,
+      .pkg-side h2 {
+        font-size: 1.125rem;
+      }
+
+      .pkg-card p,
+      .pkg-list li,
+      .pkg-side p {
+        font-size: 0.875rem;
+      }
+    }
   </style>
 </head>
 
@@ -95,13 +429,20 @@
   </div>
 </header>
 
-<!-- HERO -->
-<section class="pkg-hero" style="background-image:url('img/thailand.jpg');">
+<!-- HERO WITH 4-IMAGE SLIDER -->
+<section class="pkg-hero">
+  <div class="hero-slider">
+    <!-- Yahan apni 4 Thailand images lagao -->
+    <img src="images/Thailandspecialoffer2.avif" alt="Thailand tour 1" class="hero-slide active">
+    <img src="images/Thailandspecialoffer1.webp" alt="Thailand tour 2" class="hero-slide">
+    <img src="images/Thailandspecialoffer4.webp" alt="Thailand tour 3" class="hero-slide">
+    <img src="images/Thailandspecialoffer2.avif" alt="Thailand tour 4" class="hero-slide">
+  </div>
   <h1>Thailand Bangkok – Pattaya Tour</h1>
 </section>
 
 <!-- CONTENT -->
-<div class="pkg-container">
+<main class="pkg-container">
 
   <div class="pkg-main">
 
@@ -158,7 +499,23 @@
     </button>
   </aside>
 
-</div>
+</main>
+
+<script>
+  // Hero slider – 4 images, 2 sec auto change
+  document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.hero-slide');
+    if (!slides.length) return;
+
+    let index = 0;
+
+    setInterval(function () {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }, 2000); // 2 seconds
+  });
+</script>
 
 </body>
 </html>

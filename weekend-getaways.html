@@ -119,11 +119,26 @@
       flex-direction:column;
       box-shadow:0 14px 30px rgba(15,23,42,.08);
     }
-    .weekend-img {
+
+    /* IMAGE SLIDER INSIDE CARD */
+    .weekend-img-slider{
+      position:relative;
       height:170px;
-      background-size:cover;
-      background-position:center;
+      overflow:hidden;
     }
+    .weekend-img-slider img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:0;
+      transition:opacity .6s ease;
+    }
+    .weekend-img-slider img.active{
+      opacity:1;
+    }
+
     .weekend-body {
       padding:14px 16px 16px;
       display:flex;
@@ -236,7 +251,11 @@
 
     <!-- Manali from Delhi -->
     <article class="weekend-card">
-      <div class="weekend-img" style="background-image:url('img/domestic-manali.jpg');"></div>
+      <div class="weekend-img-slider">
+        <img src="images/ManaliWeekend1.webp" class="active" alt="Manali weekend">
+        <img src="images/ManaliWeekend2.jfif" alt="Manali weekend">
+        <img src="images/ManaliWeekend3.jpg" alt="Manali weekend">
+      </div>
       <div class="weekend-body">
         <span class="weekend-tag">From Delhi</span>
         <h3>Manali Weekend Escape</h3>
@@ -252,7 +271,11 @@
 
     <!-- Rishikesh -->
     <article class="weekend-card">
-      <div class="weekend-img" style="background-image:url('img/domestic-rishikesh.jpg');"></div>
+      <div class="weekend-img-slider">
+        <img src="images/RishikeshCamping1.jfif" class="active" alt="Rishikesh weekend">
+        <img src="images/RishikeshCamping2.jfif" alt="Rishikesh weekend">
+        <img src="images/RishikeshCamping3.jfif" alt="Rishikesh weekend">
+      </div>
       <div class="weekend-body">
         <span class="weekend-tag">Adventure</span>
         <h3>Rishikesh Camping & Rafting</h3>
@@ -268,7 +291,11 @@
 
     <!-- Jaipur -->
     <article class="weekend-card">
-      <div class="weekend-img" style="background-image:url('img/domestic-rajasthan.jpg');"></div>
+      <div class="weekend-img-slider">
+        <img src="images/Jaipur2N1.jpg" class="active" alt="Jaipur weekend">
+        <img src="images/Jaipur2N2.jpg" alt="Jaipur weekend">
+        <img src="images/Jaipur2N3.jpg" alt="Jaipur weekend">
+      </div>
       <div class="weekend-body">
         <span class="weekend-tag">From Delhi</span>
         <h3>Jaipur 2N Heritage Break</h3>
@@ -284,7 +311,11 @@
 
     <!-- Goa Weekend -->
     <article class="weekend-card">
-      <div class="weekend-img" style="background-image:url('img/domestic-goa.jpg');"></div>
+      <div class="weekend-img-slider">
+        <img src="images/Goa3D1.jpg" class="active" alt="Goa weekend">
+        <img src="images/Goa3D2.jfif" alt="Goa weekend">
+        <img src="images/Goa3D3.webp" alt="Goa weekend">
+      </div>
       <div class="weekend-body">
         <span class="weekend-tag">Flight Getaway</span>
         <h3>Goa 3D Beach Weekend</h3>
@@ -300,7 +331,11 @@
 
     <!-- Kerala Short -->
     <article class="weekend-card">
-      <div class="weekend-img" style="background-image:url('img/domestic-kerala.jpg');"></div>
+      <div class="weekend-img-slider">
+        <img src="images/Kerala Backwaters & Hills1.jpg" class="active" alt="Kerala weekend">
+        <img src="images/Kerala Backwater Resort2.jpg" alt="Kerala weekend">
+        <img src="images/Kerala Backwater Resort3.jpg" alt="Kerala weekend">
+      </div>
       <div class="weekend-body">
         <span class="weekend-tag">Relax</span>
         <h3>Kerala Backwater Mini Break</h3>
@@ -314,9 +349,13 @@
       </div>
     </article>
 
-    <!-- Local Hill / Custom -->
+    <!-- Custom Weekend -->
     <article class="weekend-card">
-      <div class="weekend-img" style="background-image:url('img/kashmir.jpg');"></div>
+      <div class="weekend-img-slider">
+        <img src="images/Custom Activities & Experiences1.webp" class="active" alt="Custom weekend getaway">
+        <img src="images/Custom Activities & Experiences2.jpg" alt="Custom weekend getaway">
+        <img src="images/Custom Activities & Experiences3.jfif" alt="Custom weekend getaway">
+      </div>
       <div class="weekend-body">
         <span class="weekend-tag">Custom</span>
         <h3>Custom Weekend Getaway</h3>
@@ -332,6 +371,27 @@
 
   </div>
 </section>
+
+<script>
+  // 3-image auto slider in each weekend card (2 sec)
+  document.addEventListener('DOMContentLoaded', function () {
+    const sliders = document.querySelectorAll('.weekend-img-slider');
+
+    sliders.forEach(function (slider) {
+      const images = slider.querySelectorAll('img');
+      if (!images.length) return;
+
+      let index = 0;
+      images[0].classList.add('active');
+
+      setInterval(function () {
+        images[index].classList.remove('active');
+        index = (index + 1) % images.length;
+        images[index].classList.add('active');
+      }, 2000); // 2 seconds
+    });
+  });
+</script>
 
 </body>
 </html>

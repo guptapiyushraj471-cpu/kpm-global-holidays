@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>International Holidays | KPM Global Holiday</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="International holiday packages with flights, visas, sightseeing and curated experiences.">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+      margin:0;
+      background:#f8fafc;
+      font-family:"Inter",sans-serif;
+      color:#0f172a;
+    }
+
+    /* NAVBAR */
+    .kpm-nav {
+      position:sticky;
+      top:0;
+      background:#fff;
+      z-index:50;
+      box-shadow:0 1px 8px rgba(0,0,0,.08);
+    }
+    .kpm-nav-inner {
+      max-width:1150px;
+      margin:auto;
+      padding:10px 16px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .kpm-nav-left {
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .kpm-nav-logo {
+      height:46px;
+      border-radius:10px;
+    }
+    .kpm-nav-brand-title {
+      font-size:16px;
+      font-weight:700;
+    }
+    .kpm-nav-brand-sub {
+      font-size:12px;
+      color:#6b7280;
+    }
+
+    .kpm-nav-links {
+      display:flex;
+      gap:18px;
+      font-size:14px;
+      align-items:center;
+    }
+    .kpm-nav-links a {
+      text-decoration:none;
+      color:#0f172a;
+      font-weight:500;
+    }
+    .kpm-nav-links a.active {
+      color:#0f75c8;
+    }
+    .kpm-nav-links a:hover {
+      color:#0f75c8;
+    }
+
+    .kpm-nav-cta {
+      padding:8px 18px;
+      background:#0f75c8;
+      color:#fff;
+      border:none;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 4px 14px rgba(37,99,235,.35);
+    }
+
+    /* HERO */
+    .intl-hero {
+      text-align:center;
+      padding:42px 16px 26px;
+      background:
+        radial-gradient(circle at top left,#e0f2fe,transparent 50%),
+        radial-gradient(circle at bottom right,#f5e0ff,transparent 60%),
+        #f8fafc;
+    }
+    .intl-hero h1 {
+      font-size:32px;
+      margin-bottom:10px;
+      font-weight:700;
+    }
+    .intl-hero p {
+      margin:0;
+      font-size:15px;
+      color:#475569;
+    }
+
+    /* GRID */
+    .intl-wrap {
+      padding:10px 16px 50px;
+    }
+    .intl-grid {
+      max-width:1150px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .intl-card {
+      background:#fff;
+      border-radius:18px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      box-shadow:0 14px 30px rgba(15,23,42,.08);
+    }
+
+    /* IMAGE SLIDER INSIDE CARD */
+    .intl-img-slider{
+      position:relative;
+      height:190px;
+      overflow:hidden;
+    }
+    .intl-img-slider img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:0;
+      transition:opacity .6s ease;
+    }
+    .intl-img-slider img.active{
+      opacity:1;
+    }
+
+    .intl-body {
+      padding:14px 16px 16px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .intl-tag {
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:#0f75c8;
+      font-weight:600;
+    }
+    .intl-body h3 {
+      margin:0;
+      font-size:17px;
+      font-weight:600;
+    }
+    .intl-body p {
+      margin:0;
+      font-size:13px;
+      color:#475569;
+    }
+    .intl-meta {
+      font-size:12px;
+      color:#6b7280;
+    }
+    .intl-price {
+      font-size:14px;
+      font-weight:600;
+      color:#0f75c8;
+      margin-top:2px;
+    }
+
+    .intl-actions {
+      margin-top:10px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+    }
+    .intl-link {
+      font-size:13px;
+      color:#ea580c;
+      font-weight:600;
+      text-decoration:none;
+    }
+    .intl-link:hover {
+      text-decoration:underline;
+    }
+    .intl-book {
+      padding:8px 14px;
+      background:#0f75c8;
+      border:none;
+      border-radius:10px;
+      color:#fff;
+      font-size:13px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(37,99,235,.35);
+    }
+    .intl-book:hover {
+      background:#1d4ed8;
+    }
+
+    @media(max-width:900px){
+      .intl-grid{grid-template-columns:repeat(2,1fr);}
+    }
+    @media(max-width:600px){
+      .intl-grid{grid-template-columns:1fr;}
+      .intl-hero h1{font-size:26px;}
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="kpm-nav">
+  <div class="kpm-nav-inner">
+    <div class="kpm-nav-left">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo" alt="KPM Global Holidays">
+      <div>
+        <div class="kpm-nav-brand-title">KPM GLOBAL HOLIDAYS</div>
+        <div class="kpm-nav-brand-sub">Your Journey, Our Promise</div>
+      </div>
+    </div>
+
+    <nav class="kpm-nav-links">
+      <a href="index.html">Home</a>
+      <a href="holidays.html" class="active">Holidays</a>
+      <a href="honeymoon-packages.html">Honeymoon</a>
+      <a href="family-packages.html">Family</a>
+      <a href="group-tours.html">Group Tours</a>
+      <a href="weekend-getaways.html">Weekend Getaways</a>
+      <a href="international-holidays.html">International</a>
+      <button class="kpm-nav-cta" onclick="location.href='book.html'">Plan Trip</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="intl-hero">
+  <h1>Best International Holidays</h1>
+  <p>Visa, flights & curated sightseeing — effortless holidays to the world’s top destinations.</p>
+</section>
+
+<!-- GRID -->
+<section class="intl-wrap">
+  <div class="intl-grid">
+
+    <!-- 1 Dubai -->
+    <article class="intl-card">
+      <div class="intl-img-slider">
+        <img src="img/int-dubai1.jpg" class="active" alt="Dubai skyline">
+        <img src="img/int-dubai2.jpg" alt="Dubai desert safari">
+        <img src="img/int-dubai3.jpg" alt="Dubai marina">
+        <img src="img/int-dubai4.jpg" alt="Dubai attractions">
+      </div>
+      <div class="intl-body">
+        <span class="intl-tag">Dubai · UAE</span>
+        <h3>Dubai Highlights Holiday</h3>
+        <p>5D city tour, Desert Safari, Burj Khalifa & Dhow cruise with dinner.</p>
+        <p class="intl-meta">Ideal for: Family, Friends & Couples</p>
+        <p class="intl-price">From ₹64,999 / person</p>
+        <div class="intl-actions">
+          <a href="dubai-packages.html" class="intl-link">View Details</a>
+          <button class="intl-book" onclick="location.href='book.html?package=dubai-international&theme=international'">Book</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2 Singapore -->
+    <article class="intl-card">
+      <div class="intl-img-slider">
+        <img src="img/int-singapore1.jpg" class="active" alt="Singapore city">
+        <img src="img/int-singapore2.jpg" alt="Sentosa island">
+        <img src="img/int-singapore3.jpg" alt="Marina Bay Sands">
+        <img src="img/int-singapore4.jpg" alt="Singapore attractions">
+      </div>
+      <div class="intl-body">
+        <span class="intl-tag">Singapore</span>
+        <h3>Singapore & Sentosa Delight</h3>
+        <p>4N stay with Night Safari, city tour, Sentosa & Universal Studios.</p>
+        <p class="intl-meta">Perfect short international family trip.</p>
+        <p class="intl-price">From ₹69,999 / person</p>
+        <div class="intl-actions">
+          <a href="singapore-packages.html" class="intl-link">View Details</a>
+          <button class="intl-book" onclick="location.href='book.html?package=singapore-international&theme=international'">Book</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3 Bali -->
+    <article class="intl-card">
+      <div class="intl-img-slider">
+        <img src="img/int-bali1.jpg" class="active" alt="Bali beach">
+        <img src="img/int-bali2.jpg" alt="Bali temples">
+        <img src="img/int-bali3.jpg" alt="Bali rice fields">
+        <img src="img/int-bali4.jpg" alt="Bali swing">
+      </div>
+      <div class="intl-body">
+        <span class="intl-tag">Bali · Indonesia</span>
+        <h3>Bali Beach & Ubud Escape</h3>
+        <p>5N Kuta + Ubud stay with Bali Swing, waterfalls & temple tours.</p>
+        <p class="intl-meta">Great for couples, friends & group trips.</p>
+        <p class="intl-price">From ₹52,999 / person</p>
+        <div class="intl-actions">
+          <a href="bali-packages.html" class="intl-link">View Details</a>
+          <button class="intl-book" onclick="location.href='book.html?package=bali-international&theme=international'">Book</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 4 Thailand -->
+    <article class="intl-card">
+      <div class="intl-img-slider">
+        <img src="img/int-thailand1.jpg" class="active" alt="Thailand island">
+        <img src="img/int-thailand2.jpg" alt="Bangkok city">
+        <img src="img/int-thailand3.jpg" alt="Pattaya beach">
+        <img src="img/int-thailand4.jpg" alt="Thai temples">
+      </div>
+      <div class="intl-body">
+        <span class="intl-tag">Thailand</span>
+        <h3>Bangkok & Phuket Island Holiday</h3>
+        <p>6N trip with Phi Phi Island tour, city sightseeing & shows.</p>
+        <p class="intl-meta">Fun & value-for-money Asia vacation.</p>
+        <p class="intl-price">From ₹59,999 / person</p>
+        <div class="intl-actions">
+          <a href="thailand-packages.html" class="intl-link">View Details</a>
+          <button class="intl-book" onclick="location.href='book.html?package=thailand-international&theme=international'">Book</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 5 Europe -->
+    <article class="intl-card">
+      <div class="intl-img-slider">
+        <img src="img/int-europe1.jpg" class="active" alt="Eiffel tower Paris">
+        <img src="img/int-europe2.jpg" alt="Swiss Alps">
+        <img src="img/int-europe3.jpg" alt="Italy Rome">
+        <img src="img/int-europe4.jpg" alt="Amsterdam canals">
+      </div>
+      <div class="intl-body">
+        <span class="intl-tag">Europe</span>
+        <h3>Best of Europe Escorted Tour</h3>
+        <p>10D coach tour covering Paris, Switzerland, Italy & Amsterdam.</p>
+        <p class="intl-meta">Indian meals & tour manager included.</p>
+        <p class="intl-price">From ₹1,99,999 / person</p>
+        <div class="intl-actions">
+          <a href="europe-packages.html" class="intl-link">View Details</a>
+          <button class="intl-book" onclick="location.href='book.html?package=europe-international&theme=international'">Book</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 6 Maldives -->
+    <article class="intl-card">
+      <div class="intl-img-slider">
+        <img src="img/int-maldives1.jpg" class="active" alt="Maldives water villa">
+        <img src="img/int-maldives2.jpg" alt="Maldives beach">
+        <img src="img/int-maldives3.jpg" alt="Maldives sunset">
+        <img src="img/int-maldives4.jpg" alt="Maldives resort">
+      </div>
+      <div class="intl-body">
+        <span class="intl-tag">Maldives</span>
+        <h3>Maldives Island Resort Stay</h3>
+        <p>4N beach/water villa, all meals, speedboat transfers & snorkelling.</p>
+        <p class="intl-meta">Perfect romantic & anniversary getaway.</p>
+        <p class="intl-price">From ₹89,999 / couple</p>
+        <div class="intl-actions">
+          <a href="package-detail.html?pkg=maldives-holiday" class="intl-link">View Details</a>
+          <button class="intl-book" onclick="location.href='book.html?package=maldives-international&theme=international'">Book</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<script>
+  // 4-image auto slider in each international card (2 sec)
+  document.addEventListener('DOMContentLoaded', function () {
+    const sliders = document.querySelectorAll('.intl-img-slider');
+
+    sliders.forEach(function (slider) {
+      const images = slider.querySelectorAll('img');
+      if (!images.length) return;
+
+      let index = 0;
+      images[0].classList.add('active');
+
+      setInterval(function () {
+        images[index].classList.remove('active');
+        index = (index + 1) % images.length;
+        images[index].classList.add('active');
+      }, 2000); // 2 seconds
+    });
+  });
+</script>
+
+</body>
+</html>

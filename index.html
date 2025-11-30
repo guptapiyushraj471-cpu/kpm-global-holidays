@@ -6,19 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Plan and book your perfect holiday with AI-curated trips, tours and activities across the world." />
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/Logo-KPM Global  Holiday.png">
+  <link rel="apple-touch-icon" href="images/Logo-KPM Global  Holiday.png">
+
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
 </head>
 
-<body class="theme-ai">
 
-  <!-- HERO  <!-- HERO SLIDER SECTION -->
+<body class="theme-ai">
+  <!-- HERO  <! HERO SLIDER SECTION -->
   <section class="hero-slider">
 
     <!-- MINI WELCOME STRIP -->
-    <!-- TOP NAV -->
     <header class="hero-header">
       <div class="nav-container">
 
@@ -29,23 +32,31 @@
             <h1 class="brand-title">KPM GLOBAL HOLIDAY</h1>
             <p class="brand-subtitle">Your Journey, Our Promise</p>
           </div>
+<div class="search-box">
+  <input
+    type="text"
+    id="globalSearch"
+    placeholder="Search Global Tours – Dubai, Europe, Bali..."
+    autocomplete="off"
+  />
+  <span class="search-icon">🔍</span>
 
-          <div class="search-box">
-            <input type="text" placeholder="Search Global Tours – Dubai, Europe, Bali..." />
-            <span class="search-icon">🔍</span>
-          </div>
-        </div>
+  <!-- LIVE SEARCH RESULTS -->
+  <div class="search-results" id="searchResults"></div>
+</div>
+</div>
 
-        <div class="right-nav">
-          <div class="currency">
-            <span>INR ₹</span>
-            <span>▼</span>
-            <button class="ai-btn-outline" type="button" onclick="location.href='login.html'">Login</button>
-          </div>
-        </div>
+<div class="right-nav">
+  <div class="currency">
+    <span>INR ₹</span>
+    <span>▼</span>
+    <button class="ai-btn-outline" type="button" onclick="location.href='login.html'">Login</button>
+  </div>
+</div>
 
-      </div>
-    </header>
+</div>
+</header>
+
 
     <!-- BACKGROUND SLIDES -->
     <div class="hero-slide track">
@@ -166,55 +177,45 @@ document.addEventListener('DOMContentLoaded', function () {
       <a href="international-holidays.html" class="kpm-tab">International Holidays</a>
     </div>
 
-    <!-- Search Card -->
+
+
     <div class="kpm-card">
-      <div class="kpm-card-header">
-        <div>
-          <h2>KPM Global Holiday</h2>
-          <p>Plan your perfect holiday in a few clicks</p>
-        </div>
-        <span class="kpm-badge">New</span>
-      </div>
-
-      <form class="kpm-form">
-        <div class="kpm-field">
-          <label>Depart From</label>
-          <input type="text" placeholder="e.g. New Delhi" />
-        </div>
-
-        <div class="kpm-field">
-          <label>Going To</label>
-          <input type="text" placeholder="e.g. Ladakh" />
-        </div>
-
-        <div class="kpm-field">
-          <label>Month of Travel (Optional)</label>
-          <select>
-            <option>Select Month</option>
-            <option>January</option>
-            <option>February</option>
-            <option>March</option>
-            <option>April</option>
-            <option>May</option>
-            <option>June</option>
-            <option>July</option>
-            <option>August</option>
-            <option>September</option>
-            <option>October</option>
-            <option>November</option>
-            <option>December</option>
-          </select>
-        </div>
-
-        <div class="kpm-button-wrap">
-          <button type="submit" class="kpm-search-btn">
-            Search Holidays
-          </button>
-        </div>
-      </form>
+  <div class="kpm-card-header">
+    <div>
+      <h2>KPM Global Holiday</h2>
+      <p>Plan your perfect holiday in a few clicks</p>
     </div>
+    <span class="kpm-badge">New</span>
   </div>
-</section>
+
+  <form class="kpm-form" onsubmit="return false">
+    <div class="kpm-field">
+      <label>Depart From</label>
+      <input type="text" id="departFrom" placeholder="e.g. New Delhi" autocomplete="off" />
+      <div id="departResults" class="kpm-live-results"></div>
+    </div>
+
+    <div class="kpm-field">
+      <label>Going To</label>
+      <input type="text" id="goingTo" placeholder="e.g. Ladakh" autocomplete="off" />
+      <div id="destResults" class="kpm-live-results"></div>
+    </div>
+
+    <div class="kpm-field">
+      <label>Month of Travel (Optional)</label>
+      <select id="travelMonth">
+        <option>Select Month</option>
+        <option>January</option><option>February</option><option>March</option><option>April</option>
+        <option>May</option><option>June</option><option>July</option><option>August</option>
+        <option>September</option><option>October</option><option>November</option><option>December</option>
+      </select>
+    </div>
+
+    <div class="kpm-button-wrap">
+      <button type="button" class="kpm-search-btn" onclick="processFormSearch()">Search Holidays</button>
+    </div>
+  </form>
+</div>
 
 
 <!-- ========= SPECIAL HOLIDAY OFFERS ========= -->
@@ -1974,6 +1975,143 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+</script>
+
+<script>
+  // Dummy tour data – apne URLs ke hisaab se change kar sakte ho
+  const TOUR_DATA = [
+    { title: "Dubai Family Escape", meta: "Dubai · Family · 5D/4N", url: "dubai-packages.html" },
+    { title: "Dubai Corporate Incentive Tour", meta: "Dubai · Group / MICE", url: "dubai-packages.html#corporate" },
+    { title: "Singapore & Sentosa Delight", meta: "Singapore · Family · 4N/5D", url: "singapore-packages.html" },
+    { title: "Bali Beach & Ubud Escape", meta: "Bali · Honeymoon / Friends", url: "bali-packages.html" },
+    { title: "Bangkok & Phuket Holiday", meta: "Thailand · 6N/7D", url: "thailand-packages.html" },
+    { title: "Maldives Water Villa Escape", meta: "Maldives · Honeymoon", url: "package-detail.html?pkg=maldives-honeymoon" },
+    { title: "Goa Weekend Getaway", meta: "Goa · Weekend · 3D/2N", url: "goa-packages.html" },
+    { title: "Kashmir Delight Family Tour", meta: "Kashmir · Family", url: "kashmir-packages.html" },
+    { title: "Shimla – Manali Group Tour", meta: "Himachal · Group", url: "himachal-packages.html" },
+    { title: "Europe Highlights Group Tour", meta: "Paris · Swiss · Italy", url: "europe-packages.html" }
+  ];
+
+  const searchInput = document.getElementById("globalSearch");
+  const resultsBox = document.getElementById("searchResults");
+
+  function renderResults(list) {
+    if (!list.length) {
+      resultsBox.style.display = "none";
+      resultsBox.innerHTML = "";
+      return;
+    }
+
+    resultsBox.innerHTML = "";
+    list.forEach(item => {
+      const div = document.createElement("div");
+      div.className = "search-result-item";
+      div.innerHTML = `
+        <span class="search-result-title">${item.title}</span>
+        <span class="search-result-meta">${item.meta}</span>
+      `;
+      div.addEventListener("click", () => {
+        window.location.href = item.url;
+      });
+      resultsBox.appendChild(div);
+    });
+
+    resultsBox.style.display = "block";
+  }
+
+  function handleSearchInput() {
+    const q = searchInput.value.trim().toLowerCase();
+    if (!q) {
+      renderResults([]);
+      return;
+    }
+
+    const filtered = TOUR_DATA.filter(item =>
+      item.title.toLowerCase().includes(q) ||
+      item.meta.toLowerCase().includes(q)
+    ).slice(0, 8); // max 8 results
+
+    renderResults(filtered);
+  }
+
+  searchInput.addEventListener("input", handleSearchInput);
+
+  // Enter press → first result open (agar mila)
+  searchInput.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const firstItem = resultsBox.querySelector(".search-result-item");
+      if (firstItem) {
+        firstItem.click();
+      }
+    }
+  });
+
+  // Click outside → dropdown hide
+  document.addEventListener("click", function (e) {
+    if (!resultsBox.contains(e.target) && !searchInput.contains(e.target)) {
+      resultsBox.style.display = "none";
+    }
+  });
+</script>
+<script>
+const CITIES = [
+  "New Delhi","Mumbai","Bengaluru","Hyderabad","Chandigarh","Ahmedabad","Kolkata","Pune","Jaipur"
+];
+
+const DESTINATIONS = [
+  {name:"Ladakh", url:"ladakh-packages.html"},
+  {name:"Manali", url:"himachal-packages.html"},
+  {name:"Kashmir", url:"kashmir-packages.html"},
+  {name:"Goa", url:"goa-packages.html"},
+  {name:"Rishikesh", url:"activities.html"},
+  {name:"Dubai", url:"dubai-packages.html"},
+  {name:"Singapore", url:"singapore-packages.html"},
+  {name:"Bali", url:"bali-packages.html"},
+  {name:"Thailand", url:"thailand-packages.html"},
+  {name:"Europe", url:"europe-packages.html"}
+];
+
+function setupLiveInput(inputId, resultId, list, redirect=false) {
+  const input = document.getElementById(inputId);
+  const resultsBox = document.getElementById(resultId);
+
+  input.addEventListener("input", () => {
+    const query = input.value.toLowerCase();
+    if (!query) { resultsBox.style.display="none"; resultsBox.innerHTML=""; return; }
+
+    const filtered = list.filter(item => item.name ? item.name.toLowerCase().includes(query) : item.toLowerCase().includes(query));
+    resultsBox.innerHTML = "";
+    filtered.forEach(item => {
+      const div = document.createElement("div");
+      div.className="kpm-live-item";
+      div.textContent = item.name || item;
+      div.addEventListener("click", () => {
+        input.value = item.name || item;
+        resultsBox.style.display="none";
+        if (redirect) window.location.href = item.url;
+      });
+      resultsBox.appendChild(div);
+    });
+    resultsBox.style.display = "block";
+  });
+
+  document.addEventListener("click", (e)=> {
+    if (!resultsBox.contains(e.target) && !input.contains(e.target)) {
+      resultsBox.style.display="none";
+    }
+  });
+}
+
+setupLiveInput("departFrom", "departResults", CITIES);
+setupLiveInput("goingTo", "destResults", DESTINATIONS, true);
+
+function processFormSearch(){
+  const dest = document.getElementById("goingTo").value.toLowerCase();
+  const result = DESTINATIONS.find(d => d.name.toLowerCase()==dest);
+  if(result) location.href = result.url;
+  else alert("Please select a valid destination");
+}
 </script>
 
 </body>

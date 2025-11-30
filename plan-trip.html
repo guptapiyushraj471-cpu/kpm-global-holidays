@@ -6,13 +6,307 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Share your travel details and get a customised global holiday plan from KPM Global Holiday." />
 
-  <!-- Main site font (same as index) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Trip page CSS -->
-  <link rel="stylesheet" href="plan-trip.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: #1f2937;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+
+    .pt-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+    .pt-header {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      padding: 1.5rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .pt-header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .pt-logo-block {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .pt-logo {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+
+    .pt-logo-block h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #667eea;
+      letter-spacing: 0.5px;
+    }
+
+    .pt-logo-block p {
+      font-size: 0.875rem;
+      color: #6b7280;
+      font-weight: 400;
+    }
+
+    .pt-back-link {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.625rem 1.25rem;
+      border: 2px solid #667eea;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .pt-back-link:hover {
+      background: #667eea;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    }
+
+    /* Main */
+    .pt-main {
+      padding: 3rem 0 4rem;
+    }
+
+    .pt-layout {
+      display: grid;
+      gap: 2.5rem;
+    }
+
+    /* Intro Section */
+    .pt-intro {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .pt-intro h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 1rem;
+    }
+
+    .pt-intro > p {
+      font-size: 1.125rem;
+      color: #4b5563;
+      margin-bottom: 1.5rem;
+    }
+
+    .pt-intro ul {
+      list-style: none;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .pt-intro li {
+      font-size: 1rem;
+      color: #374151;
+      padding: 0.75rem 1rem;
+      background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+      border-radius: 8px;
+      border-left: 4px solid #667eea;
+    }
+
+    /* Form Card */
+    .pt-form-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .pt-form-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #e5e7eb;
+    }
+
+    .pt-form {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .pt-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .pt-field label {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: #374151;
+    }
+
+    .pt-field input,
+    .pt-field textarea {
+      padding: 0.875rem 1rem;
+      font-size: 1rem;
+      font-family: inherit;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      background: #fafafa;
+    }
+
+    .pt-field input:focus,
+    .pt-field textarea:focus {
+      outline: none;
+      border-color: #667eea;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .pt-field textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .pt-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .pt-submit-btn {
+      padding: 1rem 2rem;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: white;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+      margin-top: 1rem;
+    }
+
+    .pt-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    .pt-submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .pt-small-text {
+      font-size: 0.875rem;
+      color: #6b7280;
+      text-align: center;
+      margin-top: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    .pt-footer {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2rem 0;
+      text-align: center;
+      color: #6b7280;
+      font-size: 0.9375rem;
+      margin-top: 3rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .pt-header-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+
+      .pt-logo-block {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .pt-intro h2 {
+        font-size: 1.5rem;
+      }
+
+      .pt-intro > p {
+        font-size: 1rem;
+      }
+
+      .pt-form-card {
+        padding: 1.5rem;
+      }
+
+      .pt-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .pt-submit-btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .pt-container {
+        padding: 0 1rem;
+      }
+
+      .pt-intro,
+      .pt-form-card {
+        padding: 1.25rem;
+      }
+
+      .pt-logo {
+        width: 50px;
+        height: 50px;
+      }
+
+      .pt-logo-block h1 {
+        font-size: 1.125rem;
+      }
+
+      .pt-intro h2 {
+        font-size: 1.25rem;
+      }
+
+      .pt-form-card h3 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -112,7 +406,6 @@
   </footer>
 
   <script>
-    // simple year update
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>

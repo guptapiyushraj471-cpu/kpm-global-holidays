@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Group Tour Packages | KPM Global Holidays</title>
+  <title>Group Tour Packages | KPM Global Holiday</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Fixed departure and custom group tour packages for friends, corporates and large families.">
   <link rel="stylesheet" href="styles.css">
@@ -119,11 +119,26 @@
       flex-direction:column;
       box-shadow:0 14px 30px rgba(15,23,42,.08);
     }
-    .group-img {
-      height:180px;
-      background-size:cover;
-      background-position:center;
+
+    /* IMAGE SLIDER INSIDE CARD */
+    .group-img-slider{
+      position:relative;
+      height:190px;
+      overflow:hidden;
     }
+    .group-img-slider img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:0;
+      transition:opacity .6s ease;
+    }
+    .group-img-slider img.active{
+      opacity:1;
+    }
+
     .group-body {
       padding:14px 16px 16px;
       display:flex;
@@ -247,9 +262,13 @@
 <section class="group-wrap">
   <div class="group-grid">
 
-    <!-- Ladakh Group -->
+    <!-- 1 Ladakh Group -->
     <article class="group-card">
-      <div class="group-img" style="background-image:url('img/domestic-manali.jpg');"></div>
+      <div class="group-img-slider">
+        <img src="images/LadakhBullet1.jpg" class="active" alt="Ladakh road trip group">
+        <img src="images/LadakhBullet4.avif" alt="Ladakh road trip group">
+        <img src="images/LadakhBullet2.jpeg" alt="Ladakh road trip group">
+      </div>
       <div class="group-body">
         <span class="group-tag">Adventure Group</span>
         <h3>Ladakh Road Trip Group Tour</h3>
@@ -262,9 +281,13 @@
       </div>
     </article>
 
-    <!-- Himachal Group -->
+    <!-- 2 Himachal Group -->
     <article class="group-card">
-      <div class="group-img" style="background-image:url('img/domestic-manali.jpg');"></div>
+      <div class="group-img-slider">
+        <img src="images/HIMACHAL1.jpg" class="active" alt="Shimla Manali group tour">
+        <img src="images/HIMACHAL2.webp" alt="Shimla Manali group tour">
+        <img src="images/HIMACHAL3.jpg" alt="Shimla Manali group tour">
+      </div>
       <div class="group-body">
         <span class="group-tag">Corporate / Friends</span>
         <h3>Shimla – Manali Group Tour</h3>
@@ -277,9 +300,13 @@
       </div>
     </article>
 
-    <!-- Goa Group -->
+    <!-- 3 Goa Group -->
     <article class="group-card">
-      <div class="group-img" style="background-image:url('img/domestic-goa.jpg');"></div>
+      <div class="group-img-slider">
+        <img src="images/GoaBeachindiandestination1.webp" class="active" alt="Goa group tour">
+        <img src="images/GoaBeachindiandestination3.jpg" alt="Goa group tour">
+        <img src="images/GoaBeachindiandestination2.jpg" alt="Goa group tour">
+      </div>
       <div class="group-body">
         <span class="group-tag">Friends Trip</span>
         <h3>Goa Party Group Package</h3>
@@ -292,9 +319,13 @@
       </div>
     </article>
 
-    <!-- Dubai Group -->
+    <!-- 4 Dubai Group -->
     <article class="group-card">
-      <div class="group-img" style="background-image:url('img/family-dubai.jpg');"></div>
+      <div class="group-img-slider">
+        <img src="images/Dubai Family Escape1.jpg" class="active" alt="Dubai corporate group tour">
+        <img src="images/Dubai Family Escape2.jpg"alt="Dubai corporate group tour">
+        <img src="images/Dubai Family Escape3.jpg" alt="Dubai corporate group tour">
+      </div>
       <div class="group-body">
         <span class="group-tag">International Group</span>
         <h3>Dubai Corporate Incentive Tour</h3>
@@ -307,9 +338,13 @@
       </div>
     </article>
 
-    <!-- Thailand Group -->
+    <!-- 5 Thailand Group -->
     <article class="group-card">
-      <div class="group-img" style="background-image:url('img/thailand.jpg');"></div>
+      <div class="group-img-slider">
+        <img src="images/Thailandinternationaldestination1.jpg" class="active" alt="Thailand group tour">
+        <img src="images/Thailandinternationaldestination3.jpg" alt="Thailand group tour">
+        <img src="images/Thailandinternationaldestination4.webp" alt="Thailand group tour">
+      </div>
       <div class="group-body">
         <span class="group-tag">Friends / College</span>
         <h3>Thailand Bangkok – Pattaya Group</h3>
@@ -322,9 +357,13 @@
       </div>
     </article>
 
-    <!-- Europe Group -->
+    <!-- 6 Europe Group -->
     <article class="group-card">
-      <div class="group-img" style="background-image:url('img/paris.jpg');"></div>
+      <div class="group-img-slider">
+        <img src="images/Europespecialoffer1.webp" class="active" alt="Europe group tour">
+        <img src="images/Europespecialoffer4.jpg" alt="Europe group tour">
+        <img src="images/Europespecialoffer3.webp" alt="Europe group tour">
+      </div>
       <div class="group-body">
         <span class="group-tag">Fixed Departure</span>
         <h3>Europe Highlights Group Tour</h3>
@@ -337,6 +376,82 @@
       </div>
     </article>
 
+    <!-- 7 Rajasthan Group -->
+    <article class="group-card">
+      <div class="group-img-slider">
+        <img src="images/RoyalRajasthanindiandestination1.jpg" class="active" alt="Rajasthan group tour">
+        <img src="images/RoyalRajasthanindiandestination3.jpg" alt="Rajasthan group tour">
+        <img src="images/RoyalRajasthanindiandestination2.jfif" alt="Rajasthan group tour">
+      </div>
+      <div class="group-body">
+        <span class="group-tag">Cultural Group</span>
+        <h3>Royal Rajasthan Heritage Group Tour</h3>
+        <p>Jaipur, Jodhpur & Udaipur forts, palaces, folk shows & lake cruise.</p>
+        <p class="group-price">From ₹27,999 / person</p>
+        <div class="group-actions">
+          <a href="rajasthan-packages.html" class="group-link">View details</a>
+          <button class="group-book-btn" onclick="location.href='book.html?package=rajasthan-group&theme=group'">Group Enquiry</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 8 Andaman Group -->
+    <article class="group-card">
+      <div class="group-img-slider">
+        <img src="images/Andamanspecialoffer1.jpg" class="active" alt="Andaman group tour">
+        <img src="images/Andamanspecialoffer3.jpg"alt="Andaman group tour">
+        <img src="images/Andamanspecialoffer2.webp" alt="Andaman group tour">
+      </div>
+      <div class="group-body">
+        <span class="group-tag">Friends & Family</span>
+        <h3>Andaman Group Beach Holiday</h3>
+        <p>Port Blair & Havelock with Radhanagar beach, cruise & water sports.</p>
+        <p class="group-price">From ₹36,999 / person</p>
+        <div class="group-actions">
+          <a href="andaman-packages.html" class="group-link">View details</a>
+          <button class="group-book-btn" onclick="location.href='book.html?package=andaman-group&theme=group'">Group Enquiry</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 9 Kedarnath Group -->
+    <article class="group-card">
+      <div class="group-img-slider">
+        <img src="images/Kedarkantha1.avif" class="active" alt="Kedarnath yatra group">
+        <img src="images/Kedarkantha3.jfif" alt="Kedarnath yatra group">
+        <img src="images/KedarnathDham2.jfif" alt="Kedarnath yatra group">
+      </div>
+      <div class="group-body">
+        <span class="group-tag">Pilgrimage Group</span>
+        <h3>Kedarnath Yatra Group Tour</h3>
+        <p>5D ex-Haridwar with guided trek, darshan & comfortable stays.</p>
+        <p class="group-price">From ₹19,999 / person</p>
+        <div class="group-actions">
+          <a href="kedarnath-group-tour.html" class="group-link">View details</a>
+          <button class="group-book-btn" onclick="location.href='book.html?package=kedarnath-group&theme=group'">Group Enquiry</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 10 Bali Group -->
+    <article class="group-card">
+      <div class="group-img-slider">
+        <img src="images/Baliinternationaldestination1.jfif" class="active" alt="Bali group tour">
+        <img src="images/Baliinternationaldestination2.jfif" alt="Bali group tour">
+        <img src="images/Baliinternationaldestination3.jpg" alt="Bali group tour">
+      </div>
+      <div class="group-body">
+        <span class="group-tag">Beach Group</span>
+        <h3>Bali Friends & Group Trip</h3>
+        <p>5N tour with beach club entry, temple visits & Nusa Penida day trip.</p>
+        <p class="group-price">From ₹42,999 / person</p>
+        <div class="group-actions">
+          <a href="bali-group-packages.html" class="group-link">View details</a>
+          <button class="group-book-btn" onclick="location.href='book.html?package=bali-group&theme=group'">Group Enquiry</button>
+        </div>
+      </div>
+    </article>
+
   </div>
 
   <!-- INFO STRIP BELOW GRID -->
@@ -345,6 +460,27 @@
     <span>Share your dates on WhatsApp: <strong>+91 92059 20608</strong> for a tailored quote.</span>
   </div>
 </section>
+
+<script>
+  // 3-image auto slider inside each group card (2 sec)
+  document.addEventListener('DOMContentLoaded', function () {
+    const sliders = document.querySelectorAll('.group-img-slider');
+
+    sliders.forEach(function (slider) {
+      const images = slider.querySelectorAll('img');
+      if (!images.length) return;
+
+      let index = 0;
+      images[0].classList.add('active');
+
+      setInterval(function () {
+        images[index].classList.remove('active');
+        index = (index + 1) % images.length;
+        images[index].classList.add('active');
+      }, 2000); // 2 seconds
+    });
+  });
+</script>
 
 </body>
 </html>

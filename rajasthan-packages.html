@@ -2,67 +2,205 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Rajasthan Tour Packages | KPM Global Holidays</title>
+  <title>Rajasthan Tour Packages | KPM Global Holiday</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Rajasthan Royal Heritage Tour – Jaipur, Udaipur, Jodhpur & Jaisalmer luxury packages by KPM Global Holidays.">
-  <link rel="stylesheet" href="styles.css">
 
   <style>
-    body { margin:0; background:#f8fafc; font-family:"Inter",sans-serif; color:#0f172a; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body { 
+      margin:0; 
+      background:#f8fafc; 
+      font-family:"Inter",sans-serif; 
+      color:#0f172a; 
+      line-height: 1.6;
+    }
 
     /* NAVBAR */
-    .kpm-nav { position:sticky; top:0; background:#fff; z-index:50; box-shadow:0 1px 8px rgba(0,0,0,.08); }
-    .kpm-nav-inner { max-width:1150px; margin:auto; padding:10px 16px; display:flex; justify-content:space-between; align-items:center; }
-    .kpm-nav-left { display:flex; align-items:center; gap:10px; }
-    .kpm-nav-logo { height:46px; border-radius:10px; }
-    .kpm-nav-brand-title { font-size:16px; font-weight:700; }
-    .kpm-nav-brand-sub { font-size:12px; color:#6b7280; }
+    .kpm-nav { 
+      position:sticky; 
+      top:0; 
+      background:#fff; 
+      z-index:50; 
+      box-shadow:0 1px 8px rgba(0,0,0,.08); 
+    }
+    .kpm-nav-inner { 
+      max-width:1150px; 
+      margin:auto; 
+      padding:10px 16px; 
+      display:flex; 
+      justify-content:space-between; 
+      align-items:center; 
+    }
+    .kpm-nav-left { 
+      display:flex; 
+      align-items:center; 
+      gap:10px; 
+    }
+    .kpm-nav-logo { 
+      height:46px; 
+      border-radius:10px; 
+    }
+    .kpm-nav-brand-title { 
+      font-size:16px; 
+      font-weight:700; 
+    }
+    .kpm-nav-brand-sub { 
+      font-size:12px; 
+      color:#6b7280; 
+    }
 
-    .kpm-nav-links { display:flex; gap:18px; font-size:14px; align-items:center; }
-    .kpm-nav-links a { text-decoration:none; color:#0f172a; font-weight:500; }
-    .kpm-nav-links a.active { color:#0f75c8; }
+    .kpm-nav-links { 
+      display:flex; 
+      gap:18px; 
+      font-size:14px; 
+      align-items:center; 
+    }
+    .kpm-nav-links a { 
+      text-decoration:none; 
+      color:#0f172a; 
+      font-weight:500; 
+    }
+    .kpm-nav-links a.active { 
+      color:#0f75c8; 
+    }
     .kpm-nav-cta {
-      padding:8px 18px; background:#0f75c8; color:#fff;
-      border:none; border-radius:999px; cursor:pointer; font-weight:600;
+      padding:8px 18px; 
+      background:#0f75c8; 
+      color:#fff;
+      border:none; 
+      border-radius:999px; 
+      cursor:pointer; 
+      font-weight:600;
     }
 
-    /* HERO */
+    /* HERO WITH SLIDER */
     .pkg-hero {
-      height:360px; background-size:cover; background-position:center;
-      display:flex; align-items:flex-end; padding-bottom:28px; text-align:center; color:#fff;
+      height:360px; 
+      background-size:cover; 
+      background-position:center;
+      display:flex; 
+      align-items:flex-end; 
+      padding-bottom:28px; 
+      text-align:center; 
+      color:#fff;
+      position: relative;
+      overflow: hidden;
     }
+
+    .hero-slider {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(1.02);
+      transition: opacity 0.7s ease;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+    }
+
+    .pkg-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.6) 100%);
+      pointer-events: none;
+    }
+
     .pkg-hero h1 {
-      margin:auto; font-size:40px; font-weight:700;
+      margin:auto; 
+      font-size:40px; 
+      font-weight:700;
       text-shadow:0 6px 20px rgba(0,0,0,.55);
+      position: relative;
+      z-index: 1;
+      padding: 0 16px;
     }
 
     /* CONTENT */
-    .pkg-container { max-width:1150px; margin:auto; padding:26px 16px; display:flex; gap:22px; }
-    .pkg-main { flex:3; display:flex; flex-direction:column; gap:26px; }
+    .pkg-container { 
+      max-width:1150px; 
+      margin:auto; 
+      padding:26px 16px; 
+      display:flex; 
+      gap:22px; 
+    }
+    .pkg-main { 
+      flex:3; 
+      display:flex; 
+      flex-direction:column; 
+      gap:26px; 
+    }
     .pkg-side {
-      flex:1; background:#fff; border-radius:14px; padding:18px;
-      box-shadow:0 10px 30px rgba(15,23,42,.08); height:max-content;
+      flex:1; 
+      background:#fff; 
+      border-radius:14px; 
+      padding:18px;
+      box-shadow:0 10px 30px rgba(15,23,42,.08); 
+      height:max-content;
     }
 
     .pkg-card {
-      background:#fff; border-radius:18px; padding:22px;
-      display:flex; flex-direction:column; gap:12px;
+      background:#fff; 
+      border-radius:18px; 
+      padding:22px;
+      display:flex; 
+      flex-direction:column; 
+      gap:12px;
       box-shadow:0 14px 30px rgba(15,23,42,.08);
     }
 
-    .pkg-card h2 { margin:0; font-size:22px; }
-    .pkg-card p, li { font-size:14px; color:#475569; }
-    .pkg-list { padding-left:18px; line-height:1.5em; }
-    .pkg-price { font-size:22px; color:#0f75c8; font-weight:700; }
+    .pkg-card h2 { 
+      margin:0; 
+      font-size:22px; 
+    }
+    .pkg-card p, 
+    .pkg-card li { 
+      font-size:14px; 
+      color:#475569; 
+    }
+    .pkg-list { 
+      padding-left:18px; 
+      line-height:1.5em; 
+    }
+    .pkg-price { 
+      font-size:22px; 
+      color:#0f75c8; 
+      font-weight:700; 
+    }
 
     .pkg-book-btn {
-      padding:12px 22px; width:100%; margin-top:10px;
-      background:#ff4b2b; color:#fff; border:none; border-radius:10px;
-      font-size:15px; font-weight:600; cursor:pointer;
+      padding:12px 22px; 
+      width:100%; 
+      margin-top:10px;
+      background:#ff4b2b; 
+      color:#fff; 
+      border:none; 
+      border-radius:10px;
+      font-size:15px; 
+      font-weight:600; 
+      cursor:pointer;
       box-shadow:0 10px 28px rgba(248,113,113,.35);
     }
 
-    @media(max-width:900px){ .pkg-container{flex-direction:column;} }
+    @media(max-width:900px){ 
+      .pkg-container{flex-direction:column;} 
+    }
   </style>
 </head>
 
@@ -93,8 +231,16 @@
   </div>
 </header>
 
-<!-- HERO -->
-<section class="pkg-hero" style="background-image:url('img/domestic-rajasthan.jpg');">
+<!-- HERO WITH 5-IMAGE AUTO SLIDER -->
+<section class="pkg-hero">
+  <div class="hero-slider">
+    <!-- Filenames apne images folder ke hisaab se adjust kar sakte ho -->
+    <img src="images/Royal Rajasthan.jpg" class="hero-slide active" alt="Rajasthan Fort">
+    <img src="images/RoyalRajasthanindiandestination1.jpg" class="hero-slide" alt="Jaipur Hawa Mahal">
+    <img src="images/RoyalRajasthanindiandestination4.webp" class="hero-slide" alt="Udaipur City Palace">
+    <img src="images/RoyalRajasthanindiandestination3.jpg" class="hero-slide" alt="Jaisalmer Desert Camp">
+    <img src="images/RoyalRajasthanindiandestination2.jfif" class="hero-slide" alt="Jodhpur Blue City">
+  </div>
   <h1>Rajasthan Royal Heritage Tour</h1>
 </section>
 
@@ -154,6 +300,22 @@
   </aside>
 
 </div>
+
+<script>
+  // 5-image hero slider – 2 sec auto change
+  document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.hero-slide');
+    if (!slides.length) return;
+
+    let index = 0;
+
+    setInterval(function () {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }, 2000);
+  });
+</script>
 
 </body>
 </html>

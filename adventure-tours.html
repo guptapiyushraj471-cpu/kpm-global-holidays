@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Adventure & Thrill Tours | KPM Global Holidays</title>
+  <title>Adventure & Thrill Tours | KPM Global Holiday</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Adventure tours including trekking, river rafting, paragliding, biking expeditions and more.">
   <link rel="stylesheet" href="styles.css">
@@ -94,14 +94,38 @@
       color:#475569;
     }
 
-    /* GRID */
-    .adv-wrap { padding:10px 16px 50px; }
-    .adv-grid {
+    /* SLIDER SECTION */
+    .adv-wrap {
+      padding:10px 16px 60px;
+    }
+    .adv-slider-container {
       max-width:1150px;
-      margin:auto;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
+      margin:0 auto;
+      background:#fff;
+      border-radius:26px;
+      box-shadow:0 18px 40px rgba(15,23,42,.12);
+      padding:26px 24px 30px;
+      position:relative;
+    }
+    .adv-slider-header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:18px;
+    }
+    .adv-slider-title {
+      font-size:24px;
+      font-weight:700;
+    }
+
+    .adv-slider-viewport {
+      overflow:hidden;
+      position:relative;
+    }
+    .adv-slider-track {
+      display:flex;
+      transition:transform .5s ease;
+      will-change:transform;
     }
 
     .adv-card {
@@ -111,12 +135,28 @@
       display:flex;
       flex-direction:column;
       box-shadow:0 14px 30px rgba(15,23,42,.08);
+      margin-right:20px;
     }
-    .adv-img {
-      height:180px;
-      background-size:cover;
-      background-position:center;
+
+    /* IMAGE SLIDER INSIDE CARD */
+    .adv-img-slider{
+      position:relative;
+      height:200px;
+      overflow:hidden;
     }
+    .adv-img-slider img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:0;
+      transition:opacity .6s ease;
+    }
+    .adv-img-slider img.active{
+      opacity:1;
+    }
+
     .adv-body {
       padding:14px 16px 16px;
       display:flex;
@@ -170,12 +210,62 @@
       font-weight:600;
     }
 
-    @media(max-width:900px){
-      .adv-grid{grid-template-columns:repeat(2,1fr);}
+    /* arrows */
+    .adv-arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:38px;
+      height:38px;
+      border-radius:999px;
+      border:none;
+      background:#fff;
+      box-shadow:0 10px 25px rgba(15,23,42,.15);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      font-size:18px;
     }
-    @media(max-width:600px){
-      .adv-grid{grid-template-columns:1fr;}
-      .adv-hero h1{font-size:26px;}
+    .adv-arrow:focus{outline:none;}
+    .adv-arrow.prev{right:78px;}
+    .adv-arrow.next{right:28px;}
+
+    /* dots */
+    .adv-dots {
+      display:flex;
+      justify-content:center;
+      gap:6px;
+      margin-top:16px;
+    }
+    .adv-dot{
+      width:7px;
+      height:7px;
+      border-radius:999px;
+      background:#e5e7eb;
+      cursor:pointer;
+    }
+    .adv-dot.active{
+      width:20px;
+      background:#f97316;
+    }
+
+    @media(max-width:900px){
+      .adv-arrow.prev{right:68px;}
+      .adv-arrow.next{right:20px;}
+    }
+    @media(max-width:640px){
+      .adv-slider-container{
+        padding:20px 16px 26px;
+      }
+      .adv-arrow{
+        width:32px;
+        height:32px;
+        font-size:16px;
+      }
+      .adv-arrow.prev{right:60px;}
+      .adv-arrow.next{right:16px;}
+      .adv-slider-title{font-size:20px;}
     }
   </style>
 </head>
@@ -185,9 +275,9 @@
 <header class="kpm-nav">
   <div class="kpm-nav-inner">
     <div class="kpm-nav-left">
-      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo" alt="KPM Global Holidays logo">
       <div>
-        <div class="kpm-nav-brand-title">KPM GLOBAL HOLIDAYS</div>
+        <div class="kpm-nav-brand-title">KPM GLOBAL HOLIDAY</div>
         <div class="kpm-nav-brand-sub">Your Journey, Our Promise</div>
       </div>
     </div>
@@ -209,100 +299,346 @@
 </section>
 
 <section class="adv-wrap">
-  <div class="adv-grid">
+  <div class="adv-slider-container">
+    <div class="adv-slider-header">
+      <h2 class="adv-slider-title">Special Adventure Offers</h2>
+    </div>
 
-    <!-- Ladakh Bike Trip -->
-    <article class="adv-card">
-      <div class="adv-img" style="background-image:url('img/ladakh-bike.jpg');"></div>
-      <div class="adv-body">
-        <span class="adv-tag">Bike Expedition</span>
-        <h3>Ladakh Bullet Bike Expedition</h3>
-        <p>Leh – Nubra – Pangong with backup vehicle & mechanic support.</p>
-        <p class="adv-price">From ₹32,999 / rider</p>
-        <div class="adv-actions">
-          <a href="ladakh-packages.html" class="adv-link">View Details</a>
-          <button class="adv-book" onclick="location.href='book.html?package=ladakh-bike&theme=adventure'">Book</button>
-        </div>
+    <div class="adv-slider-viewport">
+      <div class="adv-slider-track">
+
+        <!-- 1. Ladakh Bike Trip -->
+        <article class="adv-card">
+          <div class="adv-img-slider">
+            <!-- abhi same image 4 baar; aap chahe to alag image path dal dena -->
+            <img src="images/LadakhBullet1.jpg" alt="Ladakh bike expedition" class="active">
+            <img src="images/LadakhBullet2.jpeg"" alt="Ladakh bike expedition">
+            <img src="images/LadakhBullet3.jpg"" alt="Ladakh bike expedition">
+            <img src="images/LadakhBullet4.avif"" alt="Ladakh bike expedition">
+          </div>
+          <div class="adv-body">
+            <span class="adv-tag">Bike Expedition</span>
+            <h3>Ladakh Bullet Bike Expedition</h3>
+            <p>Leh – Nubra – Pangong with backup vehicle & mechanic support.</p>
+            <p class="adv-price">From ₹32,999 / rider</p>
+            <div class="adv-actions">
+              <a href="ladakh-packages.html" class="adv-link">View Details</a>
+              <button class="adv-book" onclick="location.href='book.html?package=ladakh-bike&theme=adventure'">Book</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. Rishikesh Rafting -->
+        <article class="adv-card">
+          <div class="adv-img-slider">
+            <img src="images/RishikeshRafting1.jpg"" alt="Rishikesh rafting" class="active">
+            <img src="images/RishikeshRafting2.jpg" alt="Rishikesh rafting">
+            <img src="images/RishikeshRafting3.webp" alt="Rishikesh rafting">
+            <img src="images/RishikeshRafting4.jfif" alt="Rishikesh rafting">
+          </div>
+          <div class="adv-body">
+            <span class="adv-tag">River Rafting</span>
+            <h3>Rishikesh Rafting Camp</h3>
+            <p>2N / Rafting 26km stretch with bonfire, cliff jump & zipline.</p>
+            <p class="adv-price">From ₹4,999 / person</p>
+            <div class="adv-actions">
+              <a href="activities.html" class="adv-link">View Details</a>
+              <button class="adv-book" onclick="location.href='book.html?package=rishikesh-rafting&theme=adventure'">Book</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Bir Paragliding -->
+        <article class="adv-card">
+          <div class="adv-img-slider">
+            <img src="images/birbilling1.jpg" alt="Bir Billing paragliding" class="active">
+            <img src="images/birbilling2.jpg" alt="Bir Billing paragliding">
+            <img src="images/birbilling3.avif" alt="Bir Billing paragliding">
+            <img src="images/birbilling4.jpg" alt="Bir Billing paragliding">
+          </div>
+          <div class="adv-body">
+            <span class="adv-tag">Paragliding</span>
+            <h3>Bir Billing Paragliding Trip</h3>
+            <p>2N stay + tandem flight experience at world’s 2nd highest site.</p>
+            <p class="adv-price">From ₹7,499 / person</p>
+            <div class="adv-actions">
+              <a href="package-detail.html" class="adv-link">View Details</a>
+              <button class="adv-book" onclick="location.href='book.html?package=bir&theme=adventure'">Book</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. Kedarkantha Trek -->
+        <article class="adv-card">
+          <div class="adv-img-slider">
+            <img src="images/Kedarkantha1.avif" alt="Kedarkantha trek" class="active">
+            <img src="images/Kedarkantha2.jfif" alt="Kedarkantha trek">
+            <img src="images/Kedarkantha3.jfif" alt="Kedarkantha trek">
+            <img src="images/Kedarkantha4.jpg" alt="Kedarkantha trek">
+          </div>
+          <div class="adv-body">
+            <span class="adv-tag">Trekking</span>
+            <h3>Kedarkantha Snow Trek</h3>
+            <p>4N/5D Uttarakhand winter trek with tents, meals & guide support.</p>
+            <p class="adv-price">From ₹9,999 / person</p>
+            <div class="adv-actions">
+              <a href="package-detail.html" class="adv-link">View Details</a>
+              <button class="adv-book" onclick="location.href='book.html?package=kedarkantha&theme=adventure'">Book</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. Goa Scuba -->
+        <article class="adv-card">
+          <div class="adv-img-slider">
+            <img src="images/GoaScubaDivin1.jpg" alt="Goa scuba diving" class="active">
+            <img src="images/GoaScubaDivin2.webp" alt="Goa scuba diving">
+            <img src="images/GoaScubaDivin3.jfif" alt="Goa scuba diving">
+            <img src="images/GoaScubaDivin4.jfif" alt="Goa scuba diving">
+          </div>
+          <div class="adv-body">
+            <span class="adv-tag">Scuba Diving</span>
+            <h3>Goa Scuba Diving</h3>
+            <p>Underwater experience with photos + training + boat ride.</p>
+            <p class="adv-price">From ₹3,999 / person</p>
+            <div class="adv-actions">
+              <a href="goa-packages.html" class="adv-link">View Details</a>
+              <button class="adv-book" onclick="location.href='book.html?package=scuba-goa&theme=adventure'">Book</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. Skydiving Dubai -->
+        <article class="adv-card">
+          <div class="adv-img-slider">
+            <img src="images/dubaiSkydiving1.jpg" alt="Dubai skydiving" class="active">
+            <img src="images/dubaiSkydiving2.jpg" alt="Dubai skydiving">
+            <img src="images/dubaiSkydiving3.avif" alt="Dubai skydiving">
+            <img src="images/dubaiSkydiving4.webp" alt="Dubai skydiving">
+          </div>
+          <div class="adv-body">
+            <span class="adv-tag">Skydiving</span>
+            <h3>Skydiving Dubai Palm View</h3>
+            <p>Once-in-a-lifetime tandem jump over Palm Jumeirah.</p>
+            <p class="adv-price">From ₹52,999 / person</p>
+            <div class="adv-actions">
+              <a href="dubai-packages.html" class="adv-link">View Details</a>
+              <button class="adv-book" onclick="location.href='book.html?package=skydiving-dubai&theme=adventure'">Book</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7. Andaman Water Sports -->
+        <article class="adv-card">
+          <div class="adv-img-slider">
+            <img src="images/AndamanWater1.webp" alt="Andaman water sports" class="active">
+            <img src="images/AndamanWater2.avif" alt="Andaman water sports">
+            <img src="images/AndamanWater3.jfif" alt="Andaman water sports">
+            <img src="images/AndamanWater4.jfif" alt="Andaman water sports">
+          </div>
+          <div class="adv-body">
+            <span class="adv-tag">Water Sports</span>
+            <h3>Andaman Water Sports Combo</h3>
+            <p>Sea walk, snorkeling, jet ski & glass-bottom boat ride.</p>
+            <p class="adv-price">From ₹8,499 / person</p>
+            <div class="adv-actions">
+              <a href="andaman-packages.html" class="adv-link">View Details</a>
+              <button class="adv-book" onclick="location.href='book.html?package=andaman-adventure&theme=adventure'">Book</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8. Jaisalmer Desert Safari -->
+        <article class="adv-card">
+          <div class="adv-img-slider">
+            <img src="images/JaisalmerJeep1.jpg" alt="Jaisalmer desert safari" class="active">
+            <img src="images/JaisalmerJeep2.jfif" alt="Jaisalmer desert safari">
+            <img src="images/JaisalmerJeep3.jfif" alt="Jaisalmer desert safari">
+            <img src="images/JaisalmerJeep4.jfif" alt="Jaisalmer desert safari">
+          </div>
+          <div class="adv-body">
+            <span class="adv-tag">Desert Safari</span>
+            <h3>Jaisalmer Jeep & Dune Bashing</h3>
+            <p>Golden sand dunes, sunset camel ride & cultural show.</p>
+            <p class="adv-price">From ₹6,999 / person</p>
+            <div class="adv-actions">
+              <a href="rajasthan-packages.html" class="adv-link">View Details</a>
+              <button class="adv-book" onclick="location.href='book.html?package=jaisalmer-safari&theme=adventure'">Book</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9. Manali Snow Activities -->
+        <article class="adv-card">
+          <div class="adv-img-slider">
+            <img src="images/ManaliSnow1.jpg" alt="Manali snow adventure" class="active">
+            <img src="images/ManaliSnow2.webp" alt="Manali snow adventure">
+            <img src="images/ManaliSnow3.avif" alt="Manali snow adventure">
+            <img src="images/ManaliSnow4.webp" alt="Manali snow adventure">
+          </div>
+          <div class="adv-body">
+            <span class="adv-tag">Snow Adventure</span>
+            <h3>Manali Snow Activities Trip</h3>
+            <p>Skiing, tube slide, ATV & snow scooter at Solang/Atal tunnel.</p>
+            <p class="adv-price">From ₹7,999 / person</p>
+            <div class="adv-actions">
+              <a href="manali-packages.html" class="adv-link">View Details</a>
+              <button class="adv-book" onclick="location.href='book.html?package=manali-snow&theme=adventure'">Book</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 10. Meghalaya Adventure -->
+        <article class="adv-card">
+          <div class="adv-img-slider">
+            <img src="images/MeghalayaAdventure1.png" alt="Meghalaya caving and trek" class="active">
+            <img src="images/MeghalayaAdventure2.jfif" alt="Meghalaya caving and trek">
+            <img src="images/MeghalayaAdventure3.jpeg" alt="Meghalaya caving and trek">
+            <img src="images/MeghalayaAdventure4.png" alt="Meghalaya caving and trek">
+          </div>
+          <div class="adv-body">
+            <span class="adv-tag">Caving & Trek</span>
+            <h3>Meghalaya Adventure Escape</h3>
+            <p>Living root bridges, river canyons, caves & cliff jumps.</p>
+            <p class="adv-price">From ₹13,499 / person</p>
+            <div class="adv-actions">
+              <a href="north-east-packages.html" class="adv-link">View Details</a>
+              <button class="adv-book" onclick="location.href='book.html?package=meghalaya-adventure&theme=adventure'">Book</button>
+            </div>
+          </div>
+        </article>
+
       </div>
-    </article>
+    </div>
 
-    <!-- Rishikesh Rafting -->
-    <article class="adv-card">
-      <div class="adv-img" style="background-image:url('img/domestic-rishikesh.jpg');"></div>
-      <div class="adv-body">
-        <span class="adv-tag">River Rafting</span>
-        <h3>Rishikesh Rafting Camp</h3>
-        <p>2N / Rafting 26km stretch with bonfire, cliff jump & zipline.</p>
-        <p class="adv-price">From ₹4,999 / person</p>
-        <div class="adv-actions">
-          <a href="activities.html" class="adv-link">View Details</a>
-          <button class="adv-book" onclick="location.href='book.html?package=rishikesh-rafting&theme=adventure'">Book</button>
-        </div>
-      </div>
-    </article>
+    <button class="adv-arrow prev" type="button">&#10094;</button>
+    <button class="adv-arrow next" type="button">&#10095;</button>
 
-    <!-- Paragliding Bir -->
-    <article class="adv-card">
-      <div class="adv-img" style="background-image:url('img/adventure-bir.jpg');"></div>
-      <div class="adv-body">
-        <span class="adv-tag">Paragliding</span>
-        <h3>Bir Billing Paragliding Trip</h3>
-        <p>2N stay + tandem flight experience at world’s 2nd highest site.</p>
-        <p class="adv-price">From ₹7,499 / person</p>
-        <div class="adv-actions">
-          <a href="package-detail.html" class="adv-link">View Details</a>
-          <button class="adv-book" onclick="location.href='book.html?package=bir&theme=adventure'">Book</button>
-        </div>
-      </div>
-    </article>
-
-    <!-- Kedarkantha Trek -->
-    <article class="adv-card">
-      <div class="adv-img" style="background-image:url('img/trek-kedarkantha.jpg');"></div>
-      <div class="adv-body">
-        <span class="adv-tag">Trekking</span>
-        <h3>Kedarkantha Snow Trek</h3>
-        <p>4N/5D Uttarakhand winter trek with tents, meals & guide support.</p>
-        <p class="adv-price">From ₹9,999 / person</p>
-        <div class="adv-actions">
-          <a href="package-detail.html" class="adv-link">View Details</a>
-          <button class="adv-book" onclick="location.href='book.html?package=kedarkantha&theme=adventure'">Book</button>
-        </div>
-      </div>
-    </article>
-
-    <!-- Scuba Goa -->
-    <article class="adv-card">
-      <div class="adv-img" style="background-image:url('img/scuba-goa.jpg');"></div>
-      <div class="adv-body">
-        <span class="adv-tag">Scuba Diving</span>
-        <h3>Goa Scuba Diving</h3>
-        <p>Underwater experience with photos + training + boat ride.</p>
-        <p class="adv-price">From ₹3,999 / person</p>
-        <div class="adv-actions">
-          <a href="goa-packages.html" class="adv-link">View Details</a>
-          <button class="adv-book" onclick="location.href='book.html?package=scuba-goa&theme=adventure'">Book</button>
-        </div>
-      </div>
-    </article>
-
-    <!-- Skydiving Dubai -->
-    <article class="adv-card">
-      <div class="adv-img" style="background-image:url('img/skydiving-dubai.jpg');"></div>
-      <div class="adv-body">
-        <span class="adv-tag">Skydiving</span>
-        <h3>Skydiving Dubai Palm View</h3>
-        <p>Once-in-a-lifetime tandem jump over Palm Jumeirah.</p>
-        <p class="adv-price">From ₹52,999 / person</p>
-        <div class="adv-actions">
-          <a href="dubai-packages.html" class="adv-link">View Details</a>
-          <button class="adv-book" onclick="location.href='book.html?package=skydiving-dubai&theme=adventure'">Book</button>
-        </div>
-      </div>
-    </article>
-
+    <div class="adv-dots"></div>
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    /* ===== inner 4-image slider in each card (2 sec) ===== */
+    const sliders = document.querySelectorAll('.adv-img-slider');
+    sliders.forEach(function (slider) {
+      const images = slider.querySelectorAll('img');
+      if (!images.length) return;
+
+      let index = 0;
+      images[0].classList.add('active');
+
+      setInterval(function () {
+        images[index].classList.remove('active');
+        index = (index + 1) % images.length;
+        images[index].classList.add('active');
+      }, 2000);
+    });
+
+    /* ===== main card carousel with dots ===== */
+    const viewport = document.querySelector('.adv-slider-viewport');
+    const track = document.querySelector('.adv-slider-track');
+    const slides = Array.from(track.children);
+    const prevBtn = document.querySelector('.adv-arrow.prev');
+    const nextBtn = document.querySelector('.adv-arrow.next');
+    const dotsContainer = document.querySelector('.adv-dots');
+
+    let slidesPerView = 3;
+    let pageCount = 1;
+    let currentPage = 0;
+    let autoTimer = null;
+
+    function getSlidesPerView() {
+      const w = window.innerWidth;
+      if (w <= 640) return 1;
+      if (w <= 900) return 2;
+      return 3;
+    }
+
+    function layoutSlides() {
+      slidesPerView = getSlidesPerView();
+      const slideWidth = viewport.offsetWidth / slidesPerView;
+      slides.forEach(function (s) {
+        s.style.minWidth = slideWidth + 'px';
+      });
+      pageCount = Math.ceil(slides.length / slidesPerView);
+      if (currentPage >= pageCount) currentPage = 0;
+      buildDots();
+      updateTransform();
+      setActiveDot();
+    }
+
+    function updateTransform() {
+      const slideWidth = viewport.offsetWidth / slidesPerView;
+      const offset = currentPage * slideWidth * slidesPerView;
+      track.style.transform = 'translateX(-' + offset + 'px)';
+    }
+
+    function buildDots() {
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < pageCount; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'adv-dot';
+        dot.dataset.index = i;
+        dotsContainer.appendChild(dot);
+      }
+      dotsContainer.addEventListener('click', function (e) {
+        if (!e.target.classList.contains('adv-dot')) return;
+        currentPage = parseInt(e.target.dataset.index, 10);
+        updateTransform();
+        setActiveDot();
+        restartAuto();
+      }, { once: true }); // first bind only once
+    }
+
+    function setActiveDot() {
+      const dots = dotsContainer.querySelectorAll('.adv-dot');
+      dots.forEach(function (d, i) {
+        d.classList.toggle('active', i === currentPage);
+      });
+    }
+
+    function nextPage() {
+      currentPage = (currentPage + 1) % pageCount;
+      updateTransform();
+      setActiveDot();
+    }
+
+    function prevPage() {
+      currentPage = (currentPage - 1 + pageCount) % pageCount;
+      updateTransform();
+      setActiveDot();
+    }
+
+    function startAuto() {
+      if (autoTimer) clearInterval(autoTimer);
+      autoTimer = setInterval(function () {
+        nextPage();
+      }, 5000); // 5 sec auto slide
+    }
+
+    function restartAuto() {
+      startAuto();
+    }
+
+    prevBtn.addEventListener('click', function () {
+      prevPage();
+      restartAuto();
+    });
+    nextBtn.addEventListener('click', function () {
+      nextPage();
+      restartAuto();
+    });
+
+    window.addEventListener('resize', function () {
+      layoutSlides();
+    });
+
+    layoutSlides();
+    startAuto();
+  });
+</script>
 
 </body>
 </html>

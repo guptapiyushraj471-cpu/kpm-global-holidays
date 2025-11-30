@@ -2,199 +2,412 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pilgrimage & Spiritual Tours | KPM Global Holidays</title>
+  <title>Pilgrimage & Spiritual Tours | KPM Global Holiday</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Chardham Yatra, Vaishno Devi, Varanasi, Rishikesh and other pilgrimage tours by KPM Global Holidays.">
-  <link rel="stylesheet" href="styles.css">
 
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      margin:0;
-      background:#f8fafc;
-      font-family:"Inter",sans-serif;
-      color:#0f172a;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      line-height: 1.6;
     }
 
     /* NAVBAR */
     .kpm-nav {
-      position:sticky;
-      top:0;
-      background:#fff;
-      z-index:50;
-      box-shadow:0 1px 8px rgba(0,0,0,.08);
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      z-index: 50;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
     }
+
     .kpm-nav-inner {
-      max-width:1150px;
-      margin:auto;
-      padding:10px 16px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
     }
+
     .kpm-nav-left {
-      display:flex;
-      align-items:center;
-      gap:10px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
+
     .kpm-nav-logo {
-      height:46px;
-      border-radius:10px;
+      height: 50px;
+      width: 50px;
+      object-fit: contain;
+      border-radius: 10px;
     }
+
     .kpm-nav-brand-title {
-      font-size:16px;
-      font-weight:700;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: 0.5px;
     }
+
     .kpm-nav-brand-sub {
-      font-size:12px;
-      color:#6b7280;
+      font-size: 0.75rem;
+      color: #6b7280;
+      font-weight: 400;
     }
 
     .kpm-nav-links {
-      display:flex;
-      gap:18px;
-      font-size:14px;
-      align-items:center;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9375rem;
+      align-items: center;
+      flex-wrap: wrap;
     }
+
     .kpm-nav-links a {
-      text-decoration:none;
-      color:#0f172a;
-      font-weight:500;
+      text-decoration: none;
+      color: #475569;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
     }
-    .kpm-nav-links a.active {
-      color:#0f75c8;
-    }
+
     .kpm-nav-links a:hover {
-      color:#0f75c8;
+      color: #0f75c8;
+    }
+
+    .kpm-nav-links a.active {
+      color: #0f75c8;
+    }
+
+    .kpm-nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #0f75c8;
     }
 
     .kpm-nav-cta {
-      padding:8px 18px;
-      background:#0f75c8;
-      color:#fff;
-      border:none;
-      border-radius:999px;
-      font-size:14px;
-      font-weight:600;
-      cursor:pointer;
-      box-shadow:0 4px 14px rgba(37,99,235,.35);
+      padding: 0.625rem 1.5rem;
+      background: linear-gradient(135deg, #0f75c8 0%, #0a5a99 100%);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 14px rgba(15, 117, 200, 0.35);
+    }
+
+    .kpm-nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(15, 117, 200, 0.45);
     }
 
     /* HERO */
     .pilgrim-hero {
-      text-align:center;
-      padding:42px 16px 26px;
+      text-align: center;
+      padding: 4rem 1.5rem 3rem;
       background:
-        radial-gradient(circle at top left,#e0f2fe,transparent 50%),
-        radial-gradient(circle at bottom right,#fee2e2,transparent 60%),
+        radial-gradient(circle at top left, #e0f2fe, transparent 50%),
+        radial-gradient(circle at bottom right, #fee2e2, transparent 60%),
         #fefce8;
+      position: relative;
+      overflow: hidden;
     }
+
+    .pilgrim-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(251, 191, 36, 0.1) 0%, transparent 70%);
+      animation: rotate 30s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
     .pilgrim-hero h1 {
-      font-size:32px;
-      margin-bottom:10px;
-      font-weight:700;
+      position: relative;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: #0f172a;
+      z-index: 1;
     }
+
     .pilgrim-hero p {
-      margin:0;
-      font-size:15px;
-      color:#475569;
+      position: relative;
+      margin: 0 auto;
+      max-width: 700px;
+      font-size: 1.125rem;
+      color: #475569;
+      z-index: 1;
     }
 
     /* GRID */
     .pilgrim-wrap {
-      padding:10px 16px 50px;
+      padding: 3rem 1.5rem 4rem;
     }
+
     .pilgrim-grid {
-      max-width:1150px;
-      margin:auto;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
+      max-width: 1150px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2rem;
     }
 
     .pilgrim-card {
-      background:#fff;
-      border-radius:18px;
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      box-shadow:0 14px 30px rgba(15,23,42,.08);
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
+    .pilgrim-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(15, 23, 42, 0.15);
+    }
+
     .pilgrim-img {
-      height:180px;
-      background-size:cover;
-      background-position:center;
+      height: 220px;
+      position: relative;
+      overflow: hidden;
     }
+
+    .pilgrim-img-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .pilgrim-img-slide.active {
+      opacity: 1;
+    }
+
+    .pilgrim-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+      pointer-events: none;
+    }
+
     .pilgrim-body {
-      padding:14px 16px 16px;
-      display:flex;
-      flex-direction:column;
-      gap:6px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      flex: 1;
     }
+
     .pilgrim-tag {
-      font-size:11px;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-      color:#b45309;
-      font-weight:600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #b45309;
+      font-weight: 600;
+      background: #fef3c7;
+      padding: 0.25rem 0.75rem;
+      border-radius: 6px;
+      display: inline-block;
+      width: fit-content;
     }
+
     .pilgrim-body h3 {
-      margin:0;
-      font-size:17px;
-      font-weight:600;
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #0f172a;
+      line-height: 1.4;
     }
+
     .pilgrim-body p {
-      margin:0;
-      font-size:13px;
-      color:#475569;
+      margin: 0;
+      font-size: 0.9375rem;
+      color: #475569;
+      line-height: 1.6;
     }
+
     .pilgrim-meta {
-      font-size:12px;
-      color:#6b7280;
+      font-size: 0.875rem;
+      color: #6b7280;
+      font-style: italic;
     }
+
     .pilgrim-price {
-      font-size:14px;
-      font-weight:600;
-      color:#0f75c8;
-      margin-top:2px;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #0f75c8;
+      margin-top: 0.25rem;
     }
 
     .pilgrim-actions {
-      margin-top:10px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
-    }
-    .pilgrim-link {
-      font-size:13px;
-      color:#ea580c;
-      font-weight:600;
-      text-decoration:none;
-    }
-    .pilgrim-link:hover {
-      text-decoration:underline;
-    }
-    .pilgrim-book {
-      padding:8px 14px;
-      background:#b45309;
-      border:none;
-      border-radius:10px;
-      color:#fff;
-      font-size:13px;
-      font-weight:600;
-      cursor:pointer;
-      box-shadow:0 8px 18px rgba(180,83,9,.35);
-    }
-    .pilgrim-book:hover {
-      background:#92400e;
+      margin-top: auto;
+      padding-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      border-top: 1px solid #e2e8f0;
     }
 
-    @media(max-width:900px){
-      .pilgrim-grid{grid-template-columns:repeat(2,1fr);}
+    .pilgrim-link {
+      font-size: 0.9375rem;
+      color: #ea580c;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
     }
-    @media(max-width:600px){
-      .pilgrim-grid{grid-template-columns:1fr;}
-      .pilgrim-hero h1{font-size:26px;}
+
+    .pilgrim-link:hover {
+      color: #c2410c;
+      text-decoration: underline;
+    }
+
+    .pilgrim-book {
+      padding: 0.625rem 1.25rem;
+      background: linear-gradient(135deg, #b45309 0%, #92400e 100%);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(180, 83, 9, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .pilgrim-book:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(180, 83, 9, 0.4);
+    }
+
+    .pilgrim-book:active {
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .pilgrim-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .kpm-nav-inner {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      .kpm-nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        font-size: 0.875rem;
+      }
+
+      .kpm-nav-cta {
+        padding: 0.5rem 1.25rem;
+        font-size: 0.875rem;
+      }
+
+      .pilgrim-hero {
+        padding: 3rem 1rem 2rem;
+      }
+
+      .pilgrim-hero h1 {
+        font-size: 1.875rem;
+      }
+
+      .pilgrim-hero p {
+        font-size: 1rem;
+      }
+
+      .pilgrim-wrap {
+        padding: 2rem 1rem 3rem;
+      }
+
+      .pilgrim-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .kpm-nav-logo {
+        height: 40px;
+        width: 40px;
+      }
+
+      .kpm-nav-brand-title {
+        font-size: 0.9375rem;
+      }
+
+      .kpm-nav-brand-sub {
+        font-size: 0.6875rem;
+      }
+
+      .pilgrim-hero h1 {
+        font-size: 1.5rem;
+      }
+
+      .pilgrim-hero p {
+        font-size: 0.9375rem;
+      }
+
+      .pilgrim-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pilgrim-img {
+        height: 180px;
+      }
+
+      .pilgrim-body {
+        padding: 1.25rem;
+      }
+
+      .pilgrim-body h3 {
+        font-size: 1.125rem;
+      }
+
+      .pilgrim-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .pilgrim-book {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -232,12 +445,16 @@
 </section>
 
 <!-- GRID -->
-<section class="pilgrim-wrap">
+<main class="pilgrim-wrap">
   <div class="pilgrim-grid">
 
     <!-- Chardham Yatra -->
     <article class="pilgrim-card">
-      <div class="pilgrim-img" style="background-image:url('img/pilgrimage-chardham.jpg');"></div>
+      <div class="pilgrim-img pilgrim-img-slider">
+        <img src="images/ChardhamYatra1.webp" class="pilgrim-img-slide active" alt="Chardham Yatra 1">
+        <img src="images/ChardhamYatra2.png" class="pilgrim-img-slide" alt="Chardham Yatra 2">
+        <img src="images/ChardhamYatra3.jpg" class="pilgrim-img-slide" alt="Chardham Yatra 3">
+      </div>
       <div class="pilgrim-body">
         <span class="pilgrim-tag">Uttarakhand</span>
         <h3>Chardham Yatra Ex Haridwar</h3>
@@ -253,7 +470,11 @@
 
     <!-- Vaishno Devi -->
     <article class="pilgrim-card">
-      <div class="pilgrim-img" style="background-image:url('img/pilgrimage-vaishno.jpg');"></div>
+      <div class="pilgrim-img pilgrim-img-slider">
+        <img src="images/MataVaishno1.avif" class="pilgrim-img-slide active" alt="Vaishno Devi 1">
+        <img src="images/MataVaishno2.jpg" class="pilgrim-img-slide" alt="Vaishno Devi 2">
+        <img src="images/MataVaishno3.jfif" class="pilgrim-img-slide" alt="Vaishno Devi 3">
+      </div>
       <div class="pilgrim-body">
         <span class="pilgrim-tag">Jammu</span>
         <h3>Mata Vaishno Devi Yatra</h3>
@@ -269,7 +490,11 @@
 
     <!-- Varanasi -->
     <article class="pilgrim-card">
-      <div class="pilgrim-img" style="background-image:url('img/pilgrimage-varanasi.jpg');"></div>
+      <div class="pilgrim-img pilgrim-img-slider">
+        <img src="images/VaranasiGanga1.jpg" class="pilgrim-img-slide active" alt="Varanasi 1">
+        <img src="images/VaranasiGanga2.jpg" class="pilgrim-img-slide" alt="Varanasi 2">
+        <img src="images/VaranasiGanga3.webp" class="pilgrim-img-slide" alt="Varanasi 3">
+      </div>
       <div class="pilgrim-body">
         <span class="pilgrim-tag">Uttar Pradesh</span>
         <h3>Varanasi Ganga Darshan</h3>
@@ -285,7 +510,11 @@
 
     <!-- Rishikesh / Haridwar -->
     <article class="pilgrim-card">
-      <div class="pilgrim-img" style="background-image:url('img/domestic-rishikesh.jpg');"></div>
+      <div class="pilgrim-img pilgrim-img-slider">
+        <img src="images/HaridwarRishikesh1.webp" class="pilgrim-img-slide active" alt="Haridwar Rishikesh 1">
+        <img src="images/HaridwarRishikesh2.jfif" class="pilgrim-img-slide" alt="Haridwar Rishikesh 2">
+        <img src="images/HaridwarRishikesh3.jpg" class="pilgrim-img-slide" alt="Haridwar Rishikesh 3">
+      </div>
       <div class="pilgrim-body">
         <span class="pilgrim-tag">Ganga Belt</span>
         <h3>Haridwar & Rishikesh Yatra</h3>
@@ -301,7 +530,11 @@
 
     <!-- South India Temples -->
     <article class="pilgrim-card">
-      <div class="pilgrim-img" style="background-image:url('img/pilgrimage-southindia.jpg');"></div>
+      <div class="pilgrim-img pilgrim-img-slider">
+        <img src="images/MaduraiRameswaram1.webp" class="pilgrim-img-slide active" alt="South India temples 1">
+        <img src="images/MaduraiRameswaram2.jpg" class="pilgrim-img-slide" alt="South India temples 2">
+        <img src="images/MaduraiRameswaram3.jfif" class="pilgrim-img-slide" alt="South India temples 3">
+      </div>
       <div class="pilgrim-body">
         <span class="pilgrim-tag">South India</span>
         <h3>Madurai – Rameswaram – Kanyakumari</h3>
@@ -317,11 +550,15 @@
 
     <!-- Custom Pilgrimage -->
     <article class="pilgrim-card">
-      <div class="pilgrim-img" style="background-image:url('img/pilgrimage-custom.jpg');"></div>
+      <div class="pilgrim-img pilgrim-img-slider">
+        <img src="images/DesignYour1.webp" class="pilgrim-img-slide active" alt="Custom pilgrimage 1">
+        <img src="images/DesignYour2.webp" class="pilgrim-img-slide" alt="Custom pilgrimage 2">
+        <img src="images/DesignYour3.png" class="pilgrim-img-slide" alt="Custom pilgrimage 3">
+      </div>
       <div class="pilgrim-body">
         <span class="pilgrim-tag">Custom Yatra</span>
         <h3>Design Your Own Pilgrimage Tour</h3>
-        <p>Ayodhya, Mathura, Shirdi, Tirupati or any combination as per your family’s plan.</p>
+        <p>Ayodhya, Mathura, Shirdi, Tirupati or any combination as per your family's plan.</p>
         <p class="pilgrim-meta">We help with routing, darshan time & senior citizen friendly planning.</p>
         <p class="pilgrim-price">On Request</p>
         <div class="pilgrim-actions">
@@ -332,7 +569,28 @@
     </article>
 
   </div>
-</section>
+</main>
+
+<script>
+  // 3-image auto slider in each pilgrimage card (2 sec)
+  document.addEventListener('DOMContentLoaded', function () {
+    const sliders = document.querySelectorAll('.pilgrim-img-slider');
+
+    sliders.forEach(function (slider) {
+      const slides = slider.querySelectorAll('.pilgrim-img-slide');
+      if (!slides.length) return;
+
+      let index = 0;
+      slides[0].classList.add('active');
+
+      setInterval(function () {
+        slides[index].classList.remove('active');
+        index = (index + 1) % slides.length;
+        slides[index].classList.add('active');
+      }, 2000); // 2 seconds
+    });
+  });
+</script>
 
 </body>
 </html>

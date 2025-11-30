@@ -2,192 +2,359 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Honeymoon Tour Packages | KPM Global Holidays</title>
+  <title>Holiday Packages | KPM Global Holiday</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Romantic honeymoon tour packages for Maldives, Bali, Goa, Kashmir, Europe and more by KPM Global Holidays.">
+  <meta name="description" content="Browse honeymoon, family, group and weekend holiday packages by KPM Global Holidays.">
   <link rel="stylesheet" href="styles.css">
 
   <style>
-    body {
+    body{
       margin:0;
       background:#f8fafc;
       font-family:"Inter",sans-serif;
       color:#0f172a;
     }
 
-    /* NAVBAR (same pattern) */
-    .kpm-nav {
+    /* NAVBAR */
+    .kpm-nav{
       position:sticky;
       top:0;
-      background:#fff;
       z-index:50;
+      background:#fff;
       box-shadow:0 1px 8px rgba(0,0,0,.08);
     }
-    .kpm-nav-inner {
+    .kpm-nav-inner{
       max-width:1150px;
       margin:auto;
       padding:10px 16px;
       display:flex;
       justify-content:space-between;
       align-items:center;
-      gap:16px;
     }
-    .kpm-nav-left { display:flex; align-items:center; gap:10px; }
-    .kpm-nav-logo { height:46px; border-radius:10px; }
-    .kpm-nav-brand-title { font-size:16px; font-weight:700; }
-    .kpm-nav-brand-sub { font-size:12px; color:#6b7280; }
-
-    .kpm-nav-links {
+    .kpm-nav-left{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .kpm-nav-logo{
+      height:46px;
+      border-radius:10px;
+    }
+    .kpm-nav-brand-title{
+      font-size:16px;
+      font-weight:700;
+    }
+    .kpm-nav-brand-sub{
+      font-size:12px;
+      color:#6b7280;
+    }
+    .kpm-nav-links{
       display:flex;
       gap:18px;
       font-size:14px;
       align-items:center;
     }
-    .kpm-nav-links a {
+    .kpm-nav-links a{
       text-decoration:none;
       color:#0f172a;
       font-weight:500;
     }
-    .kpm-nav-links a.active { color:#0f75c8; }
-    .kpm-nav-links a:hover { color:#0f75c8; }
-
-    .kpm-nav-cta {
+    .kpm-nav-links a.active{
+      color:#0f75c8;
+    }
+    .kpm-nav-cta{
       padding:8px 18px;
       background:#0f75c8;
       color:#fff;
       border:none;
       border-radius:999px;
+      cursor:pointer;
       font-size:14px;
       font-weight:600;
-      cursor:pointer;
-      box-shadow:0 4px 14px rgba(37,99,235,.35);
     }
 
     /* HERO */
-    .honeymoon-hero {
-      text-align:center;
-      padding:40px 16px 26px;
+    .pkg-hero{
+      height:260px;
       background:
-        radial-gradient(circle at top left,#e0f2fe,transparent 55%),
-        radial-gradient(circle at bottom right,#fee2e2,transparent 60%),
-        #f8fafc;
+        radial-gradient(circle at top left,#fee2e2,transparent 55%),
+        radial-gradient(circle at bottom right,#dbeafe,transparent 60%),
+        #0f172a;
+      display:flex;
+      align-items:flex-end;
+      justify-content:center;
+      padding-bottom:34px;
+      text-align:center;
+      color:#fff;
     }
-    .honeymoon-hero h1 {
-      font-size:32px;
-      margin-bottom:8px;
-    }
-    .honeymoon-hero p {
+    .pkg-hero h1{
       margin:0;
-      font-size:15px;
-      color:#475569;
+      font-size:34px;
+      font-weight:700;
+      text-shadow:0 8px 25px rgba(0,0,0,.45);
     }
 
-    /* GRID */
-    .honeymoon-wrap {
-      padding:10px 16px 50px;
+    /* MAIN WRAP */
+    .pkg-wrap{
+      padding:32px 16px 60px;
     }
-    .honeymoon-grid {
+    .pkg-inner{
       max-width:1150px;
-      margin:auto;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
+      margin:0 auto;
     }
 
-    .honeymoon-card {
+    /* CATEGORY TABS */
+    .pkg-tabs-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:18px;
+      gap:14px;
+    }
+    .pkg-title{
+      font-size:26px;
+      font-weight:700;
+    }
+    .pkg-tabs{
       background:#fff;
-      border-radius:18px;
+      padding:4px;
+      border-radius:999px;
+      display:flex;
+      gap:4px;
+      box-shadow:0 10px 25px rgba(15,23,42,.08);
+      overflow-x:auto;
+    }
+    .pkg-tab{
+      border:none;
+      background:transparent;
+      padding:8px 18px;
+      border-radius:999px;
+      font-size:13px;
+      cursor:pointer;
+      white-space:nowrap;
+      font-weight:500;
+      color:#0f172a;
+    }
+    .pkg-tab.active{
+      background:#ff4b2b;
+      color:#fff;
+      font-weight:600;
+    }
+
+    /* SLIDER SHELL */
+    .pkg-slider-container{
+      margin-top:10px;
+      background:#fff;
+      border-radius:26px;
+      box-shadow:0 18px 40px rgba(15,23,42,.12);
+      padding:24px 24px 28px;
+      position:relative;
+    }
+    .pkg-slider-viewport{
+      overflow:hidden;
+      position:relative;
+    }
+    .pkg-slider-track{
+      display:flex;
+      transition:transform .5s ease;
+      will-change:transform;
+    }
+
+    .pkg-card{
+      background:#fff;
+      border-radius:20px;
       overflow:hidden;
       display:flex;
       flex-direction:column;
+      margin-right:20px;
       box-shadow:0 14px 30px rgba(15,23,42,.08);
     }
-    .honeymoon-img {
-      height:180px;
-      background-size:cover;
-      background-position:center;
+
+    .hidden{display:none !important;}
+
+    /* INNER IMAGE SLIDER OF CARD */
+    .pkg-img-slider{
+      position:relative;
+      height:210px;
+      overflow:hidden;
     }
-    .honeymoon-body {
-      padding:14px 16px 16px;
+    .pkg-img-slider img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:0;
+      transition:opacity .6s ease;
+    }
+    .pkg-img-slider img.active{
+      opacity:1;
+    }
+
+    .pkg-card-body{
+      padding:16px 18px 18px;
       display:flex;
       flex-direction:column;
       gap:6px;
-      flex:1;
     }
-    .honeymoon-body h3 {
+    .pkg-card-tag{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.09em;
+      color:#0f75c8;
+      font-weight:700;
+    }
+    .pkg-card h3{
       margin:0;
-      font-size:17px;
+      font-size:18px;
       font-weight:600;
     }
-    .honeymoon-body p {
+    .pkg-card p{
       margin:0;
       font-size:13px;
       color:#475569;
     }
-    .honeymoon-tag {
-      font-size:11px;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-      color:#fb7185;
-      font-weight:600;
-    }
-    .honeymoon-price {
+    .pkg-price{
       margin-top:4px;
       font-size:14px;
-      color:#0f75c8;
-      font-weight:600;
+      font-weight:700;
+      color:#0f172a;
+    }
+    .pkg-price span{
+      color:#10b981;
     }
 
-    .honeymoon-actions {
+    .pkg-card-actions{
       margin-top:10px;
       display:flex;
       justify-content:space-between;
       align-items:center;
-      gap:10px;
     }
-
-    .hmn-link {
+    .pkg-link{
       font-size:13px;
-      color:#ea580c;
-      font-weight:600;
       text-decoration:none;
+      color:#f97316;
+      font-weight:600;
     }
-    .hmn-link:hover { text-decoration:underline; }
-
-    .hmn-book-btn {
-      padding:8px 14px;
-      border-radius:10px;
+    .pkg-book{
       border:none;
+      border-radius:10px;
+      padding:9px 16px;
+      font-size:13px;
+      font-weight:600;
       background:#ff4b2b;
       color:#fff;
-      font-size:13px;
+      cursor:pointer;
+    }
+
+    /* ARROWS */
+    .pkg-arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:38px;
+      height:38px;
+      border-radius:999px;
+      border:none;
+      background:#fff;
+      box-shadow:0 10px 25px rgba(15,23,42,.15);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      font-size:18px;
+    }
+    .pkg-arrow.prev{right:78px;}
+    .pkg-arrow.next{right:30px;}
+
+    /* DOTS */
+    .pkg-dots{
+      display:flex;
+      justify-content:center;
+      gap:6px;
+      margin-top:18px;
+    }
+    .pkg-dot{
+      width:7px;
+      height:7px;
+      border-radius:999px;
+      background:#e5e7eb;
+      cursor:pointer;
+    }
+    .pkg-dot.active{
+      width:20px;
+      background:#f97316;
+    }
+
+    /* QUICK HELP BOX */
+    .pkg-help{
+      margin-top:30px;
+      max-width:360px;
+      margin-left:auto;
+      margin-right:auto;
+      background:#fff;
+      border-radius:18px;
+      padding:18px 20px 20px;
+      box-shadow:0 14px 30px rgba(15,23,42,.08);
+      text-align:center;
+    }
+    .pkg-help h2{
+      margin:0 0 8px;
+      font-size:20px;
+    }
+    .pkg-help p{
+      margin:0;
+      font-size:14px;
+      color:#475569;
+    }
+    .pkg-help-btn{
+      margin-top:14px;
+      width:100%;
+      padding:11px 18px;
+      border-radius:10px;
+      border:none;
+      background:#10b981;
+      color:#fff;
       font-weight:600;
       cursor:pointer;
-      box-shadow:0 8px 18px rgba(248,113,113,.35);
+      font-size:14px;
     }
-    .hmn-book-btn:hover { background:#e03518; }
 
-    @media (max-width:900px) {
-      .honeymoon-grid {
-        grid-template-columns:repeat(2,1fr);
-      }
+    @media(max-width:900px){
+      .pkg-arrow.prev{right:70px;}
+      .pkg-arrow.next{right:20px;}
+      .pkg-hero h1{font-size:30px;}
+      .pkg-title{font-size:22px;}
     }
-    @media (max-width:600px) {
-      .honeymoon-grid {
-        grid-template-columns:1fr;
+    @media(max-width:640px){
+      .pkg-slider-container{
+        padding:20px 16px 24px;
       }
-      .honeymoon-hero h1 { font-size:26px; }
+      .pkg-arrow{
+        width:32px;
+        height:32px;
+        font-size:16px;
+      }
+      .pkg-arrow.prev{right:62px;}
+      .pkg-arrow.next{right:16px;}
+      .pkg-tabs-row{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .pkg-tabs{
+        width:100%;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <header class="kpm-nav">
   <div class="kpm-nav-inner">
     <div class="kpm-nav-left">
-      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo" alt="KPM Global Holidays">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo" alt="KPM Global Holidays logo">
       <div>
         <div class="kpm-nav-brand-title">KPM GLOBAL HOLIDAYS</div>
         <div class="kpm-nav-brand-sub">Your Journey, Our Promise</div>
@@ -197,116 +364,620 @@
     <nav class="kpm-nav-links">
       <a href="index.html">Home</a>
       <a href="holidays.html" class="active">Holidays</a>
-      <a href="honeymoon-packages.html">Honeymoon</a>
-      <a href="family-packages.html">Family</a>
-      <a href="group-tours.html">Group Tours</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="flights.html">Flights</a>
+      <a href="visa-assistance.html">Visa</a>
+      <a href="activities.html">Activities</a>
+      <a href="insurance.html">Insurance</a>
       <button class="kpm-nav-cta" onclick="location.href='book.html'">Plan Trip</button>
     </nav>
   </div>
 </header>
 
 <!-- HERO -->
-<section class="honeymoon-hero">
-  <h1>Handpicked Honeymoon Packages</h1>
-  <p>Romantic stays, private experiences & picture-perfect destinations curated for just the two of you.</p>
+<section class="pkg-hero">
+  <h1>Handpicked Holiday Packages</h1>
 </section>
 
-<!-- GRID -->
-<section class="honeymoon-wrap">
-  <div class="honeymoon-grid">
+<!-- MAIN PACKAGES SECTION -->
+<section class="pkg-wrap">
+  <div class="pkg-inner">
 
-    <!-- Maldives -->
-    <article class="honeymoon-card">
-      <div class="honeymoon-img" style="background-image:url('img/honeymoon-maldives.jpg');"></div>
-      <div class="honeymoon-body">
-        <span class="honeymoon-tag">Top Pick</span>
-        <h3>Maldives Water Villa Honeymoon</h3>
-        <p>4N/5D luxury island stay with private deck, seaplane transfers & candlelight dinner.</p>
-        <p class="honeymoon-price">From ₹89,999 / couple</p>
-        <div class="honeymoon-actions">
-          <a href="maldives-packages.html" class="hmn-link">View details</a>
-          <button class="hmn-book-btn" onclick="location.href='book.html?package=maldives&theme=honeymoon'">Book Now</button>
+    <div class="pkg-tabs-row">
+      <h2 class="pkg-title">Special Holiday Offers</h2>
+
+      <div class="pkg-tabs">
+        <button class="pkg-tab active" data-category="all">All</button>
+        <button class="pkg-tab" data-category="honeymoon">Honeymoon</button>
+        <button class="pkg-tab" data-category="family">Family</button>
+        <button class="pkg-tab" data-category="group">Group Tours</button>
+        <button class="pkg-tab" data-category="weekend">Weekend Getaways</button>
+        <button class="pkg-tab" data-category="international">International</button>
+      </div>
+    </div>
+
+    <div class="pkg-slider-container">
+      <div class="pkg-slider-viewport">
+        <div class="pkg-slider-track">
+
+          <!-- 1 Maldives Honeymoon -->
+          <article class="pkg-card" data-category="honeymoon international">
+            <div class="pkg-img-slider">
+              <img src="images/Maldivespecialoffer1.jpg" class="active" alt="Maldives Honeymoon">
+              <img src="images/Maldivespecialoffer2.jfif" alt="Maldives Honeymoon">
+              <img src="images/Maldivespecialoffer3.jpg" alt="Maldives Honeymoon">
+              <img src="images/Maldivespecialoffer4.jpg" alt="Maldives Honeymoon">
+            </div>
+            <div class="pkg-card-body">
+              <div class="pkg-card-tag">Honeymoon · Maldives</div>
+              <h3>Maldives Water Villa Escape</h3>
+              <p>4N/5D luxury resort, water villa stay, candlelight dinner & photoshoot.</p>
+              <p class="pkg-price">Starting from <span>₹89,999</span> / couple</p>
+              <div class="pkg-card-actions">
+                <a href="package-detail.html?pkg=maldives-honeymoon" class="pkg-link">View Details</a>
+                <button class="pkg-book" onclick="location.href='book.html?package=maldives-honeymoon'">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2 Bali Honeymoon -->
+          <article class="pkg-card" data-category="honeymoon international">
+            <div class="pkg-img-slider">
+              <img src="images/Balispecialoffer1.jpg" class="active" alt="Bali Honeymoon">
+              <img src="images/Balispecialoffer2.jpg" alt="Bali Honeymoon">
+              <img src="images/Balispecialoffer3.jfif" alt="Bali Honeymoon">
+              <img src="images/Balispecialoffer4.webp" alt="Bali Honeymoon">
+            </div>
+            <div class="pkg-card-body">
+              <div class="pkg-card-tag">Honeymoon · Bali</div>
+              <h3>Bali Romantic Paradise</h3>
+              <p>5N stay with private pool villa, Ubud tour & sunset dinner cruise.</p>
+              <p class="pkg-price">Starting from <span>₹79,999</span> / couple</p>
+              <div class="pkg-card-actions">
+                <a href="package-detail.html?pkg=bali-honeymoon" class="pkg-link">View Details</a>
+                <button class="pkg-book" onclick="location.href='book.html?package=bali-honeymoon'">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3 Kashmir Honeymoon -->
+          <article class="pkg-card" data-category="honeymoon">
+            <div class="pkg-img-slider">
+              <img src="images/Kashmirspecialoffer1.webp" class="active" alt="Kashmir Honeymoon">
+              <img src="images/Kashmirspecialoffer2.jpg" alt="Kashmir Honeymoon">
+              <img src="images/Kashmirspecialoffer3.jpg" alt="Kashmir Honeymoon">
+              <img src="images/Kashmirspecialoffer4.jpg" alt="Kashmir Honeymoon">
+            </div>
+            <div class="pkg-card-body">
+              <div class="pkg-card-tag">Honeymoon · Kashmir</div>
+              <h3>Kashmir Delight Honeymoon</h3>
+              <p>Srinagar, Gulmarg & Pahalgam with houseboat stay & gondola ride.</p>
+              <p class="pkg-price">Starting from <span>₹59,999</span> / couple</p>
+              <div class="pkg-card-actions">
+                <a href="package-detail.html?pkg=kashmir-honeymoon" class="pkg-link">View Details</a>
+                <button class="pkg-book" onclick="location.href='book.html?package=kashmir-honeymoon'">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4 Manali Honeymoon -->
+          <article class="pkg-card" data-category="honeymoon weekend">
+            <div class="pkg-img-slider">
+              <img src="images/Manalispecialoffer4.webp" class="active" alt="Manali Honeymoon">
+              <img src="images/Manalispecialoffer1.jpg" alt="Manali Honeymoon">
+              <img src="images/Manalispecialoffer3.jpg" alt="Manali Honeymoon">
+              <img src="images/Manalispecialoffer4.webp" alt="Manali Honeymoon">
+            </div>
+            <div class="pkg-card-body">
+              <div class="pkg-card-tag">Honeymoon · Himachal</div>
+              <h3>Manali Hills Honeymoon</h3>
+              <p>3N/4D trip with Solang Valley, Atal tunnel & private cab transfers.</p>
+              <p class="pkg-price">Starting from <span>₹34,999</span> / couple</p>
+              <div class="pkg-card-actions">
+                <a href="package-detail.html?pkg=manali-honeymoon" class="pkg-link">View Details</a>
+                <button class="pkg-book" onclick="location.href='book.html?package=manali-honeymoon'">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5 Mauritius Honeymoon -->
+          <article class="pkg-card" data-category="honeymoon international">
+            <div class="pkg-img-slider">
+              <img src="images/Mauritiusinternaltionaldestination1.jfif" class="active" alt="Mauritius Honeymoon">
+              <img src="images/Mauritiusinternaltionaldestination2.jpg" alt="Mauritius Honeymoon">
+              <img src="images/Mauritiusinternaltionaldestination3.jfif" alt="Mauritius Honeymoon">
+              <img src="images/Mauritiusinternaltionaldestination4.jfif" alt="Mauritius Honeymoon">
+            </div>
+            <div class="pkg-card-body">
+              <div class="pkg-card-tag">Honeymoon · Mauritius</div>
+              <h3>Mauritius Beach Romance</h3>
+              <p>6N island stay with Catamaran cruise & water sports activities.</p>
+              <p class="pkg-price">Starting from <span>₹99,999</span> / couple</p>
+              <div class="pkg-card-actions">
+                <a href="package-detail.html?pkg=mauritius-honeymoon" class="pkg-link">View Details</a>
+                <button class="pkg-book" onclick="location.href='book.html?package=mauritius-honeymoon'">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6 Dubai Family -->
+          <article class="pkg-card" data-category="family international">
+            <div class="pkg-img-slider">
+              <img src="images/Dubaiinternaldestination1.jfif" class="active" alt="Dubai family">
+              <img src="images/Dubaiinternaldestination2.jpg" alt="Dubai family">
+              <img src="images/Dubaiinternaldestination3.avif" alt="Dubai family">
+              <img src="images/Dubaiinternaldestination4.jpg" alt="Dubai family">
+            </div>
+            <div class="pkg-card-body">
+              <div class="pkg-card-tag">Family · Dubai</div>
+              <h3>Dubai Family Fun</h3>
+              <p>5D city tour, desert safari, Miracle Garden & theme park tickets.</p>
+              <p class="pkg-price">Starting from <span>₹64,999</span> / person</p>
+              <div class="pkg-card-actions">
+                <a href="package-detail.html?pkg=dubai-family" class="pkg-link">View Details</a>
+                <button class="pkg-book" onclick="location.href='book.html?package=dubai-family'">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7 Singapore Family -->
+          <article class="pkg-card" data-category="family international">
+            <div class="pkg-img-slider">
+              <img src="images/Singaporeinternaltionaldestination1.avif" class="active" alt="Singapore family">
+              <img src="images/Singaporeinternaltionaldestination2.webp" alt="Singapore family">
+              <img src="images/Singaporeinternaltionaldestination3.webp" alt="Singapore family">
+              <img src="images/Singaporeinternaltionaldestination4.jpg" alt="Singapore family">
+            </div>
+            <div class="pkg-card-body">
+              <div class="pkg-card-tag">Family · Singapore</div>
+              <h3>Singapore + Sentosa Delight</h3>
+              <p>4N stay with Night Safari, city tour & Universal Studios.</p>
+              <p class="pkg-price">Starting from <span>₹69,999</span> / person</p>
+              <div class="pkg-card-actions">
+                <a href="package-detail.html?pkg=singapore-family" class="pkg-link">View Details</a>
+                <button class="pkg-book" onclick="location.href='book.html?package=singapore-family'">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 8 Andaman Family -->
+          <article class="pkg-card" data-category="family weekend">
+            <div class="pkg-img-slider">
+              <img src="images/AndamanIslandindiandestination1.png" class="active" alt="Andaman family">
+              <img src="images/AndamanIslandindiandestination2.avif" alt="Andaman family">
+              <img src="images/AndamanIslandindiandestination3.jfif" alt="Andaman family">
+              <img src="images/AndamanIslandindiandestination4.jpg" alt="Andaman family">
+            </div>
+            <div class="pkg-card-body">
+              <div class="pkg-card-tag">Family · Andaman</div>
+              <h3>Andaman Beaches Family Holiday</h3>
+              <p>5D Port Blair & Havelock with Radhanagar beach & water sports.</p>
+              <p class="pkg-price">Starting from <span>₹39,999</span> / person</p>
+              <div class="pkg-card-actions">
+                <a href="package-detail.html?pkg=andaman-family" class="pkg-link">View Details</a>
+                <button class="pkg-book" onclick="location.href='book.html?package=andaman-family'">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 9 Kerala Family -->
+          <article class="pkg-card" data-category="family">
+            <div class="pkg-img-slider">
+              <img src="images/KeralaBackwatersindiandestination1.jpg" class="active" alt="Kerala family">
+              <img src="images/KeralaBackwatersindiandestination2.webp" alt="Kerala family">
+              <img src="images/KeralaBackwatersindiandestination3.jpg" alt="Kerala family">
+              <img src="images/KeralaBackwatersindiandestination4.jfif" alt="Kerala family">
+            </div>
+            <div class="pkg-card-body">
+              <div class="pkg-card-tag">Family · Kerala</div>
+              <h3>Kerala Backwaters Family Trip</h3>
+              <p>Cochin, Munnar & Alleppey houseboat with breakfast & transfers.</p>
+              <p class="pkg-price">Starting from <span>₹32,999</span> / person</p>
+              <div class="pkg-card-actions">
+                <a href="package-detail.html?pkg=kerala-family" class="pkg-link">View Details</a>
+                <button class="pkg-book" onclick="location.href='book.html?package=kerala-family'">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 10 Thailand Family -->
+          <article class="pkg-card" data-category="family international">
+            <div class="pkg-img-slider">
+              <img src="images/Thailandinternationaldestination1.jpg" class="active" alt="Thailand family">
+              <img src="images/Thailandinternationaldestination2.jpg" alt="Thailand family">
+              <img src="images/Thailandinternationaldestination3.jpg" alt="Thailand family">
+              <img src="images/Thailandinternationaldestination4.webp" alt="Thailand family">
+            </div>
+            <div class="pkg-card-body">
+              <div class="pkg-card-tag">Family · Thailand</div>
+              <h3>Bangkok & Phuket Family Fun</h3>
+              <p>6N stay with Phi Phi Island tour, Safari World & city sightseeing.</p>
+              <p class="pkg-price">Starting from <span>₹54,999</span> / person</p>
+              <div class="pkg-card-actions">
+                <a href="package-detail.html?pkg=thailand-family" class="pkg-link">View Details</a>
+                <button class="pkg-book" onclick="location.href='book.html?package=thailand-family'">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 11 Himachal Group -->
+          <article class="pkg-card" data-category="group">
+            <div class="pkg-img-slider">
+              <img src="images/HIMACHAL1.jpg" class="active" alt="Himachal group tour">
+              <img src="images/HIMACHAL2.webp" alt="Himachal group tour">
+              <img src="images/HIMACHAL3.jpg" alt="Himachal group tour">
+              <img src="images/HIMACHAL4.webp" alt="Himachal group tour">
+            </div>
+            <div class="pkg-card-body">
+              <div class="pkg-card-tag">Group · Himachal</div>
+              <h3>Shimla Manali Group Tour</h3>
+              <p>6D coach tour with Kufri, Solang Valley & guided sightseeing.</p>
+              <p class="pkg-price">Starting from <span>₹24,999</span> / person</p>
+              <div class="pkg-card-actions">
+                <a href="package-detail.html?pkg=himachal-group" class="pkg-link">View Details</a>
+                <button class="pkg-book" onclick="location.href='book.html?package=himachal-group'">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 12 Rajasthan Group -->
+          <article class="pkg-card" data-category="group weekend">
+            <div class="pkg-img-slider">
+              <img src="images/RoyalRajasthanindiandestination1.jpg" class="active" alt="Rajasthan group tour">
+              <img src="images/RoyalRajasthanindiandestination2.jfif" alt="Rajasthan group tour">
+              <img src="images/RoyalRajasthanindiandestination3.jpg" alt="Rajasthan group tour">
+              <img src="images/RoyalRajasthanindiandestination4.webp" alt="Rajasthan group tour">
+            </div>
+            <div class="pkg-card-body">
+              <div class="pkg-card-tag">Group · Rajasthan</div>
+              <h3>Royal Rajasthan Group Trip</h3>
+              <p>Jaipur, Jodhpur & Udaipur cultural tour with forts & lakes.</p>
+              <p class="pkg-price">Starting from <span>₹27,999</span> / person</p>
+              <div class="pkg-card-actions">
+                <a href="package-detail.html?pkg=rajasthan-group" class="pkg-link">View Details</a>
+                <button class="pkg-book" onclick="location.href='book.html?package=rajasthan-group'">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 13 Europe Group -->
+          <article class="pkg-card" data-category="group international">
+            <div class="pkg-img-slider">
+              <img src="images/Europetour1.jfif" class="active" alt="Europe group tour">
+              <img src="images/Europetour2.jfif" alt="Europe group tour">
+              <img src="images/Europetour3.avif" alt="Europe group tour">
+              <img src="images/Europetour4.webp" alt="Europe group tour">
+            </div>
+            <div class="pkg-card-body">
+              <div class="pkg-card-tag">Group · Europe</div>
+              <h3>Best of Europe Group Tour</h3>
+              <p>10N coach tour covering Paris, Switzerland, Italy & Amsterdam.</p>
+              <p class="pkg-price">Starting from <span>₹1,99,999</span> / person</p>
+              <div class="pkg-card-actions">
+                <a href="package-detail.html?pkg=europe-group" class="pkg-link">View Details</a>
+                <button class="pkg-book" onclick="location.href='book.html?package=europe-group'">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 14 Kedarnath Yatra Group -->
+          <article class="pkg-card" data-category="group">
+            <div class="pkg-img-slider">
+              <img src="images/Kedarkantha1.avif" class="active" alt="Kedarnath yatra">
+              <img src="images/Kedarkantha2.jfif" alt="Kedarnath yatra">
+              <img src="images/Kedarkantha3.jfif" alt="Kedarnath yatra">
+              <img src="images/Kedarkantha4.jpg" alt="Kedarnath yatra">
+            </div>
+            <div class="pkg-card-body">
+              <div class="pkg-card-tag">Group · Uttarakhand</div>
+              <h3>Kedarnath Yatra Group Tour</h3>
+              <p>5D ex-Haridwar with guided trek, darshan & comfortable stays.</p>
+              <p class="pkg-price">Starting from <span>₹19,999</span> / person</p>
+              <div class="pkg-card-actions">
+                <a href="package-detail.html?pkg=kedarnath-group" class="pkg-link">View Details</a>
+                <button class="pkg-book" onclick="location.href='book.html?package=kedarnath-group'">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 15 Goa Weekend -->
+          <article class="pkg-card" data-category="weekend">
+            <div class="pkg-img-slider">
+              <img src="images/GoaBeachindiandestination1.webp" class="active" alt="Goa weekend">
+              <img src="images/GoaBeachindiandestination2.jpg" alt="Goa weekend">
+              <img src="images/GoaBeachindiandestination3.jpg" alt="Goa weekend">
+              <img src="images/GoaBeachindiandestination4.jfif" alt="Goa weekend">
+            </div>
+            <div class="pkg-card-body">
+              <div class="pkg-card-tag">Weekend · Goa</div>
+              <h3>Goa Weekend Getaway</h3>
+              <p>3N beach resort with breakfast, transfers & North/South tour.</p>
+              <p class="pkg-price">Starting from <span>₹11,999</span> / person</p>
+              <div class="pkg-card-actions">
+                <a href="package-detail.html?pkg=goa-weekend" class="pkg-link">View Details</a>
+                <button class="pkg-book" onclick="location.href='book.html?package=goa-weekend'">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 16 Rishikesh Weekend -->
+          <article class="pkg-card" data-category="weekend">
+            <div class="pkg-img-slider">
+              <img src="images/RishikeshAdventureindiandestination1.avif" class="active" alt="Rishikesh weekend">
+              <img src="images/RishikeshAdventureindiandestination2.webp" alt="Rishikesh weekend">
+              <img src="images/RishikeshAdventureindiandestination3.webp" alt="Rishikesh weekend">
+              <img src="images/RishikeshAdventureindiandestination4.avif" alt="Rishikesh weekend">
+            </div>
+            <div class="pkg-card-body">
+              <div class="pkg-card-tag">Weekend · Adventure</div>
+              <h3>Rishikesh Adventure Weekend</h3>
+              <p>2N camp stay with rafting, bonfire, zipline & riverside meals.</p>
+              <p class="pkg-price">Starting from <span>₹4,999</span> / person</p>
+              <div class="pkg-card-actions">
+                <a href="package-detail.html?pkg=rishikesh-weekend" class="pkg-link">View Details</a>
+                <button class="pkg-book" onclick="location.href='book.html?package=rishikesh-weekend'">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 17 Udaipur Weekend -->
+          <article class="pkg-card" data-category="weekend">
+            <div class="pkg-img-slider">
+              <img src="images/UdaipurLakeside1.jpg" class="active" alt="Udaipur weekend">
+              <img src="images/UdaipurLakeside2.jpg" alt="Udaipur weekend">
+              <img src="images/UdaipurLakeside3.jpg" alt="Udaipur weekend">
+              <img src="images/UdaipurLakeside4.jpg" alt="Udaipur weekend">
+            </div>
+            <div class="pkg-card-body">
+              <div class="pkg-card-tag">Weekend · Rajasthan</div>
+              <h3>Udaipur Lakeside Escape</h3>
+              <p>2N heritage stay with City Palace, boat ride & local sightseeing.</p>
+              <p class="pkg-price">Starting from <span>₹9,999</span> / person</p>
+              <div class="pkg-card-actions">
+                <a href="package-detail.html?pkg=udaipur-weekend" class="pkg-link">View Details</a>
+                <button class="pkg-book" onclick="location.href='book.html?package=udaipur-weekend'">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 18 Switzerland International -->
+          <article class="pkg-card" data-category="international">
+            <div class="pkg-img-slider">
+              <img src="images/Swissinternaltionaldestination1.jpg" class="active" alt="Switzerland tour">
+              <img src="images/Swissinternaltionaldestination2.jfif" alt="Switzerland tour">
+              <img src="images/Swissinternaltionaldestination3.cms" alt="Switzerland tour">
+              <img src="images/Swissinternaltionaldestination4.jfif" alt="Switzerland tour">
+            </div>
+            <div class="pkg-card-body">
+              <div class="pkg-card-tag">International · Switzerland</div>
+              <h3>Swiss Alps Scenic Holiday</h3>
+              <p>7N stay with Mt. Titlis, Jungfrau & lake cruises in Zurich/Lucerne.</p>
+              <p class="pkg-price">Starting from <span>₹1,59,999</span> / person</p>
+              <div class="pkg-card-actions">
+                <a href="package-detail.html?pkg=swiss-tour" class="pkg-link">View Details</a>
+                <button class="pkg-book" onclick="location.href='book.html?package=swiss-tour'">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 19 Turkey International -->
+          <article class="pkg-card" data-category="international">
+            <div class="pkg-img-slider">
+              <img src="images/TurkeyIstanbul1.jpg" class="active" alt="Turkey tour">
+              <img src="images/TurkeyIstanbul2.jpg" alt="Turkey tour">
+              <img src="images/TurkeyIstanbul3.jfif" alt="Turkey tour">
+              <img src="images/TurkeyIstanbul4.jpg" alt="Turkey tour">
+            </div>
+            <div class="pkg-card-body">
+              <div class="pkg-card-tag">International · Turkey</div>
+              <h3>Istanbul & Cappadocia Escape</h3>
+              <p>7D tour with Bosphorus cruise, fairy chimneys & hot-air balloon.</p>
+              <p class="pkg-price">Starting from <span>₹1,09,999</span> / person</p>
+              <div class="pkg-card-actions">
+                <a href="package-detail.html?pkg=turkey-tour" class="pkg-link">View Details</a>
+                <button class="pkg-book" onclick="location.href='book.html?package=turkey-tour'">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 20 Bali Group / Friends -->
+          <article class="pkg-card" data-category="group international">
+            <div class="pkg-img-slider">
+              <img src="images/Balispecialoffer1.jpg" class="active" alt="Bali group tour">
+              <img src="images/Balispecialoffer2.jpg" alt="Bali group tour">
+              <img src="images/Balispecialoffer3.jfif" alt="Bali group tour">
+              <img src="images/Balispecialoffer4.webp" alt="Bali group tour">
+            </div>
+            <div class="pkg-card-body">
+              <div class="pkg-card-tag">Group · Bali</div>
+              <h3>Bali Friends & Group Trip</h3>
+              <p>5N tour with beach club entry, Nusa Penida & temple visits.</p>
+              <p class="pkg-price">Starting from <span>₹42,999</span> / person</p>
+              <div class="pkg-card-actions">
+                <a href="package-detail.html?pkg=bali-group" class="pkg-link">View Details</a>
+                <button class="pkg-book" onclick="location.href='book.html?package=bali-group'">Book Now</button>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
-    </article>
 
-    <!-- Bali -->
-    <article class="honeymoon-card">
-      <div class="honeymoon-img" style="background-image:url('img/bali.jpg');"></div>
-      <div class="honeymoon-body">
-        <span class="honeymoon-tag">Romantic</span>
-        <h3>Bali Private Pool Villa</h3>
-        <p>Pool villa stay with Ubud tour, beaches, temples & sunset points.</p>
-        <p class="honeymoon-price">From ₹39,999 / person</p>
-        <div class="honeymoon-actions">
-          <a href="bali-packages.html" class="hmn-link">View details</a>
-          <button class="hmn-book-btn" onclick="location.href='book.html?package=bali&theme=honeymoon'">Book Now</button>
-        </div>
-      </div>
-    </article>
+      <button class="pkg-arrow prev" type="button">&#10094;</button>
+      <button class="pkg-arrow next" type="button">&#10095;</button>
 
-    <!-- Goa -->
-    <article class="honeymoon-card">
-      <div class="honeymoon-img" style="background-image:url('img/domestic-goa.jpg');"></div>
-      <div class="honeymoon-body">
-        <span class="honeymoon-tag">Beach</span>
-        <h3>Goa Beachside Escape</h3>
-        <p>3N resort stay, romantic dinner add-ons & beach sunsets.</p>
-        <p class="honeymoon-price">From ₹11,999 / person</p>
-        <div class="honeymoon-actions">
-          <a href="goa-packages.html" class="hmn-link">View details</a>
-          <button class="hmn-book-btn" onclick="location.href='book.html?package=goa&theme=honeymoon'">Book Now</button>
-        </div>
-      </div>
-    </article>
+      <div class="pkg-dots"></div>
+    </div>
 
-    <!-- Kashmir -->
-    <article class="honeymoon-card">
-      <div class="honeymoon-img" style="background-image:url('img/domestic-kashmir.jpg');"></div>
-      <div class="honeymoon-body">
-        <span class="honeymoon-tag">Snow</span>
-        <h3>Kashmir Heaven on Earth</h3>
-        <p>Houseboat stay, shikara ride & snow points in Gulmarg & Sonmarg.</p>
-        <p class="honeymoon-price">From ₹17,999 / person</p>
-        <div class="honeymoon-actions">
-          <a href="kashmir-packages.html" class="hmn-link">View details</a>
-          <button class="hmn-book-btn" onclick="location.href='book.html?package=kashmir&theme=honeymoon'">Book Now</button>
-        </div>
-      </div>
-    </article>
-
-    <!-- Kerala -->
-    <article class="honeymoon-card">
-      <div class="honeymoon-img" style="background-image:url('img/domestic-kerala.jpg');"></div>
-      <div class="honeymoon-body">
-        <span class="honeymoon-tag">Backwaters</span>
-        <h3>Kerala Houseboat Honeymoon</h3>
-        <p>Allepey houseboat stay, Munnar hills & candlelight dinner on the lake.</p>
-        <p class="honeymoon-price">From ₹18,999 / person</p>
-        <div class="honeymoon-actions">
-          <a href="kerala-packages.html" class="hmn-link">View details</a>
-          <button class="hmn-book-btn" onclick="location.href='book.html?package=kerala&theme=honeymoon'">Book Now</button>
-        </div>
-      </div>
-    </article>
-
-    <!-- Europe -->
-    <article class="honeymoon-card">
-      <div class="honeymoon-img" style="background-image:url('img/paris.jpg');"></div>
-      <div class="honeymoon-body">
-        <span class="honeymoon-tag">Luxury</span>
-        <h3>Romantic Europe Escape</h3>
-        <p>Paris, Swiss Alps & Italy with city tours, cruises & scenic train rides.</p>
-        <p class="honeymoon-price">From ₹1,59,999 / person</p>
-        <div class="honeymoon-actions">
-          <a href="europe-packages.html" class="hmn-link">View details</a>
-          <button class="hmn-book-btn" onclick="location.href='book.html?package=europe&theme=honeymoon'">Book Now</button>
-        </div>
-      </div>
-    </article>
+    <!-- QUICK HELP -->
+    <div class="pkg-help">
+      <h2>Need Quick Help?</h2>
+      <p>Talk to our travel expert for best pricing, customisation & date availability.</p>
+      <p style="margin-top:6px;"><strong>WhatsApp:</strong> +91 92059 20608</p>
+      <button class="pkg-help-btn" onclick="location.href='book.html'">Chat &amp; Book Now</button>
+    </div>
 
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    /* ---------- inner image sliders (4 pics / card, 2 sec) ---------- */
+    const imgSliders = document.querySelectorAll('.pkg-img-slider');
+    imgSliders.forEach(function (slider) {
+      const imgs = slider.querySelectorAll('img');
+      if (!imgs.length) return;
+      let idx = 0;
+      imgs[0].classList.add('active');
+      setInterval(function () {
+        imgs[idx].classList.remove('active');
+        idx = (idx + 1) % imgs.length;
+        imgs[idx].classList.add('active');
+      }, 2000);
+    });
+
+    /* ---------- main category carousel ---------- */
+    const viewport = document.querySelector('.pkg-slider-viewport');
+    const track = document.querySelector('.pkg-slider-track');
+    const prevBtn = document.querySelector('.pkg-arrow.prev');
+    const nextBtn = document.querySelector('.pkg-arrow.next');
+    const dotsContainer = document.querySelector('.pkg-dots');
+    const tabs = document.querySelectorAll('.pkg-tab');
+
+    let visibleSlides = [];
+    let slidesPerView = 3;
+    let pageCount = 1;
+    let currentPage = 0;
+    let autoTimer = null;
+
+    function getSlidesPerView() {
+      const w = window.innerWidth;
+      if (w <= 640) return 1;
+      if (w <= 900) return 2;
+      return 3;
+    }
+
+    function getVisibleSlides() {
+      return Array.from(track.querySelectorAll('.pkg-card:not(.hidden)'));
+    }
+
+    function layoutSlides() {
+      visibleSlides = getVisibleSlides();
+      if (!visibleSlides.length) return;
+
+      slidesPerView = getSlidesPerView();
+      const slideWidth = viewport.offsetWidth / slidesPerView;
+      visibleSlides.forEach(function (slide) {
+        slide.style.minWidth = slideWidth + 'px';
+      });
+
+      pageCount = Math.ceil(visibleSlides.length / slidesPerView);
+      if (currentPage >= pageCount) currentPage = 0;
+
+      buildDots();
+      updateTransform();
+      setActiveDot();
+    }
+
+    function updateTransform() {
+      const slideWidth = viewport.offsetWidth / slidesPerView;
+      const offset = currentPage * slideWidth * slidesPerView;
+      track.style.transform = 'translateX(-' + offset + 'px)';
+    }
+
+    function buildDots() {
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < pageCount; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'pkg-dot' + (i === currentPage ? ' active' : '');
+        dot.dataset.index = i;
+        dot.addEventListener('click', function () {
+          currentPage = parseInt(this.dataset.index, 10);
+          updateTransform();
+          setActiveDot();
+          restartAuto();
+        });
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function setActiveDot() {
+      const dots = dotsContainer.querySelectorAll('.pkg-dot');
+      dots.forEach(function (d, i) {
+        d.classList.toggle('active', i === currentPage);
+      });
+    }
+
+    function nextPage() {
+      if (!pageCount) return;
+      currentPage = (currentPage + 1) % pageCount;
+      updateTransform();
+      setActiveDot();
+    }
+
+    function prevPage() {
+      if (!pageCount) return;
+      currentPage = (currentPage - 1 + pageCount) % pageCount;
+      updateTransform();
+      setActiveDot();
+    }
+
+    function startAuto() {
+      if (autoTimer) clearInterval(autoTimer);
+      autoTimer = setInterval(nextPage, 5000);
+    }
+
+    function restartAuto() {
+      startAuto();
+    }
+
+    /* category tab filter */
+    function applyCategory(cat) {
+      const cards = track.querySelectorAll('.pkg-card');
+      cards.forEach(function (card) {
+        if (cat === 'all') {
+          card.classList.remove('hidden');
+        } else {
+          const categories = (card.dataset.category || '').split(' ');
+          if (categories.includes(cat)) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        }
+      });
+      currentPage = 0;
+      layoutSlides();
+      restartAuto();
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        tabs.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        const cat = this.dataset.category;
+        applyCategory(cat);
+      });
+    });
+
+    prevBtn.addEventListener('click', function () {
+      prevPage();
+      restartAuto();
+    });
+    nextBtn.addEventListener('click', function () {
+      nextPage();
+      restartAuto();
+    });
+
+    window.addEventListener('resize', function () {
+      layoutSlides();
+    });
+
+    /* init */
+    applyCategory('all');
+    startAuto();
+  });
+</script>
 
 </body>
 </html>
