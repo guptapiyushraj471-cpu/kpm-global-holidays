@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Plan & Book Your Trip | KPM Global Holidays</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Plan and customize your dream holiday with expert assistance from KPM Global Holidays. Best prices and dedicated support.">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:#f8fafc;color:#0f172a;line-height:1.7;}
+
+/* NAV */
+.kpm-nav{position:sticky;top:0;background:#fff;z-index:50;box-shadow:0 1px 10px rgba(0,0,0,.08);}
+.kpm-nav-inner{max-width:1200px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
+.kpm-nav-logo{height:50px;width:50px;border-radius:10px;}
+.kpm-nav-links{display:flex;gap:20px;}
+.kpm-nav-links a{text-decoration:none;color:#334155;font-size:15px;font-weight:500;}
+.kpm-nav-links a:hover,.active{color:#0f75c8;}
+.kpm-nav-cta{padding:10px 22px;background:#0f75c8;color:#fff;border:none;border-radius:999px;font-weight:600;cursor:pointer}
+
+/* HERO */
+.hero{height:260px;background:linear-gradient(135deg,#0f75c8,#093d62);
+display:flex;justify-content:center;align-items:center;text-align:center;color:#fff;}
+.hero h1{font-size:42px;font-weight:800;}
+.hero p{font-size:17px;margin-top:6px;color:#edf6fc}
+
+/* MAIN */
+.container{max-width:1100px;margin:50px auto;padding:0 20px;display:grid;grid-template-columns:1fr 350px;gap:30px;}
+.card{background:#fff;border-radius:18px;padding:30px;box-shadow:0 6px 25px rgba(0,0,0,.08);}
+
+/* FORM */
+form{display:flex;flex-direction:column;gap:18px;}
+label{font-size:15px;font-weight:600;color:#0f172a;}
+input,select,textarea{
+  width:100%;padding:14px;border:1px solid #cbd5e1;border-radius:10px;font-size:15px;background:#fff;
+}
+textarea{resize:none;height:120px;}
+button.submit{
+  width:100%;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:12px;
+  cursor:pointer;color:#fff;background:linear-gradient(135deg,#ff4b2b,#ff416c);
+  box-shadow:0 8px 25px rgba(255,69,69,.35);transition:.3s;
+}
+button.submit:hover{transform:translateY(-2px)}
+
+/* SUPPORT */
+.support-box{background:#ffffff;border-radius:18px;padding:24px;box-shadow:0 6px 25px rgba(0,0,0,.08);}
+.support-box h2{font-size:22px;margin-bottom:10px;color:#0f172a;font-weight:700;}
+.support-box p{font-size:15px;color:#475569;margin-bottom:10px;}
+.support-box strong{color:#0f172a;font-weight:700;display:block;margin:3px 0;}
+
+.footer{margin-top:50px;padding:22px;background:#0f172a;color:#fff;text-align:center;font-size:15px;}
+.footer strong{color:#38bdf8;}
+
+@media(max-width:900px){
+  .container{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<header class="kpm-nav">
+  <div class="kpm-nav-inner">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo">
+      <div>
+        <div style="font-weight:700;font-size:16px;">KPM GLOBAL HOLIDAYS</div>
+        <div style="font-size:12px;color:#6b7280;">Your Journey, Our Promise</div>
+      </div>
+    </div>
+
+    <nav class="kpm-nav-links">
+      <a href="index.html">Home</a>
+      <a href="holidays.html">Holidays</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="flights.html">Flights</a>
+      <a href="contactus.html">Contact</a>
+      <a href="plan-book.html" class="active">Plan & Book</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>Plan & Book Your Trip</h1>
+    <p>Tell us your travel preferences & we will customize the perfect itinerary for you.</p>
+  </div>
+</section>
+
+<!-- MAIN -->
+<div class="container">
+
+  <!-- FORM -->
+  <div class="card">
+    <form>
+      <div>
+        <label>Your Full Name</label>
+        <input type="text" placeholder="Enter full name" required>
+      </div>
+      <div>
+        <label>Your Contact Number</label>
+        <input type="tel" placeholder="+91 00000 00000" required>
+      </div>
+      <div>
+        <label>Email Address</label>
+        <input type="email" placeholder="example@email.com" required>
+      </div>
+      <div>
+        <label>Destination</label>
+        <input type="text" placeholder="Where do you wish to travel?" required>
+      </div>
+      <div>
+        <label>Travel Month</label>
+        <select>
+          <option>Select Month</option><option>January</option><option>February</option><option>March</option>
+          <option>April</option><option>May</option><option>June</option><option>July</option><option>August</option>
+          <option>September</option><option>October</option><option>November</option><option>December</option>
+        </select>
+      </div>
+      <div>
+        <label>Number of Travelers</label>
+        <input type="number" placeholder="e.g. 2 Adults, 1 Child">
+      </div>
+      <div>
+        <label>Additional Requirements (optional)</label>
+        <textarea placeholder="Tell us about your preferences"></textarea>
+      </div>
+
+      <button type="submit" class="submit">Submit & Get Best Quote</button>
+    </form>
+  </div>
+
+  <!-- SUPPORT -->
+  <aside class="support-box">
+    <h2>Need Help?</h2>
+    <p>Our travel experts will assist you with the best pricing, hotels, flights & itinerary planning.</p>
+    <strong>📞 Call: +91 92059 20608</strong>
+    <strong>💬 WhatsApp Support: 10 AM – 9 PM</strong>
+    <strong>📩 Email: info@kpmglobalholiday.com</strong>
+    <br>
+    <p>Dedicated assistance by Director – <strong>Piyush Gupta</strong></p>
+  </aside>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  © 2025 KPM Global Holidays. All Rights Reserved. <br>
+  Designed & Led by <strong>Piyush Gupta</strong>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mauritius Tour Packages | KPM Global Holidays</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mauritius luxury honeymoon & family beach holiday packages with water sports, cruises and island tours by KPM Global Holidays.">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:'Inter',sans-serif; background:#f8fafc; color:#0f172a; line-height:1.6;
+    }
+
+    /* NAVBAR */
+    .kpm-nav{
+      position:sticky;top:0;z-index:50;
+      background:rgba(255,255,255,0.98);backdrop-filter:blur(10px);
+      box-shadow:0 2px 12px rgba(0,0,0,0.08);
+    }
+    .kpm-nav-inner{
+      max-width:1150px;margin:auto;padding:1rem 1.5rem;
+      display:flex;justify-content:space-between;align-items:center;gap:2rem;
+    }
+    .kpm-nav-left{display:flex;align-items:center;gap:1rem;}
+    .kpm-nav-logo{height:50px;width:50px;border-radius:10px;object-fit:contain;}
+    .kpm-nav-brand-title{font-size:1rem;font-weight:700;color:#0f172a;}
+    .kpm-nav-brand-sub{font-size:.75rem;color:#6b7280;}
+    .kpm-nav-links{display:flex;gap:1.5rem;font-size:.9375rem;align-items:center;}
+    .kpm-nav-links a{text-decoration:none;color:#475569;font-weight:500;position:relative;}
+    .kpm-nav-links a.active{color:#0f75c8;}
+    .kpm-nav-cta{
+      padding:.6rem 1.5rem;border:none;border-radius:999px;cursor:pointer;
+      background:linear-gradient(135deg,#0f75c8,#0a5a99);color:#fff;font-weight:600;
+    }
+
+    /* HERO IMAGE SLIDER */
+    .pkg-hero{
+      height:420px;display:flex;align-items:flex-end;justify-content:center;
+      padding:0 1.5rem 3rem;position:relative;overflow:hidden;
+    }
+    .hero-slider{position:absolute;inset:0;}
+    .hero-slide{
+      position:absolute;inset:0;width:100%;height:100%;
+      object-fit:cover;opacity:0;transform:scale(1.02);transition:opacity .7s ease;
+    }
+    .hero-slide.active{opacity:1;}
+    .pkg-hero::before{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(to bottom,rgba(0,0,0,0.15),rgba(0,0,0,0.6));
+    }
+    .pkg-hero h1{
+      position:relative;z-index:10;color:#fff;font-size:2.8rem;
+      text-shadow:0 4px 24px rgba(0,0,0,0.6);text-align:center;
+    }
+
+    /* CONTENT */
+    .pkg-container{
+      max-width:1150px;margin:auto;padding:3rem 1.5rem;
+      display:grid;grid-template-columns:1fr 370px;gap:2.5rem;
+    }
+
+    .pkg-card{
+      background:#fff;border-radius:16px;padding:2rem;
+      box-shadow:0 4px 20px rgba(15,23,42,0.08);
+    }
+    .pkg-card h2{
+      font-size:1.5rem;font-weight:600;margin-bottom:1rem;
+      padding-bottom:.75rem;border-bottom:2px solid #e2e8f0;
+    }
+    .pkg-price{
+      display:inline-block;background:#dbeafe;padding:.5rem 1rem;border-radius:10px;
+      font-size:1.9rem;font-weight:700;color:#0f75c8;margin-top:.5rem;
+    }
+    .pkg-list{padding-left:1.25rem;display:flex;flex-direction:column;gap:.8rem;}
+    .pkg-list li{font-size:.95rem;color:#475569;}
+
+    /* SIDEBAR */
+    .pkg-side{
+      background:#fff;border-radius:16px;padding:2rem;border:1px solid #e2e8f0;
+      box-shadow:0 10px 30px rgba(15,23,42,.1);
+      height:max-content;position:sticky;top:100px;
+    }
+    .pkg-book-btn{
+      width:100%;margin-top:1rem;padding:1rem;
+      background:linear-gradient(135deg,#ff4b2b,#ff416c);
+      color:#fff;font-size:1.05rem;font-weight:600;border:none;border-radius:12px;
+      cursor:pointer;box-shadow:0 8px 24px rgba(255,75,43,.35);
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="kpm-nav">
+  <div class="kpm-nav-inner">
+    <div class="kpm-nav-left">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo">
+      <div>
+        <div class="kpm-nav-brand-title">KPM GLOBAL HOLIDAYS</div>
+        <div class="kpm-nav-brand-sub">Your Journey, Our Promise</div>
+      </div>
+    </div>
+
+    <nav class="kpm-nav-links">
+      <a href="index.html">Home</a>
+      <a href="holidays.html" class="active">Holidays</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="flights.html">Flights</a>
+      <a href="visa-assistance.html">Visa</a>
+      <a href="transfers.html">Transfers</a>
+      <a href="activities.html">Activities</a>
+      <a href="insurance.html">Insurance</a>
+      <button class="kpm-nav-cta" onclick="location.href='book.html'">Plan Trip</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="pkg-hero">
+  <div class="hero-slider">
+    <img src="images/MauritiusBeach1.jpg" class="hero-slide active">
+    <img src="images/MauritiusResort2.jpg" class="hero-slide">
+    <img src="images/MauritiusWaterSports3.jpg" class="hero-slide">
+    <img src="images/MauritiusCruise4.jpg" class="hero-slide">
+  </div>
+  <h1>Mauritius Luxury Beach Holiday</h1>
+</section>
+
+<main class="pkg-container">
+
+  <div class="pkg-main">
+
+    <article class="pkg-card">
+      <h2>Package Overview</h2>
+      <p>6N/7D premium beach resort stay with island tours, water activities & cruise dinner. Perfect for honeymoon & luxury family vacations.</p>
+      <p class="pkg-price">Starting at ₹99,999 / couple</p>
+    </article>
+
+    <article class="pkg-card">
+      <h2>Itinerary</h2>
+      <ul class="pkg-list">
+        <li><strong>Day 1:</strong> Arrival Mauritius + resort check-in & beach time</li>
+        <li><strong>Day 2:</strong> South Island Tour – Chamarel, Black River & volcano site</li>
+        <li><strong>Day 3:</strong> Ile Aux Cerfs island + water sports</li>
+        <li><strong>Day 4:</strong> North island city tour – Caudan Waterfront</li>
+        <li><strong>Day 5:</strong> Glass bottom boat ride + resort leisure</li>
+        <li><strong>Day 6:</strong> Sunset cruise with dinner</li>
+        <li><strong>Day 7:</strong> Departure</li>
+      </ul>
+    </article>
+
+    <article class="pkg-card">
+      <h2>Inclusions</h2>
+      <ul class="pkg-list">
+        <li>5 star resort stay (6 nights)</li>
+        <li>Daily Breakfast & Dinner</li>
+        <li>Airport Transfers</li>
+        <li>Island Sightseeing Tours</li>
+        <li>Sunset Cruise Experience</li>
+      </ul>
+    </article>
+
+    <article class="pkg-card">
+      <h2>Exclusions</h2>
+      <ul class="pkg-list">
+        <li>International airfare</li>
+        <li>Visa fee if applicable</li>
+        <li>Water activities extras</li>
+        <li>Personal expenses</li>
+      </ul>
+    </article>
+
+  </div>
+
+  <aside class="pkg-side">
+    <h2>Need Help?</h2>
+    <p>Customize with private pool villas, helicopter tour & candle light dinner on beach.</p>
+    <p><strong>📞 Call:</strong> +91 92059 20608</p>
+    <p><strong>💬 WhatsApp:</strong> 10 AM – 9 PM</p>
+
+    <button class="pkg-book-btn" onclick="location.href='book.html?package=mauritius'">Book This Trip</button>
+  </aside>
+
+</main>
+
+<script>
+  // Auto image slider
+  document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll(".hero-slide");
+    let i = 0;
+    setInterval(() => {
+      slides[i].classList.remove("active");
+      i = (i + 1) % slides.length;
+      slides[i].classList.add("active");
+    }, 2000);
+  });
+</script>
+
+</body>
+</html>

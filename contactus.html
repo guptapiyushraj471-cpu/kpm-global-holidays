@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact Us | KPM Global Holidays</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Contact KPM Global Holidays for travel booking, support & customised package assistance.">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:#f8fafc;color:#0f172a;}
+
+/* NAVBAR */
+.kpm-nav{position:sticky;top:0;background:#fff;z-index:50;box-shadow:0 1px 10px rgba(0,0,0,.08);}
+.kpm-nav-inner{max-width:1200px;margin:auto;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;}
+.kpm-nav-logo{height:52px;width:52px;border-radius:12px;}
+.kpm-nav-links{display:flex;gap:18px;}
+.kpm-nav-links a{text-decoration:none;color:#0f172a;font-weight:500}
+.kpm-nav-links a:hover,.active{color:#0f75c8;}
+.kpm-nav-cta{padding:10px 22px;background:#0f75c8;color:#fff;border:none;border-radius:999px;cursor:pointer;font-weight:600}
+
+/* HERO */
+.hero{
+  height:270px;display:flex;justify-content:center;align-items:center;text-align:center;
+  background:url('images/contact-banner.jpg')center/cover no-repeat;position:relative;
+}
+.hero::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.45);}
+.hero h1{color:#fff;font-size:42px;font-weight:700;position:relative;}
+.hero p{color:#e2e8f0;font-size:18px;margin-top:6px;position:relative}
+
+/* CONTACT GRID */
+.contact-wrapper{
+  max-width:1150px;margin:auto;padding:40px 18px;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:28px;
+}
+.contact-card{
+  background:#fff;padding:26px;border-radius:18px;text-align:center;
+  box-shadow:0 12px 30px rgba(15,23,42,.08);transition:.3s;
+}
+.contact-card:hover{transform:translateY(-5px);}
+.contact-card i{font-size:38px;color:#0f75c8;margin-bottom:12px;}
+.contact-card h3{font-size:20px;margin-bottom:6px;}
+.contact-card p{color:#475569;font-size:15px;}
+.contact-card a{color:#0f75c8;font-weight:600;text-decoration:none;}
+
+/* CONTACT FORM */
+.form-section{max-width:900px;margin:40px auto;background:#fff;padding:38px;border-radius:20px;box-shadow:0 12px 32px rgba(0,0,0,.08);}
+.form-section h2{text-align:center;font-size:30px;margin-bottom:22px;}
+form{display:flex;flex-direction:column;gap:18px;}
+input,textarea{
+  width:100%;padding:14px 16px;border:1px solid #cbd5e1;border-radius:10px;font-size:15px;
+}
+textarea{height:120px;resize:none;}
+button{
+  padding:14px;background:#0f75c8;color:#fff;border:none;border-radius:10px;
+  font-size:17px;font-weight:700;cursor:pointer;
+}
+button:hover{background:#0a5a99}
+
+/* FOOTER */
+.footer{
+  margin-top:50px;padding:25px;text-align:center;background:#0f172a;color:#fff;font-size:15px;
+}
+.footer strong{color:#38bdf8;}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<header class="kpm-nav">
+  <div class="kpm-nav-inner">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo">
+      <div>
+        <div style="font-weight:700;font-size:16px;">KPM GLOBAL HOLIDAYS</div>
+        <div style="font-size:12px;color:#6b7280;">Your Journey, Our Promise</div>
+      </div>
+    </div>
+    <nav class="kpm-nav-links">
+      <a href="index.html">Home</a>
+      <a href="holidays.html">Holidays</a>
+      <a href="aboutus.html">About Us</a>
+      <a href="whychooseus.html">Why Choose Us</a>
+      <a href="contactus.html" class="active">Contact</a>
+    </nav>
+    <button class="kpm-nav-cta" onclick="location.href='book.html'">Plan Trip</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>Contact & Support</h1>
+    <p>We are here to assist you 24×7 with expert travel guidance.</p>
+  </div>
+</section>
+
+<!-- CONTACT CARDS -->
+<div class="contact-wrapper">
+
+  <div class="contact-card">
+    <i class="fa-solid fa-globe"></i>
+    <h3>Official Website</h3>
+    <a href="https://www.kpmglobalholiday.com" target="_blank">www.kpmglobalholiday.com</a>
+  </div>
+
+  <div class="contact-card">
+    <i class="fa-solid fa-phone-volume"></i>
+    <h3>Call & WhatsApp Support</h3>
+    <p>📞 +91 92059 20608</p>
+    <p>💬 WhatsApp: Available 10 AM – 9 PM</p>
+  </div>
+
+  <div class="contact-card">
+    <i class="fa-solid fa-envelope"></i>
+    <h3>Email Support</h3>
+    <a href="mailto:info@kpmglobalholiday.com">info@kpmglobalholiday.com</a>
+  </div>
+
+  <div class="contact-card">
+    <i class="fa-solid fa-user-tie"></i>
+    <h3>Director Assistance</h3>
+    <p>For urgent matters & escalations</p>
+    <p><strong>Direct Line:</strong> +91 92059 20608</p>
+  </div>
+
+</div>
+
+<!-- FORM -->
+<section class="form-section">
+  <h2>Send a Message</h2>
+
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Email Address" required>
+    <input type="text" placeholder="Phone Number" required>
+    <textarea placeholder="Tell us how we can help you"></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  © 2025 KPM Global Holidays | All Rights Reserved.<br>
+  Designed & Led by <strong>Piyush Gupta</strong>
+</footer>
+
+</body>
+</html>

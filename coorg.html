@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coorg Tour Packages | KPM Global Holiday</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Coorg coffee plantation stays, waterfalls & hill tour packages by KPM Global Holidays.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    .kpm-nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      z-index: 50;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .kpm-nav-inner {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .kpm-nav-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .kpm-nav-logo {
+      height: 50px;
+      width: 50px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .kpm-nav-brand-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: 0.5px;
+    }
+
+    .kpm-nav-brand-sub {
+      font-size: 0.75rem;
+      color: #6b7280;
+      font-weight: 400;
+    }
+
+    .kpm-nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9375rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .kpm-nav-links a {
+      text-decoration: none;
+      color: #475569;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .kpm-nav-links a:hover {
+      color: #0f75c8;
+    }
+
+    .kpm-nav-links a.active {
+      color: #0f75c8;
+    }
+
+    .kpm-nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #0f75c8;
+    }
+
+    .kpm-nav-cta {
+      padding: 0.625rem 1.5rem;
+      background: linear-gradient(135deg, #0f75c8 0%, #0a5a99 100%);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(15, 117, 200, 0.3);
+    }
+
+    .kpm-nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(15, 117, 200, 0.4);
+    }
+
+    /* HERO WITH SLIDER */
+    .pkg-hero {
+      height: 420px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0 1.5rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-slider {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(1.02);
+      transition: opacity 0.7s ease;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+    }
+
+    .pkg-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.6) 100%);
+    }
+
+    .pkg-hero h1 {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-size: 2.875rem;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+      max-width: 900px;
+      letter-spacing: -0.5px;
+    }
+
+    /* CONTENT AREA */
+    .pkg-container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 370px;
+      gap: 2.5rem;
+    }
+
+    .pkg-main {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .pkg-side {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+      height: max-content;
+      position: sticky;
+      top: 100px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .pkg-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .pkg-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    .pkg-card h2 {
+      margin: 0 0 1.25rem 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0f172a;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .pkg-card p {
+      font-size: 0.9375rem;
+      color: #475569;
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+
+    .pkg-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .pkg-list {
+      padding-left: 1.25rem;
+      line-height: 1.8;
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+    }
+
+    .pkg-list li {
+      font-size: 0.9375rem;
+      color: #475569;
+      padding-left: 0.25rem;
+    }
+
+    .pkg-list li strong {
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    .pkg-price {
+      font-size: 1.875rem;
+      color: #0f75c8;
+      font-weight: 700;
+      margin-top: 1rem;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      border-radius: 8px;
+    }
+
+    /* SIDEBAR */
+    .pkg-side h2 {
+      margin: 0 0 1.25rem 0;
+      font-size: 1.375rem;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .pkg-side p {
+      font-size: 0.9375rem;
+      color: #475569;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .pkg-side p strong {
+      color: #0f172a;
+      font-weight: 600;
+      display: block;
+      margin-top: 0.75rem;
+      font-size: 1rem;
+    }
+
+    .pkg-book-btn {
+      padding: 1.125rem 1.75rem;
+      width: 100%;
+      margin-top: 1.5rem;
+      background: linear-gradient(135deg, #ff4b2b 0%, #ff416c 100%);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(255, 75, 43, 0.35);
+      transition: all 0.3s ease;
+    }
+
+    .pkg-book-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(255, 75, 43, 0.45);
+    }
+
+    .pkg-book-btn:active {
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .pkg-container {
+        grid-template-columns: 1fr;
+      }
+
+      .pkg-side {
+        position: static;
+        order: -1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .kpm-nav-inner {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      .kpm-nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        font-size: 0.875rem;
+      }
+
+      .kpm-nav-cta {
+        padding: 0.5rem 1.25rem;
+        font-size: 0.875rem;
+      }
+
+      .pkg-hero {
+        height: 320px;
+        padding: 0 1rem 2.5rem;
+      }
+
+      .pkg-hero h1 {
+        font-size: 2rem;
+      }
+
+      .pkg-container {
+        padding: 2rem 1rem;
+        gap: 1.5rem;
+      }
+
+      .pkg-card,
+      .pkg-side {
+        padding: 1.5rem;
+      }
+
+      .pkg-card h2 {
+        font-size: 1.25rem;
+      }
+
+      .pkg-price {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .kpm-nav-logo {
+        height: 40px;
+        width: 40px;
+      }
+
+      .kpm-nav-brand-title {
+        font-size: 0.9375rem;
+      }
+
+      .kpm-nav-brand-sub {
+        font-size: 0.6875rem;
+      }
+
+      .pkg-hero {
+        height: 280px;
+        padding: 0 1rem 2rem;
+      }
+
+      .pkg-hero h1 {
+        font-size: 1.625rem;
+      }
+
+      .pkg-card,
+      .pkg-side {
+        padding: 1.25rem;
+      }
+
+      .pkg-card h2,
+      .pkg-side h2 {
+        font-size: 1.125rem;
+      }
+
+      .pkg-card p,
+      .pkg-list li,
+      .pkg-side p {
+        font-size: 0.875rem;
+      }
+
+      .pkg-price {
+        font-size: 1.375rem;
+        padding: 0.375rem 0.75rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="kpm-nav">
+  <div class="kpm-nav-inner">
+    <div class="kpm-nav-left">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo" alt="KPM Global Holidays">
+      <div>
+        <div class="kpm-nav-brand-title">KPM GLOBAL HOLIDAYS</div>
+        <div class="kpm-nav-brand-sub">Your Journey, Our Promise</div>
+      </div>
+    </div>
+
+    <nav class="kpm-nav-links">
+      <a href="index.html">Home</a>
+      <a href="holidays.html" class="active">Holidays</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="flights.html">Flights</a>
+      <a href="visa-assistance.html">Visa</a>
+      <a href="transfers.html">Transfers</a>
+      <a href="activities.html">Activities</a>
+      <a href="insurance.html">Insurance</a>
+      <button class="kpm-nav-cta" onclick="location.href='book.html'">Plan Trip</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO WITH 4-IMAGE AUTO SLIDER -->
+<section class="pkg-hero">
+  <div class="hero-slider">
+    <!-- Coorg ki images – filenames tumhare folder ke hisaab se same rakhe hain -->
+    <img src="images/Coorgspecialoffer1.jpg" class="hero-slide active" alt="Coorg Coffee Estate">
+    <img src="images/Coorgspecialoffer2.jfif" class="hero-slide" alt="Coorg Hills">
+    <img src="images/Coorgspecialoffer3.avif" class="hero-slide" alt="Coorg Waterfall">
+    <img src="images/Coorgspecialoffer4.avif" class="hero-slide" alt="Coorg Green Valley">
+  </div>
+  <h1>Coorg Coffee Retreat Holiday</h1>
+</section>
+
+<!-- CONTENT -->
+<main class="pkg-container">
+
+  <div class="pkg-main">
+
+    <article class="pkg-card">
+      <h2>Package Overview</h2>
+      <p>2N/3D peaceful Coorg getaway with coffee plantation stay, waterfalls & short treks. Perfect for couples, friends and small families.</p>
+      <p class="pkg-price">Starting at ₹8,999 / person</p>
+    </article>
+
+    <article class="pkg-card">
+      <h2>Itinerary</h2>
+      <ul class="pkg-list">
+        <li><strong>Day 1:</strong> Arrival in Coorg → Plantation resort check-in → Evening nature walk.</li>
+        <li><strong>Day 2:</strong> Abbey Falls, Raja’s Seat viewpoint & local sightseeing.</li>
+        <li><strong>Day 3:</strong> Coffee estate tour, short trek / Mandalpatti (optional) → Departure.</li>
+      </ul>
+    </article>
+
+    <article class="pkg-card">
+      <h2>Inclusions</h2>
+      <ul class="pkg-list">
+        <li>Resort / homestay accommodation in Coorg.</li>
+        <li>Daily breakfast (and dinner as per plan).</li>
+        <li>Private cab for sightseeing as per itinerary.</li>
+        <li>Toll, parking & driver allowances.</li>
+      </ul>
+    </article>
+
+    <article class="pkg-card">
+      <h2>Exclusions</h2>
+      <ul class="pkg-list">
+        <li>Train / flight tickets to Coorg nearest station / airport.</li>
+        <li>Entrance fees, jeep safari & adventure activities.</li>
+        <li>Lunch & personal expenses.</li>
+        <li>Anything not mentioned in inclusions.</li>
+      </ul>
+    </article>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="pkg-side">
+    <h2>Need Help?</h2>
+    <p>Talk to our Coorg expert for 2N/3N/4N options, homestay vs resort selection & Bangalore–Coorg transfer planning.</p>
+    <p><strong>📞 Call:</strong> +91 92059 20608</p>
+    <p><strong>💬 WhatsApp:</strong> 10 AM – 9 PM</p>
+
+    <button class="pkg-book-btn" onclick="location.href='book.html?package=coorg'">
+      Book This Trip
+    </button>
+  </aside>
+
+</main>
+
+<script>
+  // 4-image hero slider – 2 sec auto
+  document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.hero-slide');
+    if (!slides.length) return;
+
+    let index = 0;
+
+    setInterval(function () {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }, 2000);
+  });
+</script>
+
+</body>
+</html>

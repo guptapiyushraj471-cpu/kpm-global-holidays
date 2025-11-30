@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rishikesh Yoga & Adventure Tour | KPM Global Holidays</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rishikesh camping, rafting, Ganga Aarti & adventure trip with luxury camp stay by KPM Global Holidays.">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Inter',sans-serif;background:#f8fafc;color:#0f172a;line-height:1.6;}
+
+    /* NAVBAR */
+    .kpm-nav{position:sticky;top:0;background:rgba(255,255,255,.98);
+      backdrop-filter:blur(10px);z-index:50;box-shadow:0 2px 12px rgba(0,0,0,.08);}
+    .kpm-nav-inner{max-width:1150px;margin:auto;padding:1rem 1.5rem;display:flex;
+      justify-content:space-between;align-items:center;}
+    .kpm-nav-left{display:flex;align-items:center;gap:1rem;}
+    .kpm-nav-logo{height:50px;width:50px;border-radius:10px;object-fit:contain;}
+    .kpm-nav-brand-title{font-size:1rem;font-weight:700;}
+    .kpm-nav-brand-sub{font-size:.75rem;color:#6b7280;}
+    .kpm-nav-links{display:flex;gap:1.5rem;font-size:.95rem;}
+    .kpm-nav-links a{text-decoration:none;color:#475569;font-weight:500;}
+    .kpm-nav-links a.active{color:#0f75c8;}
+    .kpm-nav-cta{padding:.6rem 1.5rem;background:linear-gradient(135deg,#0f75c8,#0a5a99);
+      color:#fff;border:none;border-radius:999px;cursor:pointer;font-weight:600;}
+
+    /* HERO SLIDER */
+    .pkg-hero{height:420px;position:relative;overflow:hidden;
+      display:flex;align-items:flex-end;justify-content:center;padding-bottom:3rem;}
+    .hero-slider{position:absolute;inset:0;}
+    .hero-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+      opacity:0;transition:opacity .8s ease;}
+    .hero-slide.active{opacity:1;}
+    .pkg-hero::before{content:'';position:absolute;inset:0;
+      background:linear-gradient(to bottom,rgba(0,0,0,.25),rgba(0,0,0,.65));}
+    .pkg-hero h1{position:relative;z-index:10;color:#fff;font-size:2.8rem;font-weight:700;
+      text-align:center;text-shadow:0 5px 22px rgba(0,0,0,.7);}
+
+    /* CONTENT */
+    .pkg-container{max-width:1150px;margin:auto;padding:3rem 1.5rem;
+      display:grid;grid-template-columns:1fr 370px;gap:2.5rem;}
+    .pkg-main{display:flex;flex-direction:column;gap:2rem;}
+    .pkg-card{background:#fff;border-radius:16px;padding:2rem;
+      box-shadow:0 4px 20px rgba(15,23,42,.08);}
+    .pkg-card h2{font-size:1.5rem;font-weight:600;margin-bottom:1rem;
+      border-bottom:2px solid #e2e8f0;padding-bottom:.75rem;}
+    .pkg-list{padding-left:1.2rem;display:flex;flex-direction:column;gap:.85rem;}
+    .pkg-price{margin-top:.7rem;background:#eaf2ff;padding:.5rem 1rem;border-radius:10px;
+      font-size:1.85rem;font-weight:700;color:#0f75c8;}
+
+    /* SIDEBAR */
+    .pkg-side{background:#fff;border-radius:16px;padding:2rem;border:1px solid #e2e8f0;
+      box-shadow:0 10px 30px rgba(0,0,0,.1);position:sticky;top:100px;height:max-content;}
+    .pkg-book-btn{width:100%;padding:1rem;border:none;border-radius:12px;
+      background:linear-gradient(135deg,#ff4b2b,#ff416c);color:#fff;
+      font-size:1.05rem;font-weight:600;margin-top:1.3rem;cursor:pointer;}
+
+    @media(max-width:1024px){
+      .pkg-container{grid-template-columns:1fr;}
+      .pkg-side{position:static;order:-1;}
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="kpm-nav">
+  <div class="kpm-nav-inner">
+    <div class="kpm-nav-left">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo">
+      <div>
+        <div class="kpm-nav-brand-title">KPM GLOBAL HOLIDAYS</div>
+        <div class="kpm-nav-brand-sub">Your Journey, Our Promise</div>
+      </div>
+    </div>
+
+    <nav class="kpm-nav-links">
+      <a href="index.html">Home</a>
+      <a href="holidays.html" class="active">Holidays</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="flights.html">Flights</a>
+      <a href="visa-assistance.html">Visa</a>
+      <a href="transfers.html">Transfers</a>
+      <a href="activities.html">Activities</a>
+      <a href="insurance.html">Insurance</a>
+      <button class="kpm-nav-cta" onclick="location.href='book.html'">Plan Trip</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO SLIDER -->
+<section class="pkg-hero">
+  <div class="hero-slider">
+    <img src="images/Rishikesh1.jpg" class="hero-slide active" alt="">
+    <img src="images/Rishikesh2.jpg" class="hero-slide" alt="">
+    <img src="images/Rishikesh3.jpg" class="hero-slide" alt="">
+    <img src="images/Rishikesh4.webp" class="hero-slide" alt="">
+  </div>
+  <h1>Rishikesh Camping & River Rafting Tour</h1>
+</section>
+
+<!-- MAIN CONTENT -->
+<main class="pkg-container">
+
+  <div class="pkg-main">
+    <article class="pkg-card">
+      <h2>Package Overview</h2>
+      <p>2N/3D adventure trip including riverside camping, Ganga Aarti at Triveni Ghat, yoga session & 16km river rafting adventure.</p>
+      <p class="pkg-price">Starting at ₹6,499 / person</p>
+    </article>
+
+    <article class="pkg-card">
+      <h2>Itinerary</h2>
+      <ul class="pkg-list">
+        <li><strong>Day 1:</strong> Arrival Rishikesh → Check-in to camp → Bonfire + Music</li>
+        <li><strong>Day 2:</strong> River Rafting + Cliff Jumping → Local sightseeing</li>
+        <li><strong>Day 3:</strong> Morning Yoga → Ganga Aarti → Departure</li>
+      </ul>
+    </article>
+
+    <article class="pkg-card">
+      <h2>Inclusions</h2>
+      <ul class="pkg-list">
+        <li>Camp stay in luxury tents</li>
+        <li>Breakfast & Dinner</li>
+        <li>Rafting with safety gear</li>
+        <li>Bonfire & evening snacks</li>
+        <li>Pickup & Drop</li>
+      </ul>
+    </article>
+
+    <article class="pkg-card">
+      <h2>Exclusions</h2>
+      <ul class="pkg-list">
+        <li>Transport to Rishikesh</li>
+        <li>Any adventure activities not mentioned</li>
+        <li>Lunch, personal expenses</li>
+      </ul>
+    </article>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="pkg-side">
+    <h2>Need Help?</h2>
+    <p>Add-ons available: Haridwar + Mussoorie Combo</p>
+    <p><strong>📞 Call:</strong> +91 92059 20608</p>
+    <p><strong>💬 WhatsApp:</strong> 10 AM – 9 PM</p>
+
+    <button class="pkg-book-btn" onclick="location.href='book.html?package=rishikesh'">
+      Book This Trip
+    </button>
+  </aside>
+
+</main>
+
+<script>
+  document.addEventListener("DOMContentLoaded",()=>{
+    const slides=document.querySelectorAll(".hero-slide");
+    let i=0;
+    setInterval(()=>{
+      slides[i].classList.remove("active");
+      i=(i+1)%slides.length;
+      slides[i].classList.add("active");
+    },2000);
+  });
+</script>
+
+</body>
+</html>

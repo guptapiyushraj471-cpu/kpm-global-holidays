@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Support & Help | KPM Global Holidays</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Get support for bookings, payments, itinerary or travel assistance at KPM Global Holidays.">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:#f8fafc;color:#0f172a;line-height:1.6;}
+
+/* NAV */
+.kpm-nav{position:sticky;top:0;background:#fff;z-index:50;box-shadow:0 1px 10px rgba(0,0,0,.08);}
+.kpm-nav-inner{max-width:1200px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;}
+.kpm-nav-logo{height:50px;width:50px;border-radius:12px;}
+.kpm-nav-links{display:flex;gap:18px;}
+.kpm-nav-links a{text-decoration:none;color:#334155;font-weight:500}
+.kpm-nav-links a:hover,.active{color:#0f75c8;}
+.kpm-nav-cta{padding:10px 20px;background:#0f75c8;color:#fff;border:none;border-radius:999px;cursor:pointer;font-weight:600}
+
+/* HERO */
+.hero{
+  height:260px;display:flex;justify-content:center;align-items:center;
+  background:url('images/support-banner.jpg') center/cover no-repeat;position:relative;text-align:center;
+}
+.hero::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.5);}
+.hero h1{position:relative;color:#fff;font-size:40px;font-weight:700;}
+.hero p{position:relative;color:#e2e8f0;margin-top:6px;font-size:18px;}
+
+/* GRID SECTIONS */
+.support-wrapper{
+  max-width:1150px;margin:40px auto;padding:0 18px;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px;
+}
+.support-card{
+  background:#fff;padding:30px;border-radius:18px;text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);transition:.35s;
+}
+.support-card:hover{transform:translateY(-5px);}
+.support-card i{font-size:40px;color:#0f75c8;margin-bottom:12px}
+.support-card h3{font-size:20px;margin-bottom:8px}
+.support-card p{color:#475569;font-size:15px}
+.support-card a{color:#0f75c8;font-weight:600;text-decoration:none}
+
+/* FAQ */
+.faq-container{max-width:900px;margin:50px auto;padding:0 18px;}
+.faq-container h2{text-align:center;font-size:32px;margin-bottom:22px;}
+.faq{background:#fff;border-radius:14px;margin-bottom:12px;padding:18px 22px;
+     box-shadow:0 6px 20px rgba(0,0,0,.07);cursor:pointer;}
+.faq h4{font-size:18px;margin-bottom:6px;}
+.faq p{font-size:15px;display:none;color:#475569;}
+.faq.open p{display:block;}
+
+/* FOOTER */
+.footer{margin-top:60px;padding:22px;text-align:center;background:#0f172a;color:#fff;font-size:15px;}
+.footer strong{color:#38bdf8;}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<header class="kpm-nav">
+  <div class="kpm-nav-inner">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo">
+      <div>
+        <div style="font-weight:700;">KPM GLOBAL HOLIDAYS</div>
+        <div style="font-size:12px;color:#6b7280;">Your Journey, Our Promise</div>
+      </div>
+    </div>
+
+    <nav class="kpm-nav-links">
+      <a href="index.html">Home</a>
+      <a href="holidays.html">Holidays</a>
+      <a href="aboutus.html">About Us</a>
+      <a href="support.html" class="active">Support</a>
+    </nav>
+
+    <button class="kpm-nav-cta" onclick="location.href='book.html'">Plan Trip</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>Support & Help Center</h1>
+    <p>We’re here to assist you 24×7 for a smooth travel experience.</p>
+  </div>
+</section>
+
+<!-- SUPPORT CARDS -->
+<div class="support-wrapper">
+
+  <div class="support-card">
+    <i class="fa-solid fa-envelope-open-text"></i>
+    <h3>Email Support</h3>
+    <p>For booking issues, refunds & travel help:</p>
+    <a href="mailto:support@kpmglobalholiday.com">support@kpmglobalholiday.com</a>
+  </div>
+
+  <div class="support-card">
+    <i class="fa-solid fa-headset"></i>
+    <h3>Customer Care</h3>
+    <p>📞 +91 92059 20608</p>
+    <p>💬 WhatsApp Support 10 AM – 9 PM</p>
+  </div>
+
+  <div class="support-card">
+    <i class="fa-solid fa-user-tie"></i>
+    <h3>Director Assistance</h3>
+    <p>For priority escalations & urgent help</p>
+    <p><strong>Direct Line:</strong> +91 92059 20608</p>
+  </div>
+
+</div>
+
+<!-- FAQ -->
+<section class="faq-container">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq">
+    <h4>How can I modify or cancel my booking?</h4>
+    <p>You can contact our support team using email or call and we will assist according to cancellation policy.</p>
+  </div>
+
+  <div class="faq">
+    <h4>What is the payment & refund timeline?</h4>
+    <p>Refund processing time is typically 4–7 business days depending on the service provider.</p>
+  </div>
+
+  <div class="faq">
+    <h4>Do you provide visa support & documentation?</h4>
+    <p>Yes, we provide complete visa assistance for all international destinations.</p>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  © 2025 KPM Global Holidays | All Rights Reserved.<br>
+  Designed & Led by <strong>Piyush Gupta</strong>
+</footer>
+
+<script>
+document.querySelectorAll('.faq').forEach(f => {
+  f.addEventListener('click', () => f.classList.toggle('open'));
+});
+</script>
+
+</body>
+</html>

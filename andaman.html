@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Andaman Tour Packages | KPM Global Holidays</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Andaman beach honeymoon & family packages including Havelock, Neil island and water sports by KPM Global Holidays.">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:'Inter',sans-serif; background:#f8fafc; color:#0f172a; line-height:1.6;
+    }
+
+    /* NAVBAR */
+    .kpm-nav {
+      position:sticky; top:0;
+      background:rgba(255,255,255,0.98); backdrop-filter:blur(10px);
+      z-index:50; box-shadow:0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .kpm-nav-inner {
+      max-width:1150px; margin:auto; padding:1rem 1.5rem;
+      display:flex; justify-content:space-between; align-items:center; gap:2rem;
+    }
+
+    .kpm-nav-left{display:flex;align-items:center;gap:1rem;}
+    .kpm-nav-logo{height:50px;width:50px;border-radius:10px;object-fit:contain;}
+    .kpm-nav-brand-title{font-size:1rem;font-weight:700;color:#0f172a;}
+    .kpm-nav-brand-sub{font-size:.75rem;color:#6b7280;}
+
+    .kpm-nav-links{display:flex;gap:1.5rem;font-size:.9375rem;align-items:center;}
+    .kpm-nav-links a{text-decoration:none;color:#475569;font-weight:500;}
+    .kpm-nav-links a.active{color:#0f75c8;}
+    .kpm-nav-links a.active::after{
+      content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:#0f75c8;
+    }
+
+    .kpm-nav-cta{
+      padding:.625rem 1.5rem;border:none;border-radius:999px;
+      background:linear-gradient(135deg,#0f75c8 0%,#0a5a99 100%);
+      color:#fff;font-weight:600;cursor:pointer;box-shadow:0 4px 12px rgba(15,117,200,.3);
+    }
+
+    /* HERO SLIDER */
+    .pkg-hero{
+      height:420px;display:flex;align-items:flex-end;justify-content:center;
+      padding:0 1.5rem 3rem;position:relative;overflow:hidden;
+    }
+    .hero-slider{position:absolute;inset:0;}
+    .hero-slide{
+      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+      opacity:0;transition:opacity .7s ease;transform:scale(1.02);
+    }
+    .hero-slide.active{opacity:1;}
+    .pkg-hero::before{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(to bottom,rgba(0,0,0,0.15),rgba(0,0,0,0.6));
+    }
+    .pkg-hero h1{
+      position:relative;color:#fff;font-size:2.8rem;font-weight:700;text-align:center;
+      text-shadow:0 4px 24px rgba(0,0,0,0.6);z-index:1;
+    }
+
+    /* CONTENT */
+    .pkg-container{
+      max-width:1150px;margin:auto;padding:3rem 1.5rem;
+      display:grid;grid-template-columns:1fr 370px;gap:2.5rem;
+    }
+
+    .pkg-card{
+      background:#fff;border-radius:16px;padding:2rem;
+      box-shadow:0 4px 20px rgba(15,23,42,.08);
+    }
+    .pkg-card h2{
+      font-size:1.5rem;font-weight:600;margin-bottom:1rem;
+      border-bottom:2px solid #e2e8f0;padding-bottom:.75rem;
+    }
+    .pkg-price{
+      font-size:1.9rem;color:#0f75c8;font-weight:700;margin-top:.5rem;
+      background:#dbeafe;padding:.4rem 1rem;border-radius:8px;display:inline-block;
+    }
+
+    .pkg-list{padding-left:1.25rem;display:flex;flex-direction:column;gap:.875rem;}
+    .pkg-list li{font-size:.945rem;color:#475569;}
+    .pkg-list li strong{color:#0f172a;}
+
+    /* SIDEBAR */
+    .pkg-side{
+      background:#fff;border-radius:16px;padding:2rem;
+      box-shadow:0 10px 30px rgba(15,23,42,.1);border:1px solid #e2e8f0;height:max-content;
+      position:sticky;top:100px;
+    }
+    .pkg-book-btn{
+      margin-top:1.3rem;width:100%;padding:1rem 1.4rem;
+      font-size:1.05rem;font-weight:600;color:#fff;cursor:pointer;border:none;
+      border-radius:12px;background:linear-gradient(135deg,#ff4b2b,#ff416c);
+      box-shadow:0 8px 24px rgba(255,75,43,.35);
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="kpm-nav">
+  <div class="kpm-nav-inner">
+    <div class="kpm-nav-left">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo">
+      <div>
+        <div class="kpm-nav-brand-title">KPM GLOBAL HOLIDAYS</div>
+        <div class="kpm-nav-brand-sub">Your Journey, Our Promise</div>
+      </div>
+    </div>
+
+    <nav class="kpm-nav-links">
+      <a href="index.html">Home</a>
+      <a href="holidays.html" class="active">Holidays</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="flights.html">Flights</a>
+      <a href="visa-assistance.html">Visa</a>
+      <a href="transfers.html">Transfers</a>
+      <a href="activities.html">Activities</a>
+      <a href="insurance.html">Insurance</a>
+      <button class="kpm-nav-cta" onclick="location.href='book.html'">Plan Trip</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="pkg-hero">
+  <div class="hero-slider">
+    <img src="images/AndamanIslandindiandestination1.png" class="hero-slide active" alt="">
+    <img src="images/AndamanIslandindiandestination2.avif" class="hero-slide" alt="">
+    <img src="images/AndamanIslandindiandestination3.jfif" class="hero-slide" alt="">
+    <img src="images/AndamanIslandindiandestination4.jpg" class="hero-slide" alt="">
+  </div>
+  <h1>Andaman Beach Honeymoon Escape</h1>
+</section>
+
+<main class="pkg-container">
+
+  <div class="pkg-main">
+
+    <article class="pkg-card">
+      <h2>Package Overview</h2>
+      <p>5N/6D Andaman luxury tour covering Havelock Island, Radhanagar beach, Neil island, water sports & cruise transfers.</p>
+      <p class="pkg-price">Starting at ₹59,999 / couple</p>
+    </article>
+
+    <article class="pkg-card">
+      <h2>Itinerary</h2>
+      <ul class="pkg-list">
+        <li><strong>Day 1:</strong> Port Blair arrival + Cellular Jail light & sound show</li>
+        <li><strong>Day 2:</strong> Cruise to Havelock + Radhanagar Beach sunset</li>
+        <li><strong>Day 3:</strong> Elephant Beach water sports</li>
+        <li><strong>Day 4:</strong> Neil Island tour + Natural Bridge</li>
+        <li><strong>Day 5:</strong> Port Blair city tour + shopping</li>
+        <li><strong>Day 6:</strong> Departure</li>
+      </ul>
+    </article>
+
+    <article class="pkg-card">
+      <h2>Inclusions</h2>
+      <ul class="pkg-list">
+        <li>Hotel + 1N beach resort stay</li>
+        <li>Breakfast included</li>
+        <li>Return airport transfers</li>
+        <li>Ferry tickets (Cruise class)</li>
+        <li>Local sightseeing vehicle</li>
+      </ul>
+    </article>
+
+    <article class="pkg-card">
+      <h2>Exclusions</h2>
+      <ul class="pkg-list">
+        <li>Airfare</li>
+        <li>Entry tickets & activities</li>
+        <li>Meals except breakfast</li>
+        <li>Personal expenses</li>
+      </ul>
+    </article>
+
+  </div>
+
+  <aside class="pkg-side">
+    <h2>Need Assistance?</h2>
+    <p>Customise with Scuba, Sea-walk, Candle-light dinner, cruise upgrade & beach photography pack.</p>
+    <p><strong>📞 Call:</strong> +91 92059 20608</p>
+    <p><strong>💬 WhatsApp:</strong> 10 AM – 9 PM</p>
+
+    <button class="pkg-book-btn" onclick="location.href='book.html?package=andaman'">Book This Trip</button>
+  </aside>
+</main>
+
+<script>
+  // Auto hero slider
+  document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.hero-slide');
+    let index = 0;
+    setInterval(() => {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }, 2000);
+  });
+</script>
+
+</body>
+</html>
