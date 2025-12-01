@@ -5309,3 +5309,225 @@ hr {
   font-size: 14px;
   color: #9ba4b5;
 }
+/* =========================
+   STICKY + RESPONSIVE NAVBAR
+========================= */
+
+/* Hero header ko sticky banao */
+.hero-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.55)
+  );
+  backdrop-filter: blur(10px);
+  padding: 10px 0;
+}
+
+/* Container layout */
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* LEFT SIDE: logo + text + search */
+.left-nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-width: 0;
+}
+
+/* Bigger logo but not too much */
+.hero-header .logo {
+  height: 100px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+/* Brand text – smaller than before */
+.brand-title {
+  font-size: 18px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+}
+
+.brand-subtitle {
+  font-size: 13px;
+  color: #e5e7eb;
+  margin-top: 6px;
+}
+
+/* Search box width control */
+.search-box {
+  margin-left: 16px;
+  flex: 1;
+}
+
+/* RIGHT SIDE: links + currency + login */
+.right-nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #fff;
+}
+
+/* Top nav links (About / Why / Packages...) */
+.top-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.top-nav-links a {
+  color: #ffffff;
+  font-size: 12px;           /* text size kam */
+  font-weight: 500;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.top-nav-links a:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffe082;
+  transform: translateY(-1px);
+}
+
+/* Currency + Login */
+.currency {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.currency span {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+/* Login button */
+.right-nav .ai-btn-outline {
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1.5px solid #ffffff;
+  color: #ffffff;
+  background: transparent;
+  cursor: pointer;
+}
+
+.right-nav .ai-btn-outline:hover {
+  background: #ffe082;
+  color: #111827;
+}
+
+/* =========================
+   RESPONSIVE (TABLET + MOBILE)
+========================= */
+
+@media (max-width: 992px) {
+  .nav-container {
+    gap: 16px;
+  }
+
+  .brand-title {
+    font-size: 18px;
+  }
+
+  .search-box {
+    margin-left: 10px;
+  }
+
+  .top-nav-links a {
+    font-size: 13px;
+    padding: 5px 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-header {
+    padding: 10px 0 12px;
+    background: rgba(0, 0, 0, 0.85);
+  }
+
+  .nav-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .left-nav {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 14px;
+  }
+
+  .brand-title {
+    font-size: 18px;
+  }
+
+  .brand-subtitle {
+    font-size: 12px;
+  }
+
+  .search-box {
+    margin-left: 0;
+    margin-top: 6px;
+    width: 100%;
+  }
+
+  .right-nav {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  /* Nav links ko thoda compact + wrap hone do */
+  .top-nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .top-nav-links a {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  .currency span {
+    font-size: 13px;
+  }
+
+  .right-nav .ai-btn-outline {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-title {
+    font-size: 16px;
+  }
+
+  .hero-header .logo {
+    height: 52px;
+  }
+
+  .top-nav-links a {
+    font-size: 11px;
+  }
+}

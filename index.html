@@ -16,7 +16,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
 </head>
 
-
 <body class="theme-ai">
   <!-- HERO  <! HERO SLIDER SECTION -->
   <section class="hero-slider">
@@ -32,31 +31,45 @@
             <h1 class="brand-title">KPM GLOBAL HOLIDAY</h1>
             <p class="brand-subtitle">Your Journey, Our Promise</p>
           </div>
-<div class="search-box">
-  <input
-    type="text"
-    id="globalSearch"
-    placeholder="Search Global Tours – Dubai, Europe, Bali..."
-    autocomplete="off"
-  />
-  <span class="search-icon">🔍</span>
 
-  <!-- LIVE SEARCH RESULTS -->
-  <div class="search-results" id="searchResults"></div>
-</div>
-</div>
+          <div class="search-box">
+            <input
+              type="text"
+              id="globalSearch"
+              placeholder="Search Global Tours – Dubai, Europe, Bali..."
+              autocomplete="off"
+            />
+            <span class="search-icon">🔍</span>
 
-<div class="right-nav">
-  <div class="currency">
-    <span>INR ₹</span>
-    <span>▼</span>
-    <button class="ai-btn-outline" type="button" onclick="location.href='login.html'">Login</button>
-  </div>
-</div>
+            <!-- LIVE SEARCH RESULTS -->
+            <div class="search-results" id="searchResults"></div>
+          </div>
+        </div>
 
-</div>
-</header>
+        <!-- ✅ RIGHT SIDE NAV BAR + CURRENCY + LOGIN -->
+        <div class="right-nav">
+          <!-- Top nav links -->
+          <nav class="top-nav-links" aria-label="Primary navigation">
+            <a href="aboutus.html">About Us</a>
+            <a href="whychooseus.html">Why Choose Us</a>
+            <a href="package-detail.html">Packages</a>
+            <a href="pilgrimage-tours.html">Pilgrimage</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="support.html">Support</a>
+          </nav>
 
+          <!-- Currency + Login block (existing) -->
+          <div class="currency">
+            <span>INR ₹</span>
+            <span>▼</span>
+            <button class="ai-btn-outline" type="button" onclick="location.href='login.html'">
+              Login
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </header>
 
     <!-- BACKGROUND SLIDES -->
     <div class="hero-slide track">
@@ -97,71 +110,71 @@
       </p>
 
       <div class="hero-buttons">
-  <a href="plan-trip.html" class="hero-btn primary">Plan Your Global Trip</a>
-  <a href="adventure-tours.html" class="hero-btn secondary">View Destinations</a>
-  <a href="package-detail.html" class="hero-btn secondary">Browse Packages</a>
-</div>
-
-
+        <a href="plan-trip.html" class="hero-btn primary">Plan Your Global Trip</a>
+        <a href="adventure-tours.html" class="hero-btn secondary">View Destinations</a>
+        <a href="package-detail.html" class="hero-btn secondary">Browse Packages</a>
+      </div>
     </div>
 
     <!-- ARROWS (IMPORTANT: section ke ANDAR) -->
     <button class="hero-arrow hero-prev" type="button">&#10094;</button>
-<button class="hero-arrow hero-next" type="button">&#10095;</button>
-</section>
+    <button class="hero-arrow hero-next" type="button">&#10095;</button>
+  </section>
 
-<!-- INLINE SLIDER JS -->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const slider = document.querySelector('.hero-slider');
-  if (!slider) return;
+  <!-- INLINE SLIDER JS -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.querySelector('.hero-slider');
+    if (!slider) return;
 
-  const slides = slider.querySelectorAll('.hero-slide-item');
-  const prevBtn = slider.querySelector('.hero-prev');
-  const nextBtn = slider.querySelector('.hero-next');
+    const slides = slider.querySelectorAll('.hero-slide-item');
+    const prevBtn = slider.querySelector('.hero-prev');
+    const nextBtn = slider.querySelector('.hero-next');
 
-  if (!slides.length || !prevBtn || !nextBtn) return;
+    if (!slides.length || !prevBtn || !nextBtn) return;
 
-  let index = 0;
+    let index = 0;
 
-  function showSlide(i) {
-    slides.forEach((slide, idx) => {
-      slide.classList.toggle('active', idx === i);
+    function showSlide(i) {
+      slides.forEach((slide, idx) => {
+        slide.classList.toggle('active', idx === i);
+      });
+    }
+
+    function nextSlide() {
+      index = (index + 1) % slides.length;
+      showSlide(index);
+    }
+
+    function prevSlide() {
+      index = (index - 1 + slides.length) % slides.length;
+      showSlide(index);
+    }
+
+    // 3 second autoplay
+    let timer = setInterval(nextSlide, 3000);
+
+    function resetAuto() {
+      clearInterval(timer);
+      timer = setInterval(nextSlide, 3000);
+    }
+
+    nextBtn.addEventListener('click', function () {
+      nextSlide();
+      resetAuto();
     });
-  }
 
-  function nextSlide() {
-    index = (index + 1) % slides.length;
+    prevBtn.addEventListener('click', function () {
+      prevSlide();
+      resetAuto();
+    });
+
+    // first slide
     showSlide(index);
-  }
-
-  function prevSlide() {
-    index = (index - 1 + slides.length) % slides.length;
-    showSlide(index);
-  }
-
-  // 3 second autoplay
-  let timer = setInterval(nextSlide, 3000);
-
-  function resetAuto() {
-    clearInterval(timer);
-    timer = setInterval(nextSlide, 3000);
-  }
-
-  nextBtn.addEventListener('click', function () {
-    nextSlide();
-    resetAuto();
   });
-
-  prevBtn.addEventListener('click', function () {
-    prevSlide();
-    resetAuto();
-  });
-
-  // first slide
-  showSlide(index);
-});
-</script>
+  </script>
+</body>
+</html>
 
     <!-- KPM Global Holidays - Holiday Search Section -->
     <section class="kpm-hero">
@@ -219,9 +232,550 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 <!-- ========= SPECIAL HOLIDAY OFFERS ========= -->
+<!-- ==============================
+  KPM PROMO DEALS SECTION
+  Paste inside <body> where you want this block
+================================= -->
+<!-- ==============================
+  KPM PROMO DEALS SECTION
+================================= -->
+<section class="kpm-deals-section" id="promo-deals">
+
+  <!-- Top banner (optional) -->
+  <div class="kpm-deals-banner">
+    <div class="kpm-deals-banner-inner">
+      <div class="kpm-deals-badge">Limited Time • AI Smart Deals</div>
+      <h2>Cyber Week Travel Savings</h2>
+      <p>Unlock extra discounts on flights, stays and holiday packages.</p>
+    </div>
+  </div>
+
+  <!-- PROMO CODES ROW -->
+  <div class="kpm-deals-block">
+    <h3 class="kpm-deals-heading">Cyber Week Promo Codes</h3>
+    <p class="kpm-deals-sub">Your happy place just got more affordable. Save extra using these codes.</p>
+
+    <div class="kpm-promo-grid">
+      <!-- Card 1 -->
+      <article class="kpm-promo-card">
+        <div class="kpm-promo-img">
+          <img src="images/fight1.jpg" alt="Flights offer">
+        </div>
+        <div class="kpm-promo-body">
+          <h4>Flights</h4>
+          <p class="kpm-promo-tag">Up to <span>₹3,000</span> off on air tickets</p>
+          <p class="kpm-promo-text">Use code <strong>KPMFLY</strong> at checkout on select routes.</p>
+          <button type="button" class="kpm-promo-btn" data-code="KPMFLY">
+            Get Promo Code
+          </button>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="kpm-promo-card">
+        <div class="kpm-promo-img">
+          <img src="images/flights2.jpg" alt="Flight + Hotel offer">
+        </div>
+        <div class="kpm-promo-body">
+          <h4>Flight + Hotel</h4>
+          <p class="kpm-promo-tag">Save up to <span>₹8,000</span> on combos</p>
+          <p class="kpm-promo-text">Bundle your flights and stays with code <strong>KPMCOMBO</strong>.</p>
+          <button type="button" class="kpm-promo-btn" data-code="KPMCOMBO">
+            Get Promo Code
+          </button>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="kpm-promo-card">
+        <div class="kpm-promo-img">
+          <img src="images/Hotels1.jpg" alt="Hotels offer">
+        </div>
+        <div class="kpm-promo-body">
+          <h4>Hotels</h4>
+          <p class="kpm-promo-tag">Flat <span>10% OFF</span> on stays</p>
+          <p class="kpm-promo-text">Apply code <strong>KPMSTAY</strong> on select properties.</p>
+          <button type="button" class="kpm-promo-btn" data-code="KPMSTAY">
+            Get Promo Code
+          </button>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="kpm-promo-card">
+        <div class="kpm-promo-img">
+          <img src="images/Group Coach & Bus Transfers1.webp" alt="Car rentals offer">
+        </div>
+        <div class="kpm-promo-body">
+          <h4>Transfers & Cabs</h4>
+          <p class="kpm-promo-tag">Up to <span>₹1,500</span> off</p>
+          <p class="kpm-promo-text">Use code <strong>KPMRIDE</strong> for airport & city transfers.</p>
+          <button type="button" class="kpm-promo-btn" data-code="KPMRIDE">
+            Get Promo Code
+          </button>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- TOP DESTINATIONS SCROLLER (3 cards visible + auto slide) -->
+  <div class="kpm-deals-block kpm-destinations-block">
+    <div class="kpm-deals-header-row">
+      <div>
+        <h3 class="kpm-deals-heading">Save more on top destinations</h3>
+        <p class="kpm-deals-sub">Book your next trip and treat your loved ones with AI-picked fares.</p>
+      </div>
+      <div class="kpm-dest-nav">
+        <button class="kpm-dest-arrow" type="button" id="kpmDestPrev" aria-label="Previous deals">‹</button>
+        <button class="kpm-dest-arrow" type="button" id="kpmDestNext" aria-label="Next deals">›</button>
+      </div>
+    </div>
+
+    <div class="kpm-destinations-viewport">
+      <div class="kpm-destinations-row" id="kpmDestRow">
+        <!-- Destination card -->
+        <article class="kpm-destination-card">
+          <div class="kpm-destination-img">
+            <img src="images/HoChiMinh1.jpg" alt="Ho Chi Minh City">
+          </div>
+          <div class="kpm-destination-body">
+            <h4>Ho Chi Minh City, Vietnam</h4>
+            <p class="kpm-destination-price">From <span>₹35,700</span>*</p>
+            <button type="button" class="kpm-destination-btn" onclick="location.href='vietnam-packages.html'">
+              Book Now
+            </button>
+          </div>
+        </article>
+
+        <article class="kpm-destination-card">
+          <div class="kpm-destination-img">
+            <img src="images/ManilaPhilippines1.jpg" alt="Manila">
+          </div>
+          <div class="kpm-destination-body">
+            <h4>Manila, Philippines</h4>
+            <p class="kpm-destination-price">From <span>₹40,299</span>*</p>
+            <button type="button" class="kpm-destination-btn" onclick="location.href='philippines-packages.html'">
+              Book Now
+            </button>
+          </div>
+        </article>
+
+        <article class="kpm-destination-card">
+          <div class="kpm-destination-img">
+            <img src="images/LondonUnited1.jpg" alt="London">
+          </div>
+          <div class="kpm-destination-body">
+            <h4>London, United Kingdom</h4>
+            <p class="kpm-destination-price">From <span>₹68,799</span>*</p>
+            <button type="button" class="kpm-destination-btn" onclick="location.href='europe-packages.html'">
+              Book Now
+            </button>
+          </div>
+        </article>
+
+        <article class="kpm-destination-card">
+          <div class="kpm-destination-img">
+            <img src="images/MadridSpain1.jpg" alt="Madrid">
+          </div>
+          <div class="kpm-destination-body">
+            <h4>Madrid, Spain</h4>
+            <p class="kpm-destination-price">From <span>₹59,999</span>*</p>
+            <button type="button" class="kpm-destination-btn" onclick="location.href='spain-packages.html'">
+              Book Now
+            </button>
+          </div>
+        </article>
+
+        <!-- Add more destination cards if you want -->
+      </div>
+    </div>
+
+    <p class="kpm-small-note">
+      *Sample return fares – subject to availability and dynamic pricing. Taxes & charges extra as applicable.
+    </p>
+  </div>
+</section>
+
+<!-- ==============================
+  CSS – styles.css
+================================= -->
+<style>
+.kpm-deals-section {
+  background: #071124;
+  color: #f9fafb;
+  padding: 32px 0 40px;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.kpm-deals-section .kpm-deals-block {
+  max-width: 1180px;
+  margin: 0 auto 32px;
+  padding: 0 16px;
+}
+
+/* Banner */
+.kpm-deals-banner {
+  background: linear-gradient(135deg, #022c57 0%, #0f766e 50%, #7c3aed 100%);
+  padding: 16px 0;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+  margin-bottom: 24px;
+}
+.kpm-deals-banner-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.kpm-deals-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  background: rgba(15,23,42,0.3);
+  border: 1px solid rgba(226,232,240,0.45);
+  margin-bottom: 6px;
+}
+.kpm-deals-banner-inner h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+.kpm-deals-banner-inner p {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: #e5e7eb;
+}
+
+/* headings */
+.kpm-deals-heading {
+  font-size: 20px;
+  margin: 0 0 4px;
+}
+.kpm-deals-sub {
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: #cbd5f5;
+}
+
+/* Promo cards grid */
+.kpm-promo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+.kpm-promo-card {
+  background: #0b1430;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #1f2937;
+  box-shadow: 0 10px 30px rgba(15,23,42,0.4);
+  display: flex;
+  flex-direction: column;
+}
+.kpm-promo-img img {
+  width: 100%;
+  height: 132px;
+  object-fit: cover;
+  display: block;
+}
+.kpm-promo-body {
+  padding: 12px 14px 14px;
+}
+.kpm-promo-body h4 {
+  margin: 0 0 4px;
+  font-size: 15px;
+}
+.kpm-promo-tag {
+  margin: 0 0 6px;
+  font-size: 12px;
+  color: #e5e7eb;
+}
+.kpm-promo-tag span {
+  color: #fbbf24;
+  font-weight: 700;
+}
+.kpm-promo-text {
+  margin: 0 0 10px;
+  font-size: 12px;
+  color: #9ca3af;
+}
+.kpm-promo-btn {
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 10px;
+  background: #2563eb;
+  color: #f9fafb;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
+}
+.kpm-promo-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(37,99,235,0.45);
+}
+
+/* Destinations row (3-at-a-time slider) */
+.kpm-destinations-block {
+  margin-top: 10px;
+}
+.kpm-deals-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.kpm-dest-nav {
+  display: flex;
+  gap: 8px;
+}
+.kpm-dest-arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid #4b5563;
+  background: #020617;
+  color: #e5e7eb;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s ease, transform 0.12s ease, border-color 0.18s ease;
+}
+.kpm-dest-arrow:hover {
+  background: #1d4ed8;
+  border-color: #93c5fd;
+  transform: translateY(-1px);
+}
+
+.kpm-destinations-viewport {
+  margin-top: 14px;
+  overflow: hidden;
+}
+
+/* flex row; 3 cards visible */
+.kpm-destinations-row {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 4px;
+}
+.kpm-destinations-row::-webkit-scrollbar {
+  height: 6px;
+}
+.kpm-destinations-row::-webkit-scrollbar-thumb {
+  background: #1f2937;
+  border-radius: 999px;
+}
+
+/* each card = 1/3 width (minus gaps) */
+.kpm-destination-card {
+  flex: 0 0 calc((100% - 32px) / 3); /* 3 cards, 2 gaps of 16px */
+  background: #020617;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #1f2937;
+  box-shadow: 0 10px 30px rgba(15,23,42,0.65);
+  display: flex;
+  flex-direction: column;
+}
+.kpm-destination-img img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  display: block;
+}
+.kpm-destination-body {
+  padding: 10px 12px 12px;
+}
+.kpm-destination-body h4 {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+.kpm-destination-price {
+  margin: 0 0 10px;
+  font-size: 12px;
+  color: #e5e7eb;
+}
+.kpm-destination-price span {
+  font-weight: 700;
+  color: #facc15;
+}
+.kpm-destination-btn {
+  width: 100%;
+  border-radius: 999px;
+  border: none;
+  padding: 7px 10px;
+  background: #22c55e;
+  color: #022c22;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
+}
+.kpm-destination-btn:hover {
+  background: #16a34a;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(34,197,94,0.45);
+}
+
+.kpm-small-note {
+  margin-top: 8px;
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .kpm-promo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* 2 cards visible on tablet */
+  .kpm-destination-card {
+    flex: 0 0 calc((100% - 16px) / 2);
+  }
+}
+@media (max-width: 640px) {
+  .kpm-promo-grid {
+    grid-template-columns: 1fr;
+  }
+  .kpm-deals-heading {
+    font-size: 18px;
+  }
+  .kpm-deals-section {
+    padding-top: 24px;
+  }
+
+  /* 1 card visible on mobile */
+  .kpm-destination-card {
+    flex: 0 0 100%;
+  }
+}
+</style>
+
+<!-- ==============================
+  JS – paste near the end of <body>
+================================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // 1️⃣ Promo buttons – copy code on click
+  const promoButtons = document.querySelectorAll(".kpm-promo-btn");
+  promoButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const code = btn.getAttribute("data-code");
+      if (!code) return;
+      navigator.clipboard?.writeText(code).catch(() => {});
+      btn.textContent = "Code Copied: " + code;
+      setTimeout(() => {
+        btn.textContent = "Get Promo Code";
+      }, 2200);
+    });
+  });
+
+  // 2️⃣ Destination slider arrows + auto slide (3 cards at a time)
+  const row  = document.getElementById("kpmDestRow");
+  const prev = document.getElementById("kpmDestPrev");
+  const next = document.getElementById("kpmDestNext");
+  let autoTimer;
+
+  if (row && prev && next) {
+    function getScrollAmount() {
+      const card = row.querySelector(".kpm-destination-card");
+      if (!card) return 250;
+      const style = window.getComputedStyle(card);
+      const width =
+        card.getBoundingClientRect().width +
+        parseFloat(style.marginLeft || 0) +
+        parseFloat(style.marginRight || 0);
+      return width * 1.0 * 3 / 3; // exactly 1 card width (3 cards visible)
+    }
+
+    function scrollNext() {
+      const amount = getScrollAmount();
+      const maxScroll = row.scrollWidth - row.clientWidth;
+      if (row.scrollLeft + amount >= maxScroll - 4) {
+        // go back to start
+        row.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        row.scrollBy({ left: amount, behavior: "smooth" });
+      }
+    }
+
+    function scrollPrev() {
+      const amount = getScrollAmount();
+      if (row.scrollLeft - amount <= 0) {
+        row.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        row.scrollBy({ left: -amount, behavior: "smooth" });
+      }
+    }
+
+    prev.addEventListener("click", () => {
+      scrollPrev();
+      restartAuto();
+    });
+    next.addEventListener("click", () => {
+      scrollNext();
+      restartAuto();
+    });
+
+    function startAuto() {
+      stopAuto();
+      autoTimer = setInterval(scrollNext, 3500); // auto slide every 3.5s
+    }
+    function stopAuto() {
+      if (autoTimer) clearInterval(autoTimer);
+    }
+    function restartAuto() {
+      stopAuto();
+      startAuto();
+    }
+
+    // pause on hover
+    row.addEventListener("mouseenter", stopAuto);
+    row.addEventListener("mouseleave", startAuto);
+
+    startAuto();
+  }
+});
+</script>
 
 
-<!-- SPECIAL HOLIDAY OFFERS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- SPECIAL HOLIDAY OFFERS -->
 <style>
   /* dots under main slider */
@@ -1672,6 +2226,362 @@ document.addEventListener('DOMContentLoaded', function () {
     startAutoSlide();
   });
 </script>
+
+
+
+
+<!-- ==============================
+  TOP FLIGHT ROUTES SECTION
+  (HTML + CSS + JS – ready to copy)
+================================= -->
+<section class="kpm-routes-section" id="top-flight-routes">
+  <div class="kpm-routes-container">
+
+    <h2 class="kpm-routes-title">Top Flight Routes</h2>
+
+    <!-- ROUTES GRID -->
+    <div class="kpm-routes-grid">
+      <!-- Column 1 -->
+      <div class="kpm-routes-col">
+        <article class="route-card">
+          <div class="route-thumb">
+            <img src="images/ChennaitoMumbai.jpg" alt="Chennai to Mumbai">
+          </div>
+          <div class="route-info">
+            <h4>Chennai ↠ Mumbai</h4>
+            <a href="#" class="route-code">MAA–BOM</a>
+          </div>
+        </article>
+
+        <article class="route-card">
+          <div class="route-thumb">
+            <img src="images/MumbaiChennai.jpg" alt="Mumbai to Chennai">
+          </div>
+          <div class="route-info">
+            <h4>Mumbai ↠ Chennai</h4>
+            <a href="#" class="route-code">BOM–MAA</a>
+          </div>
+        </article>
+
+        <article class="route-card">
+          <div class="route-thumb">
+            <img src="images/HyderabadBangalore.jpg" alt="Hyderabad to Bangalore">
+          </div>
+          <div class="route-info">
+            <h4>Hyderabad ↠ Bangalore</h4>
+            <a href="#" class="route-code">HYD–BLR</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="kpm-routes-col">
+        <article class="route-card">
+          <div class="route-thumb">
+            <img src="images/DelhiAhmedabad.webp" alt="Delhi to Ahmedabad">
+          </div>
+          <div class="route-info">
+            <h4>Delhi ↠ Ahmedabad</h4>
+            <a href="#" class="route-code">DEL–AMD</a>
+          </div>
+        </article>
+
+        <article class="route-card">
+          <div class="route-thumb">
+            <img src="images/MumbaiDubai.jpg" alt="Mumbai to Dubai">
+          </div>
+          <div class="route-info">
+            <h4>Mumbai ↠ Dubai</h4>
+            <a href="#" class="route-code">BOM–DXB</a>
+          </div>
+        </article>
+
+        <article class="route-card">
+          <div class="route-thumb">
+            <img src="images/MumbaiJaipur.jpg" alt="Mumbai to Jaipur">
+          </div>
+          <div class="route-info">
+            <h4>Mumbai ↠ Jaipur</h4>
+            <a href="#" class="route-code">BOM–JAI</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="kpm-routes-col">
+        <article class="route-card">
+          <div class="route-thumb">
+            <img src="images/DelhiLucknow.jpg" alt="Delhi to Lucknow">
+          </div>
+          <div class="route-info">
+            <h4>Delhi ↠ Lucknow</h4>
+            <a href="#" class="route-code">DEL–LKO</a>
+          </div>
+        </article>
+
+        <article class="route-card">
+          <div class="route-thumb">
+            <img src="images/MumbaiKolkata.jpg" alt="Mumbai to Kolkata">
+          </div>
+          <div class="route-info">
+            <h4>Mumbai ↠ Kolkata</h4>
+            <a href="#" class="route-code">BOM–CCU</a>
+          </div>
+        </article>
+
+        <article class="route-card">
+          <div class="route-thumb">
+            <img src="images/DelhiDubai.jfif" alt="Delhi to Dubai">
+          </div>
+          <div class="route-info">
+            <h4>Delhi ↠ Dubai</h4>
+            <a href="#" class="route-code">DEL–DXB</a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- INFO CARDS ROW -->
+    <div class="kpm-routes-info-row">
+      <article class="kpm-info-card">
+        <div class="info-icon">
+          📄
+        </div>
+        <div class="info-content">
+          <h5>Important Info:</h5>
+          <p>To cancel/claim refund or reschedule/modify your booking.</p>
+          <a href="#" class="info-link">Click here…</a>
+        </div>
+      </article>
+
+      <article class="kpm-info-card">
+        <div class="info-icon">
+          ✈️
+        </div>
+        <div class="info-content">
+          <h5>Airline Notifications</h5>
+          <p>Get instant flight updates, notifications and travel alerts from airlines.</p>
+          <a href="#" class="info-link">Click here…</a>
+        </div>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==============================
+  CSS (add in styles.css)
+================================= -->
+<style>
+.kpm-routes-section {
+  padding: 48px 0 56px;
+  background: #f5f7ff;
+  background-image: url("images/bg-world-map-light.png"); /* optional */
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.kpm-routes-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.kpm-routes-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 32px;
+}
+
+/* GRID */
+.kpm-routes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.kpm-routes-col {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ROUTE CARD */
+.route-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 4px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+  transform: translateY(8px);
+  opacity: 0;
+  transition: transform 0.35s ease, box-shadow 0.25s ease, opacity 0.35s ease;
+}
+
+.route-card.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.route-thumb img {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  object-fit: cover;
+  display: block;
+}
+
+.route-info h4 {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.route-code {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none;
+}
+.route-code:hover {
+  text-decoration: underline;
+}
+
+/* INFO CARDS */
+.kpm-routes-info-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.kpm-info-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 18px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.1);
+}
+
+.info-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: #e0f2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+
+.info-content h5 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.info-content p {
+  margin: 0 0 4px;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.info-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none;
+}
+.info-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .kpm-routes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .kpm-routes-title {
+    font-size: 26px;
+  }
+  .kpm-routes-grid {
+    grid-template-columns: 1fr;
+  }
+  .route-card {
+    padding-inline: 10px;
+  }
+  .kpm-routes-info-row {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<!-- ==============================
+  JS (add near end of <body>)
+  Small scroll animation only
+================================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const cards = document.querySelectorAll(".route-card");
+
+  // delay per card
+  cards.forEach((card, index) => {
+    card.style.transitionDelay = (index * 60) + "ms";
+  });
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    cards.forEach(card => observer.observe(card));
+  } else {
+    // fallback: show all
+    cards.forEach(card => card.classList.add("is-visible"));
+  }
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
