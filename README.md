@@ -40,7 +40,7 @@ KPM Global Holiday is a modern AI-enhanced travel booking platform offering **ho
 ## ✨ Features
 
 <p align="center">
-  <img src="./images/Features1.jpg" alt="Features Overview" width="100"/>
+  <img src="./images/Features1.jpg" alt="Features Overview" width="300"/>
 </p>
 
 ### 🏠 Modern Landing Page
