@@ -79,7 +79,7 @@ jobs:
           ignore-unfixed: true
 
   # ------------------------ CD: Deploy to Kubernetes ------------------------
-    deploy:
+  deploy:
     needs: build-and-publish
     # Sirf tab chalega jab:
     # 1) branch main ho
