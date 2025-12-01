@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./images/logo-kpm.png" alt="KPM Global Holiday Banner" width="100" />
+  <img src="./images/logo-kpm.png" alt="KPM Global Holiday Banner" width="200" />
 </p>
 
 <h1 align="center">🌍 KPM Global Holiday</h1>
