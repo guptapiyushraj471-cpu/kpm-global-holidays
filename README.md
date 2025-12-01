@@ -22,7 +22,7 @@
 </p>
 
 <p align="center">
-  <img src="./assets/images/ai-travel-divider.png" alt="AI Travel Divider" width="600"/>
+  <img src="./images/AIPowered.png" alt="AI Travel Divider" width="200"/>
 </p>
 
 ---
@@ -70,7 +70,7 @@ KPM Global Holiday is a modern AI-enhanced travel booking platform offering **ho
 ## 🤖 AI Powered
 
 <p align="center">
-  <img src="./assets/images/ai-powered-banner.png" width="700"/>
+  <img src="./images/AIPowered.png" width="200"/>
 </p>
 
 | AI Features | Description |
@@ -86,23 +86,23 @@ KPM Global Holiday is a modern AI-enhanced travel booking platform offering **ho
 
 > **Home Page – Desktop & Mobile**
 <p align="center">
-  <img src="./assets/screenshots/homepage-desktop.png" width="800"/>
+  <img src="./images/HomePage1.webp" width="200"/>
   <br/><em>Desktop Layout</em>
 </p>
 
 <p align="center">
-  <img src="./assets/screenshots/homepage-mobile.png" width="300"/>
+  <img src="./images/MobileResponsive1.png" width="100"/>
   <br/><em>Mobile Responsive View</em>
 </p>
 
 > **Package Browsing**
 <p align="center">
-  <img src="./assets/screenshots/packages-grid.png" width="800"/>
+  <img src="./images/PackageBrowsing1.webp" width="100"/>
 </p>
 
 > **Booking Form**
 <p align="center">
-  <img src="./assets/screenshots/booking-form.png" width="800"/>
+  <img src="./images/BookingForm1.avif" width="100"/>
 </p>
 
 ---
