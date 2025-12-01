@@ -1,0 +1,135 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: devops-cloud-security-engineer-assessment
+
+jobs:
+  # ------------------------ CI: Build + Test ------------------------
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm test
+
+      - name: Audit dependencies
+        run: npm audit --audit-level=high || true
+
+  # ------------------------ CI: Build + Push Image ------------------------
+  build-and-publish:
+    needs: build-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push image to GHCR
+        id: build-image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+          file: ./Dockerfile
+
+      - name: Trivy scan image
+        uses: aquasecurity/trivy-action@0.20.0
+        with:
+          image-ref: ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+          severity: CRITICAL,HIGH
+          ignore-unfixed: true
+
+  # ------------------------ CD: Deploy to Kubernetes ------------------------
+    deploy:
+    needs: build-and-publish
+    # Sirf tab chalega jab:
+    # 1) branch main ho
+    # 2) KUBE_CONFIG_DATA secret defined ho
+    if: ${{ github.ref == 'refs/heads/main' && secrets.KUBE_CONFIG_DATA != '' }}
+    continue-on-error: true
+    runs-on: ubuntu-latest
+
+    env:
+      KUBECONFIG: ${{ github.workspace }}/kubeconfig
+      IMAGE: ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Prepare kubeconfig
+        shell: bash
+        run: |
+          echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 --decode > "$KUBECONFIG"
+
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: "latest"
+
+      - name: Render deployment manifest with new image
+        shell: bash
+        run: |
+          echo "Deploying image: $IMAGE"
+
+          if [ -f k8s/deployment.yaml ]; then
+            sed "s|image: .*|image: ${IMAGE}|g" k8s/deployment.yaml > k8s/deployment-ci.yaml
+          else
+            echo "k8s/deployment.yaml not found"
+            exit 1
+          fi
+
+          echo "Final rendered manifest:"
+          cat k8s/deployment-ci.yaml
+
+      - name: Debug cluster connectivity (optional)
+        shell: bash
+        run: |
+          kubectl version --short || true
+          kubectl get nodes || true
+
+      - name: Apply Kubernetes manifests
+        shell: bash
+        run: |
+          kubectl apply -f k8s/deployment-ci.yaml
