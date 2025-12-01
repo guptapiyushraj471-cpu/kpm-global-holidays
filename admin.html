@@ -202,7 +202,7 @@
   .admin-section-header {
     text-align: center;
     max-width: 700px;
-    margin: 0 auto 48px;
+    margin: 0 auto 36px;
   }
   .admin-section-title-main {
     font-size: 36px;
@@ -216,14 +216,12 @@
     line-height: 1.6;
   }
 
-  /* Grid Layout */
+  /* Grid Layout (used elsewhere) */
   .admin-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 32px;
   }
-
-  /* ✅ FIXED: Packages & Bookings grid – nicely centered under heading */
   @media (min-width: 1024px) {
     .admin-grid-two {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -237,10 +235,10 @@
   /* Card Containers */
   .admin-card {
     background: #ffffff;
-    border-radius: 16px;
-    padding: 32px;
+    border-radius: 18px;
+    padding: 28px 28px 24px;
     box-shadow: var(--shadow-soft);
-    border: 1px solid rgba(148, 163, 184, 0.1);
+    border: 1px solid rgba(148, 163, 184, 0.16);
     transition: all 0.3s ease;
   }
   .admin-card:hover {
@@ -251,60 +249,107 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 24px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
   }
   .admin-card-title {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 600;
     color: #0f172a;
-    margin: 0 0 6px;
+    margin: 0 0 4px;
   }
   .admin-card-subtitle {
-    font-size: 14px;
+    font-size: 13px;
     color: #64748b;
     margin: 0;
   }
 
-  /* Table Styles */
+  /* ⭐ Packages & Bookings centered panel */
+  #packages-admin {
+    background: radial-gradient(circle at top, #eff6ff 0, #f9fafb 45%, #ffffff 100%);
+  }
+  .packages-wrapper {
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  .packages-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 1024px) {
+    .packages-grid {
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+  }
+
+  /* Table Styles – modern */
+  .table-shell {
+    border-radius: 18px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: var(--shadow-soft);
+  }
+
   .admin-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 14px;
+    font-size: 13px;
   }
   .admin-table thead {
-    background: #f8fafc;
+    background: #f1f5f9;
   }
   .admin-table th {
-    padding: 12px 16px;
+    padding: 11px 16px;
     text-align: left;
     font-weight: 600;
-    color: #475569;
+    color: #64748b;
     text-transform: uppercase;
-    font-size: 12px;
-    letter-spacing: 0.5px;
-    border-bottom: 2px solid rgba(148, 163, 184, 0.2);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+    white-space: nowrap;
   }
   .admin-table td {
-    padding: 16px;
-    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
-    color: #334155;
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+    color: #0f172a;
   }
-  .admin-table tbody tr {
-    transition: background-color 0.2s ease;
+  .admin-table tbody tr:nth-child(odd) {
+    background: #ffffff;
+  }
+  .admin-table tbody tr:nth-child(even) {
+    background: #f9fafb;
   }
   .admin-table tbody tr:hover {
-    background: #f8fafc;
+    background: #eef2ff;
+  }
+
+  /* 🔗 Clickable booking links */
+  .booking-link {
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .booking-link:hover {
+    text-decoration: underline;
+  }
+  .booking-sub {
+    display: block;
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 2px;
   }
 
   /* Status Pills */
   .status-pill {
     display: inline-flex;
     align-items: center;
-    padding: 6px 12px;
+    padding: 4px 10px;
     border-radius: 999px;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
     gap: 6px;
   }
@@ -316,36 +361,28 @@
     display: inline-block;
   }
   .status-live {
-    background: rgba(34, 197, 94, 0.1);
+    background: rgba(34, 197, 94, 0.08);
     color: #15803d;
-    border: 1px solid rgba(34, 197, 94, 0.3);
+    border: 1px solid rgba(34, 197, 94, 0.26);
   }
   .status-live::before {
     background: #22c55e;
   }
   .status-draft {
-    background: rgba(148, 163, 184, 0.1);
+    background: rgba(148, 163, 184, 0.12);
     color: #475569;
-    border: 1px solid rgba(148, 163, 184, 0.3);
+    border: 1px solid rgba(148, 163, 184, 0.4);
   }
   .status-draft::before {
     background: #94a3b8;
   }
   .status-pending {
-    background: rgba(245, 158, 11, 0.1);
+    background: rgba(245, 158, 11, 0.08);
     color: #92400e;
     border: 1px solid rgba(245, 158, 11, 0.3);
   }
   .status-pending::before {
     background: #f59e0b;
-  }
-  .status-complete {
-    background: rgba(59, 130, 246, 0.1);
-    color: #1e40af;
-    border: 1px solid rgba(59, 130, 246, 0.3);
-  }
-  .status-complete::before {
-    background: #3b82f6;
   }
 
   /* Action Buttons */
@@ -353,16 +390,16 @@
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(148, 163, 184, 0.1);
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(148, 163, 184, 0.22);
   }
   .pill-btn {
-    padding: 8px 16px;
+    padding: 7px 14px;
     border-radius: 8px;
     border: 1px solid rgba(148, 163, 184, 0.3);
     background: #ffffff;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -466,6 +503,26 @@
     margin-right: auto;
   }
 
+  /* AI Summary under bookings */
+  .ai-summary-box {
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #e0f2fe 0%, #f5e9ff 100%);
+    font-size: 12px;
+    color: #1e293b;
+  }
+  .ai-summary-title {
+    font-weight: 600;
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .ai-summary-text span {
+    font-weight: 600;
+  }
+
   @media (max-width: 768px) {
     .admin-hero h1 { font-size: 32px; }
     .admin-hero-subtitle { font-size: 16px; }
@@ -500,7 +557,6 @@
   <header class="site-header" role="banner">
     <div class="container nav-inner">
       <a class="logo" href="admin.html" aria-label="KPM Global Holidays Admin Home">
-        <!-- Company Logo (Logo-KPM Global Holiday) -->
         <img src="images/Logo-KPM Global  Holiday.png" alt="KPM Global Holidays Logo" class="logo-img" />
         KPM Global<span> Admin</span>
       </a>
@@ -607,110 +663,126 @@
       </div>
     </section>
 
-    <!-- Packages & Bookings Section -->
+    <!-- ⭐ Packages & Bookings Section (centered tables) -->
     <section class="admin-section" id="packages-admin" aria-label="Manage holiday packages">
       <div class="container">
         <div class="admin-section-header">
           <h2 class="admin-section-title-main">Packages & Bookings</h2>
           <p class="admin-section-description">
-            Manage your travel packages and monitor incoming bookings from a unified interface.
+            Manage your travel packages and monitor incoming bookings from a unified, AI-ready dashboard.
           </p>
         </div>
 
-        <div class="admin-grid admin-grid-two">
-          <!-- Packages -->
-          <div class="admin-card">
-            <div class="admin-card-header">
-              <div>
-                <h3 class="admin-card-title">Holiday Packages</h3>
-                <p class="admin-card-subtitle">Overview of packages shown on the website homepage</p>
+        <div class="packages-wrapper">
+          <div class="packages-grid">
+
+            <!-- Packages table -->
+            <div class="admin-card table-card">
+              <div class="admin-card-header">
+                <div>
+                  <h3 class="admin-card-title">Holiday Packages</h3>
+                  <p class="admin-card-subtitle">Packages visible on the main website</p>
+                </div>
+                <button class="btn-outline small" type="button">+ New Package</button>
               </div>
-              <button class="btn-outline small" type="button">+ New Package</button>
-            </div>
 
-            <table class="admin-table" aria-label="Packages list">
-              <thead>
-                <tr>
-                  <th>Destination</th>
-                  <th>Package Name</th>
-                  <th>Price (from)</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Dubai</td>
-                  <td>Dubai &amp; Abu Dhabi Highlights</td>
-                  <td>₹52,999</td>
-                  <td><span class="status-pill status-live">Live</span></td>
-                </tr>
-                <tr>
-                  <td>Goa</td>
-                  <td>Goa Beachside Escape</td>
-                  <td>₹8,499</td>
-                  <td><span class="status-pill status-live">Live</span></td>
-                </tr>
-                <tr>
-                  <td>Rajasthan</td>
-                  <td>Royal Rajasthan Circuit</td>
-                  <td>₹26,750</td>
-                  <td><span class="status-pill status-live">Live</span></td>
-                </tr>
-                <tr>
-                  <td>Ladakh</td>
-                  <td>Leh–Ladakh Roadtrip</td>
-                  <td>₹32,999</td>
-                  <td><span class="status-pill status-live">Live</span></td>
-                </tr>
-                <tr>
-                  <td>Manali</td>
-                  <td>Manali Snow Retreat</td>
-                  <td>₹13,499</td>
-                  <td><span class="status-pill status-draft">Draft</span></td>
-                </tr>
-                <tr>
-                  <td>Thailand</td>
-                  <td>Thailand Highlights: Bangkok &amp; Phuket</td>
-                  <td>₹42,999</td>
-                  <td><span class="status-pill status-live">Live</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <!-- Bookings (live from Supabase) -->
-          <div class="admin-card" id="orders-admin">
-            <div class="admin-card-header">
-              <div>
-                <h3 class="admin-card-title">Recent Bookings</h3>
-                <p class="admin-card-subtitle">Latest entries from the bookings database</p>
+              <div class="table-shell">
+                <table class="admin-table" aria-label="Packages list">
+                  <thead>
+                    <tr>
+                      <th>Destination</th>
+                      <th>Package name</th>
+                      <th>Price (from)</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Dubai</td>
+                      <td>Dubai &amp; Abu Dhabi Highlights</td>
+                      <td>₹52,999</td>
+                      <td><span class="status-pill status-live">Live</span></td>
+                    </tr>
+                    <tr>
+                      <td>Goa</td>
+                      <td>Goa Beachside Escape</td>
+                      <td>₹8,499</td>
+                      <td><span class="status-pill status-live">Live</span></td>
+                    </tr>
+                    <tr>
+                      <td>Rajasthan</td>
+                      <td>Royal Rajasthan Circuit</td>
+                      <td>₹26,750</td>
+                      <td><span class="status-pill status-live">Live</span></td>
+                    </tr>
+                    <tr>
+                      <td>Ladakh</td>
+                      <td>Leh–Ladakh Roadtrip</td>
+                      <td>₹32,999</td>
+                      <td><span class="status-pill status-live">Live</span></td>
+                    </tr>
+                    <tr>
+                      <td>Manali</td>
+                      <td>Manali Snow Retreat</td>
+                      <td>₹13,499</td>
+                      <td><span class="status-pill status-draft">Draft</span></td>
+                    </tr>
+                    <tr>
+                      <td>Thailand</td>
+                      <td>Thailand Highlights: Bangkok &amp; Phuket</td>
+                      <td>₹42,999</td>
+                      <td><span class="status-pill status-live">Live</span></td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <button class="btn-outline small" type="button" id="refreshBookingsBtn">Refresh</button>
             </div>
 
-            <table class="admin-table" aria-label="Recent bookings list">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Traveler</th>
-                  <th>Package</th>
-                  <th>Check-in</th>
-                  <th>Travellers</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody id="ordersTableBody">
-                <tr>
-                  <td colspan="6">Loading bookings...</td>
-                </tr>
-              </tbody>
-            </table>
+            <!-- Bookings (live from Supabase) -->
+            <div class="admin-card table-card" id="orders-admin">
+              <div class="admin-card-header">
+                <div>
+                  <h3 class="admin-card-title">Recent Bookings</h3>
+                  <p class="admin-card-subtitle">Latest entries from the bookings database</p>
+                </div>
+                <button class="btn-outline small" type="button" id="refreshBookingsBtn">Refresh</button>
+              </div>
 
-            <div class="admin-actions">
-              <button type="button" class="pill-btn">Mark as Confirmed</button>
-              <button type="button" class="pill-btn">Mark as Cancelled</button>
-              <button type="button" class="pill-btn">Export Data</button>
+              <div class="table-shell">
+                <table class="admin-table" aria-label="Recent bookings list">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Traveler</th>
+                      <th>Package</th>
+                      <th>Check-in</th>
+                      <th>Travellers</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="ordersTableBody">
+                    <tr>
+                      <td colspan="6">Loading bookings...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- AI Summary -->
+              <div class="ai-summary-box" id="aiBookingSummary" style="display:none;">
+                <div class="ai-summary-title">🤖 AI Insight</div>
+                <div class="ai-summary-text">
+                  <span id="aiTotalBookings">0</span> recent bookings loaded.
+                </div>
+              </div>
+
+              <div class="admin-actions">
+                <button type="button" class="pill-btn">Mark as Confirmed</button>
+                <button type="button" class="pill-btn">Mark as Cancelled</button>
+                <button type="button" class="pill-btn">Export Data</button>
+              </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -795,6 +867,8 @@
 
     async function loadBookings() {
       const tbody = document.getElementById("ordersTableBody");
+      const aiBox = document.getElementById("aiBookingSummary");
+      const aiTotal = document.getElementById("aiTotalBookings");
       if (!tbody) return;
 
       tbody.innerHTML = `<tr><td colspan="6">Loading bookings...</td></tr>`;
@@ -808,11 +882,13 @@
       if (error) {
         console.error("Supabase select error:", error);
         tbody.innerHTML = `<tr><td colspan="6">Error loading bookings. Check console.</td></tr>`;
+        if (aiBox) aiBox.style.display = "none";
         return;
       }
 
       if (!data || data.length === 0) {
         tbody.innerHTML = `<tr><td colspan="6">No bookings yet.</td></tr>`;
+        if (aiBox) aiBox.style.display = "none";
         return;
       }
 
@@ -825,18 +901,30 @@
           const travellersCount = (booking.adults || 0) + (booking.children || 0);
           const statusLabel = "New";
 
+          const bookingUrl = `booking-details.html?id=${encodeURIComponent(id)}`;
+          const checkInLabel = checkIn || "-";
+          const travLabel = travellersCount ? `${travellersCount} Travellers` : "";
+
           return `
             <tr>
-              <td>${id}</td>
+              <td>
+                <a href="${bookingUrl}" class="booking-link">#${id}</a>
+                <span class="booking-sub">View details</span>
+              </td>
               <td>${traveler}</td>
               <td>${pkg}</td>
-              <td>${checkIn}</td>
-              <td>${travellersCount || ""}</td>
+              <td>${checkInLabel}</td>
+              <td>${travLabel}</td>
               <td><span class="status-pill status-pending">${statusLabel}</span></td>
             </tr>
           `;
         })
         .join("");
+
+      if (aiBox && aiTotal) {
+        aiTotal.textContent = data.length.toString();
+        aiBox.style.display = "block";
+      }
     }
 
     document.addEventListener("DOMContentLoaded", () => {

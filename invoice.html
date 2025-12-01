@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking Invoice - KPM Global Holiday</title>
+
+<style>
+  :root {
+    --primary: #1e88e5;
+    --primary-dark: #1565c0;
+    --bg-soft: #f5f7fb;
+    --border-soft: #e0e7ff;
+    --text-main: #333;
+    --text-muted: #666;
+  }
+
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f2f5;
+  }
+
+  .invoice-container {
+    width: 900px;
+    max-width: 100%;
+    margin: 20px auto;
+    background: #ffffff;
+    padding: 30px 32px 36px;
+    border-radius: 16px;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+    border: 1px solid #e5e7eb;
+  }
+
+  /* HEADER */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    padding-bottom: 18px;
+    border-bottom: 2px solid #e5e7eb;
+  }
+
+  .brand-block {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .brand-block img {
+    height: 52px;
+    width: auto;
+  }
+
+  .brand-text h1 {
+    margin: 0;
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--primary);
+  }
+
+  .brand-text p {
+    margin: 2px 0 0;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .company-contact {
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .company-contact div {
+    line-height: 1.4;
+  }
+
+  .invoice-meta {
+    text-align: right;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .invoice-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    padding: 4px 9px;
+    border-radius: 999px;
+    background: #e3f2fd;
+    color: var(--primary-dark);
+    margin-bottom: 4px;
+  }
+
+  .invoice-meta-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 6px;
+  }
+
+  .invoice-meta div {
+    margin-bottom: 3px;
+  }
+
+  .invoice-meta span.key {
+    font-weight: 600;
+    color: #111827;
+  }
+
+  /* SECTION TITLES */
+  .section-title {
+    font-weight: 600;
+    font-size: 17px;
+    margin-top: 22px;
+    margin-bottom: 6px;
+    color: #111827;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .section-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    background: #ffffff;
+  }
+
+  table td, table th {
+    padding: 8px 10px;
+    border: 1px solid #e5e7eb;
+    font-size: 14px;
+  }
+
+  table th {
+    background: #f9fafb;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .label-cell {
+    width: 30%;
+    background: #f9fafb;
+    font-weight: 600;
+    color: #374151;
+  }
+
+  .total {
+    font-weight: 600;
+    background: #e3f2fd;
+  }
+
+  .amount-cell {
+    text-align: right;
+    font-weight: 500;
+  }
+
+  /* AI SUMMARY CARD */
+  .ai-summary-card {
+    margin-top: 22px;
+    padding: 14px 14px 12px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #e3f2fd, #f3e8ff);
+    border: 1px solid #d4d4ff;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .ai-pill {
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: rgba(17, 24, 39, 0.08);
+    display: inline-block;
+    margin-bottom: 3px;
+  }
+
+  .ai-summary-title {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  .ai-summary-text {
+    font-size: 12px;
+    color: #374151;
+  }
+
+  /* BUTTONS & FOOTER */
+  .btn {
+    display: block;
+    width: 230px;
+    max-width: 100%;
+    margin: 16px auto 6px;
+    text-align: center;
+    background: var(--primary);
+    padding: 11px 14px;
+    color: white;
+    text-decoration: none;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+    border: none;
+  }
+
+  .btn span {
+    font-size: 13px;
+    opacity: 0.9;
+  }
+
+  .btn:hover {
+    background: var(--primary-dark);
+  }
+
+  .btn-secondary {
+    background: #ffffff;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    margin-top: 8px;
+  }
+
+  .btn-secondary:hover {
+    background: #eff6ff;
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .footer a {
+    color: var(--primary-dark);
+    text-decoration: none;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+  }
+
+  .terms-text {
+    margin-top: 8px;
+    font-size: 11px;
+    color: #9ca3af;
+  }
+
+  @media print {
+    body {
+      background: #ffffff;
+    }
+    .invoice-container {
+      box-shadow: none;
+      margin: 0;
+      width: 100%;
+      border-radius: 0;
+      border: none;
+    }
+    .btn {
+      display: none;
+    }
+  }
+</style>
+
+</head>
+<body>
+
+<div class="invoice-container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <div class="brand-block">
+        <!-- KPM LOGO – update src path if needed -->
+        <img src="./images/Logo-KPM Global  Holiday.png" alt="KPM Global Holiday Logo">
+        <div class="brand-text">
+          <h1>KPM Global Holiday</h1>
+          <p>Your Journey, Our Promise</p>
+        </div>
+      </div>
+
+      <div class="company-contact">
+        <div>Website: www.kpmglobalholiday.com</div>
+        <div>Email: info@kpmglobalholiday.com</div>
+        <div>Support: +91-9244824137</div>
+      </div>
+    </div>
+
+    <div class="invoice-meta">
+      <div class="invoice-badge">🧾 Travel Invoice</div>
+      <p class="invoice-meta-title">Booking Invoice</p>
+      <div><span class="key">Invoice No:</span> <span id="invoiceNo">INV-KPM-0001</span></div>
+      <div><span class="key">Issued Date:</span> <span id="invoiceDate"></span></div>
+      <div><span class="key">Booking ID:</span> <span id="bookingId">BK-KPM-0001</span></div>
+      <div><span class="key">Status:</span> <span id="bookingStatus">Confirmed</span></div>
+    </div>
+  </div>
+
+  <!-- CUSTOMER INFO -->
+  <p class="section-title">🧍 Customer Information</p>
+  <p class="section-sub">Primary traveler details for this booking.</p>
+  <table>
+    <tr>
+      <td class="label-cell">Customer Name</td>
+      <td id="custName">Piyush Kumar</td>
+    </tr>
+    <tr>
+      <td class="label-cell">Email</td>
+      <td id="custEmail">piyush@gmail.com</td>
+    </tr>
+    <tr>
+      <td class="label-cell">Phone</td>
+      <td id="custPhone">+91 XXXXXXXX</td>
+    </tr>
+    <tr>
+      <td class="label-cell">Billing Address</td>
+      <td id="billingAddress">Mumbai, Maharashtra, India</td>
+    </tr>
+  </table>
+
+  <!-- PACKAGE DETAILS -->
+  <p class="section-title">📦 Package Details</p>
+  <p class="section-sub">AI-curated holiday itinerary details.</p>
+  <table>
+    <tr>
+      <td class="label-cell">Package Name</td>
+      <td id="pkgName">Goa Holiday 3N/4D</td>
+    </tr>
+    <tr>
+      <td class="label-cell">Travel Date</td>
+      <td id="date">10 Jan 2025</td>
+    </tr>
+    <tr>
+      <td class="label-cell">Travellers</td>
+      <td id="travellers">2 Adults</td>
+    </tr>
+    <tr>
+      <td class="label-cell">Trip Type</td>
+      <td id="tripType">Leisure / Beach Escape</td>
+    </tr>
+    <tr>
+      <td class="label-cell">Inclusions</td>
+      <td id="inclusions">
+        Hotel stay • Breakfast • Airport transfers • Local sightseeing (as per itinerary)
+      </td>
+    </tr>
+  </table>
+
+  <!-- BOOKING & PAYMENT DETAILS -->
+  <p class="section-title">💳 Booking & Payment Details</p>
+  <p class="section-sub">Secure payment information for this reservation.</p>
+  <table>
+    <tr>
+      <td class="label-cell">Payment Method</td>
+      <td id="paymentMethod">UPI</td>
+    </tr>
+    <tr>
+      <td class="label-cell">Payment Reference</td>
+      <td id="paymentRef">TXN-1234567890</td>
+    </tr>
+    <tr>
+      <td class="label-cell">Payment Status</td>
+      <td id="paymentStatus">Paid</td>
+    </tr>
+  </table>
+
+  <!-- PRICE SUMMARY -->
+  <p class="section-title">💰 Price Summary</p>
+  <p class="section-sub">All amounts are in INR (₹).</p>
+  <table>
+    <tr>
+      <th>Description</th>
+      <th style="width: 25%;">Amount (₹)</th>
+    </tr>
+    <tr>
+      <td>Package Cost</td>
+      <td class="amount-cell" id="pkgCost">₹25,000</td>
+    </tr>
+    <tr>
+      <td>GST <span id="gstPercent">5</span>%</td>
+      <td class="amount-cell" id="gstValue">₹1,250</td>
+    </tr>
+    <tr>
+      <td>Convenience / Service Fee</td>
+      <td class="amount-cell" id="serviceFee">₹0</td>
+    </tr>
+    <tr class="total">
+      <td>Total Amount Payable</td>
+      <td class="amount-cell" id="totalAmount">₹26,250</td>
+    </tr>
+  </table>
+
+  <!-- AI SUMMARY CARD -->
+  <div class="ai-summary-card">
+    <div>🤖</div>
+    <div>
+      <div class="ai-pill">KPM AI Travel Engine</div>
+      <div class="ai-summary-title">Smart trip snapshot</div>
+      <div class="ai-summary-text" id="aiSummary">
+        Your Goa Holiday 3N/4D trip for 2 Adults is confirmed. Expect a balanced itinerary with beach leisure,
+        local sightseeing and comfortable stays — optimized by AI for your selected dates.
+      </div>
+    </div>
+  </div>
+
+  <!-- BUTTONS -->
+  <button class="btn" onclick="window.print()">
+    🧾 Download / Print Invoice<br>
+    <span>(Optimized for A4 PDF)</span>
+  </button>
+
+  <!-- NEW: Email invoice button -->
+  <button class="btn btn-secondary" id="emailInvoiceBtn" type="button">
+    📧 Email this Invoice
+  </button>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    © 2025 <strong>KPM Global Holiday</strong> — All Rights Reserved<br>
+    For support, contact <a href="mailto:info@kpmglobalholiday.com">info@kpmglobalholiday.com</a> or WhatsApp us.<br>
+    <div class="terms-text">
+      This is a system-generated AI-assisted invoice. Please verify all details and reach out to our support team
+      in case of any discrepancy.
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Helper: format INR
+  function formatINR(amount) {
+    if (isNaN(amount) || amount === null) return "₹0";
+    return "₹" + Number(amount).toLocaleString("en-IN");
+  }
+
+  // Global state for email body
+  let invoiceDataForEmail = {
+    invoiceNo: "",
+    bookingId: "",
+    customerName: "",
+    customerEmail: "",
+    packageName: "",
+    travelDate: "",
+    travellers: "",
+    totalAmount: "",
+    status: ""
+  };
+
+  // Set invoice date (today)
+  (function setInvoiceDate() {
+    const dateEl = document.getElementById("invoiceDate");
+    const today = new Date();
+    const options = { day: "2-digit", month: "short", year: "numeric" };
+    dateEl.textContent = today.toLocaleDateString("en-GB", options);
+  })();
+
+  // Generate simple invoice & booking number
+  (function setInvoiceNumber() {
+    const invEl = document.getElementById("invoiceNo");
+    const bookingIdEl = document.getElementById("bookingId");
+    const now = new Date();
+    const id =
+      now.getFullYear().toString() +
+      String(now.getMonth() + 1).padStart(2, "0") +
+      String(now.getDate()).padStart(2, "0") +
+      String(now.getHours()).padStart(2, "0") +
+      String(now.getMinutes()).padStart(2, "0");
+
+    const invoiceId = "INV-KPM-" + id;
+    const bookingId = "BK-KPM-" + id.slice(-6);
+
+    invEl.textContent = invoiceId;
+    bookingIdEl.textContent = bookingId;
+
+    invoiceDataForEmail.invoiceNo = invoiceId;
+    invoiceDataForEmail.bookingId = bookingId;
+  })();
+
+  // Load booking data from localStorage (if available)
+  (function loadBookingData() {
+    const name = localStorage.getItem("bookingName");
+    const email = localStorage.getItem("bookingEmail");
+    const phone = localStorage.getItem("bookingPhone");
+    const pkg = localStorage.getItem("bookingPackage");
+    const date = localStorage.getItem("bookingDate");
+    const travellers = localStorage.getItem("bookingTravellers");
+    const amount = localStorage.getItem("bookingAmount");             // e.g. "25000"
+    const gstPercent = localStorage.getItem("bookingGstPercent");     // e.g. "5"
+    const billingAddress = localStorage.getItem("bookingBillingAddress");
+    const tripType = localStorage.getItem("bookingTripType");
+    const inclusions = localStorage.getItem("bookingInclusions");
+    const bookingStatus = localStorage.getItem("bookingStatus");
+    const paymentMethod = localStorage.getItem("paymentMethod");
+    const paymentRef = localStorage.getItem("paymentRef");
+    const paymentStatus = localStorage.getItem("paymentStatus");
+    const serviceFee = localStorage.getItem("serviceFee");            // e.g. "199"
+
+    if (name) document.getElementById("custName").textContent = name;
+    if (email) document.getElementById("custEmail").textContent = email;
+    if (phone) document.getElementById("custPhone").textContent = phone;
+    if (pkg) document.getElementById("pkgName").textContent = pkg;
+    if (date) document.getElementById("date").textContent = date;
+    if (travellers) document.getElementById("travellers").textContent = travellers;
+    if (billingAddress) document.getElementById("billingAddress").textContent = billingAddress;
+    if (tripType) document.getElementById("tripType").textContent = tripType;
+    if (inclusions) document.getElementById("inclusions").textContent = inclusions;
+    if (bookingStatus) document.getElementById("bookingStatus").textContent = bookingStatus;
+    if (paymentMethod) document.getElementById("paymentMethod").textContent = paymentMethod;
+    if (paymentRef) document.getElementById("paymentRef").textContent = paymentRef;
+    if (paymentStatus) document.getElementById("paymentStatus").textContent = paymentStatus;
+
+    // Price calculation
+    let baseAmount = amount ? parseFloat(amount) : 25000;
+    let gstP = gstPercent ? parseFloat(gstPercent) : 5;
+    let fee = serviceFee ? parseFloat(serviceFee) : 0;
+
+    const gstValue = (baseAmount * gstP) / 100;
+    const total = baseAmount + gstValue + fee;
+
+    document.getElementById("pkgCost").textContent = formatINR(baseAmount);
+    document.getElementById("gstPercent").textContent = gstP.toString();
+    document.getElementById("gstValue").textContent = formatINR(gstValue);
+    document.getElementById("serviceFee").textContent = formatINR(fee);
+    document.getElementById("totalAmount").textContent = formatINR(total);
+
+    // AI summary text
+    const aiSummaryEl = document.getElementById("aiSummary");
+    const pkgLabel = pkg || "your selected holiday";
+    const travLabel = travellers || "travellers";
+    const dateLabel = date || "your chosen dates";
+
+    aiSummaryEl.textContent =
+      pkgLabel + " for " + travLabel +
+      " is confirmed for " + dateLabel +
+      ". This itinerary is auto-optimized by KPM AI for comfort, local experiences, and smoother travel flow.";
+
+    // Fill data for email
+    invoiceDataForEmail.customerName = name || "";
+    invoiceDataForEmail.customerEmail = email || "";
+    invoiceDataForEmail.packageName = pkgLabel;
+    invoiceDataForEmail.travelDate = dateLabel;
+    invoiceDataForEmail.travellers = travLabel;
+    invoiceDataForEmail.totalAmount = document.getElementById("totalAmount").textContent || "";
+    invoiceDataForEmail.status = bookingStatus || "Confirmed";
+  })();
+
+  // 📧 Email invoice using "mailto:" (no backend required)
+  document.getElementById("emailInvoiceBtn").addEventListener("click", function () {
+    const to = invoiceDataForEmail.customerEmail || "";
+    if (!to) {
+      alert("Customer email address missing. Please ensure booking email is saved.");
+      return;
+    }
+
+    const subject =
+      "KPM Global Holiday – Invoice " + (invoiceDataForEmail.invoiceNo || "");
+
+    const bodyLines = [
+      "Dear " + (invoiceDataForEmail.customerName || "Guest") + ",",
+      "",
+      "Thank you for booking with KPM Global Holiday.",
+      "",
+      "Here are your booking details:",
+      "• Booking ID: " + (invoiceDataForEmail.bookingId || ""),
+      "• Invoice No: " + (invoiceDataForEmail.invoiceNo || ""),
+      "• Package: " + (invoiceDataForEmail.packageName || ""),
+      "• Travel Date(s): " + (invoiceDataForEmail.travelDate || ""),
+      "• Travellers: " + (invoiceDataForEmail.travellers || ""),
+      "• Status: " + (invoiceDataForEmail.status || ""),
+      "• Total Amount: " + (invoiceDataForEmail.totalAmount || ""),
+      "",
+      "You can also download or print this invoice directly from your browser.",
+      "",
+      "Warm regards,",
+      "KPM Global Holiday",
+      "www.kpmglobalholiday.com"
+    ];
+
+    const mailtoUrl =
+      "mailto:" +
+      encodeURIComponent(to) +
+      "?subject=" +
+      encodeURIComponent(subject) +
+      "&body=" +
+      encodeURIComponent(bodyLines.join("\n"));
+
+    window.location.href = mailtoUrl;
+  });
+</script>
+
+</body>
+</html>

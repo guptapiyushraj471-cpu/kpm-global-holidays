@@ -21,7 +21,6 @@
       --shadow-large: 0 16px 48px rgba(0, 0, 0, 0.1);
     }
 
-    /* ✅ Logo + header/footer alignment */
     .nav-inner {
       display: flex;
       align-items: center;
@@ -33,7 +32,7 @@
     .footer-logo {
       display: inline-flex;
       align-items: center;
-      gap: 32px;
+      gap: 8px;
       text-decoration: none;
     }
 
@@ -53,7 +52,7 @@
       background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
     }
 
-    /* 🔻 Space thoda kam kiya */
+    /* Hero */
     .booking-details-hero {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       padding: 28px 0 40px;
@@ -121,7 +120,7 @@
       display: grid;
       grid-template-columns: 1.4fr 1fr;
       gap: 24px;
-      align-items: start;
+      align-items: flex-start;
     }
 
     .booking-card {
@@ -212,6 +211,46 @@
       font-size: 14px;
       line-height: 1.6;
       color: #475569;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .status-pill::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+    }
+    .status-new {
+      background: rgba(245, 158, 11, 0.1);
+      color: #92400e;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+    .status-new::before {
+      background: #f59e0b;
+    }
+    .status-confirmed {
+      background: rgba(34, 197, 94, 0.1);
+      color: #15803d;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+    }
+    .status-confirmed::before {
+      background: #22c55e;
+    }
+    .status-cancelled {
+      background: rgba(239, 68, 68, 0.1);
+      color: #991b1b;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+    .status-cancelled::before {
+      background: #ef4444;
     }
 
     .actions-card {
@@ -335,6 +374,7 @@
       justify-content: center;
       font-size: 14px;
       flex-shrink: 0;
+      color: #ffffff;
     }
 
     .timeline-content h4 {
@@ -438,10 +478,11 @@
                 <h2>Booking Information</h2>
                 <p>Complete traveler and trip details</p>
               </div>
-              <span class="badge-booking">
-                <span>📋</span>
-                <span id="booking-id-label">#ID – …</span>
-              </span>
+              <div>
+                <span class="badge-booking" id="booking-id-label">
+                  📋 Loading…
+                </span>
+              </div>
             </div>
 
             <div class="booking-meta-grid" id="booking-meta">
@@ -480,6 +521,13 @@
                 <div class="meta-label">Created at</div>
                 <div class="meta-value" id="meta-created">–</div>
               </div>
+
+              <div class="meta-item">
+                <div class="meta-label">Status</div>
+                <div class="meta-value">
+                  <span id="meta-status-pill" class="status-pill status-new">New</span>
+                </div>
+              </div>
             </div>
 
             <div class="meta-section">
@@ -498,21 +546,21 @@
                 <div class="timeline-icon">✓</div>
                 <div class="timeline-content">
                   <h4>Booking Received</h4>
-                  <p>Customer submitted booking request</p>
+                  <p id="timeline-created">Customer submitted booking request.</p>
                 </div>
               </div>
               <div class="timeline-item">
                 <div class="timeline-icon">⏳</div>
                 <div class="timeline-content">
-                  <h4>Pending Confirmation</h4>
-                  <p>Awaiting admin review and confirmation</p>
+                  <h4>Current Status</h4>
+                  <p id="timeline-status">Awaiting admin review and confirmation.</p>
                 </div>
               </div>
               <div class="timeline-item">
                 <div class="timeline-icon">📧</div>
                 <div class="timeline-content">
                   <h4>Next Step</h4>
-                  <p>Send confirmation email to traveler</p>
+                  <p>Use quick actions to contact traveler and share payment / confirmation.</p>
                 </div>
               </div>
             </div>
@@ -524,7 +572,7 @@
           <div class="actions-card">
             <h2>Quick actions</h2>
             <p class="actions-card-subtitle">
-              Use these buttons to contact the traveler directly from this page.
+              Contact the traveler directly from this page.
             </p>
 
             <div class="action-buttons">
@@ -536,11 +584,11 @@
                 <span>📧</span>
                 <span>Send email</span>
               </button>
-              <button class="pill-btn-main" type="button">
+              <button id="btn-invoice" class="pill-btn-main" type="button" disabled>
                 <span>📄</span>
                 <span>Generate invoice</span>
               </button>
-              <button class="pill-btn-main" type="button">
+              <button id="btn-print" class="pill-btn-main" type="button" disabled>
                 <span>🖨️</span>
                 <span>Print details</span>
               </button>
@@ -554,15 +602,15 @@
           <div class="actions-card" style="margin-top: 20px;">
             <h2>Status Update</h2>
             <p class="actions-card-subtitle">
-              Update the booking status
+              Update the booking status in Supabase (demo).
             </p>
 
             <div class="action-buttons">
-              <button class="pill-btn-main" type="button" style="background: rgba(34, 197, 94, 0.1); color: #15803d; border-color: rgba(34, 197, 94, 0.3);">
+              <button id="btn-status-confirm" class="pill-btn-main" type="button" style="background: rgba(34, 197, 94, 0.1); color: #15803d; border-color: rgba(34, 197, 94, 0.3);" disabled>
                 <span>✓</span>
                 <span>Mark as Confirmed</span>
               </button>
-              <button class="pill-btn-main" type="button" style="background: rgba(239, 68, 68, 0.1); color: #991b1b; border-color: rgba(239, 68, 68, 0.3);">
+              <button id="btn-status-cancel" class="pill-btn-main" type="button" style="background: rgba(239, 68, 68, 0.1); color: #991b1b; border-color: rgba(239, 68, 68, 0.3);" disabled>
                 <span>✕</span>
                 <span>Mark as Cancelled</span>
               </button>
@@ -616,14 +664,255 @@
     </div>
   </footer>
 
-  <!-- Supabase + booking-details script -->
+  <!-- Supabase + inline booking logic -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="booking-details.js"></script>
   <script src="script.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    const SUPABASE_URL = "https://hqpkihlwodmkymklyict.supabase.co";
+    const SUPABASE_ANON_KEY =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhxcGtpaGx3b2Rta3lta2x5aWN0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTIwNTUsImV4cCI6MjA3OTUyODA1NX0.TzINeb5iOiahigBteOxxrGLxBCc1_hQGs6mRzSMeR5w";
+
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    function getBookingIdFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+      return id ? parseInt(id, 10) : null;
+    }
+
+    function formatDate(dateStr) {
+      if (!dateStr) return "-";
+      const d = new Date(dateStr);
+      if (isNaN(d)) return dateStr;
+      const opts = { day: "2-digit", month: "short", year: "numeric" };
+      return d.toLocaleDateString("en-GB", opts);
+    }
+
+    function setStatusUI(status) {
+      const pill = document.getElementById("meta-status-pill");
+      const timelineStatus = document.getElementById("timeline-status");
+      if (!pill || !timelineStatus) return;
+
+      pill.classList.remove("status-new", "status-confirmed", "status-cancelled");
+
+      const s = (status || "new").toLowerCase();
+      if (s === "confirmed") {
+        pill.classList.add("status-confirmed");
+        pill.textContent = "Confirmed";
+        timelineStatus.textContent = "Booking is confirmed. Share vouchers and final itinerary with traveler.";
+      } else if (s === "cancelled") {
+        pill.classList.add("status-cancelled");
+        pill.textContent = "Cancelled";
+        timelineStatus.textContent = "Booking has been cancelled. Inform traveler and process any refunds if needed.";
+      } else {
+        pill.classList.add("status-new");
+        pill.textContent = "New";
+        timelineStatus.textContent = "Awaiting admin review and confirmation.";
+      }
+    }
+
+    async function loadBooking() {
+      const id = getBookingIdFromUrl();
+      const titleEl = document.getElementById("booking-title");
+      const subtitleEl = document.getElementById("booking-subtitle");
+      const idLabel = document.getElementById("booking-id-label");
+      const actionsInfo = document.getElementById("actions-info");
+
+      if (!id) {
+        if (titleEl) titleEl.textContent = "Booking not found";
+        if (subtitleEl) subtitleEl.textContent = "Missing booking ID in URL.";
+        if (idLabel) idLabel.textContent = "Invalid ID";
+        if (actionsInfo) actionsInfo.textContent = "No booking ID provided in URL.";
+        return null;
+      }
+
+      if (idLabel) idLabel.textContent = `#${id}`;
+
+      const { data, error } = await supabaseClient
+        .from("bookings")
+        .select("*")
+        .eq("id", id)
+        .maybeSingle();
+
+      if (error || !data) {
+        console.error("Error loading booking:", error);
+        if (titleEl) titleEl.textContent = "Booking not found";
+        if (subtitleEl) subtitleEl.textContent = "We could not load this booking. Please check Supabase or try again.";
+        if (actionsInfo) actionsInfo.textContent = "Unable to load booking from Supabase. Check console for details.";
+        return null;
+      }
+
+      const booking = data;
+
+      // Title + subtitle
+      const pkgName = booking.package_name || "Holiday enquiry";
+      const travelerName = booking.full_name || "Guest";
+      if (titleEl) titleEl.textContent = `Booking for ${travelerName}`;
+      if (subtitleEl) {
+        const checkIn = booking.start_date ? formatDate(booking.start_date) : "-";
+        subtitleEl.textContent = `${pkgName} • Check-in: ${checkIn} • ID #${booking.id}`;
+      }
+
+      // Meta values
+      document.getElementById("meta-package").textContent = pkgName;
+      document.getElementById("meta-destination").textContent = booking.destination || booking.package_destination || "-";
+      document.getElementById("meta-name").textContent = travelerName;
+      document.getElementById("meta-email").textContent = booking.email || "-";
+      document.getElementById("meta-phone").textContent = booking.phone || booking.whatsapp || "-";
+
+      const start = booking.start_date ? formatDate(booking.start_date) : null;
+      const end = booking.end_date ? formatDate(booking.end_date) : null;
+      let dateLabel = "-";
+      if (start && end) dateLabel = `${start} → ${end}`;
+      else if (start) dateLabel = start;
+      document.getElementById("meta-dates").textContent = dateLabel;
+
+      const adults = booking.adults || 0;
+      const children = booking.children || 0;
+      const guestLabel =
+        adults || children
+          ? `${adults} Adults${children ? `, ${children} Children` : ""}`
+          : "-";
+      document.getElementById("meta-guests").textContent = guestLabel;
+
+      const createdAt = booking.created_at ? formatDate(booking.created_at) : "-";
+      document.getElementById("meta-created").textContent = createdAt;
+      document.getElementById("timeline-created").textContent =
+        createdAt === "-" ? "Booking was received." : `Booking was received on ${createdAt}.`;
+
+      document.getElementById("meta-preferences").textContent =
+        booking.preferences || booking.special_requests || "No special requests added.";
+
+      setStatusUI(booking.status);
+
+      if (actionsInfo)
+        actionsInfo.textContent =
+          "Quick actions are now active. Use WhatsApp or email to contact the traveler.";
+
+      return booking;
+    }
+
+    function enableQuickActions(booking) {
+      const waBtn = document.getElementById("btn-whatsapp");
+      const emailBtn = document.getElementById("btn-email");
+      const invoiceBtn = document.getElementById("btn-invoice");
+      const printBtn = document.getElementById("btn-print");
+      const confirmBtn = document.getElementById("btn-status-confirm");
+      const cancelBtn = document.getElementById("btn-status-cancel");
+
+      const name = booking.full_name || "Guest";
+      const email = booking.email || "";
+      const phoneRaw = booking.phone || booking.whatsapp || "";
+      const pkgName = booking.package_name || "Holiday enquiry";
+      const checkIn = booking.start_date ? formatDate(booking.start_date) : "";
+      const travellersText = `${booking.adults || 0} Adults${
+        booking.children ? ", " + booking.children + " Children" : ""
+      }`;
+
+      // Normalize phone digits for wa.me
+      const phoneDigits = phoneRaw.replace(/[^0-9]/g, "");
+
+      // WhatsApp
+      if (waBtn && phoneDigits) {
+        waBtn.disabled = false;
+        const waText = `Hi ${name}, this is KPM Global Holidays regarding your booking #${booking.id} for ${pkgName} (${checkIn}).`;
+        const waUrl = `https://wa.me/${phoneDigits}?text=${encodeURIComponent(waText)}`;
+        waBtn.addEventListener("click", () => {
+          window.open(waUrl, "_blank");
+        });
+      }
+
+      // Email
+      if (emailBtn && email) {
+        emailBtn.disabled = false;
+        const subject = `Your KPM Global Holiday booking #${booking.id}`;
+        const body = [
+          `Hi ${name},`,
+          "",
+          `Thank you for your booking enquiry for "${pkgName}".`,
+          `Travel dates: ${checkIn}`,
+          `Travellers: ${travellersText}`,
+          "",
+          "Our team will shortly share the detailed itinerary and payment link.",
+          "",
+          "Warm regards,",
+          "KPM Global Holidays",
+        ].join("%0D%0A");
+
+        const mailtoUrl = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(
+          subject
+        )}&body=${body}`;
+
+        emailBtn.addEventListener("click", () => {
+          window.location.href = mailtoUrl;
+        });
+      }
+
+      // Invoice (uses localStorage and opens invoice.html)
+      if (invoiceBtn) {
+        invoiceBtn.disabled = false;
+        invoiceBtn.addEventListener("click", () => {
+          try {
+            localStorage.setItem("bookingName", name);
+            localStorage.setItem("bookingEmail", email || "");
+            localStorage.setItem("bookingPhone", phoneRaw || "");
+            localStorage.setItem("bookingPackage", pkgName);
+            localStorage.setItem("bookingDate", checkIn || "");
+            localStorage.setItem("bookingTravellers", travellersText || "");
+            localStorage.setItem("bookingAmount", booking.amount || booking.price || "25000");
+            localStorage.setItem("bookingGstPercent", "5");
+          } catch (e) {
+            console.warn("localStorage error (invoice):", e);
+          }
+          window.open("invoice.html", "_blank");
+        });
+      }
+
+      // Print
+      if (printBtn) {
+        printBtn.disabled = false;
+        printBtn.addEventListener("click", () => {
+          window.print();
+        });
+      }
+
+      // Status updates
+      if (confirmBtn) confirmBtn.disabled = false;
+      if (cancelBtn) cancelBtn.disabled = false;
+
+      async function updateStatus(newStatus) {
+        const { error } = await supabaseClient
+          .from("bookings")
+          .update({ status: newStatus })
+          .eq("id", booking.id);
+
+        const info = document.getElementById("actions-info");
+        if (error) {
+          console.error("Status update error:", error);
+          if (info) info.textContent = "Status update failed. Check console for details.";
+          return;
+        }
+
+        setStatusUI(newStatus);
+        if (info) info.textContent = `Status updated to "${newStatus}".`;
+      }
+
+      if (confirmBtn) {
+        confirmBtn.addEventListener("click", () => updateStatus("confirmed"));
+      }
+      if (cancelBtn) {
+        cancelBtn.addEventListener("click", () => updateStatus("cancelled"));
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", async function () {
       const yearSpan = document.getElementById("footerYear");
       if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+      const booking = await loadBooking();
+      if (booking) {
+        enableQuickActions(booking);
+      }
     });
   </script>
 </body>

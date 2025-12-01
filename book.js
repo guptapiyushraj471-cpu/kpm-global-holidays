@@ -121,3 +121,12 @@ document.addEventListener("DOMContentLoaded", () => {
     destinationInput.value = destFromUrl || "To be decided";
   });
 });
+// example booking page par:
+localStorage.setItem("bookingName", "Piyush Kumar");
+localStorage.setItem("bookingEmail", "piyush@gmail.com");
+localStorage.setItem("bookingPhone", "+91 9876543210");
+localStorage.setItem("bookingPackage", "Goa Holiday 3N/4D");
+localStorage.setItem("bookingDate", "10 Jan 2025");
+localStorage.setItem("bookingTravellers", "2 Adults");
+localStorage.setItem("bookingAmount", "25000"); // number only
+localStorage.setItem("bookingGstPercent", "5");

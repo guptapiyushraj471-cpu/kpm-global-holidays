@@ -633,19 +633,19 @@
 
                 <div class="payment-methods">
                   <label>
-                    <input type="radio" name="paymentMethod" value="upi" checked />
+                    <input type="radio" name="paymentMethod" value="UPI" checked />
                     <span>UPI (Google Pay, PhonePe, Paytm, etc.)</span>
                   </label>
                   <label>
-                    <input type="radio" name="paymentMethod" value="card" />
+                    <input type="radio" name="paymentMethod" value="Card" />
                     <span>Credit / Debit Card</span>
                   </label>
                   <label>
-                    <input type="radio" name="paymentMethod" value="netbanking" />
+                    <input type="radio" name="paymentMethod" value="Netbanking" />
                     <span>Net Banking</span>
                   </label>
                   <label>
-                    <input type="radio" name="paymentMethod" value="cod" />
+                    <input type="radio" name="paymentMethod" value="Pay on Arrival" />
                     <span>Pay at Hotel / On Arrival (where available)</span>
                   </label>
                 </div>
@@ -658,7 +658,7 @@
                   type="button"
                   class="btn-primary"
                   style="width: 100%; margin-top: 8px;"
-                  onclick="window.location.href='payment.html'">
+                  id="proceedToPaymentBtn">
                   Proceed to Payment
                 </button>
               </div>
@@ -814,7 +814,7 @@
     });
   </script>
 
-  <!-- Payment reveal logic – existing booking flow ko touch nahi karta -->
+  <!-- ✅ Booking submit → payment section show -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const form = document.getElementById("bookingForm");
@@ -823,7 +823,7 @@
       if (form && paymentSection) {
         form.addEventListener("submit", function () {
           // Supabase submission book.js handle karega
-          // yeh sirf payment UI ko show karega
+          // Yeh sirf payment UI ko show karega
           paymentSection.style.display = "block";
           paymentSection.scrollIntoView({ behavior: "smooth", block: "start" });
         });
@@ -831,21 +831,89 @@
     });
   </script>
 
-  <!-- Existing Pay Now button (left as-is) -->
-  <button id="rzp-button1" class="btn btn-primary">Pay Now (Test)</button>
+  <!-- OLD Pay Now button (optional test) -->
+  <button id="rzp-button1" class="btn btn-primary" style="display:none;">Pay Now (Test)</button>
 
-  <!-- Razorpay core script + config -->
+  <!-- Razorpay core script -->
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+  <!-- 🔥 INVOICE + PAYMENT LOGIC -->
   <script>
-  var options = {
-      "key": "rzp_test_RkFoZ8ffEMkACn",   // <-- Yaha apna Test Key ID daalo
-      "amount": "50000",           // Amount in paise (50000 = 500 INR)
+    // Helper: format INR
+    function formatINR(amount) {
+      if (isNaN(amount) || amount === null) return "₹0";
+      return "₹" + Number(amount).toLocaleString("en-IN");
+    }
+
+    // ✅ Save booking + payment data for invoice.html
+    function saveInvoiceData(paymentId) {
+      const fullName = document.getElementById("fullName").value || "";
+      const email = document.getElementById("email").value || "";
+      const phone = document.getElementById("phone").value || "";
+      const packageName = document.getElementById("packageName").value || "KPM Holiday Package";
+      const destination = document.getElementById("destination").value || "";
+      const startDate = document.getElementById("startDate").value || "";
+      const endDate = document.getElementById("endDate").value || "";
+      const adults = parseInt(document.getElementById("adults").value || "0", 10);
+      const children = parseInt(document.getElementById("children").value || "0", 10);
+      const preferences = document.getElementById("preferences").value || "";
+
+      const travellersLabel =
+        adults + " Adults" + (children > 0 ? ", " + children + " Children" : "");
+
+      // ✨ Amount logic – yaha abhi demo ke liye 25000 rakha hai (update with real package price)
+      const baseAmount = 25000; // ₹25,000
+      const gstPercent = 5;
+      const gstValue = (baseAmount * gstPercent) / 100;
+      const total = baseAmount + gstValue;
+
+      // Selected payment method
+      const methodRadio = document.querySelector('input[name="paymentMethod"]:checked');
+      const paymentMethod = methodRadio ? methodRadio.value : "UPI";
+
+      // Booking meta
+      localStorage.setItem("bookingName", fullName);
+      localStorage.setItem("bookingEmail", email);
+      localStorage.setItem("bookingPhone", phone);
+      localStorage.setItem("bookingBillingAddress", destination); // agar baad me address field add karo to yaha update
+      localStorage.setItem("bookingPackage", packageName);
+      localStorage.setItem(
+        "bookingDate",
+        startDate && endDate ? startDate + " to " + endDate : startDate || endDate
+      );
+      localStorage.setItem("bookingTravellers", travellersLabel);
+      localStorage.setItem("bookingAmount", String(baseAmount));
+      localStorage.setItem("bookingGstPercent", String(gstPercent));
+      localStorage.setItem("bookingTripType", "Holiday Package");
+      localStorage.setItem(
+        "bookingInclusions",
+        preferences || "Stays • Transfers • Sightseeing (as per itinerary)"
+      );
+      localStorage.setItem("bookingStatus", "Confirmed");
+
+      // Payment info
+      localStorage.setItem("paymentMethod", paymentMethod);
+      localStorage.setItem("paymentRef", paymentId || "Pending");
+      localStorage.setItem("paymentStatus", "Paid");
+      localStorage.setItem("serviceFee", "0");
+
+      // Helpful for AI summary
+      localStorage.setItem("bookingTotalComputed", String(total));
+    }
+
+    // Razorpay options
+    var options = {
+      "key": "rzp_test_RkFoZ8ffEMkACn",   // <-- Yaha apna Test/Live Key ID daalo
+      "amount": "500000",                 // 500000 paise = ₹5000 (demo) – isko package price se map kar sakte ho
       "currency": "INR",
       "name": "KPM Global Holidays",
       "description": "Travel Package Booking",
-      "image": "https://your-logo-url.png",
+      "image": "images/Logo-KPM Global  Holiday.png",
       "handler": function (response){
-          alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+          // ✅ Payment success → save invoice data → redirect to invoice
+          saveInvoiceData(response.razorpay_payment_id);
+          // alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+          window.location.href = "invoice.html";
       },
       "prefill": {
           "name": "Test User",
@@ -855,23 +923,22 @@
       "theme": {
           "color": "#528FF0"
       }
-  };
-  var rzp1 = new Razorpay(options);
+    };
 
-  document.getElementById('rzp-button1').onclick = function(e){
+    var rzp1 = new Razorpay(options);
+
+    // OLD test button (hidden)
+    document.getElementById('rzp-button1').onclick = function(e){
       rzp1.open();
       e.preventDefault();
-  }
-  </script>
+    };
 
-  <!-- 🔥 NEW: same Razorpay popup when user clicks "Proceed to Payment" -->
-  <script>
+    // 🔔 "Proceed to Payment" → open Razorpay popup
     document.addEventListener("DOMContentLoaded", function () {
-      var proceedBtn = document.querySelector('#paymentSection button.btn-primary');
+      var proceedBtn = document.getElementById('proceedToPaymentBtn');
       if (proceedBtn) {
         proceedBtn.addEventListener('click', function (e) {
-          // existing inline onclick still rahega, but hum Razorpay bhi open karwa rahe hain
-          e.preventDefault();        // payment.html par jane ke bajaye popup open karega
+          e.preventDefault();
           if (typeof rzp1 !== "undefined") {
             rzp1.open();
           }
