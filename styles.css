@@ -5921,3 +5921,15 @@ hr {
     grid-auto-rows: 190px;
   }
 }
+.hero-slide-item {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.7s ease-in-out;
+}
+
+.hero-slide-item.active {
+  opacity: 1;
+}
