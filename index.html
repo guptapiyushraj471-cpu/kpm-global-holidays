@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +10,7 @@
   <link rel="icon" type="image/png" href="images/KPM GLOBAL-LOGO.png">
   <link rel="apple-touch-icon" href="images/KPM GLOBAL-LOGO.png">
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
@@ -19,739 +19,559 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
+    :root {
+      --kpm-blue: #007bff;
+      --kpm-orange: #ff7a18;
+      --kpm-bg: #f5f7fb;
+      --kpm-text: #283046;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: "Inter", system-ui, sans-serif;
-      background: #000;
-      color: #fff;
+      background: var(--kpm-bg);
+      color: var(--kpm-text);
     }
 
-    /* ================= HEADER ================= */
+    a {
+      text-decoration: none;
+    }
+
+    /* ================= HEADER (EaseMyTrip style) ================= */
     .kpm-header {
-      background: #050b1f;           /* dark blue bar */
-      color: #f5f5f5;
-      padding: 10px 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.6);
-      position: relative;
-      z-index: 10;
+      background: #ffffff;
+      border-bottom: 1px solid #e3e7ee;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     .kpm-header-container {
       max-width: 1250px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 8px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
     }
 
-    /* Logo left */
+    /* Logo */
     .kpm-logo img {
-      height: 64px;                  /* logo upar bada & clear */
+      height: 56px;
       display: block;
       object-fit: contain;
     }
 
-    /* Nav icons middle */
+    /* Top icon nav */
     .kpm-nav {
       display: flex;
-      gap: 28px;
+      gap: 16px;
       flex: 1;
       justify-content: center;
+      flex-wrap: nowrap;
     }
 
     .kpm-nav a {
-      text-decoration: none;
       display: flex;
       flex-direction: column;
       align-items: center;
-      font-size: 13px;
-      font-weight: 500;
-      color: #d7d7d7;
-      opacity: 0.85;
-      transition: color 0.2s ease, opacity 0.2s ease, transform 0.15s ease;
+      gap: 4px;
+      padding: 6px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      color: #444;
+      min-width: 70px;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
     }
 
     .kpm-nav a i {
-      font-size: 20px;
-      margin-bottom: 4px;
+      font-size: 18px;
     }
 
     .kpm-nav a:hover {
-      color: #1ea4ff;
-      opacity: 1;
+      background: #eef4ff;
+      color: var(--kpm-blue);
       transform: translateY(-1px);
     }
 
-    /* Active page */
     .kpm-nav a.active {
-      color: #1ea4ff;
-      opacity: 1;
+      background: #eef4ff;
+      color: var(--kpm-blue);
+      box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.15);
     }
 
-    /* Right side – manage booking + login */
+    /* Right side */
     .kpm-header-right {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
+      white-space: nowrap;
     }
 
     .manage-link {
       font-size: 13px;
-      font-weight: 500;
-      color: #c4c4c4;
-      text-decoration: none;
-      white-space: nowrap;
+      color: #555;
     }
 
     .manage-link i {
-      margin-right: 6px;
-    }
-
-    .manage-link:hover {
-      color: #1ea4ff;
+      margin-right: 4px;
     }
 
     .kpm-login-btn {
-      border: 1px solid #1ea4ff;
-      padding: 6px 16px;
+      padding: 7px 18px;
       border-radius: 999px;
+      border: none;
+      background: var(--kpm-blue);
+      color: #fff;
       font-size: 14px;
-      color: #1ea4ff;
       font-weight: 600;
-      text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: transparent;
+      cursor: pointer;
+    }
+
+    .kpm-login-btn i {
+      font-size: 14px;
     }
 
     .kpm-login-btn:hover {
-      background: #1ea4ff;
+      background: #0062cc;
+    }
+
+    /* ================= HERO TOP (BG image + search) ================= */
+    .hero-slider {
+      position: relative;
+      overflow: hidden;
+      min-height: 420px;
+    }
+
+    .hero-header {
+      position: relative;
+      z-index: 2;
+      max-width: 1250px;
+      margin: 0 auto;
+      padding: 32px 20px 16px;
       color: #ffffff;
     }
 
-    /* ================= RESPONSIVE ================= */
-    @media (max-width: 1060px) {
-      .kpm-nav {
-        gap: 18px;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .kpm-header-container {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .kpm-logo {
-        order: 1;
-      }
-      .kpm-nav {
-        order: 3;
-        flex-wrap: wrap;
-        row-gap: 16px;
-      }
-      .kpm-header-right {
-        order: 2;
-      }
-    }
-
-    @media (max-width: 650px) {
-      .kpm-nav {
-        display: none; /* future: hamburger menu yaha se */
-      }
-    }
-  </style>
-</head>
-
-<body class="theme-ai">
-
-
-      
-
-     
-
-  <!-- yaha se tumhara hero + search section aaega (jo ab properly align dikhega) -->
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>KPM Global Holiday | Your Journey, Our Promise</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Plan and book your perfect holiday with AI-curated trips, tours and activities across the world." />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="images/KPM GLOBAL-LOGO.png">
-  <link rel="apple-touch-icon" href="images/KPM GLOBAL-LOGO.png">
-
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
-</head>
-
-<body class="theme-ai">
-  <!-- HERO  <! HERO SLIDER SECTION -->
-  
-<!-- =================== KPM HEADER =================== -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>KPM Global Holiday | Your Journey, Our Promise</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Plan and book your perfect holiday with AI-curated trips, tours and activities across the world." />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="images/KPM GLOBAL-LOGO.png">
-  <link rel="apple-touch-icon" href="images/KPM GLOBAL-LOGO.png">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: "Inter", system-ui, sans-serif;
-      background: #000;
-      color: #fff;
-    }
-
-    /* ================= HEADER ================= */
-    .kpm-header {
-      background: #050b1f;       /* dark blue bar */
-      color: #f5f5f5;
-      padding: 10px 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.6);
-      position: relative;
-      z-index: 10;
-    }
-
-    .kpm-header-container {
-      max-width: 1250px;
-      margin: 0 auto;
-      padding: 0 20px;
+    .nav-container {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
+      flex-wrap: wrap;
     }
 
-    /* Logo left */
-    .kpm-logo img {
-      height: 64px;              /* logo upar bada & clear */
-      display: block;
-      object-fit: contain;
+    .brand-text {
+      min-width: 220px;
     }
 
-    /* Nav icons middle */
-    .kpm-nav {
-      display: flex;
-      gap: 28px;
+    .brand-title {
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .brand-subtitle {
+      margin: 6px 0 0;
+      font-size: 14px;
+      opacity: 0.92;
+    }
+
+    /* big search bar */
+    .hero-search-wrap {
       flex: 1;
+      display: flex;
       justify-content: center;
     }
 
-    .kpm-nav a {
-      text-decoration: none;
+    .hero-search {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-size: 13px;
-      font-weight: 500;
-      color: #d7d7d7;
-      opacity: 0.85;
-      transition: color 0.2s ease, opacity 0.2s ease, transform 0.15s ease;
-    }
-
-    .kpm-nav a i {
-      font-size: 20px;
-      margin-bottom: 4px;
-    }
-
-    .kpm-nav a:hover {
-      color: #1ea4ff;
-      opacity: 1;
-      transform: translateY(-1px);
-    }
-
-    /* Active page */
-    .kpm-nav a.active {
-      color: #1ea4ff;
-      opacity: 1;
-    }
-
-    /* Right side – manage booking + login */
-    .kpm-header-right {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .manage-link {
-      font-size: 13px;
-      font-weight: 500;
-      color: #c4c4c4;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .manage-link i {
-      margin-right: 6px;
-    }
-
-    .manage-link:hover {
-      color: #1ea4ff;
-    }
-
-    .kpm-login-btn {
-      border: 1px solid #1ea4ff;
-      padding: 6px 16px;
+      width: 100%;
+      max-width: 650px;
       border-radius: 999px;
-      font-size: 14px;
-      color: #1ea4ff;
+      overflow: hidden;
+      background: rgba(255,255,255,0.98);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+    }
+
+    .hero-search-input {
+      flex: 1;
+      border: none;
+      padding: 16px 20px;
+      font-size: 15px;
+      outline: none;
+      color: #333;
+    }
+
+    .hero-search-input::placeholder {
+      color: #888;
+    }
+
+    .hero-search-btn {
+      border: none;
+      padding: 0 36px;
+      background: var(--kpm-orange);
+      color: #fff;
       font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .hero-search-btn:hover {
+      background: #ff8c35;
+    }
+
+    /* bottom nav under search */
+    .left-nav {
+      margin-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .top-nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .top-nav-links a {
+      font-size: 14px;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .top-nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .currency {
+      display: flex;
       align-items: center;
       gap: 6px;
-      background: transparent;
-    }
-
-    .kpm-login-btn:hover {
-      background: #1ea4ff;
+      font-size: 14px;
       color: #ffffff;
     }
 
+    .ai-btn-outline {
+      border-radius: 999px;
+      padding: 6px 16px;
+      border: 1px solid #ffffff;
+      background: transparent;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .ai-btn-outline:hover {
+      background: #ffffff;
+      color: var(--kpm-blue);
+    }
+
+    /* ================= BACKGROUND SLIDES ================= */
+    .hero-slide.track {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .hero-slide-item {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+    }
+
+    .hero-slide-item::before {
+      /* gradient overlay for text readability */
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.25));
+    }
+
+    .hero-slide-item.active {
+      opacity: 1;
+    }
+
+    /* ================= HERO TEXT OVER IMAGE ================= */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1250px;
+      margin: 0 auto;
+      padding: 20px 20px 40px;
+      color: #ffffff;
+    }
+
+    .hero-tagline {
+      font-size: 18px;
+      margin: 0 0 6px;
+    }
+
+    .hero-tagline span {
+      color: #ffe084;
+      font-weight: 600;
+    }
+
+    .hero-content h1 {
+      margin: 0 0 10px;
+      font-size: 40px;
+    }
+
+    .hero-content h1 span {
+      color: #ffe084;
+    }
+
+    .hero-price {
+      margin: 0 0 20px;
+      font-size: 16px;
+    }
+
+    .hero-price .strike {
+      text-decoration: line-through;
+      opacity: 0.75;
+    }
+
+    .hero-price .main {
+      font-weight: 700;
+      margin-left: 8px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-btn {
+      padding: 10px 22px;
+      border-radius: 999px;
+      border: 1px solid #ffffff;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .hero-btn.primary {
+      background: var(--kpm-orange);
+      border-color: var(--kpm-orange);
+    }
+
+    .hero-btn.primary:hover {
+      background: #ff8c35;
+    }
+
+    .hero-btn.secondary:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .hero-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 3;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0,0,0,0.45);
+      color: #fff;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .hero-prev { left: 10px; }
+    .hero-next { right: 10px; }
+
     /* ================= RESPONSIVE ================= */
-    @media (max-width: 1060px) {
+    @media (max-width: 1024px) {
       .kpm-nav {
-        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
       }
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 768px) {
       .kpm-header-container {
         flex-wrap: wrap;
         justify-content: center;
-      }
-
-      .kpm-logo {
-        order: 1;
-      }
-
-      .kpm-nav {
-        order: 3;
-        flex-wrap: wrap;
-        row-gap: 16px;
+        gap: 12px;
       }
 
       .kpm-header-right {
-        order: 2;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .hero-header {
+        padding: 24px 16px 12px;
+      }
+
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-search-wrap {
+        width: 100%;
+      }
+
+      .hero-search {
+        max-width: none;
+      }
+
+      .left-nav {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
 
-    @media (max-width: 650px) {
+    @media (max-width: 600px) {
       .kpm-nav {
-        display: none; /* future: hamburger menu yaha se */
+        justify-content: flex-start;
+        gap: 10px;
+      }
+
+      .kpm-nav a {
+        min-width: 64px;
+        font-size: 11px;
+      }
+
+      .hero-content {
+        padding: 16px;
+      }
+
+      .hero-content h1 {
+        font-size: 28px;
+      }
+
+      .hero-tagline,
+      .hero-price {
+        font-size: 14px;
+      }
+
+      .hero-arrow {
+        display: none; /* mobile me arrows hide, sirf auto slide */
+      }
+    }
+
+    @media (max-width: 420px) {
+      .top-nav-links {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .top-nav-links a {
+        white-space: nowrap;
       }
     }
   </style>
 </head>
 
-<body class="theme-ai">
+<body>
 
-  <!-- =================== KPM HEADER =================== -->
+  <!-- ================= HEADER ================= -->
   <header class="kpm-header">
     <div class="kpm-header-container">
-
       <!-- Logo -->
       <a href="index.html" class="kpm-logo">
         <img src="images/KPM GLOBAL-LOGO.png" alt="KPM Global Holidays">
       </a>
 
-      <!-- Navigation Menu -->
+      <!-- Icon navigation -->
       <nav class="kpm-nav">
-        <a href="flights.html"><i class="fa-solid fa-plane-departure"></i> Flights</a>
-        <a href="hotels.html"><i class="fa-solid fa-hotel"></i> Hotels</a>
-        <a href="trains.html"><i class="fa-solid fa-train"></i> Trains</a>
-        <a href="cabs.html"><i class="fa-solid fa-taxi"></i> Cabs</a>
-        <a href="bus.html"><i class="fa-solid fa-bus"></i> Bus</a>
-        <a href="holidays.html"><i class="fa-solid fa-umbrella-beach"></i> Holidays</a>
-        <a href="forex.html"><i class="fa-solid fa-coins"></i> Forex</a>
-        <a href="insurance.html"><i class="fa-solid fa-shield-halved"></i> Insurance</a>
+        <a href="flights.html"><i class="fa-solid fa-plane-departure"></i><span>Flights</span></a>
+        <a href="hotels.html"><i class="fa-solid fa-hotel"></i><span>Hotels</span></a>
+        <a href="flights.html"><i class="fa-solid fa-plane"></i><span>Flight+Hotel</span></a>
+        <a href="trains.html"><i class="fa-solid fa-train"></i><span>Trains</span></a>
+        <a href="bus.html"><i class="fa-solid fa-bus"></i><span>Bus</span></a>
+        <a href="holidays.html" class="active"><i class="fa-solid fa-umbrella-beach"></i><span>Holidays</span></a>
+        <a href="cabs.html"><i class="fa-solid fa-taxi"></i><span>Cabs</span></a>
+        <a href="adventure-tours.html"><i class="fa-solid fa-person-hiking"></i><span>Activities</span></a>
+        <a href="visa.html"><i class="fa-solid fa-passport"></i><span>Visa</span></a>
       </nav>
 
-      <!-- Right Side -->
+      <!-- Right side -->
       <div class="kpm-header-right">
         <a href="manage-booking.html" class="manage-link">
           <i class="fa-solid fa-suitcase-rolling"></i> Manage Booking / My Trips
         </a>
-
-        <a href="login.html" class="kpm-login-btn">
+        <button class="kpm-login-btn" onclick="location.href='login.html'">
           <i class="fa-solid fa-user"></i> Login / Signup
-        </a>
-      </div>
-
-    </div>
-  </header>
-
-  <!-- yaha se tumhara hero + search section aaega -->
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-  
-  <section class="hero-slider">
-
-  <!-- MINI WELCOME STRIP -->
-  <header class="hero-header">
-    <div class="nav-container">
-
-      <div class="brand-text">
-        <h1 class="brand-title">KPM GLOBAL HOLIDAY</h1>
-        <p class="brand-subtitle">Your Journey, Our Promise</p>
-      </div>
-
-      <div class="search-box">
-        <input
-          type="text"
-          id="globalSearch"
-          placeholder="Search Global Tours – Dubai, Europe, Bali..."
-          autocomplete="off"
-        />
-        <span class="search-icon">🔍</span>
-
-        <!-- LIVE SEARCH RESULTS -->
-        <div class="search-results" id="searchResults"></div>
-      </div>
-    </div>
-
-    <!-- ✅ NAV + CURRENCY + LOGIN -->
-    <div class="left-nav">
-      <!-- Top nav links -->
-      <nav class="top-nav-links" aria-label="Primary navigation">
-        <a href="aboutus.html">About Us</a>
-        <a href="whychooseus.html">Why Choose Us</a>
-        <a href="package-detail.html">Packages</a>
-        <a href="pilgrimage-tours.html">Pilgrimage</a>
-        <a href="contactus.html">Contact Us</a>
-        <a href="support.html">Support</a>
-      </nav>
-
-      <!-- Currency + Login block (existing) -->
-      <div class="currency">
-        <span>INR ₹</span>
-        <span>▼</span>
-        <button class="ai-btn-outline" type="button" onclick="location.href='login.html'">
-          Login
         </button>
       </div>
     </div>
-
   </header>
-</section>
 
+  <!-- ================= HERO WITH SLIDER ================= -->
+  <section class="hero-slider">
 
+    <header class="hero-header">
+      <div class="nav-container">
+        <div class="brand-text">
+          <h1 class="brand-title">KPM GLOBAL HOLIDAY</h1>
+          <p class="brand-subtitle">Where Every Experience Counts!</p>
+        </div>
 
-<style>
-/* HERO HEADER AREA */
-.hero-header {
-  background: radial-gradient(circle at top left, #2a3cff 0, #050b1f 45%, #02030a 100%);
-  padding: 18px 0 10px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
+        <div class="hero-search-wrap">
+          <form class="hero-search" onsubmit="return false;">
+            <input
+              type="text"
+              id="globalSearch"
+              class="hero-search-input"
+              placeholder="Enter Your Dream Destination!"
+              autocomplete="off"
+            />
+            <button class="hero-search-btn" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
 
-/* Top row: brand + search */
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  flex-wrap: wrap;
-}
+      <div class="left-nav">
+        <nav class="top-nav-links" aria-label="Primary navigation">
+          <a href="aboutus.html">About Us</a>
+          <a href="whychooseus.html">Why Choose Us</a>
+          <a href="package-detail.html">Packages</a>
+          <a href="pilgrimage-tours.html">Pilgrimage</a>
+          <a href="contactus.html">Contact Us</a>
+          <a href="support.html">Support</a>
+        </nav>
 
-.brand-text {
-  min-width: 220px;
-}
-
-.brand-title {
-  margin: 0;
-  font-size: 24px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.brand-subtitle {
-  margin: 4px 0 0;
-  font-size: 13px;
-  opacity: 0.9;
-}
-
-/* Search box */
-.search-box {
-  position: relative;
-  flex: 1;
-  max-width: 560px;
-}
-
-.search-box input {
-  width: 100%;
-  padding: 12px 44px 12px 22px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.25);
-  background: linear-gradient(90deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
-  color: #fff;
-  font-size: 14px;
-  outline: none;
-  box-shadow: 0 14px 32px rgba(0,0,0,0.55);
-}
-
-.search-box input::placeholder {
-  color: rgba(255,255,255,0.7);
-}
-
-.search-icon {
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 16px;
-}
-
-/* Results dropdown (ready for JS) */
-.search-results {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 110%;
-  background: #060819;
-  border-radius: 18px;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.8);
-  border: 1px solid rgba(255,255,255,0.08);
-  display: none;
-}
-
-/* Second row: nav + currency */
-.left-nav {
-  max-width: 1200px;
-  margin: 10px auto 0;
-  padding: 0 20px 8px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-
-.top-nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-}
-
-.top-nav-links a {
-  font-size: 14px;
-  text-decoration: none;
-  color: rgba(255,255,255,0.86);
-  font-weight: 500;
-  position: relative;
-  padding-bottom: 2px;
-  transition: color 0.2s ease;
-}
-
-.top-nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0;
-  height: 2px;
-  border-radius: 999px;
-  background: #29c4ff;
-  transition: width 0.2s ease;
-}
-
-.top-nav-links a:hover {
-  color: #29c4ff;
-}
-
-.top-nav-links a:hover::after {
-  width: 100%;
-}
-
-/* currency + login */
-.currency {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 14px;
-}
-
-.ai-btn-outline {
-  border-radius: 999px;
-  padding: 6px 18px;
-  border: 1px solid rgba(255,255,255,0.9);
-  background: transparent;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.ai-btn-outline:hover {
-  background: #ffffff;
-  color: #050b1f;
-}
-
-/* ================== RESPONSIVE ================== */
-
-/* Tablet */
-@media (max-width: 900px) {
-  .nav-container {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 16px;
-  }
-
-  .brand-text {
-    text-align: left;
-  }
-
-  .search-box {
-    width: 100%;
-    max-width: none;
-  }
-
-  .left-nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .currency {
-    align-self: flex-start;
-  }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .hero-header {
-    padding: 14px 0 8px;
-  }
-
-  .nav-container {
-    padding: 0 16px;
-  }
-
-  .brand-title {
-    font-size: 18px;
-    letter-spacing: 0.08em;
-  }
-
-  .brand-subtitle {
-    font-size: 12px;
-  }
-
-  .search-box input {
-    font-size: 13px;
-    padding: 10px 40px 10px 16px;
-  }
-
-  .left-nav {
-    padding: 0 16px 8px;
-  }
-
-  .top-nav-links {
-    gap: 12px;
-  }
-
-  .top-nav-links a {
-    font-size: 13px;
-  }
-
-  .currency {
-    font-size: 13px;
-  }
-
-  .ai-btn-outline {
-    padding: 5px 16px;
-    font-size: 12px;
-  }
-}
-
-/* Extra small – allow horizontal scroll on links if needed */
-@media (max-width: 420px) {
-  .top-nav-links {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .top-nav-links a {
-    white-space: nowrap;
-  }
-}
-</style>
-
+        <div class="currency">
+          <span>INR ₹</span>
+          <span>▼</span>
+          <button class="ai-btn-outline" type="button" onclick="location.href='login.html'">
+            Login
+          </button>
+        </div>
+      </div>
+    </header>
 
     <!-- BACKGROUND SLIDES -->
     <div class="hero-slide track">
-
-      <div class="hero-slide-item active"
-           style="background-image:url('images/pic1.jpg');"></div>
-
-      <div class="hero-slide-item"
-           style="background-image:url('images/pic3.jpg');"></div>
-
-      <div class="hero-slide-item"
-           style="background-image:url('images/pic4.jpg');"></div>
-
-      <div class="hero-slide-item"
-           style="background-image:url('images/pic5.jpg');"></div>
-
-      <div class="hero-slide-item"
-           style="background-image:url('images/pic6.jpg');"></div>
-
-      <div class="hero-slide-item"
-           style="background-image:url('images/pic7.jpg');"></div>
-
-      <div class="hero-slide-item"
-           style="background-image:url('images/pic8.jpg');"></div>
-
-      <div class="hero-slide-item"
-           style="background-image:url('images/pic9.jpg');"></div>
-
+      <div class="hero-slide-item active" style="background-image:url('images/pic1.jpg');"></div>
+      <div class="hero-slide-item" style="background-image:url('images/pic3.jpg');"></div>
+      <div class="hero-slide-item" style="background-image:url('images/pic4.jpg');"></div>
+      <div class="hero-slide-item" style="background-image:url('images/pic5.jpg');"></div>
+      <div class="hero-slide-item" style="background-image:url('images/pic6.jpg');"></div>
+      <div class="hero-slide-item" style="background-image:url('images/pic7.jpg');"></div>
+      <div class="hero-slide-item" style="background-image:url('images/pic8.jpg');"></div>
+      <div class="hero-slide-item" style="background-image:url('images/pic9.jpg');"></div>
     </div>
 
     <!-- CONTENT OVERLAY -->
@@ -770,83 +590,81 @@
       </div>
     </div>
 
-    <!-- ARROWS (IMPORTANT: section ke ANDAR) -->
+    <!-- ARROWS -->
     <button class="hero-arrow hero-prev" type="button">&#10094;</button>
     <button class="hero-arrow hero-next" type="button">&#10095;</button>
   </section>
 
-  <!-- INLINE SLIDER JS -->
+  <!-- SLIDER JS -->
   <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const slider = document.querySelector('.hero-slider');
-    if (!slider) return;
+    document.addEventListener('DOMContentLoaded', function () {
+      const slider = document.querySelector('.hero-slider');
+      if (!slider) return;
 
-    const slides = slider.querySelectorAll('.hero-slide-item');
-    const prevBtn = slider.querySelector('.hero-prev');
-    const nextBtn = slider.querySelector('.hero-next');
+      const slides = slider.querySelectorAll('.hero-slide-item');
+      const prevBtn = slider.querySelector('.hero-prev');
+      const nextBtn = slider.querySelector('.hero-next');
+      if (!slides.length || !prevBtn || !nextBtn) return;
 
-    if (!slides.length || !prevBtn || !nextBtn) return;
+      let index = 0;
 
-    let index = 0;
+      function showSlide(i) {
+        slides.forEach((slide, idx) => {
+          slide.classList.toggle('active', idx === i);
+        });
+      }
 
-    function showSlide(i) {
-      slides.forEach((slide, idx) => {
-        slide.classList.toggle('active', idx === i);
+      function nextSlide() {
+        index = (index + 1) % slides.length;
+        showSlide(index);
+      }
+
+      function prevSlide() {
+        index = (index - 1 + slides.length) % slides.length;
+        showSlide(index);
+      }
+
+      let timer = setInterval(nextSlide, 4000);
+
+      function resetAuto() {
+        clearInterval(timer);
+        timer = setInterval(nextSlide, 4000);
+      }
+
+      nextBtn.addEventListener('click', function () {
+        nextSlide();
+        resetAuto();
       });
-    }
 
-    function nextSlide() {
-      index = (index + 1) % slides.length;
+      prevBtn.addEventListener('click', function () {
+        prevSlide();
+        resetAuto();
+      });
+
       showSlide(index);
-    }
-
-    function prevSlide() {
-      index = (index - 1 + slides.length) % slides.length;
-      showSlide(index);
-    }
-
-    // 3 second autoplay
-    let timer = setInterval(nextSlide, 3000);
-
-    function resetAuto() {
-      clearInterval(timer);
-      timer = setInterval(nextSlide, 3000);
-    }
-
-    nextBtn.addEventListener('click', function () {
-      nextSlide();
-      resetAuto();
     });
-
-    prevBtn.addEventListener('click', function () {
-      prevSlide();
-      resetAuto();
-    });
-
-    // first slide
-    showSlide(index);
-  });
   </script>
+</body>
+</html>
+
 
 
 
   <!-- KPM Global Holidays - Holiday Search Section -->
-
-  <section class="kpm-hero">
+<section class="kpm-hero">
   <div class="kpm-hero-inner">
 
-    <!-- Top Tabs (Package Types) -->
-    <div class="kpm-tabs">
-      <a href="honeymoon-packages.html" class="kpm-tab kpm-tab-active">Honeymoon</a>
-      <a href="family-packages.html" class="kpm-tab">Family Packages</a>
-      <a href="group-tours.html" class="kpm-tab">Group Tours</a>
-      <a href="weekend-getaways.html" class="kpm-tab">Weekend Getaways</a>
-      <a href="adventure-tours.html" class="kpm-tab">Adventure Trips</a>
-      <a href="international-holidays.html" class="kpm-tab">International Holidays</a>
-    </div>
+<!-- Top Tabs (Package Types) -->
+<div class="kpm-tabs">
+  <a href="honeymoon-packages.html" class="kpm-tab kpm-tab-active">Honeymoon</a>
+  <a href="family-packages.html" class="kpm-tab">Family Packages</a>
+  <a href="group-tours.html" class="kpm-tab">Group Tours</a>
+  <a href="weekend-getaways.html" class="kpm-tab">Weekend Getaways</a>
+  <a href="adventure-tours.html" class="kpm-tab">Adventure Trips</a>
+  <a href="international-holidays.html" class="kpm-tab">International Holidays</a>
+</div>
 
-
-    <div class="kpm-card">
+<div class="kpm-card">
   <div class="kpm-card-header">
     <div>
       <h2>KPM Global Holiday</h2>
@@ -883,6 +701,186 @@
     </div>
   </form>
 </div>
+
+<style>
+/* ========= PACKAGE TABS ========= */
+.kpm-tabs {
+  max-width: 1100px;
+  margin: 24px auto 12px;
+  padding: 0 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.kpm-tab {
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #5a2ea6;
+  background: #f5ecff;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kpm-tab:hover {
+  background: #e5d4ff;
+}
+
+.kpm-tab-active {
+  background: #5a2ea6;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(90, 46, 166, 0.35);
+}
+
+/* ========= CARD ========= */
+.kpm-card {
+  max-width: 1100px;
+  margin: 0 auto 32px;
+  padding: 20px 20px 22px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.12);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.kpm-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.kpm-card-header h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #1c2440;
+}
+
+.kpm-card-header p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.kpm-badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #e0fbea;
+  color: #047857;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ========= FORM ========= */
+.kpm-form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px 20px;
+}
+
+.kpm-field {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.kpm-field label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #4b5563;
+  margin-bottom: 4px;
+}
+
+.kpm-field input,
+.kpm-field select {
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  padding: 8px 10px;
+  font-size: 14px;
+  outline: none;
+  font-family: inherit;
+}
+
+.kpm-field input:focus,
+.kpm-field select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px rgba(37,99,235,0.3);
+}
+
+/* Live results dropdown (if you use it later) */
+.kpm-live-results {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  margin-top: 4px;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  max-height: 220px;
+  overflow-y: auto;
+  display: none; /* JS se show/hide kar sakte ho */
+  z-index: 5;
+}
+
+/* Button */
+.kpm-button-wrap {
+  display: flex;
+  align-items: flex-end;
+}
+
+.kpm-search-btn {
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: none;
+  background: #ff7a18;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+}
+
+.kpm-search-btn:hover {
+  background: #ff8c35;
+}
+
+/* ========= RESPONSIVE ========= */
+@media (max-width: 900px) {
+  .kpm-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .kpm-tabs {
+    padding: 0 10px;
+  }
+
+  .kpm-card {
+    margin: 8px 10px 24px;
+    padding: 16px 14px 18px;
+  }
+
+  .kpm-form {
+    grid-template-columns: 1fr;
+  }
+
+  .kpm-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .kpm-button-wrap {
+    width: 100%;
+  }
+}
+</style>
 
 
 <!-- ========= SPECIAL HOLIDAY OFFERS ========= -->
@@ -1102,482 +1100,7 @@
 <!-- =========================
   KPM TESTIMONIALS SECTION (4 CARDS)
 ========================= -->
-<section class="kpm-testimonials-section">
-  <div class="kpm-deals-header">
-    <h2>What Our Guests Say</h2>
-    <p>Real experiences from travellers who trusted KPM Global Holiday.</p>
-  </div>
 
-  <div class="kpm-testimonials-grid">
-    <!-- Testimonial 1 -->
-    <div class="kpm-test-card">
-      <div class="kpm-test-images">
-        <div class="kpm-test-img kpm-test-img-1a"></div>
-        <div class="kpm-test-img kpm-test-img-1b"></div>
-      </div>
-      <p class="kpm-test-quote">
-        “KPM planned our Dubai family trip end-to-end. Hotels, transfers and tours
-        – everything was perfectly timed.”
-      </p>
-      <div class="kpm-test-meta">
-        <span class="kpm-test-name">Rahul &amp; Neha</span>
-        <span class="kpm-test-trip">Dubai Family Holiday</span>
-      </div>
-      <button class="kpm-test-btn">View Details</button>
-    </div>
-
-    <!-- Testimonial 2 -->
-    <div class="kpm-test-card">
-      <div class="kpm-test-images">
-        <div class="kpm-test-img kpm-test-img-2a"></div>
-        <div class="kpm-test-img kpm-test-img-2b"></div>
-      </div>
-      <p class="kpm-test-quote">
-        “Our Andaman honeymoon was completely stress-free. Flights, ferries and
-        activities were handled smoothly by the team.”
-      </p>
-      <div class="kpm-test-meta">
-        <span class="kpm-test-name">Ankit &amp; Priya</span>
-        <span class="kpm-test-trip">Andaman Honeymoon</span>
-      </div>
-      <button class="kpm-test-btn">View Details</button>
-    </div>
-
-    <!-- Testimonial 3 -->
-    <div class="kpm-test-card">
-      <div class="kpm-test-images">
-        <div class="kpm-test-img kpm-test-img-3a"></div>
-        <div class="kpm-test-img kpm-test-img-3b"></div>
-      </div>
-      <p class="kpm-test-quote">
-        “KPM arranged our Gujarat pilgrimage with comfortable stays and darshan at
-        all major temples on time.”
-      </p>
-      <div class="kpm-test-meta">
-        <span class="kpm-test-name">Sharma Family</span>
-        <span class="kpm-test-trip">Gujarat Spiritual Tour</span>
-      </div>
-      <button class="kpm-test-btn">View Details</button>
-    </div>
-
-    <!-- Testimonial 4 -->
-    <div class="kpm-test-card">
-      <div class="kpm-test-images">
-        <div class="kpm-test-img kpm-test-img-4a"></div>
-        <div class="kpm-test-img kpm-test-img-4b"></div>
-      </div>
-      <p class="kpm-test-quote">
-        “Europe package was well curated. Visa assistance and day-wise planning
-        made our first Europe trip super smooth.”
-      </p>
-      <div class="kpm-test-meta">
-        <span class="kpm-test-name">Mehta Couple</span>
-        <span class="kpm-test-trip">Europe Delight</span>
-      </div>
-      <button class="kpm-test-btn">View Details</button>
-    </div>
-  </div>
-</section>
-
-<style>
-/* ===== BASE SECTION STYLES ===== */
-.kpm-deals-section,
-.kpm-testimonials-section {
-  max-width: 1200px;
-  margin: 60px auto 40px;
-  padding: 0 16px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
-
-.kpm-deals-header h2 {
-  font-size: 32px;
-  margin-bottom: 6px;
-  color: #111827;
-}
-
-.kpm-deals-header p {
-  margin: 0 0 22px;
-  color: #6b7280;
-  font-size: 14px;
-}
-
-/* ===== AI HEADER ===== */
-.kpm-ai-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 18px;
-  margin-bottom: 18px;
-  border-radius: 18px;
-  background: radial-gradient(circle at top left, #22d3ee, #1e40af, #020617);
-  color: #e5f6ff;
-  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.4);
-}
-
-.kpm-ai-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.kpm-ai-logo {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  border-radius: 50%;
-  background: #0f172a;
-  padding: 4px;
-}
-
-.kpm-ai-brand h3 {
-  margin: 0;
-  font-size: 18px;
-}
-
-.kpm-ai-brand p {
-  margin: 2px 0 0;
-  font-size: 11px;
-  opacity: 0.9;
-}
-
-.kpm-ai-chip {
-  font-size: 11px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.7);
-  background: rgba(15, 23, 42, 0.6);
-}
-
-/* ===== HERO SLIDER ===== */
-.kpm-hero-slider {
-  position: relative;
-  height: 260px;
-  border-radius: 24px;
-  overflow: hidden;
-  margin-bottom: 28px;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.35);
-}
-
-.kpm-hero-slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transform: scale(1.03);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.kpm-hero-slide.kpm-hero-active {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.kpm-hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.25));
-}
-
-.kpm-hero-content {
-  position: absolute;
-  left: 28px;
-  top: 50%;
-  transform: translateY(-50%);
-  max-width: 420px;
-  color: #ffffff;
-}
-
-.kpm-hero-content h2 {
-  font-size: 26px;
-  margin: 0 0 8px;
-}
-
-.kpm-hero-content p {
-  margin: 0;
-  font-size: 14px;
-  opacity: 0.9;
-}
-
-/* ===== DEALS GRID ===== */
-.kpm-deals-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-auto-rows: 210px;
-  gap: 18px;
-}
-
-/* Card base */
-.kpm-deal-card {
-  position: relative;
-  border-radius: 18px;
-  overflow: hidden;
-  cursor: pointer;
-  text-decoration: none;
-  color: #ffffff;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.35);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
-}
-
-.kpm-deal-card-tall {
-  grid-row: span 2;
-}
-
-/* Background image */
-.kpm-deal-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  transform: scale(1.03);
-  transition: transform 0.3s ease;
-}
-
-/* Gradient overlay + text */
-.kpm-deal-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(15, 23, 42, 0.1));
-  opacity: 0.9;
-}
-
-.kpm-deal-content {
-  position: absolute;
-  left: 16px;
-  right: 16px;
-  bottom: 14px;
-}
-
-.kpm-deal-content h3 {
-  margin: 0 0 2px;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-}
-
-.kpm-deal-duration {
-  display: block;
-  font-size: 12px;
-  opacity: 0.95;
-}
-
-.kpm-deal-meta {
-  margin-top: 6px;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.kpm-price {
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 3px 9px;
-  border-radius: 999px;
-  background: rgba(251, 191, 36, 0.95);
-  color: #111827;
-  align-self: flex-start;
-}
-
-.kpm-inclusions {
-  font-size: 11px;
-  opacity: 0.95;
-}
-
-.kpm-deal-btn {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.75);
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-/* Hover effects */
-.kpm-deal-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.5);
-}
-
-.kpm-deal-card:hover .kpm-deal-bg {
-  transform: scale(1.08);
-}
-
-/* ===== TESTIMONIALS GRID ===== */
-.kpm-testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.kpm-test-card {
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 16px 16px 14px;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.kpm-test-images {
-  display: flex;
-  gap: 8px;
-}
-
-.kpm-test-img {
-  flex: 1;
-  height: 70px;
-  border-radius: 12px;
-  background-size: cover;
-  background-position: center;
-}
-
-/* Example paths – change as per your images */
-.kpm-test-img-1a { background-image:url('images/test-1-guest.jpg'); }
-.kpm-test-img-1b { background-image:url('images/test-1-trip.jpg'); }
-.kpm-test-img-2a { background-image:url('images/test-2-guest.jpg'); }
-.kpm-test-img-2b { background-image:url('images/test-2-trip.jpg'); }
-.kpm-test-img-3a { background-image:url('images/test-3-guest.jpg'); }
-.kpm-test-img-3b { background-image:url('images/test-3-trip.jpg'); }
-.kpm-test-img-4a { background-image:url('images/test-4-guest.jpg'); }
-.kpm-test-img-4b { background-image:url('images/test-4-trip.jpg'); }
-
-.kpm-test-quote {
-  font-size: 13px;
-  color: #4b5563;
-  margin: 2px 0 0;
-}
-
-.kpm-test-meta {
-  display: flex;
-  flex-direction: column;
-  margin-top: 4px;
-}
-
-.kpm-test-name {
-  font-size: 13px;
-  font-weight: 600;
-  color: #111827;
-}
-
-.kpm-test-trip {
-  font-size: 11px;
-  color: #6b7280;
-}
-
-.kpm-test-btn {
-  margin-top: 6px;
-  align-self: flex-start;
-  padding: 6px 12px;
-  border-radius: 999px;
-  border: none;
-  background: #ff7a1a;
-  color: #ffffff;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-/* ===== Scroll Reveal Animation ===== */
-.kpm-hero-slider,
-.kpm-deal-card,
-.kpm-test-card {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.kpm-reveal {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 1024px) {
-  .kpm-deals-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows: 210px;
-  }
-
-  .kpm-deal-card-tall {
-    grid-row: span 1;
-  }
-
-  .kpm-testimonials-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .kpm-hero-slider {
-    height: 220px;
-  }
-}
-
-@media (max-width: 640px) {
-  .kpm-deals-grid {
-    grid-template-columns: 1fr;
-    grid-auto-rows: 210px;
-  }
-
-  .kpm-testimonials-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .kpm-hero-slider {
-    height: 200px;
-  }
-
-  .kpm-hero-content h2 {
-    font-size: 20px;
-  }
-
-  .kpm-ai-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-}
-</style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    /* ===== HERO SLIDER AUTO CHANGE (2s) ===== */
-    const slides = document.querySelectorAll(".kpm-hero-slide");
-    let currentSlide = 0;
-
-    if (slides.length > 0) {
-      setInterval(() => {
-        slides[currentSlide].classList.remove("kpm-hero-active");
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add("kpm-hero-active");
-      }, 2000); // 2000ms = 2 seconds
-    }
-
-    /* ===== SCROLL REVEAL ===== */
-    const revealItems = document.querySelectorAll(
-      ".kpm-hero-slider, .kpm-deal-card, .kpm-test-card"
-    );
-
-    const revealOnScroll = () => {
-      revealItems.forEach((item) => {
-        const rect = item.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          item.classList.add("kpm-reveal");
-        }
-      });
-    };
-
-    window.addEventListener("scroll", revealOnScroll);
-    window.addEventListener("load", revealOnScroll);
-    revealOnScroll();
-  });
-</script>
 
 
 <!-- SPECIAL HOLIDAY OFFERS -->
@@ -1624,6 +1147,8 @@
   }
 </style>
 
+
+<!-- ================== KPM SPECIAL HOLIDAY OFFERS ================== -->
 <section class="kpm-offers">
   <div class="kpm-offers-inner">
 
@@ -1647,8 +1172,6 @@
 
     <div class="kpm-offer-track" id="offers-1">
 
-      <!-- 1. Maldives – Honeymoon + International -->
-...
       <!-- 1. Maldives – Honeymoon + International -->
       <article class="kpm-offer-card" data-category="honeymoon international">
         <div class="kpm-offer-img kpm-offer-img-slider">
@@ -1876,7 +1399,6 @@
           </div>
         </div>
       </article>
-...
 
     </div>
 
@@ -1884,6 +1406,233 @@
 
   </div>
 </section>
+
+<style>
+/* ====== OFFERS SECTION LAYOUT ====== */
+.kpm-offers {
+  padding: 40px 0 32px;
+  background: #f5f7fb;
+}
+
+.kpm-offers-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* Header row */
+.kpm-offers-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.kpm-offers-header h2 {
+  margin: 0;
+  font-size: 22px;
+  color: #111827;
+}
+
+/* Tabs */
+.kpm-offer-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  flex: 1;
+}
+
+.kpm-offer-tab {
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  padding: 6px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.kpm-offer-tab:hover {
+  background: #eef2ff;
+}
+
+.kpm-offer-tab-active {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+  color: #ffffff;
+}
+
+/* Arrows */
+.kpm-offer-arrows {
+  display: flex;
+  gap: 6px;
+}
+
+.kpm-offer-arrow {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: #e5e7eb;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.kpm-offer-arrow:hover {
+  background: #d1d5db;
+}
+
+/* Track + cards */
+.kpm-offer-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+}
+
+.kpm-offer-track::-webkit-scrollbar {
+  height: 6px;
+}
+.kpm-offer-track::-webkit-scrollbar-thumb {
+  background: #cbd5f5;
+  border-radius: 999px;
+}
+
+/* Each card */
+.kpm-offer-card {
+  flex: 0 0 280px;
+  max-width: 280px;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card image slider */
+.kpm-offer-img {
+  position: relative;
+  padding-top: 62%; /* 16:10 approx */
+  overflow: hidden;
+}
+
+.kpm-offer-img-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+/* JS will toggle opacity; default first visible if CSS alone */
+.kpm-offer-img-slide:first-child {
+  opacity: 1;
+}
+
+/* Card content */
+.kpm-offer-body {
+  padding: 12px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.kpm-offer-body h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #111827;
+}
+
+.kpm-offer-body p {
+  margin: 0;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.kpm-offer-price {
+  margin-top: 4px;
+  font-weight: 600;
+  color: #16a34a;
+}
+
+.kpm-offer-actions {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.kpm-offer-link {
+  font-size: 13px;
+  color: #2563eb;
+}
+
+.kpm-book-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: none;
+  background: #f97316;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Dots created by JS */
+.kpm-offer-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 10px 0 0;
+}
+
+.kpm-offer-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: #d1d5db;
+  cursor: pointer;
+}
+
+.kpm-offer-dot-active {
+  background: #2563eb;
+}
+
+/* View all link */
+.kpm-offer-viewall {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2563eb;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .kpm-offers-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .kpm-offer-track {
+    padding-top: 4px;
+  }
+}
+
+@media (max-width: 600px) {
+  .kpm-offer-card {
+    flex: 0 0 240px;
+    max-width: 240px;
+  }
+}
+</style>
 
 <script>
   window.addEventListener('load', function () {
@@ -1950,7 +1699,7 @@
       stopAutoSlide();
       autoSlideInterval = setInterval(function () {
         goToSlide(currentIndex + 1, true);
-      }, 2000); // main slider 2 sec
+      }, 2000);
     }
 
     function stopAutoSlide() {
@@ -1976,7 +1725,7 @@
           slides[idx].style.opacity = '0';
           idx = (idx + 1) % slides.length;
           slides[idx].style.opacity = '1';
-        }, 2000); // card ke andar 2 sec
+        }, 2000);
       });
     }
 
@@ -2035,6 +1784,12 @@
     startAutoSlide();
   });
 </script>
+
+
+
+
+
+
 
 
 
@@ -3382,23 +3137,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- KPM - Other Travel Services Section -->
+
+
+<!-- ================== KPM’s TRAVEL SERVICES ================== -->
 <section class="kpm-services">
   <div class="kpm-services-inner">
     <h2 class="kpm-services-title">KPM’s Travel Services</h2>
+    <p class="kpm-services-subtitle">
+      One trusted place for flights, stays, visas, activities and more.
+    </p>
 
     <div class="kpm-services-grid">
 
@@ -3412,7 +3160,7 @@ document.addEventListener("DOMContentLoaded", function () {
       </a>
 
       <!-- Hotels & Stays -->
-      <a href="hotels.html" class="kpm-service-card" style="background-image:url('images/Hotels\ &\ Stays.jpg');">
+      <a href="hotels.html" class="kpm-service-card" style="background-image:url('images/Hotels & Stays.jpg');">
         <div class="kpm-service-overlay">
           <h3>Hotels & Stays</h3>
           <p>Handpicked resorts, villas & city hotels.</p>
@@ -3421,7 +3169,7 @@ document.addEventListener("DOMContentLoaded", function () {
       </a>
 
       <!-- Flight Tickets -->
-      <a href="flights.html" class="kpm-service-card" style="background-image:url('images/flight\ tickets.jpg');">
+      <a href="flights.html" class="kpm-service-card" style="background-image:url('images/flight tickets.jpg');">
         <div class="kpm-service-overlay">
           <h3>Flight Tickets</h3>
           <p>Best airfare deals for your next trip.</p>
@@ -3430,7 +3178,7 @@ document.addEventListener("DOMContentLoaded", function () {
       </a>
 
       <!-- Visa Assistance -->
-      <a href="visa-assistance.html" class="kpm-service-card" style="background-image:url('images/visa\ assistance.jpg');">
+      <a href="visa-assistance.html" class="kpm-service-card" style="background-image:url('images/visa assistance.jpg');">
         <div class="kpm-service-overlay">
           <h3>Visa Assistance</h3>
           <p>End-to-end support for tourist visas.</p>
@@ -3439,9 +3187,7 @@ document.addEventListener("DOMContentLoaded", function () {
       </a>
 
       <!-- Airport Transfers -->
-      <a href="transfers.html" class="kpm-service-card" style="background-image:url('images/airport\ transfer.jpg');">
-
-        
+      <a href="transfers.html" class="kpm-service-card" style="background-image:url('images/airport transfer.jpg');">
         <div class="kpm-service-overlay">
           <h3>Airport Transfers</h3>
           <p>Private cabs & coach transfers at destination.</p>
@@ -3450,7 +3196,7 @@ document.addEventListener("DOMContentLoaded", function () {
       </a>
 
       <!-- Activities & Tours -->
-      <a href="activities.html" class="kpm-service-card" style="background-image:url('images/activity\ seen.jpg');">
+      <a href="activities.html" class="kpm-service-card" style="background-image:url('images/activity seen.jpg');">
         <div class="kpm-service-overlay">
           <h3>Activities & Sightseeing</h3>
           <p>City tours, adventure & experiences.</p>
@@ -3459,7 +3205,7 @@ document.addEventListener("DOMContentLoaded", function () {
       </a>
 
       <!-- Travel Insurance -->
-      <a href="insurance.html" class="kpm-service-card" style="background-image:url('images/travel\ insurance.jpg');">
+      <a href="insurance.html" class="kpm-service-card" style="background-image:url('images/travel insurance.jpg');">
         <div class="kpm-service-overlay">
           <h3>Travel Insurance</h3>
           <p>Secure your trip against emergencies.</p>
@@ -3471,62 +3217,654 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 </section>
 
+<style>
+/* ============= KPM TRAVEL SERVICES ============= */
+.kpm-services {
+  padding: 40px 0 48px;
+  background: #f5f7fb;
+}
 
-<!-- KPM - Popular Holiday Links / Footer SEO Section -->
-<section class="kpm-link-section">
-  <div class="kpm-link-inner">
+.kpm-services-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  font-family: "Inter", system-ui, sans-serif;
+}
 
-    <h2 class="kpm-link-title">Popular Holiday Collections & Services</h2>
+.kpm-services-title {
+  text-align: center;
+  margin: 0 0 6px;
+  font-size: 24px;
+  color: #111827;
+}
 
-    <div class="kpm-link-grid">
+.kpm-services-subtitle {
+  text-align: center;
+  margin: 0 0 24px;
+  font-size: 14px;
+  color: #6b7280;
+}
 
-      <!-- Column 1 -->
-      <div class="kpm-link-group">
-        <h3>Popular Indian Holidays</h3>
-        <a href="ladakh-packages.html">Ladakh Tour Packages</a>
-        <a href="kashmir-packages.html">Kashmir Holiday Packages</a>
-        <a href="himachal-packages.html">Himachal Tour Packages</a>
-        <a href="goa-packages.html">Goa Beach Holidays</a>
-        <a href="kerala-packages.html">Kerala Backwater Tours</a>
-        <a href="rajasthan-packages.html">Rajasthan Heritage Trips</a>
+/* Grid */
+.kpm-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* Service card */
+.kpm-service-card {
+  position: relative;
+  display: block;
+  min-height: 180px;
+  border-radius: 18px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.28);
+  transform: translateY(0) scale(1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  color: #ffffff;
+}
+
+.kpm-service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.25));
+}
+
+.kpm-service-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.35);
+}
+
+/* overlay content */
+.kpm-service-overlay {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  padding: 16px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.kpm-service-overlay h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.kpm-service-overlay p {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.kpm-service-btn {
+  margin-top: 8px;
+  align-self: flex-start;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #111827;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.kpm-service-card:hover .kpm-service-btn {
+  background: #f97316;
+  color: #ffffff;
+}
+
+/* Fade-in animation (JS se class add hogi) */
+.kpm-service-card {
+  opacity: 0;
+  transform: translateY(10px) scale(1);
+}
+
+.kpm-service-card.kpm-service-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.35s ease, transform 0.35s ease, box-shadow 0.25s ease;
+}
+
+/* ============= RESPONSIVE ============= */
+@media (max-width: 992px) {
+  .kpm-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .kpm-services {
+    padding: 32px 0 36px;
+  }
+
+  .kpm-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kpm-service-card {
+    min-height: 190px;
+  }
+}
+</style>
+
+<script>
+  // Simple scroll reveal for service cards
+  document.addEventListener('DOMContentLoaded', function () {
+    const cards = document.querySelectorAll('.kpm-service-card');
+    if (!cards.length) return;
+
+    if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('kpm-service-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      cards.forEach(card => obs.observe(card));
+    } else {
+      // fallback: show all
+      cards.forEach(card => card.classList.add('kpm-service-visible'));
+    }
+  });
+</script>
+
+
+<section class="kpm-testimonials-section">
+  <div class="kpm-deals-header">
+    <h2>What Our Guests Say</h2>
+    <p>Real experiences from travellers who trusted KPM Global Holiday.</p>
+  </div>
+
+  <div class="kpm-testimonials-grid">
+    <!-- Testimonial 1 -->
+    <div class="kpm-test-card">
+      <div class="kpm-test-images">
+        <div class="kpm-test-img kpm-test-img-1a"></div>
+        <div class="kpm-test-img kpm-test-img-1b"></div>
       </div>
-
-      <!-- Column 2 -->
-      <div class="kpm-link-group">
-        <h3>Popular International Holidays</h3>
-        <a href="maldives-packages.html">Maldives Honeymoon Packages</a>
-        <a href="bali-packages.html">Bali Holiday Packages</a>
-        <a href="dubai-packages.html">Dubai Family Packages</a>
-        <a href="thailand-packages.html">Thailand Beach Holidays</a>
-        <a href="europe-packages.html">Europe Tour Packages</a>
-        <a href="singapore-packages.html">Singapore & Malaysia Tours</a>
+      <p class="kpm-test-quote">
+        “KPM planned our Dubai family trip end-to-end. Hotels, transfers and tours
+        – everything was perfectly timed.”
+      </p>
+      <div class="kpm-test-meta">
+        <span class="kpm-test-name">Rahul &amp; Neha</span>
+        <span class="kpm-test-trip">Dubai Family Holiday</span>
       </div>
+      <button class="kpm-test-btn">View Details</button>
+    </div>
 
-      <!-- Column 3 -->
-      <div class="kpm-link-group">
-        <h3>Theme Based Holidays</h3>
-        <a href="honeymoon-packages.html">Honeymoon Tour Packages</a>
-        <a href="family-packages.html">Family Holiday Packages</a>
-        <a href="group-tours.html">Fixed Departure Group Tours</a>
-        <a href="weekend-getaways.html">Weekend Getaways from Delhi</a>
-        <a href="pilgrimage-tours.html">Pilgrimage & Spiritual Tours</a>
-        <a href="adventure-tours.html">Adventure & Trekking Trips</a>
+    <!-- Testimonial 2 -->
+    <div class="kpm-test-card">
+      <div class="kpm-test-images">
+        <div class="kpm-test-img kpm-test-img-2a"></div>
+        <div class="kpm-test-img kpm-test-img-2b"></div>
       </div>
-
-      <!-- Column 4 -->
-      <div class="kpm-link-group">
-        <h3>KPM Holiday Services</h3>
-        <a href="book.html">Customised Holiday Planning</a>
-        <a href="flights.html">Flight Booking</a>
-        <a href="hotels.html">Hotel & Resort Booking</a>
-        <a href="visa-assistance.html">Visa & Documentation Help</a>
-        <a href="transfers.html">Airport & Local Transfers</a>
-        <a href="insurance.html">Travel Insurance Support</a>
+      <p class="kpm-test-quote">
+        “Our Andaman honeymoon was completely stress-free. Flights, ferries and
+        activities were handled smoothly by the team.”
+      </p>
+      <div class="kpm-test-meta">
+        <span class="kpm-test-name">Ankit &amp; Priya</span>
+        <span class="kpm-test-trip">Andaman Honeymoon</span>
       </div>
+      <button class="kpm-test-btn">View Details</button>
+    </div>
 
+    <!-- Testimonial 3 -->
+    <div class="kpm-test-card">
+      <div class="kpm-test-images">
+        <div class="kpm-test-img kpm-test-img-3a"></div>
+        <div class="kpm-test-img kpm-test-img-3b"></div>
+      </div>
+      <p class="kpm-test-quote">
+        “KPM arranged our Gujarat pilgrimage with comfortable stays and darshan at
+        all major temples on time.”
+      </p>
+      <div class="kpm-test-meta">
+        <span class="kpm-test-name">Sharma Family</span>
+        <span class="kpm-test-trip">Gujarat Spiritual Tour</span>
+      </div>
+      <button class="kpm-test-btn">View Details</button>
+    </div>
+
+    <!-- Testimonial 4 -->
+    <div class="kpm-test-card">
+      <div class="kpm-test-images">
+        <div class="kpm-test-img kpm-test-img-4a"></div>
+        <div class="kpm-test-img kpm-test-img-4b"></div>
+      </div>
+      <p class="kpm-test-quote">
+        “Europe package was well curated. Visa assistance and day-wise planning
+        made our first Europe trip super smooth.”
+      </p>
+      <div class="kpm-test-meta">
+        <span class="kpm-test-name">Mehta Couple</span>
+        <span class="kpm-test-trip">Europe Delight</span>
+      </div>
+      <button class="kpm-test-btn">View Details</button>
     </div>
   </div>
 </section>
+
+<style>
+/* ===== BASE SECTION STYLES ===== */
+.kpm-deals-section,
+.kpm-testimonials-section {
+  max-width: 1200px;
+  margin: 60px auto 40px;
+  padding: 0 16px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.kpm-deals-header h2 {
+  font-size: 32px;
+  margin-bottom: 6px;
+  color: #111827;
+}
+
+.kpm-deals-header p {
+  margin: 0 0 22px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* ===== AI HEADER ===== */
+.kpm-ai-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  margin-bottom: 18px;
+  border-radius: 18px;
+  background: radial-gradient(circle at top left, #22d3ee, #1e40af, #020617);
+  color: #e5f6ff;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.4);
+}
+
+.kpm-ai-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.kpm-ai-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #0f172a;
+  padding: 4px;
+}
+
+.kpm-ai-brand h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.kpm-ai-brand p {
+  margin: 2px 0 0;
+  font-size: 11px;
+  opacity: 0.9;
+}
+
+.kpm-ai-chip {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background: rgba(15, 23, 42, 0.6);
+}
+
+/* ===== HERO SLIDER ===== */
+.kpm-hero-slider {
+  position: relative;
+  height: 260px;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 28px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.35);
+}
+
+.kpm-hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.kpm-hero-slide.kpm-hero-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.kpm-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.25));
+}
+
+.kpm-hero-content {
+  position: absolute;
+  left: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 420px;
+  color: #ffffff;
+}
+
+.kpm-hero-content h2 {
+  font-size: 26px;
+  margin: 0 0 8px;
+}
+
+.kpm-hero-content p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* ===== DEALS GRID ===== */
+.kpm-deals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 210px;
+  gap: 18px;
+}
+
+/* Card base */
+.kpm-deal-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.kpm-deal-card-tall {
+  grid-row: span 2;
+}
+
+/* Background image */
+.kpm-deal-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.03);
+  transition: transform 0.3s ease;
+}
+
+/* Gradient overlay + text */
+.kpm-deal-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(15, 23, 42, 0.1));
+  opacity: 0.9;
+}
+
+.kpm-deal-content {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+}
+
+.kpm-deal-content h3 {
+  margin: 0 0 2px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.kpm-deal-duration {
+  display: block;
+  font-size: 12px;
+  opacity: 0.95;
+}
+
+.kpm-deal-meta {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.kpm-price {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(251, 191, 36, 0.95);
+  color: #111827;
+  align-self: flex-start;
+}
+
+.kpm-inclusions {
+  font-size: 11px;
+  opacity: 0.95;
+}
+
+.kpm-deal-btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Hover effects */
+.kpm-deal-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.5);
+}
+
+.kpm-deal-card:hover .kpm-deal-bg {
+  transform: scale(1.08);
+}
+
+/* ===== TESTIMONIALS GRID ===== */
+.kpm-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.kpm-test-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 16px 16px 14px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.kpm-test-images {
+  display: flex;
+  gap: 8px;
+}
+
+.kpm-test-img {
+  flex: 1;
+  height: 70px;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Example paths – change as per your images */
+.kpm-test-img-1a { background-image:url('images/test-1-guest.jpg'); }
+.kpm-test-img-1b { background-image:url('images/test-1-trip.jpg'); }
+.kpm-test-img-2a { background-image:url('images/test-2-guest.jpg'); }
+.kpm-test-img-2b { background-image:url('images/test-2-trip.jpg'); }
+.kpm-test-img-3a { background-image:url('images/test-3-guest.jpg'); }
+.kpm-test-img-3b { background-image:url('images/test-3-trip.jpg'); }
+.kpm-test-img-4a { background-image:url('images/test-4-guest.jpg'); }
+.kpm-test-img-4b { background-image:url('images/test-4-trip.jpg'); }
+
+.kpm-test-quote {
+  font-size: 13px;
+  color: #4b5563;
+  margin: 2px 0 0;
+}
+
+.kpm-test-meta {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4px;
+}
+
+.kpm-test-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.kpm-test-trip {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.kpm-test-btn {
+  margin-top: 6px;
+  align-self: flex-start;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: none;
+  background: #ff7a1a;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* ===== Scroll Reveal Animation ===== */
+.kpm-hero-slider,
+.kpm-deal-card,
+.kpm-test-card {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.kpm-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .kpm-deals-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 210px;
+  }
+
+  .kpm-deal-card-tall {
+    grid-row: span 1;
+  }
+
+  .kpm-testimonials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .kpm-hero-slider {
+    height: 220px;
+  }
+}
+
+@media (max-width: 640px) {
+  .kpm-deals-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 210px;
+  }
+
+  .kpm-testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kpm-hero-slider {
+    height: 200px;
+  }
+
+  .kpm-hero-content h2 {
+    font-size: 20px;
+  }
+
+  .kpm-ai-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    /* ===== HERO SLIDER AUTO CHANGE (2s) ===== */
+    const slides = document.querySelectorAll(".kpm-hero-slide");
+    let currentSlide = 0;
+
+    if (slides.length > 0) {
+      setInterval(() => {
+        slides[currentSlide].classList.remove("kpm-hero-active");
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add("kpm-hero-active");
+      }, 2000); // 2000ms = 2 seconds
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    const revealItems = document.querySelectorAll(
+      ".kpm-hero-slider, .kpm-deal-card, .kpm-test-card"
+    );
+
+    const revealOnScroll = () => {
+      revealItems.forEach((item) => {
+        const rect = item.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          item.classList.add("kpm-reveal");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+    revealOnScroll();
+  });
+</script>
+
+
+
+
+
+<!-- KPM - Popular Holiday Links / Footer SEO Section -->
+
+
 
 <!-- =================== MODERN AI FUTURISTIC FOOTER =================== --
 
@@ -3868,16 +4206,6 @@ document.addEventListener("DOMContentLoaded", function () {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 
-
-
-
-
-
-
-
-
-
-
   <!-- Supabase client -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
@@ -4107,135 +4435,789 @@ function processFormSearch(){
 </script>
 
 <!-- ===== KPM AUTO POPUP ENQUIRY ===== -->
-<!-- ===== KPM AUTO POPUP ENQUIRY ===== -->
-<div id="kpm-popup-overlay" class="kpm-popup-overlay">
-  <div class="kpm-popup">
+<!-- ===== <!============= KPM – GET BEST TRAVEL DEALS ============= -->
 
-    <!-- Close button -->
-    <button type="button" class="kpm-popup-close" id="kpm-popup-close">&times;</button>
+
+<!-- ============= POPUP (same form in modal) ============= -->
+<!-- ============ KPM DEALS AUTO POPUP MODAL ============ -->
+ 
+<div class="kpm-deals-modal" id="kpmDealsModal" aria-hidden="true">
+  <!-- Animated Background -->
+  <div class="kpm-deals-modal-backdrop">
+    <div class="kpm-backdrop-grid"></div>
+  </div>
+
+  <!-- Modal Box -->
+  <div class="kpm-deals-modal-box">
+    <!-- Close Button -->
+    <button class="kpm-deals-modal-close" type="button" id="kpmDealsModalClose" aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
 
     <!-- Header -->
-    <div class="kpm-popup-header">
-      <h2>Get Best <span>Travel Deals</span></h2>
-      <p>Share your details, our KPM Global Holiday expert will call you back.</p>
+    <div class="kpm-deals-header">
+      <h2 class="kpm-deals-title">Get Best Travel Deals</h2>
+      <p class="kpm-deals-subtitle">
+        Leave your details and we'll call back with customised offers.
+      </p>
     </div>
 
-    <!-- Enquiry Form -->
-    <form
-  id="kpm-enquiry-form"
-  action="https://formspree.io/f/mgvgyyle"
-  method="POST"
-  class="kpm-form"
->
-
-      <div class="kpm-field">
-        <label>FULL NAME</label>
+    <!-- Form -->
+    <form class="kpm-deals-form" id="kpmDealsPopupForm">
+      <div class="kpm-deals-field">
+        <label>
+          <svg class="kpm-field-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 8C9.65685 8 11 6.65685 11 5C11 3.34315 9.65685 2 8 2C6.34315 2 5 3.34315 5 5C5 6.65685 6.34315 8 8 8Z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M13 14C13 11.7909 10.7614 10 8 10C5.23858 10 3 11.7909 3 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Full Name
+        </label>
         <input type="text" name="name" placeholder="Enter your name" required>
       </div>
 
-      <div class="kpm-field">
-        <label>MOBILE NUMBER</label>
+      <div class="kpm-deals-field">
+        <label>
+          <svg class="kpm-field-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M14 11.5V13.5C14 13.7761 13.7761 14 13.5 14H2.5C2.22386 14 2 13.7761 2 13.5V11.5M11 5L8 2M8 2L5 5M8 2V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Mobile Number
+        </label>
         <input type="tel" name="mobile" placeholder="Enter mobile number" required>
       </div>
 
-      <div class="kpm-field">
-        <label>EMAIL</label>
+      <div class="kpm-deals-field">
+        <label>
+          <svg class="kpm-field-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M2 4L8 8L14 4M2 4V12C2 12.5523 2.44772 13 3 13H13C13.5523 13 14 12.5523 14 12V4M2 4L3 3H13L14 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Email
+        </label>
         <input type="email" name="email" placeholder="Enter your email" required>
       </div>
 
-      <div class="kpm-field">
-        <label>PLACE TO VISIT / QUERY</label>
-        <input type="text" name="destination" placeholder="e.g. Manali, Dubai..." required>
+      <div class="kpm-deals-field">
+        <label>
+          <svg class="kpm-field-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8 5V8L10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Place to Visit / Query
+        </label>
+        <input type="text" name="place" placeholder="e.g. Manali, Dubai..." required>
       </div>
 
-      <div class="kpm-row">
-        <div class="kpm-field">
-          <label>TRAVEL DATE</label>
-          <input type="date" name="travel_date">
-        </div>
-
-        <div class="kpm-field">
-          <label>NO. OF TRAVELLERS</label>
-          <input type="number" name="travellers" min="1" value="2">
-        </div>
+      <div class="kpm-deals-field">
+        <label>
+          <svg class="kpm-field-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <rect x="2" y="3" width="12" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M2 6H14M5 2V4M11 2V4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Travel Date
+        </label>
+        <input type="date" name="date" placeholder="dd-mm-yyyy">
       </div>
 
-      <button type="submit" class="kpm-btn">Submit</button>
+      <div class="kpm-deals-field">
+        <label>
+          <svg class="kpm-field-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M5 7C6.10457 7 7 6.10457 7 5C7 3.89543 6.10457 3 5 3C3.89543 3 3 3.89543 3 5C3 6.10457 3.89543 7 5 7Z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M11 7C12.1046 7 13 6.10457 13 5C13 3.89543 12.1046 3 11 3C9.89543 3 9 3.89543 9 5C9 6.10457 9.89543 7 11 7Z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8 13C9.10457 13 10 12.1046 10 11C10 9.89543 9.10457 9 8 9C6.89543 9 6 9.89543 6 11C6 12.1046 6.89543 13 8 13Z" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          No. of Travellers
+        </label>
+        <input type="number" name="travellers" min="1" value="2">
+      </div>
 
-      <div class="kpm-note">
-        * Our team will contact you with best offers.
+      <div class="kpm-deals-submit-wrap">
+        <button type="submit" class="kpm-deals-submit-btn">
+          <span class="kpm-btn-text">Submit Enquiry</span>
+          <span class="kpm-btn-loader"></span>
+          <span class="kpm-btn-glow"></span>
+        </button>
       </div>
     </form>
 
+    <!-- Footer Note -->
+    <p class="kpm-deals-note">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="vertical-align: middle; margin-right: 4px;">
+        <path d="M7 13C10.3137 13 13 10.3137 13 7C13 3.68629 10.3137 1 7 1C3.68629 1 1 3.68629 1 7C1 10.3137 3.68629 13 7 13Z" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M7 4V7L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      Our team will contact you with best offers within 24 hours.
+    </p>
+  </div>
+</div>
+
+<style>
+/* ============================================================
+   KPM DEALS AUTO POPUP - MODERN AI FUTURISTIC DESIGN
+   ============================================================ */
+
+
+
+
+
+
+
+/* Reset & Base */
+.kpm-deals-modal * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Modal Container */
+.kpm-deals-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+
+.kpm-deals-modal.show {
+  display: flex;
+  animation: kpmFadeIn 0.4s ease forwards;
+}
+
+@keyframes kpmFadeIn {
+  to { opacity: 1; }
+}
+
+/* Animated Backdrop */
+.kpm-deals-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.96) 0%, rgba(15, 32, 60, 0.94) 100%);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+.kpm-backdrop-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: kpmGridMove 20s linear infinite;
+}
+
+@keyframes kpmGridMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+/* Modal Box */
+.kpm-deals-modal-box {
+  position: relative;
+  max-width: 620px;
+  width: 94%;
+  max-height: 90vh;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.96) 100%);
+  border-radius: 24px;
+  padding: 42px 36px 36px;
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(0, 255, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  z-index: 1;
+  overflow-y: auto;
+  animation: kpmSlideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes kpmSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.kpm-deals-modal-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.kpm-deals-modal-box::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+.kpm-deals-modal-box::-webkit-scrollbar-thumb {
+  background: rgba(37, 99, 235, 0.3);
+  border-radius: 10px;
+}
+
+.kpm-deals-modal-box::-webkit-scrollbar-thumb:hover {
+  background: rgba(37, 99, 235, 0.5);
+}
+
+/* Close Button */
+.kpm-deals-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(100, 116, 139, 0.2);
+  background: rgba(248, 250, 252, 0.9);
+  backdrop-filter: blur(8px);
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+}
+
+.kpm-deals-modal-close:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  transform: rotate(90deg) scale(1.05);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+/* Header Section */
+.kpm-deals-header {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.kpm-deals-title {
+  margin: 0 0 10px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  display: inline-block;
+}
+
+.kpm-deals-title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #2563eb, transparent);
+  border-radius: 2px;
+}
+
+.kpm-deals-subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+  margin-top: 14px;
+}
+
+/* Form */
+.kpm-deals-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.kpm-deals-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.kpm-deals-field label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #475569;
+}
+
+.kpm-field-icon {
+  width: 16px;
+  height: 16px;
+  color: #2563eb;
+  opacity: 0.8;
+}
+
+.kpm-deals-field input {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(203, 213, 225, 0.6);
+  background: rgba(248, 250, 252, 0.8);
+  font-size: 14px;
+  color: #1e293b;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.kpm-deals-field input::placeholder {
+  color: #94a3b8;
+}
+
+.kpm-deals-field input:focus {
+  border-color: #2563eb;
+  background: #ffffff;
+  box-shadow: 
+    0 0 0 3px rgba(37, 99, 235, 0.1),
+    0 4px 12px rgba(37, 99, 235, 0.15);
+  transform: translateY(-1px);
+}
+
+.kpm-deals-field input:hover:not(:focus) {
+  border-color: rgba(37, 99, 235, 0.3);
+}
+
+/* Submit Button Wrapper */
+.kpm-deals-submit-wrap {
+  grid-column: 1 / -1;
+  margin-top: 8px;
+}
+
+/* Submit Button */
+.kpm-deals-submit-btn {
+  position: relative;
+  width: 100%;
+  padding: 16px 32px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 8px 24px rgba(37, 99, 235, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  font-family: inherit;
+}
+
+.kpm-btn-text {
+  position: relative;
+  z-index: 2;
+}
+
+.kpm-btn-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  opacity: 0;
+  z-index: 3;
+}
+
+.kpm-deals-submit-btn.loading .kpm-btn-loader {
+  opacity: 1;
+  animation: kpmSpin 0.8s linear infinite;
+}
+
+.kpm-deals-submit-btn.loading .kpm-btn-text {
+  opacity: 0;
+}
+
+@keyframes kpmSpin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.kpm-btn-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+  z-index: 1;
+}
+
+.kpm-deals-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 32px rgba(37, 99, 235, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.kpm-deals-submit-btn:hover .kpm-btn-glow {
+  left: 100%;
+}
+
+.kpm-deals-submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Footer Note */
+.kpm-deals-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(59, 130, 246, 0.08) 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.kpm-deals-note svg {
+  flex-shrink: 0;
+  color: #2563eb;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .kpm-deals-modal-box {
+    padding: 36px 24px 28px;
+    max-width: 96%;
+    border-radius: 20px;
+  }
+
+  .kpm-deals-title {
+    font-size: 24px;
+  }
+
+  .kpm-deals-subtitle {
+    font-size: 13px;
+  }
+
+  .kpm-deals-form {
+    gap: 16px;
+  }
+
+  .kpm-deals-field input {
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+
+  .kpm-deals-submit-btn {
+    padding: 14px 24px;
+    font-size: 14px;
+  }
+
+  .kpm-deals-modal-close {
+    width: 34px;
+    height: 34px;
+    top: 14px;
+    right: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .kpm-deals-form {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .kpm-deals-modal-box {
+    padding: 32px 20px 24px;
+  }
+
+  .kpm-deals-title {
+    font-size: 22px;
+  }
+
+  .kpm-deals-note {
+    padding: 14px 16px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .kpm-deals-modal-box {
+    padding: 28px 18px 22px;
+    border-radius: 18px;
+  }
+
+  .kpm-deals-title {
+    font-size: 20px;
+  }
+
+  .kpm-deals-subtitle {
+    font-size: 12px;
+  }
+
+  .kpm-deals-field label {
+    font-size: 11px;
+  }
+
+  .kpm-deals-field input {
+    padding: 11px 13px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+
+  .kpm-deals-submit-btn {
+    padding: 13px 20px;
+    font-size: 13px;
+    border-radius: 12px;
+  }
+}
+
+/* ============================================================
+   ACCESSIBILITY & PERFORMANCE
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .kpm-deals-modal,
+  .kpm-deals-modal-box,
+  .kpm-backdrop-grid,
+  .kpm-deals-submit-btn,
+  .kpm-deals-field input {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+.kpm-deals-modal-close:focus-visible,
+.kpm-deals-field input:focus-visible,
+.kpm-deals-submit-btn:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+</style>
+
+<div class="kpm-deals-modal" id="kpmDealsModal" aria-hidden="true">
+  <!-- Animated Background -->
+  <div class="kpm-deals-modal-backdrop">
+    <div class="kpm-backdrop-grid"></div>
+  </div>
+
+  <!-- Modal Box -->
+  <div class="kpm-deals-modal-box">
+    <!-- Close Button -->
+    <button class="kpm-deals-modal-close" type="button" id="kpmDealsModalClose" aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <!-- Header -->
+    <div class="kpm-deals-header">
+      <h2 class="kpm-deals-title">Get Best Travel Deals</h2>
+      <p class="kpm-deals-subtitle">
+        Leave your details and we'll call back with customised offers.
+      </p>
+    </div>
+
+    <!-- Form (FORMSPREE) -->
+    <form class="kpm-deals-form"
+          id="kpmDealsPopupForm"
+          action="https://formspree.io/f/mgvgyyle"  <!-- yaha apna Formspree endpoint daalo -->
+          method="POST">
+
+      <div class="kpm-deals-field">
+        <label>
+          <svg class="kpm-field-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 8C9.65685 8 11 6.65685 11 5C11 3.34315 9.65685 2 8 2C6.34315 2 5 3.34315 5 5C5 6.65685 6.34315 8 8 8Z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M13 14C13 11.7909 10.7614 10 8 10C5.23858 10 3 11.7909 3 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Full Name
+        </label>
+        <input type="text" name="name" placeholder="Enter your name" required>
+      </div>
+
+      <div class="kpm-deals-field">
+        <label>
+          <svg class="kpm-field-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M14 11.5V13.5C14 13.7761 13.7761 14 13.5 14H2.5C2.22386 14 2 13.7761 2 13.5V11.5M11 5L8 2M8 2L5 5M8 2V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Mobile Number
+        </label>
+        <input type="tel" name="mobile" placeholder="Enter mobile number" required>
+      </div>
+
+      <div class="kpm-deals-field">
+        <label>
+          <svg class="kpm-field-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M2 4L8 8L14 4M2 4V12C2 12.5523 2.44772 13 3 13H13C13.5523 13 14 12.5523 14 12V4M2 4L3 3H13L14 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Email
+        </label>
+        <input type="email" name="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="kpm-deals-field">
+        <label>
+          <svg class="kpm-field-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8 5V8L10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Place to Visit / Query
+        </label>
+        <input type="text" name="place" placeholder="e.g. Manali, Dubai..." required>
+      </div>
+
+      <div class="kpm-deals-field">
+        <label>
+          <svg class="kpm-field-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <rect x="2" y="3" width="12" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M2 6H14M5 2V4M11 2V4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Travel Date
+        </label>
+        <input type="date" name="date" placeholder="dd-mm-yyyy">
+      </div>
+
+      <div class="kpm-deals-field">
+        <label>
+          <svg class="kpm-field-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M5 7C6.10457 7 7 6.10457 7 5C7 3.89543 6.10457 3 5 3C3.89543 3 3 3.89543 3 5C3 6.10457 3.89543 7 5 7Z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M11 7C12.1046 7 13 6.10457 13 5C13 3.89543 12.1046 3 11 3C9.89543 3 9 3.89543 9 5C9 6.10457 9.89543 7 11 7Z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8 13C9.10457 13 10 12.1046 10 11C10 9.89543 9.10457 9 8 9C6.89543 9 6 9.89543 6 11C6 12.1046 6.89543 13 8 13Z" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          No. of Travellers
+        </label>
+        <input type="number" name="travellers" min="1" value="2">
+      </div>
+
+      <!-- Optional: extra info for Formspree email -->
+      <input type="hidden" name="_subject" value="New Travel Enquiry - KPM Global Holiday">
+      <input type="hidden" name="_captcha" value="false">
+
+      <div class="kpm-deals-submit-wrap">
+        <button type="submit" class="kpm-deals-submit-btn">
+          <span class="kpm-btn-text">Submit Enquiry</span>
+          <span class="kpm-btn-loader"></span>
+          <span class="kpm-btn-glow"></span>
+        </button>
+      </div>
+    </form>
+
+    <!-- Footer Note -->
+    <p class="kpm-deals-note">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="vertical-align: middle; margin-right: 4px;">
+        <path d="M7 13C10.3137 13 13 10.3137 13 7C13 3.68629 10.3137 1 7 1C3.68629 1 1 3.68629 1 7C1 10.3137 3.68629 13 7 13Z" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M7 4V7L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      Our team will contact you with best offers within 24 hours.
+    </p>
   </div>
 </div>
 
 
 <script>
-  // 10 second baad popup show karne wala function
-  function kpmShowPopup() {
-    const overlay = document.getElementById('kpm-popup-overlay');
-    if (overlay) {
-      overlay.style.display = 'flex';
-    }
-  }
-
-  // Page load ke 10 sec baad popup
-  window.addEventListener('load', function () {
-    setTimeout(kpmShowPopup, 10000); // 10000 ms = 10 seconds
-  });
-
-  // Close + submit handling
-  document.addEventListener('DOMContentLoaded', function () {
-    const overlay = document.getElementById('kpm-popup-overlay');
-    const closeBtn = document.getElementById('kpm-popup-close');
-    const form = document.getElementById('kpm-enquiry-form');
-
-    // Close button
-    if (closeBtn && overlay) {
-      closeBtn.addEventListener('click', function () {
-        overlay.style.display = 'none';
-      });
-
-      // Overlay ke dark area par click se bhi close
-      overlay.addEventListener('click', function (e) {
-        if (e.target === overlay) {
-          overlay.style.display = 'none';
+  // ======= BASIC FRONT-END HANDLING =======
+  (function () {
+    // Stop real submission (front-end only demo)
+    function attachDummySubmit(form) {
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        
+        // Add loading state
+        const submitBtn = form.querySelector('.kpm-deals-submit-btn');
+        if (submitBtn) {
+          submitBtn.classList.add('loading');
+          submitBtn.disabled = true;
         }
-      });
-    }
 
-    // Form submit -> Formspree
-    if (form && overlay) {
-      form.addEventListener('submit', async function (e) {
-        e.preventDefault(); // default submit rokna
-
-        const formData = new FormData(form);
-
-        try {
-          const response = await fetch(form.action, {
-            method: form.method || 'POST',
-            body: formData,
-            headers: {
-              'Accept': 'application/json'
-            }
-          });
-
-          if (response.ok) {
-            alert('Thank you! Our KPM Global Holidays team will contact you soon.');
-            form.reset();
-            overlay.style.display = 'none';
-          } else {
-            alert('Something went wrong while sending your details. Please try again.');
+        // Simulate API call
+        setTimeout(function() {
+          alert("Thank you! Our KPM Global Holiday team will call you back.");
+          
+          // Remove loading state
+          if (submitBtn) {
+            submitBtn.classList.remove('loading');
+            submitBtn.disabled = false;
           }
-        } catch (err) {
-          console.error(err);
-          alert('Network error. Please check your connection and try again.');
-        }
+          
+          // Close modal
+          const modal = document.getElementById('kpmDealsModal');
+          if (modal) modal.classList.remove('show');
+          
+          form.reset();
+        }, 1500);
       });
     }
-  });
+
+    attachDummySubmit(document.getElementById('kpmDealsMainForm'));
+    attachDummySubmit(document.getElementById('kpmDealsPopupForm'));
+
+    // ======= AUTO POPUP LOGIC =======
+    const modal = document.getElementById('kpmDealsModal');
+    const closeBtn = document.getElementById('kpmDealsModalClose');
+    if (!modal) return;
+
+    let popupShown = false;
+
+    function showDealsPopup() {
+      if (popupShown) return;
+      popupShown = true;
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden'; // Prevent background scroll
+    }
+
+    // Auto open after 10 seconds
+    setTimeout(showDealsPopup, 10000);
+
+    // Close handlers
+    function closePopup() {
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = ''; // Restore scroll
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', closePopup);
+
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal || e.target.classList.contains('kpm-deals-modal-backdrop')) {
+        closePopup();
+      }
+    });
+
+    // ESC key to close
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.classList.contains('show')) {
+        closePopup();
+      }
+    });
+  })();
 </script>
+
+
+
+
+
 
 
 
@@ -4255,6 +5237,62 @@ function processFormSearch(){
   window.addEventListener("scroll", revealOnScroll);
   window.addEventListener("load", revealOnScroll);
 </script>
+
+<script>
+  // ======= POPUP + FORMSPREE SUBMIT HANDLING =======
+  (function () {
+    const modal   = document.getElementById('kpmDealsModal');
+    const closeBtn = document.getElementById('kpmDealsModalClose');
+    const form    = document.getElementById('kpmDealsPopupForm');
+
+    if (!modal) return;
+
+    // loader on submit (Formspree ko jaane de, preventDefault Nahi)
+    if (form) {
+      form.addEventListener('submit', function () {
+        const submitBtn = form.querySelector('.kpm-deals-submit-btn');
+        if (submitBtn) {
+          submitBtn.classList.add('loading');
+          submitBtn.disabled = true;
+        }
+      });
+    }
+
+    let popupShown = false;
+
+    function showDealsPopup() {
+      if (popupShown) return;
+      popupShown = true;
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Auto open after 10 seconds
+    setTimeout(showDealsPopup, 10000);
+
+    function closePopup() {
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', closePopup);
+
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal || e.target.classList.contains('kpm-deals-modal-backdrop')) {
+        closePopup();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.classList.contains('show')) {
+        closePopup();
+      }
+    });
+  })();
+</script>
+
 
 
 
