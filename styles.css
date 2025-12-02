@@ -5531,3 +5531,393 @@ hr {
     font-size: 11px;
   }
 }
+
+  /* ====== POPUP OVERLAY ====== */
+.kpm-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: none;               /* default hidden */
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* ====== POPUP BOX ====== */
+.kpm-popup {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(18px);
+  border-radius: 18px;
+  padding: 34px 40px 26px;
+  /* 👇 size bigger */
+  max-width: 780px;
+  width: 95vw;
+
+  position: relative;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  animation: kpm-popup-zoom 0.35s ease-out;
+}
+
+
+/* ====== HEADER ====== */
+.kpm-popup-header {
+  text-align: left;
+  margin-bottom: 14px;
+}
+
+.kpm-popup-header h2 {
+  font-size: 26px;
+  margin: 0 0 6px;
+  font-weight: 700;
+  color: #12213a;
+}
+
+.kpm-popup-header h2 span {
+  color: #ff7a1a;
+}
+
+.kpm-popup-header p {
+  margin: 0;
+  font-size: 14px;
+  color: #576074;
+}
+
+/* ====== FORM FIELDS ====== */
+.kpm-form {
+  margin-top: 16px;
+}
+
+.kpm-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+.kpm-field label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #2d3a47;
+  margin-bottom: 4px;
+  letter-spacing: 0.04em;
+}
+
+.kpm-field input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d3dbe9;
+  font-size: 14px;
+  outline: none;
+}
+
+.kpm-field input:focus {
+  border-color: #ff7a1a;
+  box-shadow: 0 0 0 2px rgba(255, 122, 26, 0.22);
+}
+
+/* Two-column row (date + travellers) */
+.kpm-row {
+  display: flex;
+  gap: 12px;
+}
+
+.kpm-row .kpm-field {
+  flex: 1;
+}
+
+/* ====== BUTTON & NOTE ====== */
+.kpm-btn {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 999px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ff7a1a, #ffb31a);
+}
+
+.kpm-btn:hover {
+  filter: brightness(1.05);
+}
+
+.kpm-note {
+  margin-top: 8px;
+  font-size: 11px;
+  text-align: center;
+  color: #6a7484;
+}
+
+/* ====== CLOSE BUTTON ====== */
+.kpm-popup-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  color: #7c8899;
+}
+
+.kpm-popup-close:hover {
+  color: #ff7a1a;
+}
+
+/* ====== ANIMATION ====== */
+@keyframes kpm-popup-zoom {
+  from {
+    transform: scale(0.9) translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .kpm-popup {
+    padding: 22px 18px 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .kpm-popup {
+    max-width: 100%;
+    width: 95vw;
+    padding: 22px 18px 18px;
+    border-radius: 14px;
+  }
+
+  .kpm-row {
+    flex-direction: column; /* date + travellers ek ke niche ek */
+  }
+}
+/* ===== SPECIAL DEALS SECTION ===== */
+.kpm-deals-section {
+  max-width: 1200px;
+  margin: 60px auto 40px;
+  padding: 0 16px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.kpm-deals-header h2 {
+  font-size: 32px;
+  margin-bottom: 6px;
+  color: #111827;
+}
+
+.kpm-deals-header p {
+  margin: 0 0 22px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.kpm-deals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 190px;
+  gap: 18px;
+}
+
+/* Card base */
+.kpm-deal-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.kpm-deal-card-tall {
+  grid-row: span 2;
+}
+
+/* Background image */
+.kpm-deal-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.03);
+  transition: transform 0.3s ease;
+}
+
+/* Gradient overlay + text */
+.kpm-deal-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(15, 23, 42, 0.1));
+  opacity: 0.88;
+}
+
+.kpm-deal-content {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+}
+
+.kpm-deal-content h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.kpm-deal-content span {
+  margin-top: 4px;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* Hover effects */
+.kpm-deal-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.5);
+}
+
+.kpm-deal-card:hover .kpm-deal-bg {
+  transform: scale(1.08);
+}
+
+/* ===== TRUST BANNER ===== */
+.kpm-trust-banner {
+  max-width: 1200px;
+  margin: 40px auto 60px;
+  padding: 24px 26px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #003a78, #008bbf);
+  color: #ffffff;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  overflow: hidden;
+}
+
+.kpm-trust-text h2 {
+  margin: 4px 0 8px;
+  font-size: 28px;
+}
+
+.kpm-trust-tagline {
+  font-family: "Brush Script MT", "Pacifico", cursive;
+  font-size: 22px;
+  margin: 0;
+}
+
+.kpm-trust-sub {
+  margin: 0 0 16px;
+  max-width: 420px;
+  font-size: 14px;
+}
+
+.kpm-trust-btn {
+  border: none;
+  padding: 10px 24px;
+  border-radius: 999px;
+  background: #ff7a1a;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.kpm-trust-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Right visuals */
+.kpm-trust-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.kpm-trust-main-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 16px 18px;
+  max-width: 230px;
+  font-size: 13px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+}
+
+.kpm-rating-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #fbbf24;
+  color: #111827;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.kpm-traveller-name {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* Small photo cards (use your image URLs) */
+.kpm-trust-photo {
+  width: 90px;
+  height: 140px;
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+}
+
+.kpm-trust-photo-1 {
+  background-image: url('images/trust-photo-1.jpg');
+}
+
+.kpm-trust-photo-2 {
+  background-image: url('images/trust-photo-2.jpg');
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .kpm-deals-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 170px;
+  }
+
+  .kpm-deal-card-tall {
+    grid-row: span 1;
+  }
+
+  .kpm-trust-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .kpm-trust-visual {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .kpm-deals-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 190px;
+  }
+}

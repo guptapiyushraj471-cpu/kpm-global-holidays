@@ -1,0 +1,404 @@
+<!-- =========================
+  KPM SPECIAL DEALS SECTION
+========================= -->
+<section class="kpm-deals-section">
+  <div class="kpm-deals-header">
+    <h2>New Year Special Deals</h2>
+    <p>Exclusive getaways crafted by KPM Global Holidays for your next escape.</p>
+  </div>
+
+  <div class="kpm-deals-grid">
+    <!-- 1: Andaman -->
+    <a href="#" class="kpm-deal-card">
+      <div class="kpm-deal-bg" style="background-image:url('images/andaman.jpg');"></div>
+      <div class="kpm-deal-content">
+        <h3>ANDAMAN</h3>
+        <span class="kpm-deal-duration">4 Nights / 5 Days</span>
+        <div class="kpm-deal-meta">
+          <span class="kpm-price">From ₹24,999*</span>
+          <span class="kpm-inclusions">Flights · Hotel · Sightseeing</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 2: Thailand -->
+    <a href="#" class="kpm-deal-card kpm-deal-card-tall">
+      <div class="kpm-deal-bg" style="background-image:url('images/thailand.jpg');"></div>
+      <div class="kpm-deal-content">
+        <h3>THAILAND</h3>
+        <span class="kpm-deal-duration">5 Nights / 6 Days</span>
+        <div class="kpm-deal-meta">
+          <span class="kpm-price">From ₹39,999*</span>
+          <span class="kpm-inclusions">City tour · Island trip</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 3: Sri Lanka -->
+    <a href="#" class="kpm-deal-card">
+      <div class="kpm-deal-bg" style="background-image:url('images/srilanka.jpg');"></div>
+      <div class="kpm-deal-content">
+        <h3>SRI LANKA</h3>
+        <span class="kpm-deal-duration">3 Nights / 4 Days</span>
+        <div class="kpm-deal-meta">
+          <span class="kpm-price">From ₹29,999*</span>
+          <span class="kpm-inclusions">Colombo · Kandy · Bentota</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 4: Manali -->
+    <a href="#" class="kpm-deal-card">
+      <div class="kpm-deal-bg" style="background-image:url('images/manali.jpg');"></div>
+      <div class="kpm-deal-content">
+        <h3>MANALI</h3>
+        <span class="kpm-deal-duration">3 Nights / 4 Days</span>
+        <div class="kpm-deal-meta">
+          <span class="kpm-price">From ₹12,999*</span>
+          <span class="kpm-inclusions">Volvo · Hotel · Local tour</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 5: Gujarat -->
+    <a href="#" class="kpm-deal-card">
+      <div class="kpm-deal-bg" style="background-image:url('images/gujarat.jpg');"></div>
+      <div class="kpm-deal-content">
+        <h3>GUJARAT</h3>
+        <span class="kpm-deal-duration">4 Nights / 5 Days</span>
+        <div class="kpm-deal-meta">
+          <span class="kpm-price">From ₹14,999*</span>
+          <span class="kpm-inclusions">Dwarka · Somnath · Statue of Unity</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 6: Dubai -->
+    <a href="#" class="kpm-deal-card">
+      <div class="kpm-deal-bg" style="background-image:url('images/dubai.jpg');"></div>
+      <div class="kpm-deal-content">
+        <h3>DUBAI</h3>
+        <span class="kpm-deal-duration">5 Nights / 6 Days</span>
+        <div class="kpm-deal-meta">
+          <span class="kpm-price">From ₹44,999*</span>
+          <span class="kpm-inclusions">Desert safari · City tour · Marina cruise</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- =========================
+  KPM TRUST / TESTIMONIAL BANNER
+========================= -->
+<section class="kpm-trust-banner">
+  <div class="kpm-trust-text">
+    <p class="kpm-trust-tagline">Built On Trust</p>
+    <h2>Loved For Experiences!</h2>
+    <p class="kpm-trust-sub">
+      Read stories from travellers who trusted KPM Global Holidays to plan
+      their perfect journeys.
+    </p>
+    <p class="kpm-trust-stats">5,000+ Happy Travellers · 4.8/5 Rating</p>
+    <button class="kpm-trust-btn">View Testimonials</button>
+  </div>
+
+  <div class="kpm-trust-visual">
+    <div class="kpm-trust-main-card">
+      <span class="kpm-rating-badge">4.8 ★</span>
+      <p>"Seamless planning and amazing support throughout our trip!"</p>
+      <span class="kpm-traveller-name">— KPM Guest</span>
+    </div>
+
+    <div class="kpm-trust-photo kpm-trust-photo-1"></div>
+    <div class="kpm-trust-photo kpm-trust-photo-2"></div>
+  </div>
+</section>
+
+<style>
+/* ===== SPECIAL DEALS SECTION ===== */
+.kpm-deals-section {
+  max-width: 1200px;
+  margin: 60px auto 40px;
+  padding: 0 16px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.kpm-deals-header h2 {
+  font-size: 32px;
+  margin-bottom: 6px;
+  color: #111827;
+}
+
+.kpm-deals-header p {
+  margin: 0 0 22px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.kpm-deals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 190px;
+  gap: 18px;
+}
+
+/* Card base */
+.kpm-deal-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.kpm-deal-card-tall {
+  grid-row: span 2;
+}
+
+/* Background image */
+.kpm-deal-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.03);
+  transition: transform 0.3s ease;
+}
+
+/* Gradient overlay + text */
+.kpm-deal-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(15, 23, 42, 0.1));
+  opacity: 0.9;
+}
+
+.kpm-deal-content {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+}
+
+.kpm-deal-content h3 {
+  margin: 0 0 2px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.kpm-deal-duration {
+  display: block;
+  font-size: 12px;
+  opacity: 0.95;
+}
+
+.kpm-deal-meta {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.kpm-price {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(251, 191, 36, 0.95);
+  color: #111827;
+  align-self: flex-start;
+}
+
+.kpm-inclusions {
+  font-size: 11px;
+  opacity: 0.95;
+}
+
+/* Hover effects */
+.kpm-deal-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.5);
+}
+
+.kpm-deal-card:hover .kpm-deal-bg {
+  transform: scale(1.08);
+}
+
+/* ===== TRUST BANNER ===== */
+.kpm-trust-banner {
+  max-width: 1200px;
+  margin: 40px auto 60px;
+  padding: 24px 26px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #003a78, #008bbf);
+  color: #ffffff;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  overflow: hidden;
+}
+
+.kpm-trust-text h2 {
+  margin: 4px 0 8px;
+  font-size: 28px;
+}
+
+.kpm-trust-tagline {
+  font-family: "Brush Script MT", "Pacifico", cursive;
+  font-size: 22px;
+  margin: 0;
+}
+
+.kpm-trust-sub {
+  margin: 0 0 10px;
+  max-width: 420px;
+  font-size: 14px;
+}
+
+.kpm-trust-stats {
+  margin: 0 0 16px;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.kpm-trust-btn {
+  border: none;
+  padding: 10px 24px;
+  border-radius: 999px;
+  background: #ff7a1a;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.kpm-trust-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Right visuals */
+.kpm-trust-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.kpm-trust-main-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 16px 18px;
+  max-width: 230px;
+  font-size: 13px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+}
+
+.kpm-rating-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #fbbf24;
+  color: #111827;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.kpm-traveller-name {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* Small photo cards */
+.kpm-trust-photo {
+  width: 90px;
+  height: 140px;
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+}
+
+.kpm-trust-photo-1 {
+  background-image: url('images/trust-photo-1.jpg');
+}
+
+.kpm-trust-photo-2 {
+  background-image: url('images/trust-photo-2.jpg');
+}
+
+/* ===== Scroll Reveal Animation ===== */
+.kpm-deal-card,
+.kpm-trust-banner {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.kpm-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .kpm-deals-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 170px;
+  }
+
+  .kpm-deal-card-tall {
+    grid-row: span 1;
+  }
+
+  .kpm-trust-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .kpm-trust-visual {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .kpm-deals-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 190px;
+  }
+}
+</style>
+
+<script>
+  // Scroll reveal animation for cards
+  document.addEventListener("DOMContentLoaded", function () {
+    const kpmCards = document.querySelectorAll(".kpm-deal-card, .kpm-trust-banner");
+
+    const revealOnScroll = () => {
+      kpmCards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          card.classList.add("kpm-reveal");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+    revealOnScroll();
+  });
+</script>

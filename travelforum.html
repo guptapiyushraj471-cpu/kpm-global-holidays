@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KPM Auto Popup Enquiry</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+
+.kpm-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+}
+
+.kpm-popup-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.kpm-bg-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.kpm-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.kpm-slide.active {
+  opacity: 1;
+}
+
+.kpm-slide-1 {
+  background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80');
+}
+
+.kpm-slide-2 {
+  background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920&q=80');
+}
+
+.kpm-slide-3 {
+  background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1920&q=80');
+}
+
+.kpm-slide-4 {
+  background-image: url('https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=1920&q=80');
+}
+
+.kpm-slider-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  transform: translateY(-50%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.kpm-slider-btn {
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 255, 255, 0.2);
+  border: 2px solid rgba(0, 255, 255, 0.6);
+  border-radius: 50%;
+  color: #00ffff;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  pointer-events: all;
+}
+
+.kpm-slider-btn:hover {
+  background: rgba(0, 255, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+  transform: scale(1.1);
+}
+
+.kpm-popup {
+  position: relative;
+  z-index: 3;
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.95) 0%, rgba(15, 32, 60, 0.92) 100%);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 50px 40px 40px;
+  max-width: 520px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5),
+              0 0 0 1px rgba(0, 255, 255, 0.2),
+              inset 0 0 40px rgba(0, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  animation: popupSlideIn 0.5s ease;
+}
+
+@keyframes popupSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.kpm-popup-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(0, 255, 255, 0.4);
+  border-radius: 50%;
+  color: #00ffff;
+  font-size: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  line-height: 1;
+  padding: 0;
+}
+
+.kpm-popup-close:hover {
+  background: rgba(255, 0, 0, 0.3);
+  border-color: #ff0066;
+  color: #ff0066;
+  transform: rotate(90deg);
+  box-shadow: 0 0 20px rgba(255, 0, 102, 0.6);
+}
+
+.kpm-popup h2 {
+  color: #ffffff;
+  font-size: 32px;
+  margin-bottom: 12px;
+  text-align: center;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  background: linear-gradient(135deg, #ffffff 0%, #00ffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.kpm-popup p {
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.kpm-field {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.kpm-field label {
+  display: block;
+  color: #00ffff;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.kpm-field input {
+  width: 100%;
+  padding: 14px 16px 14px 45px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.kpm-field input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.kpm-field input:focus {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #00ffff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.kpm-field::before {
+  content: '';
+  position: absolute;
+  left: 16px;
+  top: 42px;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  filter: brightness(0) invert(1);
+}
+
+.kpm-field:nth-of-type(1)::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2300ffff" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>');
+}
+
+.kpm-field:nth-of-type(2)::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2300ffff" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>');
+}
+
+.kpm-field:nth-of-type(3)::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2300ffff" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>');
+}
+
+.kpm-field:nth-of-type(4)::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2300ffff" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>');
+}
+
+.kpm-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.kpm-row .kpm-field {
+  margin-bottom: 0;
+}
+
+.kpm-row .kpm-field::before {
+  display: none;
+}
+
+.kpm-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #00ffff 0%, #0099cc 100%);
+  border: none;
+  border-radius: 12px;
+  color: #0a192f;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 25px rgba(0, 255, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.kpm-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.kpm-btn:hover::before {
+  left: 100%;
+}
+
+.kpm-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 255, 255, 0.6);
+}
+
+.kpm-btn:active {
+  transform: translateY(0);
+}
+
+.kpm-note {
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  text-align: center;
+  font-style: italic;
+}
+
+.kpm-popup::-webkit-scrollbar {
+  width: 8px;
+}
+
+.kpm-popup::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.kpm-popup::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+.kpm-popup::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 255, 0.7);
+}
+
+@media (max-width: 768px) {
+  .kpm-popup {
+    padding: 40px 25px 30px;
+    max-width: 95%;
+  }
+
+  .kpm-popup h2 {
+    font-size: 26px;
+  }
+
+  .kpm-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .kpm-slider-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .kpm-slider-controls {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .kpm-popup {
+    padding: 35px 20px 25px;
+  }
+
+  .kpm-popup h2 {
+    font-size: 22px;
+  }
+
+  .kpm-popup p {
+    font-size: 14px;
+  }
+
+  .kpm-field input {
+    padding: 12px 14px 12px 40px;
+    font-size: 14px;
+  }
+
+  .kpm-btn {
+    padding: 14px;
+    font-size: 15px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div id="kpm-popup-overlay" class="kpm-popup-overlay">
+  <div class="kpm-bg-slider">
+    <div class="kpm-slide kpm-slide-1 active"></div>
+    <div class="kpm-slide kpm-slide-2"></div>
+    <div class="kpm-slide kpm-slide-3"></div>
+    <div class="kpm-slide kpm-slide-4"></div>
+  </div>
+
+  <div class="kpm-slider-controls">
+    <button class="kpm-slider-btn" id="kpm-prev-slide">‹</button>
+    <button class="kpm-slider-btn" id="kpm-next-slide">›</button>
+  </div>
+
+  <div class="kpm-popup">
+    <button class="kpm-popup-close" id="kpm-popup-close">&times;</button>
+
+    <h2>Get Best Travel Deals</h2>
+    <p>Share your details, our KPM Global Holidays expert will call you back.</p>
+
+    <form id="kpm-enquiry-form">
+      <div class="kpm-field">
+        <label>FULL NAME</label>
+        <input type="text" name="name" placeholder="Enter your name" required>
+      </div>
+
+      <div class="kpm-field">
+        <label>MOBILE NUMBER</label>
+        <input type="tel" name="mobile" placeholder="Enter mobile number" required>
+      </div>
+
+      <div class="kpm-field">
+        <label>EMAIL</label>
+        <input type="email" name="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="kpm-field">
+        <label>PLACE TO VISIT / QUERY</label>
+        <input type="text" name="destination" placeholder="e.g. Manali, Dubai..." required>
+      </div>
+
+      <div class="kpm-row">
+        <div class="kpm-field">
+          <label>TRAVEL DATE</label>
+          <input type="date" name="travel_date">
+        </div>
+        <div class="kpm-field">
+          <label>NO. OF TRAVELLERS</label>
+          <input type="number" name="travellers" min="1" value="2">
+        </div>
+      </div>
+
+      <button type="submit" class="kpm-btn">Submit</button>
+      <div class="kpm-note">
+        * Our team will contact you with best offers.
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+// Auto-show popup after 2 seconds
+setTimeout(function() {
+  document.getElementById('kpm-popup-overlay').classList.add('active');
+}, 2000);
+
+// Close popup
+document.getElementById('kpm-popup-close').addEventListener('click', function() {
+  document.getElementById('kpm-popup-overlay').classList.remove('active');
+});
+
+// Close on overlay click
+document.getElementById('kpm-popup-overlay').addEventListener('click', function(e) {
+  if (e.target === this) {
+    this.classList.remove('active');
+  }
+});
+
+// Background slider functionality
+let currentSlide = 0;
+const slides = document.querySelectorAll('.kpm-slide');
+const totalSlides = slides.length;
+
+function showSlide(index) {
+  slides.forEach(slide => slide.classList.remove('active'));
+  slides[index].classList.add('active');
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  showSlide(currentSlide);
+}
+
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+  showSlide(currentSlide);
+}
+
+// Auto-slide every 5 seconds
+let autoSlide = setInterval(nextSlide, 5000);
+
+// Manual controls
+document.getElementById('kpm-next-slide').addEventListener('click', function() {
+  clearInterval(autoSlide);
+  nextSlide();
+  autoSlide = setInterval(nextSlide, 5000);
+});
+
+document.getElementById('kpm-prev-slide').addEventListener('click', function() {
+  clearInterval(autoSlide);
+  prevSlide();
+  autoSlide = setInterval(nextSlide, 5000);
+});
+
+// Form submission
+document.getElementById('kpm-enquiry-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert('Thank you! Our team will contact you soon.');
+  document.getElementById('kpm-popup-overlay').classList.remove('active');
+  this.reset();
+});
+</script>
+
+</body>
+</html>

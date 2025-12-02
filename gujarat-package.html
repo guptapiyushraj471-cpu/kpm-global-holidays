@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gujarat Tour Packages | KPM Global Holidays</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dwarka, Somnath, Statue of Unity pilgrimage tour packages with transfers & accommodation by KPM Global Holidays.">
+
+  <style>
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    body{
+      font-family:'Inter',sans-serif; background:#f8fafc; color:#0f172a; line-height:1.6;
+    }
+
+    /* NAVBAR */
+    .kpm-nav{ position:sticky; top:0; background:rgba(255,255,255,0.97);
+      backdrop-filter:blur(10px); z-index:50; box-shadow:0 2px 12px rgba(0,0,0,0.08);
+    }
+    .kpm-nav-inner{ max-width:1150px; margin:0 auto; padding:1rem 1.5rem;
+      display:flex; justify-content:space-between; align-items:center; gap:2rem;
+    }
+    .kpm-nav-left{ display:flex; align-items:center; gap:1rem; }
+    .kpm-nav-logo{ height:50px; width:50px; border-radius:10px; object-fit:contain; }
+
+    .kpm-nav-brand-title{ font-size:1rem; font-weight:700; color:#0f172a; }
+    .kpm-nav-brand-sub{ font-size:0.75rem; color:#6b7280; }
+
+    .kpm-nav-links{ display:flex; gap:1.5rem; flex-wrap:wrap; font-size:0.9375rem; align-items:center; }
+    .kpm-nav-links a{ text-decoration:none; color:#475569; font-weight:500; transition:.3s; }
+    .kpm-nav-links a:hover, .kpm-nav-links a.active{ color:#0f75c8; }
+
+    .kpm-nav-cta{
+      padding:0.625rem 1.5rem; background:linear-gradient(135deg,#0f75c8,#0a5a99);
+      border:none; border-radius:999px; color:#fff; cursor:pointer; font-weight:600;
+      box-shadow:0 4px 12px rgba(15,117,200,0.3); transition:.3s;
+    }
+    .kpm-nav-cta:hover{ transform:translateY(-2px); }
+
+    /* HERO SLIDER */
+    .pkg-hero{ height:420px; display:flex; align-items:flex-end; justify-content:center;
+      padding:0 1.5rem 3rem; position:relative; overflow:hidden;
+    }
+    .hero-slider{ position:absolute; inset:0; overflow:hidden; }
+    .hero-slide{
+      position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+      opacity:0; transform:scale(1.02); transition:.7s;
+    }
+    .hero-slide.active{ opacity:1; }
+    .pkg-hero::before{
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(to bottom,rgba(0,0,0,0.2),rgba(0,0,0,0.6));
+    }
+    .pkg-hero h1{
+      position:relative; color:#fff; font-size:2.875rem; font-weight:700; text-align:center;
+      text-shadow:0 4px 24px rgba(0,0,0,0.6);
+    }
+
+    /* MAIN CONTENT */
+    .pkg-container{
+      max-width:1150px; margin:0 auto; padding:3rem 1.5rem;
+      display:grid; grid-template-columns:1fr 370px; gap:2.5rem;
+    }
+    .pkg-main{ display:flex; flex-direction:column; gap:2rem; }
+
+    .pkg-card{
+      background:#fff; border-radius:16px; padding:2rem;
+      box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:.3s;
+    }
+    .pkg-card:hover{ transform:translateY(-4px); }
+
+    .pkg-card h2{
+      margin:0 0 1.25rem; font-size:1.5rem; font-weight:600; padding-bottom:0.75rem;
+      border-bottom:2px solid #e2e8f0;
+    }
+    .pkg-list{
+      padding-left:1.25rem; display:flex; flex-direction:column; gap:0.875rem; line-height:1.8;
+    }
+    .pkg-price{
+      font-size:1.875rem; margin-top:1rem; color:#0f75c8; font-weight:700;
+      background:linear-gradient(135deg,#eff6ff,#dbeafe); padding:.5rem 1rem; border-radius:8px;
+    }
+
+    /* SIDEBAR */
+    .pkg-side{
+      background:linear-gradient(135deg,#fff,#f8fafc); border-radius:16px; padding:2rem;
+      box-shadow:0 10px 30px rgba(15,23,42,0.1); border:1px solid #e2e8f0; position:sticky; top:100px;
+    }
+    .pkg-book-btn{
+      width:100%; margin-top:1.5rem; padding:1.125rem 1.75rem;
+      background:linear-gradient(135deg,#ff4b2b,#ff416c); color:#fff; border:none; border-radius:12px;
+      font-size:1.0625rem; font-weight:600; cursor:pointer; transition:.3s;
+    }
+    .pkg-book-btn:hover{ transform:translateY(-2px); }
+
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="kpm-nav">
+  <div class="kpm-nav-inner">
+    <div class="kpm-nav-left">
+      <img src="images/Logo-KPM Global  Holiday.png" class="kpm-nav-logo">
+      <div>
+        <div class="kpm-nav-brand-title">KPM GLOBAL HOLIDAYS</div>
+        <div class="kpm-nav-brand-sub">Your Journey, Our Promise</div>
+      </div>
+    </div>
+
+    <nav class="kpm-nav-links">
+      <a href="index.html">Home</a>
+      <a href="holidays.html" class="active">Holidays</a>
+      <a href="hotels.html">Hotels</a>
+      <a href="flights.html">Flights</a>
+      <a href="visa-assistance.html">Visa</a>
+      <a href="transfers.html">Transfers</a>
+      <a href="activities.html">Activities</a>
+      <a href="insurance.html">Insurance</a>
+      <button class="kpm-nav-cta" onclick="location.href='book.html'">Plan Trip</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="pkg-hero">
+  <div class="hero-slider">
+    <img src="images/gujarat-1.jpg" class="hero-slide active">
+    <img src="images/gujarat-2.jpg" class="hero-slide">
+    <img src="images/gujarat-3.jpg" class="hero-slide">
+    <img src="images/gujarat-4.jpg" class="hero-slide">
+    <img src="images/gujarat-5.jpg" class="hero-slide">
+  </div>
+  <h1>Gujarat Darshan – Dwarka · Somnath · Statue of Unity</h1>
+</section>
+
+<!-- CONTENT -->
+<main class="pkg-container">
+
+  <div class="pkg-main">
+
+    <article class="pkg-card">
+      <h2>Package Overview</h2>
+      <p>Explore sacred temples, coastal beauty & modern engineering marvels with this 4N/5D Gujarat pilgrimage and sightseeing holiday covering Dwarka, Somnath & Statue of Unity.</p>
+      <p class="pkg-price">Starting at ₹14,999 / person</p>
+    </article>
+
+    <article class="pkg-card">
+      <h2>Itinerary</h2>
+      <ul class="pkg-list">
+        <li><strong>Day 1:</strong> Arrival Ahmedabad → Transfer to Dwarka & evening Darshan</li>
+        <li><strong>Day 2:</strong> Dwarka sightseeing → Bet Dwarka → Nageshwar Jyotirlinga</li>
+        <li><strong>Day 3:</strong> Dwarka → Somnath → Evening Light & Sound Show</li>
+        <li><strong>Day 4:</strong> Somnath → Statue of Unity → Viewing Gallery / Laser Show</li>
+        <li><strong>Day 5:</strong> Ahmedabad City Tour & Departure</li>
+      </ul>
+    </article>
+
+    <article class="pkg-card">
+      <h2>Inclusions</h2>
+      <ul class="pkg-list">
+        <li>4 Nights hotel accommodation (Dwarka · Somnath · Ahmedabad)</li>
+        <li>Breakfast & Dinner daily</li>
+        <li>Private AC cab for full tour</li>
+        <li>All tolls, permits & parking charges</li>
+      </ul>
+    </article>
+
+    <article class="pkg-card">
+      <h2>Exclusions</h2>
+      <ul class="pkg-list">
+        <li>Airfare / train fare</li>
+        <li>Entry tickets & Darshan charges</li>
+        <li>Lunch & personal expenses</li>
+        <li>Anything not mentioned under inclusions</li>
+      </ul>
+    </article>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="pkg-side">
+    <h2>Need Help for Gujarat?</h2>
+    <p>Talk to our Gujarat specialist for group bookings, senior citizen packages & VIP darshan arrangements.</p>
+    <p><strong>📞 Call:</strong> +91 92059 20608</p>
+    <p><strong>💬 WhatsApp:</strong> 10 AM – 9 PM</p>
+
+    <button class="pkg-book-btn" onclick="location.href='book.html?package=gujarat'">
+      Book This Trip
+    </button>
+  </aside>
+
+</main>
+
+<script>
+  document.addEventListener('DOMContentLoaded',()=>{
+    const slides=document.querySelectorAll('.hero-slide');
+    let index=0;
+    setInterval(()=>{
+      slides[index].classList.remove('active');
+      index=(index+1)%slides.length;
+      slides[index].classList.add('active');
+    },2000);
+  });
+</script>
+
+</body>
+</html>
