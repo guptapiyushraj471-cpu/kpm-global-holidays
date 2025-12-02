@@ -451,7 +451,7 @@
 <section class="kpm-testimonials-section">
   <div class="kpm-deals-header">
     <h2>What Our Guests Say</h2>
-    <p>Real experiences from travellers who trusted KPM Global Holidays.</p>
+    <p>Real experiences from travellers who trusted KPM Global Holiday.</p>
   </div>
 
   <div class="kpm-testimonials-grid">
@@ -567,8 +567,8 @@
 }
 
 .kpm-ai-logo {
-  width: 40px;
-  height: 40px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
   border-radius: 50%;
   background: #0f172a;
@@ -2874,109 +2874,325 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 </section>
 
+<!-- =================== MODERN AI FUTURISTIC FOOTER =================== --
 
-<!-- ========== KPM GLOBAL HOLIDAYS - COMPANY LINKS & SOCIAL FOOTER ========== --
-========== KPM GLOBAL HOLIDAYS - COMPANY LINKS / SOCIAL / PAYMENTS ========== -->
-   
-<section class="kpm-footer-links">
-  <div class="kpm-footer-inner">
+<!- ========== KPM GLOBAL HOLIDAYS – MODERN FOOTER ========== -->
 
+<!-- Font Awesome (sirf ek hi baar poori site me include karna) -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- Official Websites -->
-    <h3 class="kpm-footer-subtitle">Our Official Websites :</h3>
-    <div class="kpm-official-sites">
-      <a href="index.html">KPM Global Holiday</a>
-      <a href="flights.html">KPM Flights</a>
-      <a href="hotels.html">KPM Hotels & Stays</a>
-      <a href="book.html">KPM Custom Tour Planning</a>
+<style>
+/* ---------- PRE-FOOTER (Official Sites + Social + Payments) ---------- */
+.kpm-prefooter {
+  background: #f5f5f5;
+  border-top: 1px solid #e3e3e3;
+  border-bottom: 1px solid #e3e3e3;
+  padding: 30px 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.kpm-prefooter-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.kpm-prefooter h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+  color: #555;
+}
+
+.kpm-prefooter-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.kpm-prefooter-list li + li {
+  margin-top: 6px;
+}
+
+.kpm-prefooter a {
+  font-size: 14px;
+  color: #0070c9;
+  text-decoration: none;
+}
+
+.kpm-prefooter a:hover {
+  text-decoration: underline;
+}
+
+/* Social icons row */
+.kpm-prefooter-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+}
+
+.kpm-prefooter-social a {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  color: #444;
+  text-decoration: none;
+}
+
+.kpm-prefooter-social i {
+  margin-right: 6px;
+  font-size: 16px;
+}
+
+/* Payment icons row */
+.kpm-payment-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.kpm-payment-icons img {
+  width: 52px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 4px;
+  background: #fff;
+  padding: 4px 6px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.05);
+}
+
+/* ---------- MAIN FOOTER ---------- */
+.kpm-footer {
+  background: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  padding: 32px 0 16px;
+}
+
+.kpm-footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Brand row + columns */
+.kpm-footer-top {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.kpm-footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.kpm-footer-brand .footer-logo {
+  width: 180px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.kpm-footer-brand h2 {
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
+  color: #333;
+}
+
+.kpm-footer-brand p {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+/* Link columns */
+.kpm-footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.kpm-footer-col h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+  color: #555;
+}
+
+.kpm-footer-col a {
+  display: block;
+  font-size: 14px;
+  color: #444;
+  text-decoration: none;
+  margin-bottom: 6px;
+}
+
+.kpm-footer-col a:hover {
+  color: #0070c9;
+}
+
+/* Social icons strip (Follow us style) */
+.kpm-footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px 0 8px;
+}
+
+.kpm-footer-social a {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 16px;
+  color: #555;
+}
+
+.kpm-footer-social a:hover {
+  border-color: #0070c9;
+  color: #0070c9;
+}
+
+/* Bottom strip */
+.kpm-footer-bottom {
+  text-align: center;
+  padding-top: 8px;
+  font-size: 12px;
+  color: #777;
+}
+
+.kpm-footer-bottom strong {
+  font-weight: 600;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .kpm-prefooter-container {
+    grid-template-columns: 1fr;
+  }
+
+  .kpm-footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .kpm-footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .kpm-footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kpm-footer-social {
+    flex-wrap: wrap;
+  }
+}
+</style>
+
+<!-- ---------- PRE-FOOTER STRIP ---------- -->
+<section class="kpm-prefooter">
+  <div class="kpm-prefooter-container">
+
+    <!-- Our Official Websites -->
+    <div>
+      <h3>Our Official Websites :</h3>
+      <ul class="kpm-prefooter-list">
+        <li><a href="index.html">KPM Global Holiday</a></li>
+        <li><a href="flights.html">KPM Flights</a></li>
+        <li><a href="hotels.html">KPM Hotels &amp; Stays</a></li>
+        <li><a href="group-tours.html">KPM Custom Tour Planning</a></li>
+      </ul>
     </div>
 
     <!-- Social Media Handles -->
-    <h3 class="kpm-footer-subtitle">Our Social Media Handles :</h3>
-    <div class="kpm-social-icons">
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="">Facebook</a>
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="">Instagram</a>
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="">YouTube</a>
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="">LinkedIn</a>
+    <div>
+      <h3>Our Social Media Handles :</h3>
+      <div class="kpm-prefooter-social">
+        <a href="https://www.facebook.com/profile.php?id=61584266792414"><i class="fa-brands fa-facebook-f"></i>Facebook</a>
+        <a href="https://www.instagram.com/kpm5831/"><i class="fa-brands fa-instagram"></i>Instagram</a>
+        <a href="#"><i class="fa-brands fa-youtube"></i>YouTube</a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i>LinkedIn</a>
+      </div>
     </div>
 
-    <!-- Payment -->
-
-    <h3 class="kpm-footer-subtitle">Secure Payments :</h3>
-
-<div class="kpm-payment-icons">
-  <a href="#" target="_blank">
-    <img src="images/visa.jpg" alt="Visa">
-  </a>
-
-  <a href="#" target="_blank">
-    <img src="images/mastercard.webp" alt="Mastercard">
-  </a>
-
-  <a href="#" target="_blank">
-    <img src="images/Rupay.jfif" alt="RuPay">
-  </a>
-
-  <a href="#" target="_blank">
-    <img src="images/UPI.jpg" alt="UPI">
-  </a>
-
-<a href="#" target="_blank">
-    <img src="images/phonepay.webp" alt="PhonePe">
-  </a>
-
-  </a>
-</div>
+    <!-- Payment Icons -->
+    <div>
+      <h3>Secure Payments :</h3>
+      <div class="kpm-payment-icons">
+        <img src="images/visa.jpg" alt="Visa">
+        <img src="images/mastercard.webp" alt="Mastercard">
+        <img src="images/Rupay.jfif" alt="RuPay">
+        <img src="images/UPI.jpg" alt="UPI">
+        <img src="images/phonepay.webp" alt="PhonePe">
+        <img src="images/paytm.jfif" alt="Paytm">
+      </div>
+    </div>
 
   </div>
 </section>
 
-
-<!-- =================== KPM GLOBAL HOLIDAYS MODERN FOOTER =================== -->
-<!-- =================== MODERN AI FUTURISTIC FOOTER =================== -->
+<!-- ---------- MAIN FOOTER ---------- -->
 <footer class="kpm-footer">
   <div class="kpm-footer-container">
 
-    <!-- Brand / Logo -->
-    <div class="kpm-footer-brand">
-      <img src="images/Logo-KPM Global  Holiday.png" alt="KPM Global Holidays" class="footer-logo">
-      <h2>KPM GLOBAL HOLIDAYS</h2>
-      <p>Your Journey, Our Promise – AI Powered Smart Travel Experience</p>
+    <div class="kpm-footer-top">
+
+      <!-- Brand / Logo -->
+      <div class="kpm-footer-brand">
+        <img src="images/KPM GLOBAL-LOGO.png" alt="KPM Global Holidays" class="footer-logo">
+        <h2>KPM GLOBAL HOLIDAY</h2>
+        <p>Your Journey, Our Promise – AI Powered Smart Travel Experience</p>
+      </div>
+
+      <!-- Link Columns -->
+      <div class="kpm-footer-grid">
+
+        <div class="kpm-footer-col">
+          <h3>Company</h3>
+          <a href="aboutus.html">About Us</a>
+          <a href="whychooseus.html">Why Choose Us</a>
+          <a href="support.html">Customer Support</a>
+          <a href="contactus.html">Contact Us</a>
+        </div>
+
+        <div class="kpm-footer-col">
+          <h3>Explore</h3>
+          <a href="holidays.html">Holiday Packages</a>
+          <a href="international-holidays.html">International Tours</a>
+          <a href="honeymoon.html">Honeymoon Destinations</a>
+          <a href="group.html">Group Tours</a>
+        </div>
+
+        <div class="kpm-footer-col">
+          <h3>Quick Links</h3>
+          <a href="flights.html">Flights</a>
+          <a href="hotels.html">Hotels</a>
+          <a href="plan-book.html">Plan &amp; Book</a>
+          <a href="Terms&Conditions.html">Terms &amp; Conditions</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+
+      </div>
     </div>
 
-    <!-- Columns -->
-    <div class="kpm-footer-grid">
-
-      <div class="kpm-footer-col">
-        <h3>Company</h3>
-        <a href="aboutus.html">About Us</a>
-        <a href="whychooseus.html">Why Choose Us</a>
-        <a href="support.html">Customer Support</a>
-        <a href="contactus.html">Contact Us</a>
-      </div>
-
-      <div class="kpm-footer-col">
-        <h3>Explore</h3>
-        <a href="holidays.html">Holiday Packages</a>
-        <a href="international-holidays.html">International Tours</a>
-        <a href="honeymoon.html">Honeymoon Destinations</a>
-        <a href="group.html">Group Tours</a>
-      </div>
-
-      <div class="kpm-footer-col">
-        <h3>Quick Links</h3>
-        <a href="flights.html">Flights</a>
-        <a href="hotels.html">Hotels</a>
-        <a href="plan-book.html">Plan & Book</a>
-        <a href="Terms&Conditions.html">Terms&Conditions</a>
-        <a href="privacy-policy.html">Privacy-Policy</a>
-      </a>
-
-
-      </div>
-    </div>
-
-    <!-- Social Icons -->
+    <!-- Social Icon strip -->
     <div class="kpm-footer-social">
       <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
       <a href="#"><i class="fa-brands fa-instagram"></i></a>
@@ -2984,16 +3200,24 @@ document.addEventListener("DOMContentLoaded", function () {
       <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
     </div>
 
-  </div>
+    <!-- Bottom text -->
+    <div class="kpm-footer-bottom">
+      <p>© 2025 KPM Global Holiday. All Rights Reserved.</p>
+      <p>Designed &amp; Led by <strong>Piyush Gupta</strong></p>
+    </div>
 
-  <div class="kpm-footer-bottom">
-    <p>© 2025 KPM Global Holidays. All Rights Reserved.</p>
-    <p>Designed & Led by <strong>Piyush Gupta</strong></p>
   </div>
 </footer>
 
+
 <!-- ====== FONT AWESOME ICONS ====== -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+
+
+
+
 
 
 
@@ -3239,7 +3463,7 @@ function processFormSearch(){
     <!-- Header -->
     <div class="kpm-popup-header">
       <h2>Get Best <span>Travel Deals</span></h2>
-      <p>Share your details, our KPM Global Holidays expert will call you back.</p>
+      <p>Share your details, our KPM Global Holiday expert will call you back.</p>
     </div>
 
     <!-- Enquiry Form -->
