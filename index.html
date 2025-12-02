@@ -504,7 +504,6 @@
 
   </header>
 </section>
-
 <style>
 /* HERO HEADER AREA */
 .hero-header {
@@ -573,7 +572,7 @@
   font-size: 16px;
 }
 
-/* results dropdown (aage JS lagayenge to ready hai) */
+/* Results dropdown (ready for JS) */
 .search-results {
   position: absolute;
   left: 0;
@@ -583,17 +582,17 @@
   border-radius: 18px;
   box-shadow: 0 18px 40px rgba(0,0,0,0.8);
   border: 1px solid rgba(255,255,255,0.08);
-  display: none; /* default hidden */
+  display: none;
 }
 
-/* Second row: nav LEFT, currency RIGHT */
+/* Second row: nav + currency */
 .left-nav {
   max-width: 1200px;
   margin: 10px auto 0;
   padding: 0 20px 8px;
   display: flex;
   align-items: center;
-  justify-content: space-between;  /* nav left, currency right */
+  justify-content: space-between;
   gap: 24px;
   border-top: 1px solid rgba(255,255,255,0.08);
 }
@@ -658,27 +657,96 @@
   color: #050b1f;
 }
 
-/* Responsive tweaks */
+/* ================== RESPONSIVE ================== */
+
+/* Tablet */
 @media (max-width: 900px) {
   .nav-container {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .brand-text {
+    text-align: left;
   }
 
   .search-box {
     width: 100%;
+    max-width: none;
   }
 
   .left-nav {
     flex-direction: column;
-    align-items: flex-start;  /* nav + currency dono left */
+    align-items: flex-start;
+    gap: 10px;
   }
 
   .currency {
     align-self: flex-start;
   }
 }
+
+/* Mobile */
+@media (max-width: 600px) {
+  .hero-header {
+    padding: 14px 0 8px;
+  }
+
+  .nav-container {
+    padding: 0 16px;
+  }
+
+  .brand-title {
+    font-size: 18px;
+    letter-spacing: 0.08em;
+  }
+
+  .brand-subtitle {
+    font-size: 12px;
+  }
+
+  .search-box input {
+    font-size: 13px;
+    padding: 10px 40px 10px 16px;
+  }
+
+  .left-nav {
+    padding: 0 16px 8px;
+  }
+
+  .top-nav-links {
+    gap: 12px;
+  }
+
+  .top-nav-links a {
+    font-size: 13px;
+  }
+
+  .currency {
+    font-size: 13px;
+  }
+
+  .ai-btn-outline {
+    padding: 5px 16px;
+    font-size: 12px;
+  }
+}
+
+/* Extra small – allow horizontal scroll on links if needed */
+@media (max-width: 420px) {
+  .top-nav-links {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .top-nav-links a {
+    white-space: nowrap;
+  }
+}
 </style>
+
 
     <!-- BACKGROUND SLIDES -->
     <div class="hero-slide track">
